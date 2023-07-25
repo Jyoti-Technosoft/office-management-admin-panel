@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./../../assets/img/LogoSVG.svg";
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import "./AdminLogin.css"; // Import the CSS file
 
 const AdminLogin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (email === "admin@gmail.com" && password === "Admin@123") {
+      console.log("Admin logged in successfully!");
+    } else {
+      setErrorMessage("Invalid email or password");
+    }
+  };
+
   return (
     <div className="container">
       {/* main container */}
@@ -17,18 +31,20 @@ const AdminLogin = () => {
       >
         {/* for login img */}
         <div className="container w-50 m-auto">
-          <img src={Login} alt="loginImg" style={{ maxWidth: "500px",
-        //   WebkitBoxReflect:"below"
-          }}></img>
+          <img
+            src={Login}
+            alt="loginImg"
+            style={{ maxWidth: "500px" /*   WebkitBoxReflect:"below" */ }}
+          />
         </div>
         {/* for form component and logo img */}
         <div className="w-50 login-right">
           {/* for form detail */}
           <div className="main-down">
             {/* for logo */}
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
               <div className="main-up">
-                <img src={Logo} alt="logo" style={{ width: "350px" }}></img>
+                <img src={Logo} alt="logo" style={{ width: "350px" }} />
               </div>
               <h1
                 className="fw-normal mb-5 fs-1 mt-5"
@@ -40,6 +56,7 @@ const AdminLogin = () => {
                   Login to your account
                 </p>
               </h1>
+              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
               <div className="form-group">
                 <label
                   className="form-label fs-4 fw-bold"
@@ -54,6 +71,8 @@ const AdminLogin = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -70,6 +89,8 @@ const AdminLogin = () => {
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
@@ -81,7 +102,7 @@ const AdminLogin = () => {
                   style={{ width: "1.5rem", height: "1.5rem" }}
                 />
                 <p
-                  className="form-check-label fs-5 mb-3"
+                  className="form-check-label fs-5 mb-3 ml-2"
                   htmlFor="exampleCheck1"
                   style={{ textAlign: "left" }}
                 >
