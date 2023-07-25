@@ -1,0 +1,119 @@
+import React from "react";
+import Logo from "./../../assets/img/LogoSVG.svg";
+import Login from "./../../assets/img/AdminLoginSVG.svg";
+import "./AdminLogin.css"; // Import the CSS file
+
+const AdminLogin = () => {
+  return (
+    <div className="container">
+      {/* main container */}
+      <div
+        className="d-flex m-auto align-items-center justify-content-center main"
+        style={{
+          width: "1200px",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+        }}
+      >
+        {/* for login img */}
+        <div className="container w-50 m-auto">
+          <img src={Login} alt="loginImg" style={{ maxWidth: "500px",
+        //   WebkitBoxReflect:"below"
+          }}></img>
+        </div>
+        {/* for form component and logo img */}
+        <div className="w-50 login-right">
+          {/* for form detail */}
+          <div className="main-down">
+            {/* for logo */}
+            <form className="login-form">
+              <div className="main-up">
+                <img src={Logo} alt="logo" style={{ width: "350px" }}></img>
+              </div>
+              <h1
+                className="fw-normal mb-5 fs-1 mt-5"
+                style={{ color: "#2875B0" }}
+              >
+                <b>Login</b>
+                <br />
+                <p className="fs-4" style={{ color: "black" }}>
+                  Login to your account
+                </p>
+              </h1>
+              <div className="form-group">
+                <label
+                  className="form-label fs-4 fw-bold"
+                  htmlFor="exampleInputEmail1"
+                  style={{ color: "#2875B0" }}
+                >
+                  E-mail Address
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label
+                  className="form-label fs-4 fw-bold"
+                  htmlFor="exampleInputPassword1"
+                  style={{ color: "#2875B0" }}
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="exampleCheck1"
+                  style={{ width: "1.5rem", height: "1.5rem" }}
+                />
+                <p
+                  className="form-check-label fs-5 mb-3"
+                  htmlFor="exampleCheck1"
+                  style={{ textAlign: "left" }}
+                >
+                  Remember me
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span
+                    className="fs-5 bold"
+                    style={{ color: "#2875B0", textAlign: "right" }}
+                  >
+                    Reset Password?
+                  </span>
+                </p>
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary mb-3 mt-3"
+                style={{ backgroundColor: "#9bc31c", borderColor: "#9bc31c" }}
+              >
+                Sign In
+              </button>
+              <p style={{ textAlign: "center" }}>
+                Don't have an account yet?
+                <small style={{ color: "#2875B0" }}>
+                  Join JyotiTechnosoft today.
+                </small>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AdminLogin;

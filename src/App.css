@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./assets/font/Product Sans Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./assets/font/Product Sans Bold Italic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./assets/font/Product Sans Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./assets/font/Product Sans Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+body {
+  font-family: 'CustomFont', sans-serif;
+}
+
+
+
+.testingChangeColor{
+  color: red;
+  font-weight: bold !important;
+}
