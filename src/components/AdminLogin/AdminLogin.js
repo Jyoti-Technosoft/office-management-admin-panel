@@ -2,17 +2,29 @@ import React, { useState } from "react";
 import Logo from "./../../assets/img/LogoSVG.svg";
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import "./AdminLogin.css"; // Import the CSS file
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    //   if (email === "admin@gmail.com" && password === "Admin@123") {
+    //     console.log("Admin logged in successfully!");
+    //     alert('Login successful')
+    //     navigate('/dashboard');
+    //   } else {
+    //     setErrorMessage("Invalid email or password");
+    //   }
 
     if (email === "admin@gmail.com" && password === "Admin@123") {
-      console.log("Admin logged in successfully!");
+      console.log(email === "admin@gmail.com" && password === "Admin@123");
+      localStorage.setItem("loggedIn", "true");
+      alert("Login successful");
+      navigate("/dashboard");
     } else {
       setErrorMessage("Invalid email or password");
     }
@@ -34,7 +46,7 @@ const AdminLogin = () => {
           <img
             src={Login}
             alt="loginImg"
-            style={{ maxWidth: "500px" /*   WebkitBoxReflect:"below" */ }}
+            style={{ maxWidth: "500px" /* WebkitBoxReflect:"below" */ }}
           />
         </div>
         {/* for form component and logo img */}
@@ -52,9 +64,9 @@ const AdminLogin = () => {
               >
                 <b>Login</b>
                 <br />
-                <p className="fs-4" style={{ color: "black" }}>
+                <small style={{ color: "black" }}>
                   Login to your account
-                </p>
+                </small>
               </h1>
               {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
               <div className="form-group">
@@ -121,13 +133,13 @@ const AdminLogin = () => {
                 className="btn btn-primary mb-3 mt-3"
                 style={{ backgroundColor: "#9bc31c", borderColor: "#9bc31c" }}
               >
-                Sign In
+                Log In
               </button>
-              <p style={{ textAlign: "center" }}>
+              <p >
                 Don't have an account yet?
-                <small style={{ color: "#2875B0" }}>
-                  Join JyotiTechnosoft today.
-                </small>
+                <span style={{ color: "#2875B0" }}>
+                 <Link to="/signup">Join JyotiTechnosoft today.</Link> 
+                </span>
               </p>
             </form>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const AdminRegistration = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const AdminRegistration = () => {
 
     try {
       const response = await axios.post(
-        "https://64b11825062767bc4825a958.mockapi.io/data",
+        "http://localhost:8000/employeeData",
         formData
       );
 
@@ -182,9 +183,10 @@ const AdminRegistration = () => {
           I agree to all the Terms and Privacy Policy
         </label><br/>
         {/* for create button */}
-        <button type="submit">Create Account</button><br/>
+        <button type="submit">Create Account</button>&nbsp;&nbsp;
+        <button type="submit"><Link to="/dashboard">Back</Link></button><br/>
         <p>
-          Already have an account?{" "}
+          Already have an account?
           <u style={{ cursor: "pointer", color: "#0d6efd" }}>Log In</u>
         </p>
       </form>

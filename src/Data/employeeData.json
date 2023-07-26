@@ -1,0 +1,103 @@
+{
+  "employeeData": [
+    {
+      "firstname": "jack",
+      "lastname": "jorden",
+      "emailaddress": "emailaddress 1",
+      "phonenumber": "6533512345",
+      "dob": "2011-01-04",
+      "doj": "2023-07-26",
+      "designation": "Manager",
+      "password": "123456789",
+      "confirmpassword": "123456789",
+      "id": "1",
+      "email": "John@gmail.com"
+    },
+    {
+      "firstname": "sdfsdfsdf",
+      "lastname": "sdfsdfsdf",
+      "emailaddress": "emailaddress 2",
+      "phonenumber": "1111111111",
+      "dob": "2023-07-12",
+      "doj": "2023-07-26",
+      "designation": "Manager",
+      "password": "111111",
+      "confirmpassword": "111111",
+      "id": "2",
+      "email": "sdfsd@sdfsdfsd.sd"
+    },
+    {
+      "firstname": "jack",
+      "lastname": "jorden",
+      "emailaddress": "emailaddress 3",
+      "phonenumber": "1234567890",
+      "dob": "2001-06-05",
+      "doj": "2023-07-26",
+      "designation": "Designer",
+      "password": "123456",
+      "confirmpassword": "123456",
+      "id": "3",
+      "email": "John@gmail.com"
+    },
+    {
+      "firstname": "firstname 4",
+      "lastname": "lastname 4",
+      "emailaddress": "emailaddress 4",
+      "phonenumber": 51,
+      "dob": 1690366493,
+      "doj": 1690366493,
+      "designation": "designation 4",
+      "password": "password 4",
+      "confirmpassword": "confirmpassword 4",
+      "id": "4"
+    },
+    {
+      "firstname": "firstname 5",
+      "lastname": "lastname 5",
+      "emailaddress": "emailaddress 5",
+      "phonenumber": 40,
+      "dob": 1690366433,
+      "doj": 1690366433,
+      "designation": "designation 5",
+      "password": "password 5",
+      "confirmpassword": "confirmpassword 5",
+      "id": "5"
+    },
+    {
+      "firstname": "Yash",
+      "lastname": "Chouhan",
+      "emailaddress": "emailaddress 5",
+      "phonenumber": 40,
+      "dob": 1690366433,
+      "doj": 1690366433,
+      "designation": "designation 5",
+      "password": "password 5",
+      "confirmpassword": "confirmpassword 5",
+      "id": "5"
+    },
+    {
+      "firstname": "Test",
+      "lastname": "Test",
+      "email": "Test@gamil.com",
+      "phonenumber": "1111111111",
+      "dob": "2023-07-04",
+      "doj": "2023-07-19",
+      "designation": "Developer",
+      "password": "111111",
+      "confirmpassword": "111111",
+      "id": "6"
+    },
+    {
+      "firstname": "Max",
+      "lastname": "Doe",
+      "email": "John@gmail.com",
+      "phonenumber": "1234567890",
+      "dob": "2023-07-01",
+      "doj": "2023-07-26",
+      "designation": "Developer",
+      "password": "123456",
+      "confirmpassword": "123456",
+      "id": "7"
+    }
+  ]
+}

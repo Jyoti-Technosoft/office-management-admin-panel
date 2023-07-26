@@ -1,22 +1,22 @@
-import './App.css';
-// import AdminLogin from './components/AdminLogin/AdminLogin';
-// import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import AdminRegistration from './components/AdminRegistar/AdminRegistration';
-// import TestMaterial from './components/testmatirial';
-import AdminDeshboard from './components/AdminDeshboard/AdminDeshboard';
-// import { BrowserRouter , Routes, Route } from "react-router-dom";
-
-
+import React from "react";
+import "./App.css";
+import AdminLogin from "./components/AdminLogin/AdminLogin";
+import AdminRegistration from "./components/AdminRegistar/AdminRegistration";
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Protected from "./components/AdminLogin/Protected";
+import AdminSignup from "./components/AdminSignup/AdminSignup";
 function App() {
   return (
     <div className="App">
-      {/* <AdminLogin/> */}
-      <AdminRegistration />
-      <AdminDeshboard />
-      
-      {/* Testing Material Design  */}
-      {/* <TestMaterial/> */}
-      
+      <BrowserRouter>
+        <Routes>
+        <Route path= "/" element={<AdminLogin/>}/>
+        <Route path= "/signup" element={<AdminSignup/>}/>
+        <Route path= "/register" element={<Protected Comp = {AdminRegistration}/>}/>
+        <Route path= "/dashboard" element={<Protected Comp = {AdminDashboard}/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

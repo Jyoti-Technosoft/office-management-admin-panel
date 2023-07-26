@@ -1,0 +1,22 @@
+{
+  "adminData": [
+    {
+      "name": "jack",
+      "email": "John@gmail.com",
+      "phonenumber": "6533512345",
+      "position": "Manager",
+      "password": "123456789",
+      "confirmpassword": "123456789",
+      "id": "1"
+    },
+    {
+      "name": "akash",
+      "email": "John@gmail.com",
+      "phonenumber": "1234567890",
+      "position": "HR",
+      "password": "123",
+      "confirmpassword": "123",
+      "id": "2"
+    }
+  ]
+}
