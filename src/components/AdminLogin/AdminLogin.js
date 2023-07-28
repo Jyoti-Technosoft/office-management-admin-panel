@@ -136,14 +136,13 @@ const AdminLogin = () => {
               <Typography sx={{ typography: "subtitle1", color: 'var(--primary-color)' }}>Login to your account.</Typography> */}
               <Typography
                 sx={{
-                  color: 'yellow',
+                  color: 'red',
                   typography: 'subtitle2',
-                  textAlign: 'center',
+                  textAlign: 'left',
                 }}>
                 {errorMessage}
               </Typography>
               <InputLabel sx={InputLable}>E-mail Address</InputLabel>
-
               <TextField
                 inputProps={{
                   sx: {
@@ -164,7 +163,13 @@ const AdminLogin = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 />
                 {emailError && (
-                  <p style={{ color: "red", fontSize: "14px" }}>{emailError}</p>
+                  <Typography style={{
+                    color: "red",
+                    fontSize: "14px",
+                    padding: '0',
+                  }}>
+                  {emailError}
+                  </Typography>
                 )}
 
               <br />
@@ -188,9 +193,13 @@ const AdminLogin = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 {passwordError && (
-                  <p style={{ color: "red", fontSize: "14px" }}>
+                  <Typography sx={{
+                    color: "red",
+                    fontSize: "14px",
+                    padding: '0px',
+                    }}>
                     {passwordError}
-                  </p>
+                  </Typography>
                 )}
 
 
@@ -213,7 +222,12 @@ const AdminLogin = () => {
                   <Typography variant="subtitle2" >Remember me</Typography>
                 </Box>
                 <Box>
-                  <Typography sx={{ typography: 'subtitle2', fontWeight: 'bold', color: 'var(--primary-color)' }}>Reset Password?</Typography>
+                  <Typography sx={{
+                    typography: 'subtitle2',
+                    fontWeight: 'bold',
+                    color: 'var(--primary-color)'
+                  }}>Reset Password?
+                  </Typography>
                 </Box>
               </Box>
               <Button
@@ -228,7 +242,12 @@ const AdminLogin = () => {
                     color: 'var(--secondary-color)',
                   },
                 }} variant="contained">Log In</Button>
-              <Typography sx={{ typography: 'subtitle2', padding: '30px 0 0 0', textAlign: 'center', color: 'var(--third-color)' }}>
+              <Typography sx={{
+                typography: 'subtitle2',
+                padding: '30px 0 0 0',
+                textAlign: 'center',
+                color: 'var(--third-color)'
+                }}>
                 Don't have an account yet?
                 <Link className="link" to="/signup"> Join JyotiTechnosoft today.</Link>
               </Typography>
