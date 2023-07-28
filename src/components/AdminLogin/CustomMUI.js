@@ -1,4 +1,4 @@
-const InputLable = {
+export const InputLable = {
     typography: "subtitle2",
     fontWeight: "bold",
     padding: "20px 0 0 0",
@@ -8,5 +8,8 @@ const InputLable = {
     height: "100%",
 
 };
-// eslint-disable-next-line import/no-anonymous-default-export
-export default InputLable;
+export const InputField = {
+    width: "100%",
+    background: "var(--white-color)",
+    borderRadius: "10px",
+}
