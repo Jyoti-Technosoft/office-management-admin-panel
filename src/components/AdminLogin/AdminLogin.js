@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Logo from "./../../assets/img/LogoSVG.svg";
-import Login from "./../../assets/img/AdminLoginSVG.svg";
-import "./AdminLogin.css"; // Import the CSS file
 import { Link, useNavigate } from "react-router-dom";
+import { Box, Button, Checkbox, InputLabel, TextField, Typography } from "@mui/material";
+
+import InputLable from './CustomMUI'
+import './AdminLogin.scss'
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -12,14 +13,6 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    //   if (email === "admin@gmail.com" && password === "Admin@123") {
-    //     console.log("Admin logged in successfully!");
-    //     alert('Login successful')
-    //     navigate('/dashboard');
-    //   } else {
-    //     setErrorMessage("Invalid email or password");
-    //   }
-
     if (email === "admin@gmail.com" && password === "Admin@123") {
       console.log(email === "admin@gmail.com" && password === "Admin@123");
       localStorage.setItem("loggedIn", "true");
@@ -31,121 +24,87 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="container">
-      {/* main container */}
-      <div
-        className="d-flex m-auto align-items-center justify-content-center main"
-        style={{
-          width: "1200px",
-          boxShadow:
-            "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-        }}
-      >
-        {/* for login img */}
-        <div className="container w-50 m-auto">
-          <img
-            src={Login}
-            alt="loginImg"
-            style={{ maxWidth: "500px" /* WebkitBoxReflect:"below" */ }}
-          />
-        </div>
-        {/* for form component and logo img */}
-        <div className="w-50 login-right">
-          {/* for form detail */}
-          <div className="main-down">
-            {/* for logo */}
-            <form className="login-form" onSubmit={handleSubmit}>
-              <div className="main-up">
-                <img src={Logo} alt="logo" style={{ width: "350px" }} />
-              </div>
-              <h1
-                className="fw-normal mb-5 fs-1 mt-5"
-                style={{ color: "#2875B0" }}
-              >
-                <b>Login</b>
-                <br />
-                <small style={{ color: "black" }}>
-                  Login to your account
-                </small>
-              </h1>
-              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-              <div className="form-group">
-                <label
-                  className="form-label fs-4 fw-bold"
-                  htmlFor="exampleInputEmail1"
-                  style={{ color: "#2875B0" }}
-                >
-                  E-mail Address
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label
-                  className="form-label fs-4 fw-bold"
-                  htmlFor="exampleInputPassword1"
-                  style={{ color: "#2875B0" }}
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="exampleCheck1"
-                  style={{ width: "1.5rem", height: "1.5rem" }}
-                />
-                <p
-                  className="form-check-label fs-5 mb-3 ml-2"
-                  htmlFor="exampleCheck1"
-                  style={{ textAlign: "left" }}
-                >
-                  Remember me
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span
-                    className="fs-5 bold"
-                    style={{ color: "#2875B0", textAlign: "right" }}
-                  >
-                    Reset Password?
-                  </span>
-                </p>
-              </div>
-              <button
-                type="submit"
-                className="btn btn-primary mb-3 mt-3"
-                style={{ backgroundColor: "#9bc31c", borderColor: "#9bc31c" }}
-              >
-                Log In
-              </button>
-              <p >
-                Don't have an account yet?
-                <span style={{ color: "#2875B0" }}>
-                 <Link to="/signup">Join JyotiTechnosoft today.</Link> 
-                </span>
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Box className="admin-login" sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <Box className="admin-box">
+        <Box className="admin-form" sx={{ alignItems: "center", padding: '40px'}}>
+          <form>
+            <Typography sx={{textAlign:'center', color: 'var(--white-color)', typography: "h4", fontWeight: "bold" }}>Login</Typography>
+            <Typography sx={{textAlign:'center', typography: "subtitle1", color: 'var(--white-color)' }}>Login to your account.</Typography>
+             <Typography
+              sx={{
+                color: 'black',
+                textAlign:'center',
+              }}>
+              {errorMessage}
+              </Typography>
+            <InputLabel sx={InputLable}>E-mail Address</InputLabel>
+            <TextField
+            inputProps={{
+              sx: {
+                height: "4px",
+                fontSize: '12px',
+              },
+            }}
+            sx={{
+              width: '100%',
+              background: 'var(--white-color)',
+              borderRadius: '5px'
+            }}
+              type="email"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <br />
+            <InputLabel sx={InputLable}>Password</InputLabel>
+            <TextField 
+            inputProps={{
+              sx: {
+                height: "4px",
+                fontSize: '12px',
+              },
+            }}
+            sx={{
+              width: '100%',
+              background: 'var(--white-color)',
+              borderRadius: '5px',
+            }}
+              type="password"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <Box sx={{color: "var(--white-color)", display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0 30px 0'}}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Checkbox sx={{
+                  color: 'var(--white-color)',
+                  padding: '0',
+                  // eslint-disable-next-line no-dupe-keys
+                  color: 'var(--white-color)', // Unchecked color
+                    "&.Mui-checked": {
+                      color: 'var(--secondary-color)', // Checked color
+                    },
+                }} id="exampleCheck1" />
+                <Typography variant="subtitle2" >Remember me</Typography>
+              </Box>
+              <Box>
+                <Typography sx={{ typography: 'subtitle2', fontWeight: 'bold', color: 'var(--white-color)' }}>Reset Password?</Typography>
+              </Box>
+            </Box>
+            <Button onClick={handleSubmit} sx={{width:'100%', background:'var(--secondary-color)' ,color: 'var(--secondary-color',fontWeight: 'bold' }} variant="contained">Log In</Button>
+            <Typography sx={{ typography: 'subtitle2', padding: '30px 0 0 0', textAlign: 'center', color: 'var(--white-color)' }}>
+              Don't have an account yet?
+              <Link className="link" to="/signup"> Join JyotiTechnosoft today.</Link>
+            </Typography>
+          </form>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
