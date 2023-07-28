@@ -1,9 +1,4 @@
 .admin-login{
-    background-image: url('../../assets/img/loginBG.jpg');
-    height: 100vh;
-    .admin-box{
-        width: 400px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    }
     .admin-images {
         background-color: #F9F9F9;
         .logo-img {
@@ -17,7 +12,7 @@
 
     .admin-form{
         .link{
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-weight: bold;
         }
     }

@@ -22,6 +22,7 @@ const AdminSignup = () => {
       alert("Passwords do not match");
       return;
     }
+    
 
     try {
       const response = await axios.post(

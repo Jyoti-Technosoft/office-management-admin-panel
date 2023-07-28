@@ -1,12 +1,12 @@
 {
   "adminData": [
     {
-      "name": "jack",
-      "email": "John@gmail.com",
+      "name": "John",
+      "email": "admin@gmail.com",
       "phonenumber": "6533512345",
       "position": "Manager",
-      "password": "123456789",
-      "confirmpassword": "123456789",
+      "password": "admin@123",
+      "confirmpassword": "admin@123",
       "id": "1"
     },
     {
