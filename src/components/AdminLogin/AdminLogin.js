@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import CustomTextField from '../CustomComponents/CustomTextField';
 import {
   Box,
   Button,
@@ -12,7 +11,8 @@ import {
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import Logo from "./../../assets/img/LogoSVG.svg";
 
-import {InputLable, InputField} from "./CustomMUI";
+// Custom imports 
+import {InputLable, InputField, InputFieldProps, errorMessageDesign} from "../CustomDesignMUI/CustomMUI";
 import "./AdminLogin.scss";
 
 const AdminLogin = () => {
@@ -88,10 +88,7 @@ const AdminLogin = () => {
         margin: "auto",
         justifyContent: "center",
         width: "1000px",
-        // padding: '30px',
-        // boxShadow: "0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3)",
-        boxShadow:
-          "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
+        boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
         // background: 'yellow',
       }}
     >
@@ -104,7 +101,7 @@ const AdminLogin = () => {
           justifyContent: "center",
           padding: "30px 0 30px 30px",
         }}
-      >
+        >
         <img
           src={Login}
           alt="loginImg"
@@ -125,7 +122,6 @@ const AdminLogin = () => {
           <Box
             className="admin-form"
             sx={{
-              // padding: '40px',
               padding: "80px 60px 80px 40px",
             }}
           >
@@ -142,11 +138,7 @@ const AdminLogin = () => {
               {/* <Typography sx={{ color: 'var(--primary-color)', typography: "h4", fontWeight: "bold" }}>Login</Typography>
               <Typography sx={{ typography: "subtitle1", color: 'var(--primary-color)' }}>Login to your account.</Typography> */}
               <Typography
-                sx={{
-                  color: "red",
-                  typography: "subtitle2",
-                  textAlign: "left",
-                }}
+                sx={errorMessageDesign}
               >
                 {errorMessage}
               </Typography>
@@ -154,10 +146,7 @@ const AdminLogin = () => {
 
               <TextField
                 inputProps={{
-                  sx: {
-                    height: "4px",
-                    fontSize: "12px",
-                  },
+                  sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="email"
@@ -169,12 +158,7 @@ const AdminLogin = () => {
               />
               {emailError && (
                 <Typography
-                  style={{
-                    color: "red",
-                    fontSize: "14px",
-                    padding: "0",
-                  }}
-                >
+                  style={errorMessageDesign}>
                   {emailError}
                 </Typography>
               )}
@@ -184,10 +168,7 @@ const AdminLogin = () => {
 
               <TextField
                 inputProps={{
-                  sx: {
-                    height: "4px",
-                    fontSize: "12px",
-                  },
+                  sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="password"
@@ -199,11 +180,7 @@ const AdminLogin = () => {
 
               {passwordError && (
                 <Typography
-                  sx={{
-                    color: "red",
-                    fontSize: "14px",
-                    padding: "0px",
-                  }}
+                  sx={errorMessageDesign}
                 >
                   {passwordError}
                 </Typography>
