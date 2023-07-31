@@ -3,15 +3,16 @@
   --secondary-color: #9BC31C;
   --third-color: #969696;
   --white-color: #ffffff;
+  --pirmary-light-color: #DFEAF7;
 
   --primary-font: 'Roboto', sans-serif; 
 }
 
 body{
   font-family: var(--primary-font);
-  height: 100vh;
-  display: flex;
+  /* height: 100vh; */
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: auto; */
 }
