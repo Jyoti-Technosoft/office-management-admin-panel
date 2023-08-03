@@ -1,0 +1,23 @@
+//AdminDashboard.scss
+.modal {
+    .MuiPaper-root {
+        border-radius: 16px;
+    }
+
+    .MuiDialogTitle-root {
+        background-color: #f0f0f0;
+        padding: 16px;
+    }
+
+    .MuiDialogContent-root {
+        padding: 16px;
+    }
+
+    .MuiDialogActions-root {
+        padding: 16px;
+    }
+}
+
+.custom-modal-content {
+    padding: 100px;
+}
