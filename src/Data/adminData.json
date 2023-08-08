@@ -10,121 +10,49 @@
       "id": "1"
     },
     {
-      "name": "akash",
-      "email": "John@gmail.com",
+      "name": "yash",
+      "email": "yash@gmail.com",
+      "phonenumber": "9999999999",
+      "position": "CEO",
+      "password": "1111111111",
+      "confirmpassword": "1111111111",
+      "id": "tDR-xeV"
+    },
+    {
+      "name": "Shweta",
+      "email": "shweta@gmail.com",
       "phonenumber": "1234567890",
       "position": "HR",
-      "password": "123",
-      "confirmpassword": "123",
-      "id": "2"
+      "password": "123456789",
+      "confirmpassword": "123456789",
+      "id": "ymf6rZz"
     },
     {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "txW_Cor"
+      "name": "Max",
+      "email": "max@gmail.com",
+      "phonenumber": "1593574560",
+      "position": "Designer",
+      "password": "123456789",
+      "confirmpassword": "123456789",
+      "id": "EcZ-DBQ"
     },
     {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "By-sb9D"
+      "name": "Tommy",
+      "email": "tom@gmail.com",
+      "phonenumber": "0234584548",
+      "position": "Developer",
+      "password": "123456789",
+      "confirmpassword": "123456789",
+      "id": "TJonSx-"
     },
     {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "izUVpOR"
-    },
-    {
-      "name": "asdasdas@asdasd",
-      "email": "sdfsadfsdfs@sdfsdfd.sdfsdf",
-      "phonenumber": "sdfsdfsdf",
-      "position": "HR",
-      "password": "sdfsdfsdf",
-      "confirmpassword": "sdfsdfsdf",
-      "id": "7FgUH80"
-    },
-    {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "g8apeKt"
-    },
-    {
-      "name": "sdfsdfsdfsdfsdfsdfsdfsdfsdf",
-      "email": "asdsd@sdfsdsdf.sdfsdf",
-      "phonenumber": "2222222222",
-      "position": "HR",
-      "password": "111111",
-      "confirmpassword": "111111",
-      "id": "q_kmBzb"
-    },
-    {
-      "name": "sdfsdfsdf",
-      "email": "sdfsd@sdfsd.sdsdd",
-      "phonenumber": "2222222222",
-      "position": "HR",
-      "password": "111111",
-      "confirmpassword": "111111",
-      "id": "5K7p8yH"
-    },
-    {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "Fc1GJDV"
-    },
-    {
-      "name": "21121sdffsafsdfsdfsd",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "abu2i8i"
-    },
-    {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "DSMfAqI"
-    },
-    {
-      "name": "",
-      "email": "",
-      "phonenumber": "",
-      "position": "",
-      "password": "",
-      "confirmpassword": "",
-      "id": "N5-zPhf"
-    },
-    {
-      "name": "",
-      "email": "sdfsdfsdf",
-      "phonenumber": "sdfsdfsdf",
-      "position": "CEO",
-      "password": "sdfs",
-      "confirmpassword": "sds",
-      "id": "K_VpyfI"
+      "name": "NewUser",
+      "email": "newuser@gmail.com",
+      "phonenumber": "7777777777",
+      "position": "Designer",
+      "password": "1111111111",
+      "confirmpassword": "1111111111",
+      "id": "ER-vXF2"
     }
   ]
 }

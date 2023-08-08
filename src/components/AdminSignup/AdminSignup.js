@@ -11,13 +11,23 @@ import {
   MenuItem,
   Select,
   Box,
-  Typography
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 
-// Custom imports 
+// Custom imports
 import Logo from "./../../assets/img/LogoSVG.svg";
-import { InputLable, InputField, InputFieldProps, errorMessageDesign } from "../CustomDesignMUI/CustomMUI";
-import './AdminSignup.scss';
+import {
+  InputLable,
+  InputField,
+  InputFieldProps,
+  errorMessageDesign,
+} from "../CustomDesignMUI/CustomMUI";
+import "./AdminSignup.scss";
+import { OneK } from "@mui/icons-material";
 
 const AdminSignup = () => {
   const [formData, setFormData] = useState({
@@ -130,6 +140,12 @@ const AdminSignup = () => {
     setFormIsValid(true);
   };
 
+  const [showDialog, setShowDialog] = useState(false); // State variable for showing/hiding the dialog
+
+  const handleCloseDialog = () => {
+    setShowDialog(false);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -149,15 +165,18 @@ const AdminSignup = () => {
         password: "",
         confirmpassword: "",
       });
+      setShowDialog(true); // Show the dialog after successful sign-up
     } catch (error) {
       console.error("Error adding data:", error);
     }
   };
 
   return (
-    <Box className="admin-signup"
+    <Box
+      className="admin-signup"
       sx={{
-        boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
+        boxShadow:
+          "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
       }}
     >
       <Container>
@@ -182,36 +201,32 @@ const AdminSignup = () => {
             />
           </Grid>
 
-          <Grid item
-            className="admin-signup-form"
-            xs={12}
-            md={6}
-          >
+          <Grid item className="admin-signup-form" xs={12} md={6}>
             <Box>
               <img
                 src={Logo}
                 alt="Logo"
                 style={{
                   maxWidth: "200px",
-                  alignItems: 'center',
+                  alignItems: "center",
                 }}
               />
             </Box>
             <form>
-              <Typography sx={{
-                color: 'var(--primary-color)',
-                typography: 'h5',
-                marginTop: '50px',
-                fontWeight: 'bold',
-              }}>
+              <Typography
+                sx={{
+                  color: "var(--primary-color)",
+                  typography: "h5",
+                  marginTop: "50px",
+                  fontWeight: "bold",
+                }}
+              >
                 Signup
               </Typography>
-              <InputLabel sx={InputLable}>
-                Name
-              </InputLabel>
+              <InputLabel sx={InputLable}>Name</InputLabel>
               <TextField
                 inputProps={{
-                  sx: InputFieldProps()
+                  sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="text"
@@ -221,18 +236,14 @@ const AdminSignup = () => {
                 onChange={handleChange}
               />
               {formErrors.name && (
-                <Typography
-                  sx={errorMessageDesign}
-                >
+                <Typography sx={errorMessageDesign}>
                   {formErrors.name}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>
-                E-mail
-              </InputLabel>
+              <InputLabel sx={InputLable}>E-mail</InputLabel>
               <TextField
                 inputProps={{
-                  style: InputFieldProps()
+                  style: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="email"
@@ -242,15 +253,15 @@ const AdminSignup = () => {
                 onChange={handleChange}
               />
               {formErrors.email && (
-                <Typography style={errorMessageDesign}>{formErrors.email}</Typography>
+                <Typography style={errorMessageDesign}>
+                  {formErrors.email}
+                </Typography>
               )}
-              <InputLabel sx={InputLable}>
-                Phone Number
-              </InputLabel>
+              <InputLabel sx={InputLable}>Phone Number</InputLabel>
 
               <TextField
                 inputProps={{
-                  sx: InputFieldProps()
+                  sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="text"
@@ -260,16 +271,16 @@ const AdminSignup = () => {
                 onChange={handleChange}
               />
               {formErrors.phonenumber && (
-                <Typography sx={errorMessageDesign}>{formErrors.phonenumber}</Typography>
+                <Typography sx={errorMessageDesign}>
+                  {formErrors.phonenumber}
+                </Typography>
               )}
-              <InputLabel sx={InputLable}>
-                Position
-              </InputLabel>
+              <InputLabel sx={InputLable}>Position</InputLabel>
               <Select
                 sx={{
-                  height: '35px',
-                  width: '100%',
-                  fontSize: '14px',
+                  height: "35px",
+                  width: "100%",
+                  fontSize: "14px",
                 }}
                 name="position"
                 value={formData.position}
@@ -288,12 +299,10 @@ const AdminSignup = () => {
                   {formErrors.position}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>
-                Password
-              </InputLabel>
+              <InputLabel sx={InputLable}>Password</InputLabel>
               <TextField
                 inputProps={{
-                  sx: InputFieldProps()
+                  sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="password"
@@ -307,12 +316,10 @@ const AdminSignup = () => {
                   {formErrors.password}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>
-                Confirm Password
-              </InputLabel>
+              <InputLabel sx={InputLable}>Confirm Password</InputLabel>
               <TextField
                 inputProps={{
-                  sx: InputFieldProps()
+                  sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="password"
@@ -322,14 +329,16 @@ const AdminSignup = () => {
                 onChange={handleChange}
               />
               {formErrors.confirmpassword && (
-                <Typography sx={errorMessageDesign}>{formErrors.confirmpassword}</Typography>
+                <Typography sx={errorMessageDesign}>
+                  {formErrors.confirmpassword}
+                </Typography>
               )}
 
               <Button
                 onClick={handleSubmit}
                 sx={{
                   width: "100%",
-                  marginTop: '30px',
+                  marginTop: "30px",
                   background: "var(--secondary-color)",
                   color: "var(--secondary-color",
                   fontWeight: "bold",
@@ -356,6 +365,28 @@ const AdminSignup = () => {
                   Login Now
                 </Link>
               </Typography>
+              {/* Dialog Box */}
+              <Dialog
+                open={showDialog}
+                onClose={handleCloseDialog}
+                maxWidth="xs"
+                fullWidth
+              >
+                <DialogTitle>Sign-up Successful</DialogTitle>
+                <DialogContent>
+                  <Typography variant="body1">
+                    You have successfully signed up!
+                  </Typography>
+                  <Typography variant="body1">
+                    You can now log in using your credentials.
+                  </Typography>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleCloseDialog} color="primary" autoFocus>
+                    Close
+                  </Button>
+                </DialogActions>
+              </Dialog>
             </form>
           </Grid>
 
@@ -370,7 +401,6 @@ const AdminSignup = () => {
               style={{ width: "100%", marginTop: "20px" }}
             />
           </Grid> */}
-
         </Grid>
       </Container>
     </Box>

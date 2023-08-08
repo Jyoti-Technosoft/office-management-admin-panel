@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+//IMPORTING CONTEXT
+import { GlobalContext } from "../../ContextAPI/CustomContext";
+// import CustomTextField from '../CustomComponents/CustomTextField';
 import {
   Box,
   Button,
@@ -7,15 +11,22 @@ import {
   InputLabel,
   TextField,
   Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import Logo from "./../../assets/img/LogoSVG.svg";
 
-// Custom imports 
-import {InputLable, InputField, InputFieldProps, errorMessageDesign} from "../CustomDesignMUI/CustomMUI";
+import { InputLable, InputField } from "../CustomDesignMUI/CustomMUI";
 import "./AdminLogin.scss";
 
 const AdminLogin = () => {
+  // Context Function
+  const { admin } = useContext(GlobalContext);
+  console.log("Login ", admin);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(""); // validation@
@@ -51,32 +62,30 @@ const AdminLogin = () => {
     return valid;
   };
 
+  const [showDialog, setShowDialog] = useState(false); // State variable for showing/hiding the dialog
+
+  const handleCloseDialog = () => {
+    setShowDialog(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (validateInputs()) {
-      try {
-        const response = await fetch("http://localhost:8001/adminData");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        // Parse the response to get the data
-        const data = await response.json();
+      const matchingUser = admin.find(
+        (user) => user.email === email && user.password === password
+      );
 
-        // Check if the entered email and password match any user from the fetched data
-        const matchingUser = data.find(
-          (user) => user.email === email && user.password === password
-        );
-
-        if (matchingUser) {
-          localStorage.setItem("loggedIn", "true");
-          alert("Login successful");
-          navigate("/dashboard");
-        } else {
-          setErrorMessage("Invalid email or password");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      if (matchingUser) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("adminName", matchingUser.name); // Save admin name in local storage
+        localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
+        localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage
+        localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage 
+        alert("Log In Successful!") 
+        // setShowDialog(true); // Show the dialog after successful login
+        navigate("/dashboard");
+      } else {
+        setErrorMessage("Invalid email or password");
       }
     }
   };
@@ -88,7 +97,10 @@ const AdminLogin = () => {
         margin: "auto",
         justifyContent: "center",
         width: "1000px",
-        boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
+        // padding: '30px',
+        // boxShadow: "0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3)",
+        boxShadow:
+          "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
         // background: 'yellow',
       }}
     >
@@ -101,7 +113,7 @@ const AdminLogin = () => {
           justifyContent: "center",
           padding: "30px 0 30px 30px",
         }}
-        >
+      >
         <img
           src={Login}
           alt="loginImg"
@@ -122,6 +134,7 @@ const AdminLogin = () => {
           <Box
             className="admin-form"
             sx={{
+              // padding: '40px',
               padding: "80px 60px 80px 40px",
             }}
           >
@@ -138,7 +151,11 @@ const AdminLogin = () => {
               {/* <Typography sx={{ color: 'var(--primary-color)', typography: "h4", fontWeight: "bold" }}>Login</Typography>
               <Typography sx={{ typography: "subtitle1", color: 'var(--primary-color)' }}>Login to your account.</Typography> */}
               <Typography
-                sx={errorMessageDesign}
+                sx={{
+                  color: "red",
+                  typography: "subtitle2",
+                  textAlign: "left",
+                }}
               >
                 {errorMessage}
               </Typography>
@@ -146,7 +163,10 @@ const AdminLogin = () => {
 
               <TextField
                 inputProps={{
-                  sx: InputFieldProps(),
+                  sx: {
+                    height: "4px",
+                    fontSize: "12px",
+                  },
                 }}
                 sx={InputField}
                 type="email"
@@ -158,7 +178,12 @@ const AdminLogin = () => {
               />
               {emailError && (
                 <Typography
-                  style={errorMessageDesign}>
+                  style={{
+                    color: "red",
+                    fontSize: "14px",
+                    padding: "0",
+                  }}
+                >
                   {emailError}
                 </Typography>
               )}
@@ -168,7 +193,10 @@ const AdminLogin = () => {
 
               <TextField
                 inputProps={{
-                  sx: InputFieldProps(),
+                  sx: {
+                    height: "4px",
+                    fontSize: "12px",
+                  },
                 }}
                 sx={InputField}
                 type="password"
@@ -180,7 +208,11 @@ const AdminLogin = () => {
 
               {passwordError && (
                 <Typography
-                  sx={errorMessageDesign}
+                  sx={{
+                    color: "red",
+                    fontSize: "14px",
+                    padding: "0px",
+                  }}
                 >
                   {passwordError}
                 </Typography>
@@ -247,7 +279,6 @@ const AdminLogin = () => {
               >
                 Don't have an account yet?
                 <Link className="link" to="/signup">
-                  {" "}
                   Join JyotiTechnosoft today.
                 </Link>
               </Typography>
@@ -255,6 +286,27 @@ const AdminLogin = () => {
           </Box>
         </Box>
       </Box>
+      <Dialog
+        open={showDialog}
+        onClose={handleCloseDialog}
+        maxWidth="xs"
+        fullWidth
+      >
+        <DialogTitle>Login Successful</DialogTitle>
+        <DialogContent>
+          <Typography variant="body1">
+            You have successfully logged in!
+          </Typography>
+          <Typography variant="body1">
+            Welcome, {localStorage.getItem("adminName")}!
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
