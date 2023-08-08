@@ -33,7 +33,7 @@ export const DashboardProfileButtons = {
     background: "white",
     color: "black",
     height: "40px",
-    width: "250px",
+    width: "100%",
     borderRadius: "10px",
     "&:hover": {
         background: "var(--secondary-color)",

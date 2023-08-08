@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 // import axios from "axios";
 // import { Link } from "react-router-dom";
-import { Box, Button, Typography, Grid, } from "@mui/material";
+import { Box, Button, Typography, Grid, IconButton } from "@mui/material";
 import "./../AdminDashboard/AdminDashboard.scss";
 import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
 import SearchBar from "../ReusableComponents/SearchBar";
-import { DashboardProfileButtons } from '../CustomDesignMUI/CustomMUI';
+import { DashboardProfileButtons } from "../CustomDesignMUI/CustomMUI";
 import DisplayPersonal from "../DisplayEmp/DisplayPersonal/DisplayPersonal";
+import DisplayContact from "../DisplayEmp/DisplayContact/DisplayContact";
+import { Edit, Delete } from "@mui/icons-material";
 
 const ViewProfile = () => {
+  const [selectedTab, setSelectedTab] = useState("personal");
+
+  const handleTabChange = (tab) => {
+    setSelectedTab(tab);
+  };
+
+  const renderTabContent = () => {
+    if (selectedTab === "personal") {
+      return <DisplayPersonal />;
+    } else if (selectedTab === "contact") {
+      return <DisplayContact />;
+    }
+  };
   return (
     <Box
       sx={{
@@ -16,11 +31,11 @@ const ViewProfile = () => {
       }}
     >
       <Grid container>
-        {/* Left admin dashboard */}
+        {/* {/ Left admin dashboard /} */}
         <AdminSideBar />
 
         <Grid item xs={12} md={9.4}>
-          {/* SEARCH BAR */}
+          {/* {/ SEARCH BAR /} */}
           <SearchBar />
 
           <Box
@@ -39,7 +54,7 @@ const ViewProfile = () => {
             </Typography>
 
             <Grid container spacing={3}>
-              {/* LEFT BOX */}
+              {/* {/ LEFT BOX /} */}
               <Grid item xs={12} md={3.5}>
                 <Box
                   sx={{
@@ -55,50 +70,62 @@ const ViewProfile = () => {
                     padding: "12px",
                   }}
                 >
-                  <Button  sx={{
-                        textTransform: "capitalize",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        background: "white",
-                        color: "black",
-                        height: "40px",
-                        width: "100%",
-                        borderRadius: "10px",
-                        "&:hover": {
-                          background: "var(--secondary-color)",
-                          color: "white",
-                          fontWeight: "bold",
-                        },
-                      }}>
+                  <Button
+                    onClick={() => handleTabChange("personal")}
+                    sx={DashboardProfileButtons}
+                  >
                     Personal Details
                   </Button>
-                  <Button sx={DashboardProfileButtons}>
+                  <Button
+                    onClick={() => handleTabChange("contact")}
+                    sx={DashboardProfileButtons}
+                  >
                     Contact Details
                   </Button>
                   <Button sx={DashboardProfileButtons}>
                     Education Qualification
                   </Button>
-                  <Button sx={DashboardProfileButtons}>
-                    Family Details
-                  </Button>
+                  <Button sx={DashboardProfileButtons}>Family Details</Button>
                   <Button sx={DashboardProfileButtons}>
                     Experience Details
                   </Button>
-                  <Button sx={DashboardProfileButtons}>
-                    Job Details
-                  </Button>
+                  <Button sx={DashboardProfileButtons}>Job Details</Button>
                   <Button sx={DashboardProfileButtons}>
                     Financial Details
                   </Button>
-                  <Button sx={DashboardProfileButtons}>
-                    Leaves
-                  </Button>
+                  <Button sx={DashboardProfileButtons}>Leaves</Button>
                 </Box>
               </Grid>
-              {/* RIGHT BOX */}
+              {/* {/ RIGHT BOX /} */}
               <Grid item xs={12} md={8.5}>
-              <DisplayPersonal />
+                {/* {/ FOR MAIN COMPONENT DESIGN BOX /} */}
+                <Box
+                  sx={{
+                    marginTop: "12px",
+                    backgroundColor: "#dfeaf7",
+                    borderRadius: "10px",
+                    // maxHeight: 'calc(100vh - 270px)',
+                    width: "100%",
+                    padding: "15px",
+                  }}
+                >
+                  {/* {/ EDIT AND DELETE BUTTONS /} */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      marginTop: "-2px",
+                    }}
+                  >
+                    <IconButton sx={{ color: "#878585" }}>
+                      <Edit />
+                    </IconButton>
+                    <IconButton sx={{ color: "#878585" }}>
+                      <Delete />
+                    </IconButton>
+                  </Box>
+                  {renderTabContent()}
+                </Box>
               </Grid>
             </Grid>
           </Box>
