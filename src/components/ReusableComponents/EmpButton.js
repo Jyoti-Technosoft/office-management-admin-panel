@@ -3,6 +3,7 @@ import { Box, Button, Grid, IconButton } from "@mui/material";
 import { DashboardProfileButtons } from "../CustomDesignMUI/CustomMUI";
 import DisplayPersonal from "../DisplayEmp/DisplayPersonal/DisplayPersonal";
 import DisplayContact from "../DisplayEmp/DisplayContact/DisplayContact";
+import DisplayEducation from "../DisplayEmp/DisplayEducation/DisplayEducation";
 import { Edit, Delete } from "@mui/icons-material";
 
 const EmpButton = () => {
@@ -11,40 +12,44 @@ const EmpButton = () => {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
-
   const renderTabContent = () => {
     if (selectedTab === "personal") {
       return <DisplayPersonal />;
     } else if (selectedTab === "contact") {
       return <DisplayContact />;
+    } else if (selectedTab === "education") {
+      return <DisplayEducation />;
     }
   };
   return (
-    <Box>
+    <Box
+      sx={{
+        marginTop: "50px",
+      }}
+    >
       <Grid container spacing={3}>
         {/* {/ LEFT BOX /} */}
-        <Grid item xs={12} md={3.5}>
+        <Grid container xs={12} md={3.5}>
           <Box
             sx={{
-              marginTop: "12px",
-              backgroundColor: "#dfeaf7",
+              padding: "20px",
+              backgroundColor: "var(--pirmary-light-color)",
               borderRadius: "10px",
-              // height: "100vh",
               width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
               alignItems: "center",
-              padding: "12px",
             }}
           >
             <Button
               onClick={() => handleTabChange("personal")}
               sx={{
                 ...DashboardProfileButtons,
-                backgroundColor: selectedTab === "personal" ? "var(--secondary-color)" : "white",
+                backgroundColor:
+                  selectedTab === "personal"
+                    ? "var(--secondary-color)"
+                    : "white",
                 color: selectedTab === "personal" ? "white" : "inherit",
                 fontWeight: selectedTab === "personal" ? "bold" : "normal",
+                marginTop: "0px",
               }}
             >
               Personal Details
@@ -53,14 +58,30 @@ const EmpButton = () => {
               onClick={() => handleTabChange("contact")}
               sx={{
                 ...DashboardProfileButtons,
-                backgroundColor: selectedTab === "contact" ? "var(--secondary-color)" : "white",
+                backgroundColor:
+                  selectedTab === "contact"
+                    ? "var(--secondary-color)"
+                    : "white",
                 color: selectedTab === "contact" ? "white" : "inherit",
                 fontWeight: selectedTab === "contact" ? "bold" : "normal",
+                border: "none",
               }}
             >
               Contact Details
             </Button>
-            <Button sx={DashboardProfileButtons}>
+            <Button
+              onClick={() => handleTabChange("education")}
+              sx={{
+                ...DashboardProfileButtons,
+                backgroundColor:
+                  selectedTab === "education"
+                    ? "var(--secondary-color)"
+                    : "white",
+                color: selectedTab === "education" ? "white" : "inherit",
+                fontWeight: selectedTab === "education" ? "bold" : "normal",
+                border: "none",
+              }}
+            >
               Education Qualification
             </Button>
             <Button sx={DashboardProfileButtons}>Family Details</Button>
@@ -71,33 +92,18 @@ const EmpButton = () => {
           </Box>
         </Grid>
         {/* {/ RIGHT BOX /} */}
-        <Grid item xs={12} md={8.5}>
+        <Grid container xs={12} md={8.5}>
           {/* {/ FOR MAIN COMPONENT DESIGN BOX /} */}
           <Box
             sx={{
-              marginTop: "12px",
+              marginLeft: "20px",
               backgroundColor: "#dfeaf7",
               borderRadius: "10px",
-              // maxHeight: 'calc(100vh - 270px)',
+              height: "100%",
               width: "100%",
               padding: "15px",
             }}
           >
-            {/* {/ EDIT AND DELETE BUTTONS /} */}
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-end",
-                marginTop: "-2px",
-              }}
-            >
-              <IconButton sx={{ color: "#878585" }}>
-                <Edit />
-              </IconButton>
-              <IconButton sx={{ color: "#878585" }}>
-                <Delete />
-              </IconButton>
-            </Box>
             {renderTabContent()}
           </Box>
         </Grid>

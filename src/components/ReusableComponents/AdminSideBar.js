@@ -50,7 +50,7 @@ const AdminSideBar = () => {
           position: "relative",
           background: "var(--primary-color)",
           padding: "20px",
-          height: "100vh",
+          height: "100%",
           color: "var(--white-color)",
         }}
       >

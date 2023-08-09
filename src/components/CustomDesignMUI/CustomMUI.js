@@ -26,18 +26,38 @@ export const errorMessageDesign = {
 export const DashboardProfileButtons = {
     marginTop: "12px",
     textTransform: "capitalize",
+    
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "10px 20px",
+    padding: "15px 20px",
     background: "white",
     color: "black",
-    height: "40px",
     width: "100%",
+    border: 'none',
     borderRadius: "10px",
     "&:hover": {
         background: "var(--secondary-color)",
         color: "white",
         fontWeight: 'bold',
     }
+}
+export const viewProfileTitle = {
+    fontWeight: "bold",
+    fontSize: "18px" 
+}
+export const viewProfileSubtitle = {
+    fontSize: "12px",
+}
+export const viewEducationBox = {
+    height: "auto",
+    maxWidth: "100%",
+    backgroundColor: "white",
+    borderRadius: "10px",
+    padding: "15px",
+    marginTop: "15px",
+}
+export const viewEducationTitle = {
+    fontWeight: "bold",
+    fontSize: "15px" 
 }

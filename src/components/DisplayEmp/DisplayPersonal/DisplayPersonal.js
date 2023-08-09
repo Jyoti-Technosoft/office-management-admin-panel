@@ -1,95 +1,126 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, IconButton } from "@mui/material";
 import ProfileImg from "../../../assets/img/profile.svg";
 import StarIcon from "../../../assets/img/icons/starIcon.svg";
+import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/CustomMUI';
+import { Delete, Edit } from "@mui/icons-material";
 
 const DisplayPersonal = () => {
   return (
     <Box>
-      {/* {/ FOR PROFILE IMAGES /} */}
-      <Box sx={{ position: "relative" }}>
-        <Box sx={{ position: "absolute", top: 0, left: "10px" ,marginTop:"-140px"}}>
+      {/* {/ {/ EDIT AND DELETE BUTTONS /} /} */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: "-2px",
+        }}>
+        <IconButton sx={{ color: "var( --third-color)" }}>
+          <Edit />
+        </IconButton>
+        <IconButton sx={{ color: "var( --third-color)" }}>
+          <Delete />
+        </IconButton>
+      </Box>
+      {/* {/ {/ FOR PROFILE IMAGES /} /} */}
+      <Box>
+        <Box>
           <img width={"120px"} src={ProfileImg} alt="profile" />
-          <Box sx={{ marginTop: "-115px", marginLeft: "95px" }}>
+          {/* <Box>
             <img src={StarIcon} alt="icon" />
+          </Box> */}
+          <Box>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: "15px",
+                marginLeft: "9px",
+                marginTop: '10px',
+              }}>
+              Employee ID: 101
+            </Typography>
           </Box>
         </Box>
       </Box>
 
-      {/* {/ FOR EMPLOYEE PERSNOL DETAILS /} */}
-      <Box sx={{ marginTop: "110px" , marginLeft: "10px",
-}}>
-        <form>
-          <Typography
-            sx={{
-              fontWeight: "600",
-              fontSize: "13px",
-              marginLeft: "9px"
-            }}
-          >
-            Employee ID: 101
-          </Typography>
-          <Box sx={{ marginTop: "12px", marginLeft: "8px" }}>
-            <Grid container spacing={2}>
-              {/* {/ LEFT PART /} */}
-              <Grid item xs={12} md={6}>
-                <Box contained="left">
-                  <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                    Employee Name
-                  </Typography>
-                  <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                    John Doe
-                  </Typography>
-                  <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                    Department
-                  </Typography>
-                  <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                    Design & Marketing
-                  </Typography>
-                  <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                    Job Title
-                  </Typography>
-                  <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                    UI/UX Designer
-                  </Typography>
-                  <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                    Job Category
-                  </Typography>
-                  <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                    Full Time
-                  </Typography>
-                </Box>
-              </Grid>
-              {/* {/ RIGHT PART /} */}
-              <Grid item xs={12} md={6}>
-                <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                  Date of Joining
-                </Typography>
-                <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                  14-12-2022
-                </Typography>
-                <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                  Date of Birth
-                </Typography>
-                <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                  15-05-1998
-                </Typography>
-                <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                  Blood Group
-                </Typography>
-                <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                  A+
-                </Typography>
-                <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
-                  Emergency Number
-                </Typography>
-                <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                  +149 427 100 66
-                </Typography>
-              </Grid>
+      {/* {/ {/ FOR EMPLOYEE PERSNOL DETAILS /} /} */}
+      <Box sx={{
+        marginTop: '30px',
+        marginLeft: "9px",
+        }}>
+        <Grid container>
+          {/* {/ {/ LEFT PART /} /} */}
+          <Grid container xs={12} md={6} rowSpacing={2}>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Employee Name
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                John Doe
+              </Typography>
             </Grid>
-          </Box>
-        </form>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Department
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                Design & Marketing
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Job Title
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                UI/UX Designer
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Job Category
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                Full Time
+              </Typography>
+            </Grid>
+          </Grid>
+
+          {/* {/ {/ RIGHT PART /} /} */}
+          <Grid container xs={12} md={6} rowSpacing={2}>
+            <Grid item xs={12}>
+              <Typography sx={{ fontSize: "11px" }}>
+                Date of Joining
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                14-12-2022
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Date of Birth
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                15-05-1998
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Blood Group
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                A+
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography sx={viewProfileSubtitle}>
+                Emergency Number
+              </Typography>
+              <Typography sx={viewProfileTitle}>
+                +149 427 100 66
+              </Typography>
+            </Grid>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
