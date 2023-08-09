@@ -37,7 +37,7 @@ const DisplayContact = () => {
                   E-mail Address
                 </Typography>
                 <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                  mailto:john@gmail.com
+                  john@gmail.com
                 </Typography>
               </Box>
             </Grid>
