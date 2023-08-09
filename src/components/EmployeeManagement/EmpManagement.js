@@ -64,10 +64,10 @@ const EmpManagement = () => {
             <Box
                sx={{
                 marginTop: '15px',
-                maxHeight: 'calc(100vh - 206px)',
+                maxHeight: 'calc(100vh - 220px)',
               }}
               overflow="auto"
-            >
+                >
               <TableContainer component={Paper}>
                 <Table>
                   <TableHead sx={{ background: 'var(--pirmary-light-color)' }}>

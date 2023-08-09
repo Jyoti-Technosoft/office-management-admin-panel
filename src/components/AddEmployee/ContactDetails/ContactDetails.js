@@ -12,22 +12,13 @@ import {
 } from "../../CustomDesignMUI/CustomMUI";
 
 const ContactDetails = ({ formData, onChange }) => {
-  
-  const handleInputChange = (event) => {
-    const { pnumber, value } = event.target;
-    onChange({ [pnumber]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
 
   return (
     <Box>
       <Typography variant="h5">Contact Details</Typography>
       <hr />
 
-      <form onSubmit={handleSubmit}>
+      <form>
         <TextField
          inputProps={{
           sx: InputFieldProps(),
@@ -38,7 +29,6 @@ const ContactDetails = ({ formData, onChange }) => {
           name="pnumber"
           placeholder="Enter a phone number 1"
           value={formData.pnumber}
-          onChange={handleInputChange}
         />
      
       <TextField
@@ -51,7 +41,6 @@ const ContactDetails = ({ formData, onChange }) => {
           name="enumber"
           placeholder="Enter a phone number 2"
           value={formData.enumber}
-          onChange={handleInputChange}
         />
 
       <TextField
@@ -64,7 +53,6 @@ const ContactDetails = ({ formData, onChange }) => {
           name="email"
           placeholder="Enter an email"
           value={formData.email}
-          onChange={handleInputChange}
         />
 
       <TextField
@@ -77,7 +65,6 @@ const ContactDetails = ({ formData, onChange }) => {
           name="sor"
           placeholder="Enter your State"
           value={formData.sor}
-          onChange={handleInputChange}
         />
 
 <TextField
@@ -90,7 +77,6 @@ const ContactDetails = ({ formData, onChange }) => {
           name="city"
           placeholder="Enter your City"
           value={formData.city}
-          onChange={handleInputChange}
         />
 
 <TextField
@@ -103,7 +89,6 @@ const ContactDetails = ({ formData, onChange }) => {
           name="ra"
           placeholder="Enter a Residential Address"
           value={formData.ra}
-          onChange={handleInputChange}
         />
 
       </form>

@@ -14,12 +14,10 @@ const PersonalDetails = ({ formData, onChange }) => {
     event.preventDefault();
     // Validate the form fields here if needed
   };
-
   return (
     <Box>
       <Typography variant="h5">Personal Details</Typography>
-      <hr />
-
+      <hr/>
       <form onSubmit={handleSubmit}>
         <TextField
           inputProps={{
@@ -209,5 +207,4 @@ const PersonalDetails = ({ formData, onChange }) => {
     </Box>
   );
 };
-
 export default PersonalDetails;

@@ -62,8 +62,7 @@ const AdminDashboard = () => {
 
         <Grid item xs={12} md={9.4}>
           {/* {/ {/ SEARCH BAR  /} /} */}
-          <SearchBar />
-
+          <SearchBar/>
           <Box
             sx={{
               margin: '30px',
@@ -205,7 +204,7 @@ const AdminDashboard = () => {
               sx={{
                 // height: "500px",
                 marginTop: '15px',
-                maxHeight: 'calc(100vh - 370px)',
+                maxHeight: 'calc(100vh - 380px)',
               }}
               overflow="auto"
             >

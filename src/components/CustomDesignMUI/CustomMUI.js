@@ -24,7 +24,7 @@ export const errorMessageDesign = {
     fontSize: '12px',
 }
 export const DashboardProfileButtons = {
-    marginTop: "12px",
+    marginTop: "20px",
     textTransform: "capitalize",
     
     display: "flex",

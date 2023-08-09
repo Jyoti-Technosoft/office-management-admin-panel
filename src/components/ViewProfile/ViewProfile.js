@@ -8,10 +8,10 @@ import EmpButton from "../ReusableComponents/EmpButton";
 const ViewProfile = () => {
   return (
       <Grid container sx={{height: '100vh'}}>
-        {/* {/ Left admin dashboard /} */}
+        {/* Left admin dashboard */}
         <AdminSideBar />
         <Grid xs={12} md={9.4}>
-          {/* {/ SEARCH BAR /} */}
+          {/* SEARCH BAR */}
           <SearchBar />
           <Box sx={{ margin: "0px 50px" }}>
             <Typography variant="h5" sx={{ fontWeight: "bold" }}> Employee Management </Typography>
@@ -21,5 +21,4 @@ const ViewProfile = () => {
       </Grid>
   );
 };
-
 export default ViewProfile;

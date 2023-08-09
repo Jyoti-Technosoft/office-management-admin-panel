@@ -8,7 +8,7 @@ import { Delete, Edit } from "@mui/icons-material";
 const DisplayPersonal = () => {
   return (
     <Box>
-      {/* {/ {/ EDIT AND DELETE BUTTONS /} /} */}
+      {/* {/ EDIT AND DELETE BUTTONS /} */}
       <Box
         sx={{
           display: "flex",
@@ -22,7 +22,7 @@ const DisplayPersonal = () => {
           <Delete />
         </IconButton>
       </Box>
-      {/* {/ {/ FOR PROFILE IMAGES /} /} */}
+      {/* {/ FOR PROFILE IMAGES /} */}
       <Box>
         <Box>
           <img width={"120px"} src={ProfileImg} alt="profile" />
@@ -43,13 +43,14 @@ const DisplayPersonal = () => {
         </Box>
       </Box>
 
-      {/* {/ {/ FOR EMPLOYEE PERSNOL DETAILS /} /} */}
+      {/* {/ FOR EMPLOYEE PERSNOL DETAILS /} */}
       <Box sx={{
         marginTop: '30px',
         marginLeft: "9px",
         }}>
         <Grid container>
-          {/* {/ {/ LEFT PART /} /} */}
+
+          {/* {/ LEFT PART /} */}
           <Grid container xs={12} md={6} rowSpacing={2}>
             <Grid item xs={12}>
               <Typography sx={viewProfileSubtitle}>
@@ -85,7 +86,8 @@ const DisplayPersonal = () => {
             </Grid>
           </Grid>
 
-          {/* {/ {/ RIGHT PART /} /} */}
+          {/* {/ RIGHT PART /} */}
+
           <Grid container xs={12} md={6} rowSpacing={2}>
             <Grid item xs={12}>
               <Typography sx={{ fontSize: "11px" }}>
