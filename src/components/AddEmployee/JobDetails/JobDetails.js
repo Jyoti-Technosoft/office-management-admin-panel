@@ -38,7 +38,8 @@ const JobDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="department"
             id="selectdepartment"
-            value={formData.department}
+            name="jobdepartment"
+            value={formData.jobdepartment}
             label="Department"
             onChange={handleInputChange}
           >
@@ -61,7 +62,8 @@ const JobDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="designation"
             id="selectdesignation"
-            value={formData.designation}
+            name="jobdesignation"
+            value={formData.jobdesignation}
             label="Designation"
             onChange={handleInputChange}
           >

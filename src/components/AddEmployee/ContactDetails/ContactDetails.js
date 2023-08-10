@@ -26,9 +26,9 @@ const ContactDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="Personal Number"
-          name="pnumber"
+          name="contactpnumber"
           placeholder="Enter a phone number 1"
-          value={formData.pnumber}
+          value={formData.contactpnumber}
         />
      
       <TextField
@@ -38,9 +38,9 @@ const ContactDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="Additional Number"
-          name="enumber"
+          name="contactenumber"
           placeholder="Enter a phone number 2"
-          value={formData.enumber}
+          value={formData.contactenumber}
         />
 
       <TextField
@@ -50,9 +50,9 @@ const ContactDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="email"
           label="E-mail Address"
-          name="email"
+          name="contactemail"
           placeholder="Enter an email"
-          value={formData.email}
+          value={formData.contactemail}
         />
 
       <TextField
@@ -62,9 +62,9 @@ const ContactDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="State of residence"
-          name="sor"
+          name="contactsor"
           placeholder="Enter your State"
-          value={formData.sor}
+          value={formData.contactsor}
         />
 
 <TextField
@@ -74,9 +74,9 @@ const ContactDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="City"
-          name="city"
+          name="contactcity"
           placeholder="Enter your City"
-          value={formData.city}
+          value={formData.contactcity}
         />
 
 <TextField
@@ -86,9 +86,9 @@ const ContactDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="Residential Address"
-          name="ra"
+          name="contactra"
           placeholder="Enter a Residential Address"
-          value={formData.ra}
+          value={formData.contactra}
         />
 
       </form>

@@ -1,7 +1,7 @@
 // EducationDetails.js
 
 import React from "react";
-import { Box, InputLabel, TextField, Typography } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
 
 
@@ -31,9 +31,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Course Name"
-          name="course"
+          name="educationcourse"
           placeholder="Enter a Course Name"
-          value={formData.course}
+          value={formData.educationcourse}
           onChange={handleInputChange}
         />
 
@@ -44,9 +44,9 @@ const EducationDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="University Name"
-          name="university"
+          name="educationuniversity"
           placeholder="Enter University Name"
-          value={formData.university}
+          value={formData.educationuniversity}
           onChange={handleInputChange}
         />
 
@@ -58,9 +58,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Start of The Academic Year"
-          name="start"
+          name="educationacademicstart"
           placeholder="Enter a Start of The Academic Year"
-          value={formData.start}
+          value={formData.educationacademicstart}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -71,9 +71,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="End of The Academic Year"
-          name="end"
+          name="educationacademicend"
           placeholder="Enter a End of The Academic Year"
-          value={formData.end}
+          value={formData.educationacademicend}
           onChange={handleInputChange}
         />
 
@@ -87,9 +87,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Certificate Name"
-          name="certificate"
+          name="educationcertificate"
           placeholder="Enter a Certificate Name"
-          value={formData.certificate}
+          value={formData.educationcertificate}
           onChange={handleInputChange}
         />
 
@@ -100,9 +100,9 @@ const EducationDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="Complited At"
-          name="place"
+          name="educationplace"
           placeholder="Enter a Place Name"
-          value={formData.place}
+          value={formData.educationplace}
           onChange={handleInputChange}
         />
 
@@ -114,9 +114,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Start of Date"
-          name="sdate"
+          name="educationprofessionalstart"
           placeholder="Enter a Starting date"
-          value={formData.start}
+          value={formData.educationprofessionalstart}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -127,9 +127,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="End of Date"
-          name="edate"
+          name="educationprofessionalend"
           placeholder="Enter a Ending date"
-          value={formData.end}
+          value={formData.educationprofessionalend}
           onChange={handleInputChange}
         />
 

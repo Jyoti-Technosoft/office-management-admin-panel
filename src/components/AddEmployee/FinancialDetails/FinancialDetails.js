@@ -28,9 +28,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Bank Name"
-          name="bankname"
+          name="financialbankname"
           placeholder="Enter a Bank Name"
-          value={formData.bankname}
+          value={formData.financialbankname}
           onChange={handleInputChange}
         />
         <TextField
@@ -40,9 +40,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="number"
           label="Account No."
-          name="acno"
+          name="financialacno"
           placeholder="Enter a Account Number"
-          value={formData.acno}
+          value={formData.financialacno}
           onChange={handleInputChange}
         />
         <TextField
@@ -52,9 +52,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Account Holder Name"
-          name="acname"
+          name="financialacname"
           placeholder="Enter a Account Holder Name"
-          value={formData.acname}
+          value={formData.financialacname}
           onChange={handleInputChange}
         />
         <TextField
@@ -64,9 +64,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="IFSC No."
-          name="ifsc"
+          name="financialifsc"
           placeholder="Enter a IFSC No."
-          value={formData.ifsc}
+          value={formData.financialifsc}
           onChange={handleInputChange}
         />
         <TextField
@@ -76,9 +76,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Branch Name"
-          name="branchname"
+          name="financialbranchname"
           placeholder="Enter a Branch Name"
-          value={formData.branchname}
+          value={formData.financialbranchname}
           onChange={handleInputChange}
         />
       </form>

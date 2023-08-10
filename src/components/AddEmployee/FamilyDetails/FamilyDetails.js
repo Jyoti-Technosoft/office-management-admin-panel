@@ -28,9 +28,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Firstname"
-          name="firstname"
+          name="familyfirstname"
           placeholder="Enter a firstname"
-          value={formData.firstname}
+          value={formData.familyfirstname}
           onChange={handleInputChange}
         />
 
@@ -41,9 +41,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Lastname"
-          name="lastname"
+          name="familylastname"
           placeholder="Enter a lastname"
-          value={formData.lastname}
+          value={formData.familylastname}
           onChange={handleInputChange}
         />
 
@@ -54,9 +54,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Relationship"
-          name="relation"
+          name="familyrelation"
           placeholder="Enter a Relationship"
-          value={formData.relation}
+          value={formData.familyrelation}
           onChange={handleInputChange}
         />
 
@@ -67,9 +67,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="email"
           label="E-mail Address"
-          name="email"
+          name="familyemail"
           placeholder="Enter a email"
-          value={formData.email}
+          value={formData.familyemail}
           onChange={handleInputChange}
         />
 
@@ -80,9 +80,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="number"
           label="Phone Number"
-          name="phonenumber"
+          name="familyphonenumber"
           placeholder="Enter a Phone Number"
-          value={formData.phonenumber}
+          value={formData.familyphonenumber}
           onChange={handleInputChange}
         />
 
@@ -94,9 +94,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Date of Birth"
-          name="dob"
+          name="familydob"
           placeholder="Enter a Date of Birth"
-          value={formData.dob}
+          value={formData.familydob}
           onChange={handleInputChange}
         />
       </form>

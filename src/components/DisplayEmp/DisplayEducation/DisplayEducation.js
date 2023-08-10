@@ -40,7 +40,7 @@ const DisplayEducation = () => {
 
       {/* FOR PROFESIONAL QUALIFICATION */}
       <Typography sx={viewProfileTitle}>Professional Qualifications</Typography>
-      <Box>
+      <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
           <Typography sx={viewEducationTitle}>CCNA Certification</Typography>
           <Typography sx={viewProfileSubtitle}>
@@ -48,7 +48,9 @@ const DisplayEducation = () => {
           </Typography>
         </Box>
         <Box sx={viewEducationBox}>
-          <Typography sx={viewEducationTitle}>Google UI / UX Certification</Typography>
+          <Typography sx={viewEducationTitle}>
+            Google UI / UX Certification
+          </Typography>
           <Typography sx={viewProfileSubtitle}>
             at Google Inc , September 2021 - September 2022
           </Typography>

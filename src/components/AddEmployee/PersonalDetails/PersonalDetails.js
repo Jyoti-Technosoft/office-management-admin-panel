@@ -26,8 +26,8 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Firstname"
-          name="firstname"
-          placeholder="Enter a firstname"
+          name="personalfirstname"
+          placeholder="Enter a personalfirstname"
           value={formData.firstname}
           onChange={handleInputChange}
         />
@@ -39,9 +39,9 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Lastname"
-          name="lastname"
+          name="personallastname"
           placeholder="Enter a lastname"
-          value={formData.lastname}
+          value={formData.personallastname}
           onChange={handleInputChange}
         />
 
@@ -52,9 +52,9 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="email"
           label="E-mail Address"
-          name="email"
+          name="personalemail"
           placeholder="Enter a email"
-          value={formData.email}
+          value={formData.personalemail}
           onChange={handleInputChange}
         />
 
@@ -65,9 +65,9 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="number"
           label="Phone Number"
-          name="phonenumber"
+          name="personalphonenumber"
           placeholder="Enter a Phone Number"
-          value={formData.phonenumber}
+          value={formData.personalphonenumber}
           onChange={handleInputChange}
         />
 
@@ -79,9 +79,9 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Date of Birth"
-          name="dob"
+          name="personaldob"
           placeholder="Enter a Date of Birth"
-          value={formData.dob}
+          value={formData.personaldob}
           onChange={handleInputChange}
         />
         
@@ -93,9 +93,9 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Date of Join"
-          name="doj"
+          name="personaldoj"
           placeholder="Enter a Date of Join"
-          value={formData.doj}
+          value={formData.personaldoj}
           onChange={handleInputChange}
         />
 
@@ -106,9 +106,9 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Address"
-          name="add"
+          name="personaladd"
           placeholder="Enter a Address"
-          value={formData.add}
+          value={formData.personaladd}
           onChange={handleInputChange}
         />
          {/* MAKE A DROPDOWN */}
@@ -121,7 +121,8 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="department"
             id="selectdepartment"
-            value={formData.department}
+            name="personaldepartment"
+            value={formData.personaldepartment}
             label="Department"
             onChange={handleInputChange}
           >
@@ -144,7 +145,8 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="designation"
             id="selectdesignation"
-            value={formData.designation}
+            name="personaldesignation"
+            value={formData.personaldesignation}
             label="Designation"
             onChange={handleInputChange}
           >
@@ -167,7 +169,8 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="category"
             id="selectcategory"
-            value={formData.category}
+            name="personalcategory"
+            value={formData.personalcategory}
             label="Designation"
             onChange={handleInputChange}
           >
@@ -187,7 +190,8 @@ const PersonalDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="blood"
             id="selectblood"
-            value={formData.blood}
+            name="personalblood"
+            value={formData.personalblood}
             label="Designation"
             onChange={handleInputChange}
           >

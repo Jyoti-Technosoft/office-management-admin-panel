@@ -28,9 +28,9 @@ const ExperienceDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Company Name"
-          name="cname"
+          name="experiencecname"
           placeholder="Enter a Company Name"
-          value={formData.cname}
+          value={formData.experiencecname}
           onChange={handleInputChange}
         />
 
@@ -44,11 +44,12 @@ const ExperienceDetails = ({ formData, onChange }) => {
           sx={InputField}
             labelId="position"
             id="selectposition"
-            value={formData.position}
+            name="experienceposition"
+            value={formData.experienceposition}
             label="Position"
             onChange={handleInputChange}
           >
-           <MenuItem value="">Select a Position</MenuItem>
+          <MenuItem value="">Select a Position</MenuItem>
           <MenuItem value="HR">HR</MenuItem>
           <MenuItem value="Manager">Designer</MenuItem>
           <MenuItem value="Marketing">Marketing</MenuItem>
@@ -64,9 +65,9 @@ const ExperienceDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Course Name"
-          name="course"
+          name="experiencecourse"
           placeholder="Enter a Course Name"
-          value={formData.course}
+          value={formData.experiencecourse}
           onChange={handleInputChange}
         />
 
@@ -78,9 +79,9 @@ const ExperienceDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Date of Start"
-          name="startdate"
+          name="experiencestartdate"
           placeholder="Enter a Date of Start"
-          value={formData.startdate}
+          value={formData.experiencestartdate}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -91,9 +92,9 @@ const ExperienceDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Date of End"
-          name="enddate"
+          name="experienceenddate"
           placeholder="Enter a Date of End"
-          value={formData.enddate}
+          value={formData.experienceenddate}
           onChange={handleInputChange}
         />
 
