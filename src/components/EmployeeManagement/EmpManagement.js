@@ -33,13 +33,9 @@ const EmpManagement = () => {
   }, [employeeData])
 
   return (
-    <Box
-      sx={{
-        height: '100vh',
-      }}
-    >
+    <Box>
       {/*  <Container>  */}
-      <Grid container>
+      <Grid container sx={{ height: '100vh'}}>
         {/*  Left admin dashboard  */}
         <AdminSideBar />
 
@@ -52,12 +48,7 @@ const EmpManagement = () => {
               margin: '30px',
             }}
           >
-            <Typography variant="h5"
-              sx={{
-                fontWeight: 'bold',
-                marginTop: '50px',
-              }}
-            >Employee Management</Typography>
+            <Typography variant="h5" sx={{fontWeight: 'bold', marginTop: '50px',}}>Employee Management</Typography>
 
 
             {/*  Add scroll to the table  */}

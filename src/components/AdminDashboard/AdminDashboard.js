@@ -50,13 +50,9 @@ const AdminDashboard = () => {
   };
 
   return (
-    <Box
-      sx={{
-        height: '100vh',
-      }}
-    >
+    <Box>
       {/* {/ {/ <Container> /} /} */}
-      <Grid container>
+      <Grid container sx={{ height: '100vh'}}>
         {/* {/ {/ Left admin dashboard /} /} */}
         <AdminSideBar />
 

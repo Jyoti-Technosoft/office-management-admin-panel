@@ -11,7 +11,7 @@ export const InputField = {
     width: "100%",
     background: "var(--white-color)",
     borderRadius: "10px",
-    marginBottom: '25px',
+    marginBottom: '10px',
 };
 export const InputFieldProps = () => {
     return {
