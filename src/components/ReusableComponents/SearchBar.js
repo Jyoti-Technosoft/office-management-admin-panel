@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SettingIcon from "../../assets/img/icons/settingIcon.png";
+import UserIcon from "../../assets/img/icons/userIcon.png";
 import {
   Box,
   Button,
@@ -116,7 +116,7 @@ const SearchBar = () =>{
             </Box>
             <Box>
         <Button onClick={handleSettingButtonClick}>
-          <img width={"45px"} src={SettingIcon} alt="Setting_Icon" />
+          <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
         </Button>
       </Box>
       <Dialog

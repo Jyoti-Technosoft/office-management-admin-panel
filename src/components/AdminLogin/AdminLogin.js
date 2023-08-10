@@ -19,7 +19,11 @@ import {
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import Logo from "./../../assets/img/LogoSVG.svg";
 
-import { InputLable, InputField } from "../CustomDesignMUI/CustomMUI";
+import {
+  InputLable,
+  InputField,
+  InputFieldProps,
+} from "../CustomDesignMUI/CustomMUI";
 import "./AdminLogin.scss";
 
 const AdminLogin = () => {
@@ -80,8 +84,8 @@ const AdminLogin = () => {
         localStorage.setItem("adminName", matchingUser.name); // Save admin name in local storage
         localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
         localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage
-        localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage 
-        alert("Log In Successful!") 
+        localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage
+        alert("Log In Successful!");
         // setShowDialog(true); // Show the dialog after successful login
         navigate("/dashboard");
       } else {
@@ -159,64 +163,62 @@ const AdminLogin = () => {
               >
                 {errorMessage}
               </Typography>
-              <InputLabel sx={InputLable}>E-mail Address</InputLabel>
-
-              <TextField
-                inputProps={{
-                  sx: {
-                    height: "4px",
-                    fontSize: "12px",
-                  },
-                }}
-                sx={InputField}
-                type="email"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              {emailError && (
-                <Typography
-                  style={{
-                    color: "red",
-                    fontSize: "14px",
-                    padding: "0",
+              {/* <InputLabel sx={InputLable}>E-mail Address</InputLabel> */}
+              <Box>
+                <TextField
+                  inputProps={{
+                    sx: InputFieldProps(),
                   }}
-                >
-                  {emailError}
-                </Typography>
-              )}
+                  sx={InputField}
+                  type="email"
+                  label="E-mail Address"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                {emailError && (
+                  <Typography
+                    style={{
+                      color: "red",
+                      fontSize: "14px",
+                      padding: "0",
+                    }}
+                  >
+                    {emailError}
+                  </Typography>
+                )}
+              </Box>
 
-              <br />
-              <InputLabel sx={InputLable}>Password</InputLabel>
-
-              <TextField
-                inputProps={{
-                  sx: {
-                    height: "4px",
-                    fontSize: "12px",
-                  },
-                }}
-                sx={InputField}
-                type="password"
-                id="exampleInputPassword1"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-
-              {passwordError && (
-                <Typography
-                  sx={{
-                    color: "red",
-                    fontSize: "14px",
-                    padding: "0px",
+              {/* <br /> */}
+              {/* <InputLabel sx={InputLable}>Password</InputLabel> */}
+              <Box sx={{marginTop:"25px"}}> 
+                <TextField
+                  inputProps={{
+                    sx: InputFieldProps(),
                   }}
-                >
-                  {passwordError}
-                </Typography>
-              )}
+                  sx={InputField}
+                  label="Password"
+                  type="password"
+                  id="exampleInputPassword1"
+                  placeholder="Enter Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                {passwordError && (
+                  <Typography
+                    sx={{
+                      color: "red",
+                      fontSize: "14px",
+                      padding: "0px",
+                    }}
+                  >
+                    {passwordError}
+                  </Typography>
+                )}
+              </Box>
 
               <Box
                 sx={{

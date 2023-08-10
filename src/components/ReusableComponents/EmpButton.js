@@ -4,6 +4,10 @@ import { DashboardProfileButtons } from "../CustomDesignMUI/CustomMUI";
 import DisplayPersonal from "../DisplayEmp/DisplayPersonal/DisplayPersonal";
 import DisplayContact from "../DisplayEmp/DisplayContact/DisplayContact";
 import DisplayEducation from "../DisplayEmp/DisplayEducation/DisplayEducation";
+import DisplayFamily from "../DisplayEmp/DisplayFamily/DisplayFamily";
+import DisplayExperience from "../DisplayEmp/DisplayExperience/DisplayExperience";
+import DisplayJob from "../DisplayEmp/DisplayJob/DisplayJob";
+import DisplayFinancial from "../DisplayEmp/DisplayFinancial/DisplayFinancial";
 import { Edit, Delete } from "@mui/icons-material";
 
 const EmpButton = () => {
@@ -19,6 +23,14 @@ const EmpButton = () => {
       return <DisplayContact />;
     } else if (selectedTab === "education") {
       return <DisplayEducation />;
+    } else if (selectedTab === "family") {
+      return <DisplayFamily />;
+    } else if (selectedTab === "experience") {
+      return <DisplayExperience />;
+    } else if (selectedTab === "job") {
+      return <DisplayJob />;
+    } else if (selectedTab === "financial") {
+      return <DisplayFinancial />;
     }
   };
   return (
@@ -84,10 +96,66 @@ const EmpButton = () => {
             >
               Education Qualification
             </Button>
-            <Button sx={DashboardProfileButtons}>Family Details</Button>
-            <Button sx={DashboardProfileButtons}>Experience Details</Button>
-            <Button sx={DashboardProfileButtons}>Job Details</Button>
-            <Button sx={DashboardProfileButtons}>Financial Details</Button>
+            <Button
+              onClick={() => handleTabChange("family")}
+              sx={{
+                ...DashboardProfileButtons,
+                backgroundColor:
+                  selectedTab === "family"
+                    ? "var(--secondary-color)"
+                    : "white",
+                color: selectedTab === "family" ? "white" : "inherit",
+                fontWeight: selectedTab === "family" ? "bold" : "normal",
+                border: "none",
+              }}
+              >
+                Family Details
+            </Button>
+            <Button
+              onClick={() => handleTabChange("experience")}
+              sx={{
+                ...DashboardProfileButtons,
+                backgroundColor:
+                  selectedTab === "experience"
+                    ? "var(--secondary-color)"
+                    : "white",
+                color: selectedTab === "experience" ? "white" : "inherit",
+                fontWeight: selectedTab === "experience" ? "bold" : "normal",
+                border: "none",
+              }}
+              >
+                Experience Details
+            </Button>
+            <Button
+              onClick={() => handleTabChange("job")}
+              sx={{
+                ...DashboardProfileButtons,
+                backgroundColor:
+                  selectedTab === "job"
+                    ? "var(--secondary-color)"
+                    : "white",
+                color: selectedTab === "job" ? "white" : "inherit",
+                fontWeight: selectedTab === "job" ? "bold" : "normal",
+                border: "none",
+              }}
+              >
+                Job Details
+              </Button>
+              <Button
+              onClick={() => handleTabChange("financial")}
+              sx={{
+                ...DashboardProfileButtons,
+                backgroundColor:
+                  selectedTab === "financial"
+                    ? "var(--secondary-color)"
+                    : "white",
+                color: selectedTab === "financial" ? "white" : "inherit",
+                fontWeight: selectedTab === "financial" ? "bold" : "normal",
+                border: "none",
+              }}
+              >
+                Financial Details
+              </Button>
             <Button sx={DashboardProfileButtons}>Leaves</Button>
           </Box>
         </Grid>

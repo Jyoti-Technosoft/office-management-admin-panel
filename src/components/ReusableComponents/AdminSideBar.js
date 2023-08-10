@@ -78,7 +78,7 @@ const AdminSideBar = () => {
             </Typography>
             <Typography variant="subtitle2">{adminPosition}</Typography>
           </Box>
-        </Box>
+        </Box>  
         <Box mt={2}>
           <Typography variant="subtitle2">Features</Typography>
 

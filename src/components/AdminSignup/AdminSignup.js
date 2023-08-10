@@ -16,6 +16,7 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  FormControl,
 } from "@mui/material";
 
 // Custom imports
@@ -223,13 +224,15 @@ const AdminSignup = () => {
               >
                 Signup
               </Typography>
-              <InputLabel sx={InputLable}>Name</InputLabel>
+              <Box sx={{ marginTop: "20px" }}>
+              {/* <InputLabel sx={InputLable}>Name</InputLabel> */}
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="text"
+                label="Name"
                 name="name"
                 placeholder="Enter a name"
                 value={formData.name}
@@ -240,12 +243,15 @@ const AdminSignup = () => {
                   {formErrors.name}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>E-mail</InputLabel>
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+              {/* <InputLabel sx={InputLable}>E-mail</InputLabel> */}
               <TextField
                 inputProps={{
                   style: InputFieldProps(),
                 }}
                 sx={InputField}
+                label="E-mail"
                 type="email"
                 name="email"
                 placeholder="Enter an email"
@@ -257,13 +263,16 @@ const AdminSignup = () => {
                   {formErrors.email}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>Phone Number</InputLabel>
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+              {/* <InputLabel sx={InputLable}>Phone Number</InputLabel> */}
 
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
                 }}
                 sx={InputField}
+                label="Phone Number"
                 type="text"
                 name="phonenumber"
                 placeholder="Enter a phone number"
@@ -275,37 +284,47 @@ const AdminSignup = () => {
                   {formErrors.phonenumber}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>Position</InputLabel>
-              <Select
-                sx={{
-                  height: "35px",
-                  width: "100%",
-                  fontSize: "14px",
-                }}
-                name="position"
-                value={formData.position}
-                onChange={handleChange}
-              >
-                <MenuItem value="">Select a Position</MenuItem>
-                <MenuItem value="CEO">CEO</MenuItem>
-                <MenuItem value="HR">HR</MenuItem>
-                <MenuItem value="Manager">Manager</MenuItem>
-                <MenuItem value="Designer">Designer</MenuItem>
-                <MenuItem value="Developer">Developer</MenuItem>
-                <MenuItem value="Jr.Developer">Jr.Developer</MenuItem>
-              </Select>
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+              {/* <InputLabel sx={InputLable}>Position</InputLabel> */}
+
+              <FormControl fullWidth>
+                <InputLabel id="position">Position</InputLabel>
+                <Select
+                  inputProps={{
+                    sx: InputFieldProps(),
+                  }}
+                  sx={InputField}
+                  labelId="position"
+                  id="selectposition"
+                  name="position"
+                  value={formData.position}
+                  label="Position"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">Select a Position</MenuItem>
+                  <MenuItem value="HR">HR</MenuItem>
+                  <MenuItem value="Manager">Designer</MenuItem>
+                  <MenuItem value="Marketing">Marketing</MenuItem>
+                  <MenuItem value="Developer">Front-end Developer</MenuItem>
+                  <MenuItem value="Jr.Developer">Back-end Developer</MenuItem>
+                </Select>
+              </FormControl>
               {formErrors.position && (
                 <Typography sx={errorMessageDesign}>
                   {formErrors.position}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>Password</InputLabel>
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+              {/* <InputLabel sx={InputLable}>Password</InputLabel> */}
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="password"
+                label="Password"
                 name="password"
                 placeholder="Enter password"
                 value={formData.password}
@@ -316,13 +335,16 @@ const AdminSignup = () => {
                   {formErrors.password}
                 </Typography>
               )}
-              <InputLabel sx={InputLable}>Confirm Password</InputLabel>
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+              {/* <InputLabel sx={InputLable}>Confirm Password</InputLabel> */}
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
                 }}
                 sx={InputField}
                 type="password"
+                label="Confirm Password"
                 name="confirmpassword"
                 placeholder="Confirm password"
                 value={formData.confirmpassword}
@@ -333,6 +355,7 @@ const AdminSignup = () => {
                   {formErrors.confirmpassword}
                 </Typography>
               )}
+              </Box>
 
               <Button
                 onClick={handleSubmit}

@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { viewProfileSubtitle, viewProfileTitle } from '../../CustomDesignMUI/CustomMUI';
-import { BorderBottom } from "@mui/icons-material";
 
 const DisplayContact = () => {
   return (

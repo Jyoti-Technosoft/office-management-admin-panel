@@ -59,5 +59,9 @@ export const viewEducationBox = {
 }
 export const viewEducationTitle = {
     fontWeight: "bold",
-    fontSize: "15px" 
+    fontSize: "16px" 
+}
+export const viewExperiencePosition = {
+    fontWeight: "bold",
+    fontSize: "13px" 
 }
