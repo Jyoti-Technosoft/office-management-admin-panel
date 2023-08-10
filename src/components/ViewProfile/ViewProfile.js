@@ -5,6 +5,7 @@ import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
 import SearchBar from "../ReusableComponents/SearchBar";
 import EmpButton from "../ReusableComponents/EmpButton";
 
+
 const ViewProfile = () => {
   return (
       <Grid container sx={{height: '100vh'}}>

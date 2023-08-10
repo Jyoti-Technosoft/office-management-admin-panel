@@ -6,17 +6,26 @@ export const GlobalContext = createContext();
 const CustomContext = (props) => {
   const [admin, setAdmin] = useState([]);
   const [employeeData, setEmployeeData] = useState([]);
+  const [userData, setUserData] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
 
+
+    // Define your API endpoints
+    const adminApiEndpoint = "http://localhost:8001/adminData";
+    const employeeApiEndpoint = "http://localhost:8000/employeeData";
+
+
   useEffect(() => {
+
+    
     async function fetchData() {
       try {
         // Admin API
-        const { data: adminData } = await axios.get('http://localhost:8001/adminData');
+        const { data: adminData } = await axios.get(adminApiEndpoint);
         setAdmin(adminData);
 
         // Employee API
-        const { data: employeeData } = await axios.get('http://localhost:8000/employeeData');
+        const { data: employeeData } = await axios.get(employeeApiEndpoint);
         setEmployeeData(employeeData);
         
       } catch (error) {
@@ -27,7 +36,7 @@ const CustomContext = (props) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, }}>
+    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData}}>
       {props.children}
     </GlobalContext.Provider>
   );

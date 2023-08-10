@@ -1,11 +1,15 @@
 // EducationDetails.js
 
-import React from "react";
+import React, { useContext } from "react";
 import { Box, TextField, Typography } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
+import { useParams } from "react-router-dom";
+import { GlobalContext } from "../../../ContextAPI/CustomContext";
 
 
 const EducationDetails = ({ formData, onChange }) => {
+
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     onChange({ [name]: value });
@@ -31,9 +35,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Course Name"
-          name="educationcourse"
+          name="educationCourse"
           placeholder="Enter a Course Name"
-          value={formData.educationcourse}
+          value={formData.educationCourse}
           onChange={handleInputChange}
         />
 
@@ -44,9 +48,9 @@ const EducationDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="University Name"
-          name="educationuniversity"
+          name="educationUniversity"
           placeholder="Enter University Name"
-          value={formData.educationuniversity}
+          value={formData.educationUniversity}
           onChange={handleInputChange}
         />
 
@@ -58,9 +62,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Start of The Academic Year"
-          name="educationacademicstart"
+          name="educationAcademicStart"
           placeholder="Enter a Start of The Academic Year"
-          value={formData.educationacademicstart}
+          value={formData.educationAcademicStart}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -71,9 +75,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="End of The Academic Year"
-          name="educationacademicend"
+          name="educationAcademicEnd"
           placeholder="Enter a End of The Academic Year"
-          value={formData.educationacademicend}
+          value={formData.educationAcademicEnd}
           onChange={handleInputChange}
         />
 
@@ -87,9 +91,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Certificate Name"
-          name="educationcertificate"
+          name="educationCertificate"
           placeholder="Enter a Certificate Name"
-          value={formData.educationcertificate}
+          value={formData.educationCertificate}
           onChange={handleInputChange}
         />
 
@@ -100,9 +104,9 @@ const EducationDetails = ({ formData, onChange }) => {
         sx={InputField}
           type="text"
           label="Complited At"
-          name="educationplace"
+          name="educationPlace"
           placeholder="Enter a Place Name"
-          value={formData.educationplace}
+          value={formData.educationPlace}
           onChange={handleInputChange}
         />
 
@@ -114,9 +118,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Start of Date"
-          name="educationprofessionalstart"
+          name="educationProfessionalStart"
           placeholder="Enter a Starting date"
-          value={formData.educationprofessionalstart}
+          value={formData.educationProfessionalStart}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -127,9 +131,9 @@ const EducationDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="End of Date"
-          name="educationprofessionalend"
+          name="educationProfessionalEnd"
           placeholder="Enter a Ending date"
-          value={formData.educationprofessionalend}
+          value={formData.educationProfessionalEnd}
           onChange={handleInputChange}
         />
 

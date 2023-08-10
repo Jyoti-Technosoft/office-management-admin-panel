@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Typography, Grid, IconButton } from "@mui/material";
 import ProfileImg from "../../../assets/img/profile.svg";
 import StarIcon from "../../../assets/img/icons/starIcon.svg";
 import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/CustomMUI';
 import { Delete, Edit } from "@mui/icons-material";
+import { GlobalContext } from "../../../ContextAPI/CustomContext";
+import { useParams } from "react-router-dom";
 
 const DisplayPersonal = () => {
+
+  // DATA CALLING START 
+  const { userData, setUserData } = useContext(GlobalContext)
+  const { employeeId } = useParams();
+  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
+  console.log("EmployeeID: ", employeeId)
+  console.log("Employee Details : ", employeeCall);
+  if (!employeeCall) {
+    return <Box>Loading...</Box>;  // Or handle the case when the employee is not found
+  }
+  // DATA CALLING END
+
+
   return (
     <Box>
       {/* {/ EDIT AND DELETE BUTTONS /} */}
@@ -37,7 +52,7 @@ const DisplayPersonal = () => {
                 marginLeft: "9px",
                 marginTop: '10px',
               }}>
-              Employee ID: 101
+              Employee ID : {"JT" + " " + (employeeCall.id + 100)}
             </Typography>
           </Box>
         </Box>
@@ -47,7 +62,7 @@ const DisplayPersonal = () => {
       <Box sx={{
         marginTop: '30px',
         marginLeft: "9px",
-        }}>
+      }}>
         <Grid container>
 
           {/* {/ LEFT PART /} */}
@@ -57,7 +72,7 @@ const DisplayPersonal = () => {
                 Employee Name
               </Typography>
               <Typography sx={viewProfileTitle}>
-                John Doe
+                {employeeCall.personalFirstname}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -65,7 +80,7 @@ const DisplayPersonal = () => {
                 Department
               </Typography>
               <Typography sx={viewProfileTitle}>
-                Design & Marketing
+              {employeeCall.jobDepartment}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -73,7 +88,7 @@ const DisplayPersonal = () => {
                 Job Title
               </Typography>
               <Typography sx={viewProfileTitle}>
-                UI/UX Designer
+              {employeeCall.jobDesignation}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -81,7 +96,7 @@ const DisplayPersonal = () => {
                 Job Category
               </Typography>
               <Typography sx={viewProfileTitle}>
-                Full Time
+              {employeeCall.jobCategory.charAt(0).toUpperCase() + employeeCall.jobCategory.slice(1)}
               </Typography>
             </Grid>
           </Grid>
@@ -94,7 +109,7 @@ const DisplayPersonal = () => {
                 Date of Joining
               </Typography>
               <Typography sx={viewProfileTitle}>
-                14-12-2022
+              {employeeCall.jobDoj}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -102,7 +117,7 @@ const DisplayPersonal = () => {
                 Date of Birth
               </Typography>
               <Typography sx={viewProfileTitle}>
-                15-05-1998
+              {employeeCall.personalDob}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -110,7 +125,7 @@ const DisplayPersonal = () => {
                 Blood Group
               </Typography>
               <Typography sx={viewProfileTitle}>
-                A+
+              {employeeCall.personalBlood.toUpperCase()}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -118,7 +133,7 @@ const DisplayPersonal = () => {
                 Emergency Number
               </Typography>
               <Typography sx={viewProfileTitle}>
-                +149 427 100 66
+                {employeeCall.contactPersonalNumber}
               </Typography>
             </Grid>
           </Grid>

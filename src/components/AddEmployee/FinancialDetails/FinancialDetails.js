@@ -28,9 +28,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Bank Name"
-          name="financialbankname"
+          name="financialBankName"
           placeholder="Enter a Bank Name"
-          value={formData.financialbankname}
+          value={formData.financialBankName}
           onChange={handleInputChange}
         />
         <TextField
@@ -40,9 +40,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="number"
           label="Account No."
-          name="financialacno"
+          name="financialAccountNo"
           placeholder="Enter a Account Number"
-          value={formData.financialacno}
+          value={formData.financialAccountNo}
           onChange={handleInputChange}
         />
         <TextField
@@ -52,9 +52,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Account Holder Name"
-          name="financialacname"
+          name="financialHolderName"
           placeholder="Enter a Account Holder Name"
-          value={formData.financialacname}
+          value={formData.financialHolderName}
           onChange={handleInputChange}
         />
         <TextField
@@ -64,9 +64,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="IFSC No."
-          name="financialifsc"
+          name="financialIfsc"
           placeholder="Enter a IFSC No."
-          value={formData.financialifsc}
+          value={formData.financialIfsc}
           onChange={handleInputChange}
         />
         <TextField
@@ -76,9 +76,9 @@ const FinancialDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Branch Name"
-          name="financialbranchname"
+          name="financialBranchName"
           placeholder="Enter a Branch Name"
-          value={formData.financialbranchname}
+          value={formData.financialBranchName}
           onChange={handleInputChange}
         />
       </form>

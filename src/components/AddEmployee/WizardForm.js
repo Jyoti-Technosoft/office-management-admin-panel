@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import {
   Dialog,
@@ -17,12 +17,17 @@ import FamilyDetails from "./FamilyDetails/FamilyDetails";
 import ExperienceDetails from "./ExperienceDetails/ExperienceDetails";
 import JobDetails from "./JobDetails/JobDetails";
 import FinancialDetails from "./FinancialDetails/FinancialDetails";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const WizardForm = ({ open, onClose, addEmployee }) => {
+  // Context Function 
+  const {employeeData, employeeApiEndpoint } = useContext(GlobalContext);
+
+  
   const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({});
   const [formHistory, setFormHistory] = useState([]);
-  const isLastForm = activeTab === 6;
+  const isLastForm = activeTab === 6;  
 
   useEffect(() => {
     if (formHistory.length === 0) {
@@ -49,17 +54,14 @@ const WizardForm = ({ open, onClose, addEmployee }) => {
   };
 
   const handleSubmit = () => {
-    axios
-      .get("http://localhost:8000/employeeData")
-      .then((response) => {
-        const existingData = response.data;
+        const existingData = employeeData;
         const dataCount = existingData.length;
         const dataWithId = {
           ...formData,
           id: dataCount + 1,
         };
         axios
-          .post("http://localhost:8000/employeeData", dataWithId)
+          .post(employeeApiEndpoint, dataWithId)
           .then((response) => {
             console.log("Data submitted successfully:", response.data);
             // Assuming the server responds with the saved data
@@ -71,10 +73,6 @@ const WizardForm = ({ open, onClose, addEmployee }) => {
           .catch((error) => {
             console.error("Error saving data:", error);
           });
-      })
-      .catch((error) => {
-        console.error("Error fetching existing data:", error);
-      });
   };
 
   const handleChange = (data) => {

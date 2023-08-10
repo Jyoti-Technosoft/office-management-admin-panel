@@ -17,7 +17,8 @@ function App() {
           <Route path="/" element={<AdminLogin />} />
           <Route path="/signup" element={<AdminSignup />} />
           <Route path="/dashboard" element={<Protected Comp={AdminDashboard} />} />
-          <Route path="/viewprofile" element={<Protected Comp={ViewProfile} />} />
+          {/* <Route path="/viewprofile" element={<Protected Comp={ViewProfile} />} /> */}
+          <Route path="/viewprofile/:employeeId" element={<Protected Comp={ViewProfile}/>}/>
           <Route path= "/empmanagement" element={<Protected Comp = {EmpManagement}/>}/>
         </Routes>
       </BrowserRouter>

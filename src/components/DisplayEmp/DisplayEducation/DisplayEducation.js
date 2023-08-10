@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import {
   viewProfileSubtitle,
@@ -6,8 +6,23 @@ import {
   viewEducationBox,
   viewEducationTitle,
 } from "../../CustomDesignMUI/CustomMUI";
+import { GlobalContext } from "../../../ContextAPI/CustomContext";
+import { useParams } from "react-router-dom";
 
 const DisplayEducation = () => {
+  
+    // DATA CALLING START 
+    const { userData, setUserData } = useContext(GlobalContext)
+    const { employeeId } = useParams();
+    const employeeCall = userData.find(user => user.id === parseInt(employeeId));
+    console.log("EmployeeID: ", employeeId)
+    console.log("Employee Details : ", employeeCall);
+    if (!employeeCall) {
+      return <Box>Loading...</Box>;  // Or handle the case when the employee is not found
+    }
+    // DATA CALLING END
+
+
   return (
     <Box
       sx={{
@@ -25,9 +40,9 @@ const DisplayEducation = () => {
       <Typography sx={viewProfileTitle}>Academic Records</Typography>
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
-          <Typography sx={viewEducationTitle}>Leicester University</Typography>
+          <Typography sx={viewEducationTitle}>{employeeCall.educationUniversity}</Typography>
           <Typography sx={viewProfileSubtitle}>
-            B.Sc in Computer Science, May 2014 - May 2018
+          {employeeCall.educationCourse}{","} {employeeCall.educationAcademicStart}{"-"}{employeeCall.educationAcademicEnd}
           </Typography>
         </Box>
         <Box sx={viewEducationBox}>

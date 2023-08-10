@@ -28,9 +28,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Firstname"
-          name="familyfirstname"
+          name="familyFirstname"
           placeholder="Enter a firstname"
-          value={formData.familyfirstname}
+          value={formData.familyFirstname}
           onChange={handleInputChange}
         />
 
@@ -41,9 +41,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Lastname"
-          name="familylastname"
+          name="familyLastname"
           placeholder="Enter a lastname"
-          value={formData.familylastname}
+          value={formData.familyLastname}
           onChange={handleInputChange}
         />
 
@@ -54,9 +54,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Relationship"
-          name="familyrelation"
+          name="familyRelation"
           placeholder="Enter a Relationship"
-          value={formData.familyrelation}
+          value={formData.familyRelation}
           onChange={handleInputChange}
         />
 
@@ -67,9 +67,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="email"
           label="E-mail Address"
-          name="familyemail"
+          name="familyEmail"
           placeholder="Enter a email"
-          value={formData.familyemail}
+          value={formData.familyEmail}
           onChange={handleInputChange}
         />
 
@@ -80,9 +80,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="number"
           label="Phone Number"
-          name="familyphonenumber"
+          name="familyPhoneNumber"
           placeholder="Enter a Phone Number"
-          value={formData.familyphonenumber}
+          value={formData.familyPhoneNumber}
           onChange={handleInputChange}
         />
 
@@ -94,9 +94,9 @@ const FamilyDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="date"
           label="Date of Birth"
-          name="familydob"
+          name="familyDob"
           placeholder="Enter a Date of Birth"
-          value={formData.familydob}
+          value={formData.familyDob}
           onChange={handleInputChange}
         />
       </form>

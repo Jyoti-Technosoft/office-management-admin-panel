@@ -68,14 +68,7 @@ const AdminSideBar = () => {
               paddingLeft: "10px",
             }}
           >
-            <Typography
-              variant="subtitle"
-              sx={{
-                fontWeight: "bold",
-              }}
-            >
-              {capitalizedAdminName}
-            </Typography>
+            <Typography variant="subtitle" sx={{ fontWeight: "bold"}}>{capitalizedAdminName}</Typography>
             <Typography variant="subtitle2">{adminPosition}</Typography>
           </Box>
         </Box>  

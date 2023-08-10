@@ -34,9 +34,9 @@ const ContactDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Personal Number"
-          name="contactpnumber"
+          name="contactPersonalNumber"
           placeholder="Enter a phone number 1"
-          value={formData.contactpnumber}
+          value={formData.contactPersonalNumber}
           onChange={handleInputChange}
         />
         <TextField
@@ -46,9 +46,9 @@ const ContactDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Additional Number"
-          name="contactenumber"
+          name="contactAdditionalNumber"
           placeholder="Enter a phone number 2"
-          value={formData.contactenumber}
+          value={formData.contactAdditionalNumber}
           onChange={handleInputChange}
         />
 
@@ -59,9 +59,9 @@ const ContactDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="email"
           label="E-mail Address"
-          name="contactemail"
+          name="contactEmail"
           placeholder="Enter an email"
-          value={formData.contactemail}
+          value={formData.contactEmail}
           onChange={handleInputChange}
         />
 
@@ -72,9 +72,9 @@ const ContactDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="State of residence"
-          name="contactsor"
+          name="contactState"
           placeholder="Enter your State"
-          value={formData.contactsor}
+          value={formData.contactState}
           onChange={handleInputChange}
         />
 
@@ -85,9 +85,9 @@ const ContactDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="City"
-          name="contactcity"
+          name="contactCity"
           placeholder="Enter your City"
-          value={formData.contactcity}
+          value={formData.contactCity}
           onChange={handleInputChange}
 
         />
@@ -99,9 +99,9 @@ const ContactDetails = ({ formData, onChange }) => {
           sx={InputField}
           type="text"
           label="Residential Address"
-          name="contactra"
+          name="contactResidental"
           placeholder="Enter a Residential Address"
-          value={formData.contactra}
+          value={formData.contactResidental}
           onChange={handleInputChange}
 
         />

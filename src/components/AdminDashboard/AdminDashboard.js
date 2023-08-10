@@ -28,16 +28,14 @@ import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminDashboard = () => {
   // Context Function 
-  const {employeeData} = useContext(GlobalContext);
+  const { employeeData, setUserData, userData } = useContext(GlobalContext);
 
-  const [userData, setUserData] = useState([]);
-  // const [openModal, setOpenModal] = useState(false);
-  // const [currentForm, setCurrentForm] = useState("personalDetail");
+  // const [userData, setUserData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     setUserData(employeeData);
-    console.log('Dashboard:- ',employeeData);
+    console.log('Dashboard:- ', employeeData);
   }, [employeeData])
 
 
@@ -52,13 +50,13 @@ const AdminDashboard = () => {
   return (
     <Box>
       {/* {/ {/ <Container> /} /} */}
-      <Grid container sx={{ height: '100vh'}}>
+      <Grid container sx={{ height: '100vh' }}>
         {/* {/ {/ Left admin dashboard /} /} */}
         <AdminSideBar />
 
         <Grid item xs={12} md={9.4}>
           {/* {/ {/ SEARCH BAR  /} /} */}
-          <SearchBar/>
+          <SearchBar />
           <Box
             sx={{
               margin: '30px',
@@ -235,18 +233,27 @@ const AdminDashboard = () => {
                         sx={{ backgroundColor: index % 2 === 1 ? 'var(--pirmary-light-color)' : '' }} // Apply alternating colors
                       >
                         <TableCell>{'JT' + " " + (index + 101)}</TableCell>
-                        <TableCell>{`${user.firstname} ${user.lastname}`}</TableCell>
-                        <TableCell>{user.dob}</TableCell>
-                        <TableCell>{user.doj}</TableCell>
-                        <TableCell>{user.designation}</TableCell>
+                        <TableCell>{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
+                        <TableCell>{user.personalDob}</TableCell>
+                        <TableCell>{user.jobDoj}</TableCell>
+                        <TableCell>{user.jobDesignation}</TableCell>
                         <TableCell>
-                          <Button
+                          {/* <Button
                             component={Link}
                             to="/viewprofile"   
                             variant="outlined"
                             color="primary"
-                            onClick={() => user.id}
+                            onClick={() => { console.log(user.id); return user.id}}
                           >
+                            View Profile
+                          </Button> */}
+
+                          <Button
+                            component={Link}
+                            to={`/viewprofile/${user.id}`}   // Pass the employee's ID as a parameter in the URL
+                            variant="outlined"
+                            color="primary"
+                            >
                             View Profile
                           </Button>
                         </TableCell>
