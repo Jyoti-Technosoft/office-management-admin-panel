@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext,useState } from "react";
+import { GlobalContext } from "../../ContextAPI/CustomContext"; // Import your custom context
+
 // ICON IMPORT
 import ProfileImg from "../../assets/img/profile.svg";
 import DashboardIcon from "../../assets/img/icons/DashboardIcon.png";
@@ -20,6 +22,8 @@ import { Link } from "react-router-dom";
 
 const AdminSideBar = () => {
   const [openDialog, setOpenDialog] = useState(false); 
+  const { adminName, adminPosition } = useContext(GlobalContext);
+
 
   const handleLogOut = () => {
     setOpenDialog(true); // Open the dialog on logout button click
@@ -37,8 +41,8 @@ const AdminSideBar = () => {
   };
 
   // Retrieve admin name and position from local storage
-  const adminName = localStorage.getItem("adminName");
-  const adminPosition = localStorage.getItem("adminPosition");
+  // const adminName = localStorage.getItem("adminName");
+  // const adminPosition = localStorage.getItem("adminPosition");
 
   const capitalizedAdminName =
     adminName.charAt(0).toUpperCase() + adminName.slice(1).toLowerCase();
@@ -151,7 +155,7 @@ const AdminSideBar = () => {
               },
             }}
             component={Link}
-            to="/leave"
+            to="/leavemanagement"
           >
             <Box
               sx={{
@@ -179,7 +183,7 @@ const AdminSideBar = () => {
               },
             }}
             component={Link}
-            to="/attendance"
+            to="/attendancemanagement"
           >
             <Box
               sx={{

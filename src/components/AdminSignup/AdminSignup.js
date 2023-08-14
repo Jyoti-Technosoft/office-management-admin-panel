@@ -22,7 +22,6 @@ import {
 // Custom imports
 import Logo from "./../../assets/img/LogoSVG.svg";
 import {
-  InputLable,
   InputField,
   InputFieldProps,
   errorMessageDesign,

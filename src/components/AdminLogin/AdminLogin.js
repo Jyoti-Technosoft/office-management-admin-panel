@@ -1,25 +1,19 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import axios from "axios";
 //IMPORTING CONTEXT
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import {
   Box,
   Button,
   Checkbox,
-  InputLabel,
   TextField,
   Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
 } from "@mui/material";
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import Logo from "./../../assets/img/LogoSVG.svg";
 
 import {
-  InputLable,
   InputField,
   InputFieldProps,
 } from "../CustomDesignMUI/CustomMUI";
@@ -27,7 +21,8 @@ import "./AdminLogin.scss";
 
 const AdminLogin = () => {
   // Context Function
-  const { admin } = useContext(GlobalContext);
+  // const { admin } = useContext(GlobalContext);
+  const { admin, setAdminName, setAdminPosition } = useContext(GlobalContext);
   console.log("Login ", admin);
 
   const [email, setEmail] = useState("");
@@ -45,7 +40,7 @@ const AdminLogin = () => {
     setPasswordError("");
 
     // Email validation
-    if (!email) {
+    if (!email) { 
       setEmailError("Email is required");
       valid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -65,30 +60,33 @@ const AdminLogin = () => {
     return valid;
   };
 
-  const [showDialog, setShowDialog] = useState(false); // State variable for showing/hiding the dialog
-
-  const handleCloseDialog = () => {
-    setShowDialog(false);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateInputs()) {
-      const matchingUser = admin.find(
-        (user) => user.email === email && user.password === password
-      );
+      try {
+        const response = await axios.get("http://localhost:8001/adminData"); // Replace with your actual API endpoint
+        const adminData = response.data;
+
+        const matchingUser = adminData.find(
+          (user) => user.email === email && user.password === password
+        );
 
       if (matchingUser) {
-        localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("adminName", matchingUser.name); // Save admin name in local storage
-        localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
-        localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage
-        localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage
+        // localStorage.setItem("loggedIn", "true");
+        // localStorage.setItem("adminName", matchingUser.name); // Save admin name in local storage
+        // localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
+        // localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage
+        // localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage
+        setAdminName(matchingUser.name); // Set admin's name in the context
+        setAdminPosition(matchingUser.position); // Set admin's position in the context
         alert("Log In Successful!");
-        // setShowDialog(true); // Show the dialog after successful login
         navigate("/dashboard");
+        // navigate("/dashboard", { state: { adminName: matchingUser.name } });
       } else {
         setErrorMessage("Invalid email or password");
+      }
+    } catch (error) {
+      console.error("Error fetching admin data:", error);
       }
     }
   };
@@ -287,27 +285,6 @@ const AdminLogin = () => {
           </Box>
         </Box>
       </Box>
-      <Dialog
-        open={showDialog}
-        onClose={handleCloseDialog}
-        maxWidth="xs"
-        fullWidth
-      >
-        <DialogTitle>Login Successful</DialogTitle>
-        <DialogContent>
-          <Typography variant="body1">
-            You have successfully logged in!
-          </Typography>
-          <Typography variant="body1">
-            Welcome, {localStorage.getItem("adminName")}!
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Box>
   );
 };

@@ -1,56 +1,53 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Typography,
-  Grid,
-} from "@mui/material";
+import { Box, Button, Typography, Grid } from "@mui/material";
 import "./AdminDashboard.scss";
-import AdminSideBar from '../../components/ReusableComponents/AdminSideBar';
-import SearchBar from '../ReusableComponents/SearchBar';
-import EmployeeFormModal from '../AddEmployee/EmployeeFormModal';
+import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
+import SearchBar from "../ReusableComponents/SearchBar";
+import Employee from "./EmployeeButtons/Employee";
+import Leave from "./EmployeeButtons/Leave";
+import Attendance from "./EmployeeButtons/Attendance";
 
-// IMPORT ICON 
-import EmployeeIcon from '../../assets/img/icons/EmpIcon.svg';
-import LeaveIcon from '../../assets/img/icons/leaveIcon.svg';
-import AttendanceIcon from '../../assets/img/icons/attendanceIcon.svg';
+// IMPORT ICON
+import EmployeeIcon from "../../assets/img/icons/EmpIcon.svg";
+import LeaveIcon from "../../assets/img/icons/leaveIcon.svg";
+import AttendanceIcon from "../../assets/img/icons/attendanceIcon.svg";
 
-// IMPORT CONTEXT 
+// IMPORT CONTEXT
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminDashboard = () => {
-  // Context Function 
+  // Context Function
   const { employeeData, setUserData, userData } = useContext(GlobalContext);
+  const [leaveData, setLeaveData] = useState([]);
+  const [attendanceData, setAttendanceData] = useState([]);
 
-  // const [userData, setUserData] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setUserData(employeeData);
-    console.log('Dashboard:- ', employeeData);
-  }, [employeeData])
+    setLeaveData(employeeData);
+    setAttendanceData(employeeData);
+    console.log("Dashboard:- ", employeeData);
+  }, [employeeData]);
+  const [selectedTab, setSelectedTab] = useState("employee");
 
-
-  const handleAddEmployee = () => {
-    setIsModalOpen(true);
+  const handleTabChange = (tab) => {
+    setSelectedTab(tab);
   };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const renderTabContent = () => {
+    if (selectedTab === "employee") {
+      return <Employee />;
+    } else if (selectedTab === "leave") {
+      return <Leave />;
+    } else if (selectedTab === "attendance") {
+      return <Attendance />;
+    }
   };
 
   return (
     <Box>
       {/* {/ {/ <Container> /} /} */}
-      <Grid container sx={{ height: '100vh' }}>
+      <Grid container sx={{ height: "100vh" }}>
         {/* {/ {/ Left admin dashboard /} /} */}
         <AdminSideBar />
 
@@ -59,210 +56,192 @@ const AdminDashboard = () => {
           <SearchBar />
           <Box
             sx={{
-              margin: '30px',
+              margin: "30px",
             }}
           >
-            <Typography variant="h5"
+            <Typography
+              variant="h5"
               sx={{
-                fontWeight: 'bold',
-                marginTop: '50px',
+                fontWeight: "bold",
+                marginTop: "50px",
               }}
-            >Dashboard</Typography>
+            >
+              Dashboard
+            </Typography>
 
             {/* {/ {/ CARDS  /} /} */}
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                marginTop: '20px',
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                marginTop: "20px",
               }}
             >
               {/* {/ {/ FIRST BOX /} /} */}
-              <Box
+              <Button
+                onClick={() => handleTabChange("employee")}
                 sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  background: 'var(--secondary-color)',
-                  borderRadius: '8px',
-                  padding: '5px 20px',
-                  width: '180px',
-                  color: 'var(--white-color)',
+                  backgroundColor:
+                    selectedTab === "employee"
+                      ? "var(--secondary-color)"
+                      : "var(--primary-color)",
+                  color: selectedTab === "employee" ? "white" : "inherit",
+                  fontWeight: selectedTab === "employee" ? "bold" : "normal",
+                  marginTop: "0px",
+                  "&:hover": {
+                    background: "var(--secondary-color)",
+                    color: "white",
+                    fontWeight: "bold",
+                  },
                 }}
               >
-                <Box>
-                  <img width={'35px'} src={EmployeeIcon} alt='Employee Icon' />
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    // background: "var(--primary-color)",
+                    borderRadius: "8px",
+                    padding: "5px 20px",
+                    width: "180px",
+                    color: "var(--white-color)",
+                  }}
+                >
+                  <Box>
+                    <img
+                      width={"35px"}
+                      src={EmployeeIcon}
+                      alt="Employee Icon"
+                    />
+                  </Box>
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: "25px",
+                        marginBottom: "-10px",
+                      }}
+                    >
+                      {userData.length}
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      Employee
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box>
-                  <Typography sx={{ fontWeight: 'bold', fontSize: '25px', marginBottom: '-10px' }}>
-                    {userData.length}
-                  </Typography>
-                  <Typography sx={{ fontWeight: 'bold' }}>
-                    Employee
-                  </Typography>
-                </Box>
-              </Box>
+              </Button>
 
               {/* {/ {/ SECOND BOX /} /} */}
-              <Box
-                sx={{
-                  marginLeft: '20px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  background: 'var(--primary-color)',
-                  borderRadius: '8px',
-                  padding: '5px 20px',
-                  width: '180px',
-                  color: 'var(--white-color)',
-                }}
-              >
-                <Box>
-                  <img width={'35px'} src={LeaveIcon} alt='Employee Icon' />
-                </Box>
-                <Box>
-                  <Typography sx={{ fontWeight: 'bold', fontSize: '25px', marginBottom: '-10px' }}>
-                    02
-                  </Typography>
-                  <Typography sx={{ fontWeight: 'bold' }}>
-                    Leave
-                  </Typography>
-                </Box>
+              <Box sx={{ marginLeft: "20px" }}>
+                <Button
+                  onClick={() => handleTabChange("leave")}
+                  sx={{
+                    backgroundColor:
+                      selectedTab === "leave"
+                        ? "var(--secondary-color)"
+                        : "var(--primary-color)",
+                    color: selectedTab === "leave" ? "white" : "inherit",
+                    fontWeight: selectedTab === "leave" ? "bold" : "normal",
+                    marginTop: "0px",
+                    "&:hover": {
+                      background: "var(--secondary-color)",
+                      color: "white",
+                      fontWeight: "bold",
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      // background: "var(--primary-color)",
+                      borderRadius: "8px",
+                      padding: "5px 20px",
+                      width: "180px",
+                      color: "var(--white-color)",
+                    }}
+                  >
+                    <Box>
+                      <img width={"35px"} src={LeaveIcon} alt="Employee Icon" />
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: "25px",
+                          marginBottom: "-10px",
+                        }}
+                      >
+                        {leaveData.length}
+                      </Typography>
+                      <Typography sx={{ fontWeight: "bold" }}>Leave</Typography>
+                    </Box>
+                  </Box>
+                </Button>
               </Box>
 
               {/* {/ {/ THIRD BOX /} /} */}
-              <Box
-                sx={{
-                  marginLeft: '20px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  background: 'var(--primary-color)',
-                  borderRadius: '8px',
-                  padding: '5px 20px',
-                  width: '180px',
-                  color: 'var(--white-color)',
-                }}
-              >
-                <Box>
-                  <img width={'35px'} src={AttendanceIcon} alt='Employee Icon' />
-                </Box>
-                <Box>
-                  <Typography sx={{ fontWeight: 'bold', fontSize: '25px', marginBottom: '-10px' }}>
-                    198
-                  </Typography>
-                  <Typography sx={{ fontWeight: 'bold' }}>
-                    Attandance
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-            {/* {/ {/ CARDS END  /} /} */}
-
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginTop: '40px',
-              }}
-            >
-              <Box>
-                <Typography variant="h6"
-                  sx={{
-                    fontWeight: 'bold',
-                  }}
-                >
-                  Employee
-                </Typography>
-              </Box>
-              <Box>
+              <Box sx={{ marginLeft: "20px" }}>
                 <Button
-                  variant="contained"
+                  onClick={() => handleTabChange("attendance")}
                   sx={{
-                    background: 'var(--secondary-color)',
-                    color: 'var(--white-color)',
-                    fontWeight: 'bold',
+                    backgroundColor:
+                      selectedTab === "attendance"
+                        ? "var(--secondary-color)"
+                        : "var(--primary-color)",
+                    color: selectedTab === "attendance" ? "white" : "inherit",
+                    fontWeight:
+                      selectedTab === "attendance" ? "bold" : "normal",
+                    marginTop: "0px",
+                    "&:hover": {
+                      background: "var(--secondary-color)",
+                      color: "white",
+                      fontWeight: "bold",
+                    },
                   }}
-                  onClick={handleAddEmployee} // Open the modal when button is clicked
                 >
-                  + add
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      // background: "var(--primary-color)",
+                      borderRadius: "8px",
+                      padding: "5px 20px",
+                      width: "180px",
+                      color: "var(--white-color)",
+                    }}
+                  >
+                    <Box>
+                      <img
+                        width={"35px"}
+                        src={AttendanceIcon}
+                        alt="Employee Icon"
+                      />
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: "25px",
+                          marginBottom: "-10px",
+                        }}
+                      >
+                        {attendanceData.length}
+                      </Typography>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        Attandance
+                      </Typography>
+                    </Box>
+                  </Box>
                 </Button>
               </Box>
             </Box>
-            <EmployeeFormModal open={isModalOpen} onClose={handleCloseModal} />
-
-            {/* {/ {/ Add scroll to the table /} /} */}
-            <Box
-              sx={{
-                // height: "500px",
-                marginTop: '15px',
-                maxHeight: 'calc(100vh - 380px)',
-              }}
-              overflow="auto"
-            >
-              <TableContainer component={Paper}>
-                <Table>
-                  <TableHead sx={{ background: 'var(--pirmary-light-color)' }}>
-                    <TableRow sx={{ textDecoration: 'none' }}>
-                      <TableCell>
-                        <b>Emp ID</b>
-                      </TableCell>
-                      <TableCell>
-                        <b>Name</b>
-                      </TableCell>
-                      <TableCell>
-                        <b>Date of Birth</b>
-                      </TableCell>
-                      <TableCell>
-                        <b>Date of Join</b>
-                      </TableCell>
-                      <TableCell>
-                        <b>Designation</b>
-                      </TableCell>
-                      <TableCell>
-                        <b>Action</b>
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {userData?.map((user, index) => (
-                      <TableRow
-                        key={index}
-                        sx={{ backgroundColor: index % 2 === 1 ? 'var(--pirmary-light-color)' : '' }} // Apply alternating colors
-                      >
-                        <TableCell>{'JT' + " " + (index + 101)}</TableCell>
-                        <TableCell>{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                        <TableCell>{user.personalDob}</TableCell>
-                        <TableCell>{user.jobDoj}</TableCell>
-                        <TableCell>{user.jobDesignation}</TableCell>
-                        <TableCell>
-                          {/* <Button
-                            component={Link}
-                            to="/viewprofile"   
-                            variant="outlined"
-                            color="primary"
-                            onClick={() => { console.log(user.id); return user.id}}
-                          >
-                            View Profile
-                          </Button> */}
-
-                          <Button
-                            component={Link}
-                            to={`/viewprofile/${user.id}`}   // Pass the employee's ID as a parameter in the URL
-                            variant="outlined"
-                            color="primary"
-                            >
-                            View Profile
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Box>
+            {/* {/ {/ CARDS END  /} /} */}
+            {/* FOR DASHBOARD BOTTONS */}
+            <Box>{renderTabContent()}</Box>
           </Box>
         </Grid>
       </Grid>
@@ -271,7 +250,3 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
-
-
-
-
