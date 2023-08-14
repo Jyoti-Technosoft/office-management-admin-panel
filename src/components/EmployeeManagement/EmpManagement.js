@@ -95,25 +95,14 @@ const EmpManagement = () => {
                         <TableCell>{user.jobDoj}</TableCell>
                         <TableCell>{user.jobDesignation}</TableCell>
                         <TableCell>
-                          {/* <Button
-                            component={Link}
-                            to="/viewprofile"   
-                            variant="outlined"
-                            color="primary"
-                            onClick={() => user.id}
-                          >
-                            View Profile
-                          </Button> */}
 
                           <Button
                             component={Link}
-                            to={`/viewprofile/${user.id}`}   // Pass the employee's ID as a parameter in the URL
+                            to={`/viewprofile/${user.id}`} 
                             variant="outlined"
-                            color="primary"
-                          >
+                            color="primary">
                             View Profile
                           </Button>
-
                         </TableCell>
                       </TableRow>
                     ))}

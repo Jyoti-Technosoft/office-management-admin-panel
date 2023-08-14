@@ -8,7 +8,6 @@ import DisplayFamily from "../DisplayEmp/DisplayFamily/DisplayFamily";
 import DisplayExperience from "../DisplayEmp/DisplayExperience/DisplayExperience";
 import DisplayJob from "../DisplayEmp/DisplayJob/DisplayJob";
 import DisplayFinancial from "../DisplayEmp/DisplayFinancial/DisplayFinancial";
-import { Edit, Delete } from "@mui/icons-material";
 
 const EmpButton = () => {
   const [selectedTab, setSelectedTab] = useState("personal");

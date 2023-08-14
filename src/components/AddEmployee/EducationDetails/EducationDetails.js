@@ -26,7 +26,7 @@ const EducationDetails = ({ formData, onChange }) => {
       <hr />
 
       <form onSubmit={handleSubmit}>
-      <Typography variant="h6">Academic Records</Typography>
+      <Typography variant="h6" sx={{marginBottom: '20px'}}>Academic Records</Typography>
 
       <TextField
           inputProps={{
@@ -64,7 +64,7 @@ const EducationDetails = ({ formData, onChange }) => {
           label="Start of The Academic Year"
           name="educationAcademicStart"
           placeholder="Enter a Start of The Academic Year"
-          value={formData.educationAcademicStart}
+          value={formData.educationAcademicStart || " "}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -77,12 +77,12 @@ const EducationDetails = ({ formData, onChange }) => {
           label="End of The Academic Year"
           name="educationAcademicEnd"
           placeholder="Enter a End of The Academic Year"
-          value={formData.educationAcademicEnd}
+          value={formData.educationAcademicEnd || " "}
           onChange={handleInputChange}
         />
 
         <hr/>
-        <Typography variant="h6">Professional Qualifications</Typography>
+        <Typography variant="h6" sx={{marginBottom: '20px'}}>Professional Qualifications</Typography>
 
         <TextField
           inputProps={{
@@ -120,7 +120,7 @@ const EducationDetails = ({ formData, onChange }) => {
           label="Start of Date"
           name="educationProfessionalStart"
           placeholder="Enter a Starting date"
-          value={formData.educationProfessionalStart}
+          value={formData.educationProfessionalStart || " "}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -133,7 +133,7 @@ const EducationDetails = ({ formData, onChange }) => {
           label="End of Date"
           name="educationProfessionalEnd"
           placeholder="Enter a Ending date"
-          value={formData.educationProfessionalEnd}
+          value={formData.educationProfessionalEnd || " "}
           onChange={handleInputChange}
         />
 

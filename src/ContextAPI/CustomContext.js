@@ -11,6 +11,8 @@ const CustomContext = (props) => {
   const [employeeData, setEmployeeData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false); 
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false); 
 
   // Define your API endpoints
   const adminApiEndpoint = "http://localhost:8001/adminData";
@@ -34,8 +36,10 @@ const CustomContext = (props) => {
     fetchData();
   }, []);
 
+
   return (
-    <GlobalContext.Provider value={{ admin, setAdmin, adminName, setAdminName, adminPosition, setAdminPosition, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData }}>
+
+    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData, setOpenDialog, openDialog, openDeleteDialog, setOpenDeleteDialog, adminName, setAdminName, adminPosition, setAdminPosition,}}>
       {props.children}
     </GlobalContext.Provider>
   );

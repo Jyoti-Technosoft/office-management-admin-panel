@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import {
   viewProfileSubtitle,
   viewEducationBox,
   viewEducationTitle,
 } from "../../CustomDesignMUI/CustomMUI";
-
+import { useParams } from "react-router-dom";
+import { GlobalContext } from "../../../ContextAPI/CustomContext";
 const DisplayFamily = () => {
+
+  // DATA CALLING START 
+  const { userData, setUserData } = useContext(GlobalContext)
+  const { employeeId } = useParams();
+  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
+  console.log("EmployeeID: ", employeeId)
+  console.log("Employee Details : ", employeeCall);
+  if (!employeeCall) {
+    return <Box>Loading...</Box>;  // Or handle the case when the employee is not found
+  }
+  // DATA CALLING END
   return (
     <Box
       sx={{
@@ -23,24 +35,13 @@ const DisplayFamily = () => {
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
           <Typography sx={viewEducationTitle}>
-            Mr Johnnie Walker Deep
+            {employeeCall.familyFirstname}{" "}{employeeCall.familyLastname}
           </Typography>
           <Typography sx={viewProfileSubtitle}>
-            Relationship : Brother | Phone No : 090 300 540 9888
+            Relationship : {employeeCall.familyRelation} | Phone No : {employeeCall.familyPhoneNumber}
           </Typography>
           <Typography sx={viewProfileSubtitle}>
-            Address: 333 Adeniyi Street Victoria Island, Lagos
-          </Typography>
-        </Box>
-        <Box sx={viewEducationBox}>
-          <Typography sx={viewEducationTitle}>
-            Mr Johnnie Walker Deep
-          </Typography>
-          <Typography sx={viewProfileSubtitle}>
-            Relationship : Brother | Phone No : 090 300 540 9888
-          </Typography>
-          <Typography sx={viewProfileSubtitle}>
-            Address: 333 Adeniyi Street Victoria Island, Lagos
+            Email: {employeeCall.familyEmail} | DOB: {employeeCall.familyDob}
           </Typography>
         </Box>
       </Box>

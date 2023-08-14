@@ -1,24 +1,35 @@
-import React, { useContext } from "react";
-import { Box, Typography, Grid, IconButton } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
+import { Box, Typography, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import ProfileImg from "../../../assets/img/profile.svg";
 import StarIcon from "../../../assets/img/icons/starIcon.svg";
 import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/CustomMUI';
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const DisplayPersonal = () => {
 
   // DATA CALLING START 
-  const { userData, setUserData } = useContext(GlobalContext)
+  const { userData, employeeApiEndpoint } = useContext(GlobalContext)
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const { employeeId } = useParams();
   const employeeCall = userData.find(user => user.id === parseInt(employeeId));
-  console.log("EmployeeID: ", employeeId)
-  console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>;  // Or handle the case when the employee is not found
+    return <Box>Loading...</Box>;
   }
   // DATA CALLING END
+
+  const deleteEmployee = () => {
+    axios.delete(`http://localhost:8000/employeeData/${employeeId}`)
+      .then(response => {
+        console.log(`Employee Deleted Successfully`);
+
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
 
   return (
@@ -33,7 +44,7 @@ const DisplayPersonal = () => {
         <IconButton sx={{ color: "var( --third-color)" }}>
           <Edit />
         </IconButton>
-        <IconButton sx={{ color: "var( --third-color)" }}>
+        <IconButton onClick={() => setOpenDeleteDialog(true)} sx={{ color: "var( --third-color)" }}>
           <Delete />
         </IconButton>
       </Box>
@@ -72,7 +83,7 @@ const DisplayPersonal = () => {
                 Employee Name
               </Typography>
               <Typography sx={viewProfileTitle}>
-                {employeeCall.personalFirstname}
+                {employeeCall.personalFirstname} {employeeCall.personalLastname}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -80,7 +91,7 @@ const DisplayPersonal = () => {
                 Department
               </Typography>
               <Typography sx={viewProfileTitle}>
-              {employeeCall.jobDepartment}
+                {employeeCall.jobDepartment}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -88,7 +99,7 @@ const DisplayPersonal = () => {
                 Job Title
               </Typography>
               <Typography sx={viewProfileTitle}>
-              {employeeCall.jobDesignation}
+                {employeeCall.jobDesignation}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -96,7 +107,7 @@ const DisplayPersonal = () => {
                 Job Category
               </Typography>
               <Typography sx={viewProfileTitle}>
-              {employeeCall.jobCategory.charAt(0).toUpperCase() + employeeCall.jobCategory.slice(1)}
+                {employeeCall.jobCategory.charAt(0).toUpperCase() + employeeCall.jobCategory.slice(1)}
               </Typography>
             </Grid>
           </Grid>
@@ -109,7 +120,7 @@ const DisplayPersonal = () => {
                 Date of Joining
               </Typography>
               <Typography sx={viewProfileTitle}>
-              {employeeCall.jobDoj}
+                {employeeCall.jobDoj}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -117,7 +128,7 @@ const DisplayPersonal = () => {
                 Date of Birth
               </Typography>
               <Typography sx={viewProfileTitle}>
-              {employeeCall.personalDob}
+                {employeeCall.personalDob}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -125,7 +136,7 @@ const DisplayPersonal = () => {
                 Blood Group
               </Typography>
               <Typography sx={viewProfileTitle}>
-              {employeeCall.personalBlood.toUpperCase()}
+                {employeeCall.personalBlood.toUpperCase()}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -137,9 +148,31 @@ const DisplayPersonal = () => {
               </Typography>
             </Grid>
           </Grid>
+
         </Grid>
       </Box>
+      <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth="md">
+        <DialogTitle>Confirm Delete</DialogTitle>
+        <DialogContent>
+          <Typography>Are you sure you want Delete?</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenDeleteDialog(false)} color="primary">
+            Cancel
+          </Button>
+          <Button
+            onClick={() => deleteEmployee()}
+            component={Link}
+            color='error'
+            to="/dashboard"
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
+
+
   );
 };
 export default DisplayPersonal;

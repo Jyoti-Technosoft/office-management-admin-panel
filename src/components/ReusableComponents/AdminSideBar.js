@@ -1,6 +1,4 @@
-import React, { useContext,useState } from "react";
-import { GlobalContext } from "../../ContextAPI/CustomContext"; // Import your custom context
-
+import React, { useContext, useState } from "react";
 // ICON IMPORT
 import ProfileImg from "../../assets/img/profile.svg";
 import DashboardIcon from "../../assets/img/icons/DashboardIcon.png";
@@ -19,14 +17,14 @@ import {
   DialogActions,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminSideBar = () => {
   const [openDialog, setOpenDialog] = useState(false); 
   const { adminName, adminPosition } = useContext(GlobalContext);
 
-
   const handleLogOut = () => {
-    setOpenDialog(true); // Open the dialog on logout button click
+    setOpenDialog(true);
   };
 
   // Function to handle logout confirmation
@@ -44,8 +42,8 @@ const AdminSideBar = () => {
   // const adminName = localStorage.getItem("adminName");
   // const adminPosition = localStorage.getItem("adminPosition");
 
-  const capitalizedAdminName =
-    adminName.charAt(0).toUpperCase() + adminName.slice(1).toLowerCase();
+  // const capitalizedAdminName =
+  //   adminName.charAt(0).toUpperCase() + adminName.slice(1).toLowerCase();
 
   return (
     <Grid item xs={12} md={2.5}>
@@ -72,7 +70,7 @@ const AdminSideBar = () => {
               paddingLeft: "10px",
             }}
           >
-            <Typography variant="subtitle" sx={{ fontWeight: "bold"}}>{capitalizedAdminName}</Typography>
+            <Typography variant="subtitle" sx={{ fontWeight: "bold"}}>{adminName}</Typography>
             <Typography variant="subtitle2">{adminPosition}</Typography>
           </Box>
         </Box>  
@@ -232,7 +230,7 @@ const AdminSideBar = () => {
           </Button>
         </Box>
 
-       <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
+        <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
           <DialogTitle>Confirm Logout</DialogTitle>
           <DialogContent>
             <Typography>Are you sure you want to log out?</Typography>

@@ -59,19 +59,6 @@ const ExperienceDetails = ({ formData, onChange }) => {
           </Select>
         </FormControl>
 
-        <TextField
-          inputProps={{
-            sx: InputFieldProps(),
-          }}
-          sx={InputField}
-          type="text"
-          label="Course Name"
-          name="experienceCourse"
-          placeholder="Enter a Course Name"
-          value={formData.experienceCourse}
-          onChange={handleInputChange}
-        />
-
         {/* FOR START OF DATE */}
         <TextField
           inputProps={{
@@ -82,7 +69,7 @@ const ExperienceDetails = ({ formData, onChange }) => {
           label="Date of Start"
           name="experienceStartDate"
           placeholder="Enter a Date of Start"
-          value={formData.experienceStartDate}
+          value={formData.experienceStartDate || " "}
           onChange={handleInputChange}
         />
         {/* FOR END OF DATE */}
@@ -95,7 +82,7 @@ const ExperienceDetails = ({ formData, onChange }) => {
           label="Date of End"
           name="experienceEndDate"
           placeholder="Enter a Date of End"
-          value={formData.experienceEndDate}
+          value={formData.experienceEndDate || " "}
           onChange={handleInputChange}
         />
 
@@ -108,7 +95,7 @@ const ExperienceDetails = ({ formData, onChange }) => {
           label="Years of Experience"
           name="experienceYears"
           placeholder="Enter Years of Experience"
-          value={formData.experienceYears}
+          value={formData.experienceYears || " "}
           onChange={handleInputChange}
         />
       </form>

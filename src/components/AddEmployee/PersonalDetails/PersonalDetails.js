@@ -3,6 +3,7 @@
 import React from "react";
 import { Box, TextField, Typography, InputLabel , FormControl, Select, MenuItem } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
+import { DateField, DatePicker } from "@mui/x-date-pickers";
 
 const PersonalDetails = ({ formData, onChange }) => {
   const handleInputChange = (event) => {
@@ -55,9 +56,11 @@ const PersonalDetails = ({ formData, onChange }) => {
           label="Date of Birth"
           name="personalDob"
           placeholder="Enter a Date of Birth"
-          value={formData.personalDob}
+          value={formData.personalDob || " "}
           onChange={handleInputChange}
         />
+        {/* <DateField label="Basic date field" /> */}
+        {/* <DatePicker /> */}
 
         <TextField
           inputProps={{
@@ -88,14 +91,14 @@ const PersonalDetails = ({ formData, onChange }) => {
             onChange={handleInputChange}
           >
           <MenuItem value="">Select a blood group</MenuItem>
-          <MenuItem value="ab">AB+</MenuItem>
-          <MenuItem value="a">A+</MenuItem>
-          <MenuItem value="b">B+</MenuItem>
-          <MenuItem value="o">O+</MenuItem>
-          <MenuItem value="-ab">AB-</MenuItem>
-          <MenuItem value="-a">A-</MenuItem>
-          <MenuItem value="-b">B-</MenuItem>
-          <MenuItem value="-o">O-</MenuItem>
+          <MenuItem value="ab+">AB+</MenuItem>
+          <MenuItem value="a+">A+</MenuItem>
+          <MenuItem value="b+">B+</MenuItem>
+          <MenuItem value="o+">O+</MenuItem>
+          <MenuItem value="ab-">AB-</MenuItem>
+          <MenuItem value="a-">A-</MenuItem>
+          <MenuItem value="b-">B-</MenuItem>
+          <MenuItem value="o-">O-</MenuItem>
           </Select>
         </FormControl>
 

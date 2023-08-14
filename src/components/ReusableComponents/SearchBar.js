@@ -135,7 +135,7 @@ const SearchBar = () =>{
                 Name
               </Typography>
               <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-                {adminDetails.name}
+              {adminDetails.name}
               </Typography>
               <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
                 Email

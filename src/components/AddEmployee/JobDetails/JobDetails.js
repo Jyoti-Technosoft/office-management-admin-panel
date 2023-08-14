@@ -38,7 +38,7 @@ const JobDetails = ({ formData, onChange }) => {
           label="Date of Join"
           name="jobDoj"
           placeholder="Enter a Date of Join"
-          value={formData.jobDoj}
+          value={formData.jobDoj || " "}
           onChange={handleInputChange}
         />
 

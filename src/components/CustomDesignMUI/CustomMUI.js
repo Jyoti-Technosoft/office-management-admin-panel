@@ -11,7 +11,7 @@ export const InputField = {
     width: "100%",
     background: "var(--white-color)",
     borderRadius: "10px",
-    marginBottom: '10px',
+    marginBottom: '25px',
 };
 export const InputFieldProps = () => {
     return {
@@ -44,10 +44,12 @@ export const DashboardProfileButtons = {
 }
 export const viewProfileTitle = {
     fontWeight: "bold",
-    fontSize: "18px" 
+    fontSize: "18px" ,
 }
 export const viewProfileSubtitle = {
     fontSize: "12px",
+    color: 'var(--text-gray-color)',
+
 }
 export const viewEducationBox = {
     height: "auto",
@@ -59,7 +61,8 @@ export const viewEducationBox = {
 }
 export const viewEducationTitle = {
     fontWeight: "bold",
-    fontSize: "16px" 
+    fontSize: "16px", 
+    color: 'var(--text-gray-color)',
 }
 export const viewExperiencePosition = {
     fontWeight: "bold",

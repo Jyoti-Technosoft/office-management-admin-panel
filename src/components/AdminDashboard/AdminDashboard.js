@@ -21,9 +21,11 @@ const AdminDashboard = () => {
   const { employeeData, setUserData, userData } = useContext(GlobalContext);
   const [leaveData, setLeaveData] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
-
+  // const [userData, setUserData] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
+    console.log('Data from json-server:- ', employeeData);
     setUserData(employeeData);
     setLeaveData(employeeData);
     setAttendanceData(employeeData);
@@ -31,9 +33,16 @@ const AdminDashboard = () => {
   }, [employeeData]);
   const [selectedTab, setSelectedTab] = useState("employee");
 
+  // const handleTabChange = (tab) => {
+  //   setSelectedTab(tab);
+  // },[employeeData, setUserData])
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
+
+  // const handleAddEmployee = () => {
+  //   setIsModalOpen(true);
+  // };
   const renderTabContent = () => {
     if (selectedTab === "employee") {
       return <Employee />;
@@ -242,6 +251,7 @@ const AdminDashboard = () => {
             {/* {/ {/ CARDS END  /} /} */}
             {/* FOR DASHBOARD BOTTONS */}
             <Box>{renderTabContent()}</Box>
+    
           </Box>
         </Grid>
       </Grid>

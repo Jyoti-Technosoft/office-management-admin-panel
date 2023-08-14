@@ -96,7 +96,7 @@ const FamilyDetails = ({ formData, onChange }) => {
           label="Date of Birth"
           name="familyDob"
           placeholder="Enter a Date of Birth"
-          value={formData.familyDob}
+          value={formData.familyDob || " "}
           onChange={handleInputChange}
         />
       </form>
