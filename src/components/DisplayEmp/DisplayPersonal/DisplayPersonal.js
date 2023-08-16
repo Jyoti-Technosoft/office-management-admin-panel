@@ -5,13 +5,15 @@ import StarIcon from "../../../assets/img/icons/starIcon.svg";
 import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/CustomMUI';
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const DisplayPersonal = () => {
+  const navigate = useNavigate();
 
   // DATA CALLING START 
-  const { userData, employeeApiEndpoint } = useContext(GlobalContext)
+  const { userData, employeeApiEndpoint, setUserData, employeeData } = useContext(GlobalContext)
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const { employeeId } = useParams();
   const employeeCall = userData.find(user => user.id === parseInt(employeeId));
@@ -21,9 +23,10 @@ const DisplayPersonal = () => {
   // DATA CALLING END
 
   const deleteEmployee = () => {
-    axios.delete(`http://localhost:8000/employeeData/${employeeId}`)
+    axios.delete(`${employeeApiEndpoint}/${employeeId}`)
       .then(response => {
         console.log(`Employee Deleted Successfully`);
+        navigate('/dashboard')
 
       })
       .catch(error => {
@@ -164,7 +167,6 @@ const DisplayPersonal = () => {
             onClick={() => deleteEmployee()}
             component={Link}
             color='error'
-            to="/dashboard"
           >
             Delete
           </Button>

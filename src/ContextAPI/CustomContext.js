@@ -6,8 +6,8 @@ export const GlobalContext = createContext();
 
 const CustomContext = (props) => {
   const [admin, setAdmin] = useState([]);
-  const [adminPosition, setAdminPosition] = useState(""); // Add this line
-  const [adminName, setAdminName] = useState(""); // Add this line
+  const [adminPosition, setAdminPosition] = useState("");
+  const [adminName, setAdminName] = useState(""); 
   const [employeeData, setEmployeeData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
@@ -28,7 +28,6 @@ const CustomContext = (props) => {
         // Employee API
         const { data: employeeData } = await axios.get(employeeApiEndpoint);
         setEmployeeData(employeeData);
-
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -39,7 +38,7 @@ const CustomContext = (props) => {
 
   return (
 
-    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData, setOpenDialog, openDialog, openDeleteDialog, setOpenDeleteDialog, adminName, setAdminName, adminPosition, setAdminPosition,}}>
+    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData, setOpenDialog, openDialog, openDeleteDialog, setOpenDeleteDialog, adminName, setAdminName, adminPosition, setAdminPosition }}>
       {props.children}
     </GlobalContext.Provider>
   );

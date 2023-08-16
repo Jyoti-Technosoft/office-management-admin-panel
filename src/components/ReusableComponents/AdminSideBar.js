@@ -16,12 +16,17 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminSideBar = () => {
   const [openDialog, setOpenDialog] = useState(false); 
   const { adminName, adminPosition } = useContext(GlobalContext);
+  const location = useLocation(); // Get the current location
+
+  const isAttendanceManagementActive = location.pathname === "/attendancemanagement"; 
+  const isLeaveManagement = location.pathname === "/leavemanagement"; 
+  const isEmpManagement = location.pathname === "/empmanagement"; 
 
   const handleLogOut = () => {
     setOpenDialog(true);
@@ -37,13 +42,6 @@ const AdminSideBar = () => {
   const handleCancelLogout = () => {
     setOpenDialog(false); 
   };
-
-  // Retrieve admin name and position from local storage
-  // const adminName = localStorage.getItem("adminName");
-  // const adminPosition = localStorage.getItem("adminPosition");
-
-  // const capitalizedAdminName =
-  //   adminName.charAt(0).toUpperCase() + adminName.slice(1).toLowerCase();
 
   return (
     <Grid item xs={12} md={2.5}>
@@ -82,6 +80,7 @@ const AdminSideBar = () => {
               marginTop: "10px",
               background: "var(--secondary-color)",
               color: "var(--white-color)",
+              // border: "1px solid var(--white-color)",
               fontWeight: "bold",
               width: "100%",
               textTransform: "capitalize",
@@ -119,6 +118,7 @@ const AdminSideBar = () => {
               alignItems: "center",
               justifyContent: "flex-start",
               padding: "10px 30px",
+              background: isEmpManagement ? "var(--secondary-color)" : "",
               "&:hover": {
                 background: "var(--secondary-color)",
                 color: "white",
@@ -147,6 +147,7 @@ const AdminSideBar = () => {
               alignItems: "center",
               justifyContent: "flex-start",
               padding: "10px 30px",
+              background: isLeaveManagement ? "var(--secondary-color)" : "",
               "&:hover": {
                 background: "var(--secondary-color)",
                 color: "white",
@@ -175,6 +176,7 @@ const AdminSideBar = () => {
               alignItems: "center",
               justifyContent: "flex-start",
               padding: "10px 30px",
+              background: isAttendanceManagementActive ? "var(--secondary-color)" : "",
               "&:hover": {
                 background: "var(--secondary-color)",
                 color: "white",

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Box, Button, Typography, Grid } from "@mui/material";
 import "./AdminDashboard.scss";
 import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
@@ -7,42 +6,42 @@ import SearchBar from "../ReusableComponents/SearchBar";
 import Employee from "./EmployeeButtons/Employee";
 import Leave from "./EmployeeButtons/Leave";
 import Attendance from "./EmployeeButtons/Attendance";
-
 // IMPORT ICON
 import EmployeeIcon from "../../assets/img/icons/EmpIcon.svg";
 import LeaveIcon from "../../assets/img/icons/leaveIcon.svg";
 import AttendanceIcon from "../../assets/img/icons/attendanceIcon.svg";
-
 // IMPORT CONTEXT
 import { GlobalContext } from "../../ContextAPI/CustomContext";
+import axios from "axios";
+
 
 const AdminDashboard = () => {
   // Context Function
-  const { employeeData, setUserData, userData } = useContext(GlobalContext);
+  const { employeeData, setUserData, userData, employeeApiEndpoint } = useContext(GlobalContext);
   const [leaveData, setLeaveData] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
-  // const [userData, setUserData] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTab, setSelectedTab] = useState("employee");
+  console.log("employeeData", employeeData)
+  const getData = () => {
+    axios.get(`${employeeApiEndpoint}`)
+      .then(response => {
+        console.log("re", response);
+        setUserData(response.data);
+        console.log("Dashboard New: ", userData);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
   useEffect(() => {
-    console.log('Data from json-server:- ', employeeData);
-    setUserData(employeeData);
-    setLeaveData(employeeData);
-    setAttendanceData(employeeData);
-    console.log("Dashboard:- ", employeeData);
-  }, [employeeData]);
-  const [selectedTab, setSelectedTab] = useState("employee");
+    getData();
+  }, [employeeData])
 
-  // const handleTabChange = (tab) => {
-  //   setSelectedTab(tab);
-  // },[employeeData, setUserData])
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
 
-  // const handleAddEmployee = () => {
-  //   setIsModalOpen(true);
-  // };
   const renderTabContent = () => {
     if (selectedTab === "employee") {
       return <Employee />;
@@ -55,13 +54,13 @@ const AdminDashboard = () => {
 
   return (
     <Box>
-      {/* {/ {/ <Container> /} /} */}
+      {/* <Container> */}
       <Grid container sx={{ height: "100vh" }}>
-        {/* {/ {/ Left admin dashboard /} /} */}
+        {/* Left admin dashboard */}
         <AdminSideBar />
 
         <Grid item xs={12} md={9.4}>
-          {/* {/ {/ SEARCH BAR  /} /} */}
+          {/* SEARCH BAR */}
           <SearchBar />
           <Box
             sx={{
@@ -77,17 +76,15 @@ const AdminDashboard = () => {
             >
               Dashboard
             </Typography>
-
-            {/* {/ {/ CARDS  /} /} */}
+            {/* CARDS */}
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "center",
                 marginTop: "20px",
-              }}
-            >
-              {/* {/ {/ FIRST BOX /} /} */}
+              }}>
+              {/* FIRST BOX */}
               <Button
                 onClick={() => handleTabChange("employee")}
                 sx={{
@@ -251,7 +248,7 @@ const AdminDashboard = () => {
             {/* {/ {/ CARDS END  /} /} */}
             {/* FOR DASHBOARD BOTTONS */}
             <Box>{renderTabContent()}</Box>
-    
+
           </Box>
         </Grid>
       </Grid>
