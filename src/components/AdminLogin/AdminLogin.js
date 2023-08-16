@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 //IMPORTING CONTEXT
-import { GlobalContext } from "../../ContextAPI/CustomContext";
+// import { GlobalContext } from "../../ContextAPI/CustomContext";
 import {
   Box,
   Button,
@@ -22,8 +22,8 @@ import "./AdminLogin.scss";
 const AdminLogin = () => {
   // Context Function
   // const { admin } = useContext(GlobalContext);
-  const { admin, setAdminName, setAdminPosition } = useContext(GlobalContext);
-  console.log("Login ", admin);
+  // const { admin, setAdminName, setAdminPosition } = useContext(GlobalContext);
+  // console.log("Login ", admin);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -77,8 +77,12 @@ const AdminLogin = () => {
         // localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
         // localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage
         // localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage
-        setAdminName(matchingUser.name); // Set admin's name in the context
-        setAdminPosition(matchingUser.position); // Set admin's position in the context
+        // setAdminName(matchingUser.name); // Set admin's name in the context
+        // setAdminPosition(matchingUser.position); // Set admin's position in the context
+                  // Set a cookie with admin's name and position
+                  document.cookie = `adminName=${matchingUser.name}; path=/`;
+                  document.cookie = `adminPosition=${matchingUser.position}; path=/`;
+        
         alert("Log In Successful!");
         navigate("/dashboard");
         // navigate("/dashboard", { state: { adminName: matchingUser.name } });

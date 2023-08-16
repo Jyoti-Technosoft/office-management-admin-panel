@@ -103,6 +103,7 @@ const Employee = () => {
                       index % 2 === 1 ? "var(--pirmary-light-color)" : "",
                   }}
                 >
+
                   <TableCell>{"JT" + " " + (user.id + 100)}</TableCell>
                   <TableCell>{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
                   <TableCell>{user.personalDob}</TableCell>
@@ -126,5 +127,6 @@ const Employee = () => {
       </Box>
     </>
   );
+
 }
 export default Employee;

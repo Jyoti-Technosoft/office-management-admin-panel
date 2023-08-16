@@ -93,12 +93,10 @@ const AdminDashboard = () => {
                       ? "var(--secondary-color)"
                       : "var(--primary-color)",
                   color: selectedTab === "employee" ? "white" : "inherit",
-                  fontWeight: selectedTab === "employee" ? "bold" : "normal",
                   marginTop: "0px",
                   "&:hover": {
                     background: "var(--secondary-color)",
                     color: "white",
-                    fontWeight: "bold",
                   },
                 }}
               >
@@ -148,12 +146,10 @@ const AdminDashboard = () => {
                         ? "var(--secondary-color)"
                         : "var(--primary-color)",
                     color: selectedTab === "leave" ? "white" : "inherit",
-                    fontWeight: selectedTab === "leave" ? "bold" : "normal",
                     marginTop: "0px",
                     "&:hover": {
                       background: "var(--secondary-color)",
                       color: "white",
-                      fontWeight: "bold",
                     },
                   }}
                 >
@@ -198,13 +194,10 @@ const AdminDashboard = () => {
                         ? "var(--secondary-color)"
                         : "var(--primary-color)",
                     color: selectedTab === "attendance" ? "white" : "inherit",
-                    fontWeight:
-                      selectedTab === "attendance" ? "bold" : "normal",
                     marginTop: "0px",
                     "&:hover": {
                       background: "var(--secondary-color)",
                       color: "white",
-                      fontWeight: "bold",
                     },
                   }}
                 >

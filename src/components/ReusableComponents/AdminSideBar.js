@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 // ICON IMPORT
 import ProfileImg from "../../assets/img/profile.svg";
 import DashboardIcon from "../../assets/img/icons/DashboardIcon.png";
@@ -21,12 +21,26 @@ import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminSideBar = () => {
   const [openDialog, setOpenDialog] = useState(false); 
-  const { adminName, adminPosition } = useContext(GlobalContext);
+  const { adminName, adminPosition, setAdminName, setAdminPosition } = useContext(GlobalContext);
   const location = useLocation(); // Get the current location
 
   const isAttendanceManagementActive = location.pathname === "/attendancemanagement"; 
   const isLeaveManagement = location.pathname === "/leavemanagement"; 
   const isEmpManagement = location.pathname === "/empmanagement"; 
+
+  useEffect(() => {
+    // Read admin's name and position from cookies
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [name, value] = cookie.split("=");
+      if (name === "adminName") {
+        setAdminName(value);
+      } else if (name === "adminPosition") {
+        setAdminPosition(value);
+      }
+    }
+  }, []);
+
 
   const handleLogOut = () => {
     setOpenDialog(true);
@@ -119,6 +133,7 @@ const AdminSideBar = () => {
               justifyContent: "flex-start",
               padding: "10px 30px",
               background: isEmpManagement ? "var(--secondary-color)" : "",
+
               "&:hover": {
                 background: "var(--secondary-color)",
                 color: "white",
@@ -148,6 +163,7 @@ const AdminSideBar = () => {
               justifyContent: "flex-start",
               padding: "10px 30px",
               background: isLeaveManagement ? "var(--secondary-color)" : "",
+
               "&:hover": {
                 background: "var(--secondary-color)",
                 color: "white",
@@ -177,6 +193,7 @@ const AdminSideBar = () => {
               justifyContent: "flex-start",
               padding: "10px 30px",
               background: isAttendanceManagementActive ? "var(--secondary-color)" : "",
+
               "&:hover": {
                 background: "var(--secondary-color)",
                 color: "white",
