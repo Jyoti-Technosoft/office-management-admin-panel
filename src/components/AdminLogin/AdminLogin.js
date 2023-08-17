@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 //IMPORTING CONTEXT
@@ -33,6 +33,19 @@ const AdminLogin = () => {
 
   const navigate = useNavigate();
 
+  const checkUserLoggedIn = () => {
+    const loggedIn =localStorage.getItem('loggedIn');
+    if (!loggedIn || loggedIn === "undefined") {
+      return navigate("/");
+    }
+    if(loggedIn){
+      return navigate("/dashboard")
+    }
+  };
+  useEffect(() => {
+    checkUserLoggedIn();
+  }, []);
+
   // validation@
   const validateInputs = () => {
     let valid = true;
@@ -64,36 +77,31 @@ const AdminLogin = () => {
     e.preventDefault();
     if (validateInputs()) {
       try {
-        const response = await axios.get("http://localhost:8001/adminData"); // Replace with your actual API endpoint
+        const response = await axios.get("http://localhost:8001/adminData");
         const adminData = response.data;
 
         const matchingUser = adminData.find(
           (user) => user.email === email && user.password === password
         );
 
-      if (matchingUser) {
-        // localStorage.setItem("loggedIn", "true");
-        // localStorage.setItem("adminName", matchingUser.name); // Save admin name in local storage
-        // localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
-        // localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage
-        // localStorage.setItem("adminPhonenumber", matchingUser.phonenumber); // Save admin phone number in local storage
-        // setAdminName(matchingUser.name); // Set admin's name in the context
-        // setAdminPosition(matchingUser.position); // Set admin's position in the context
-                  // Set a cookie with admin's name and position
-                  document.cookie = `adminName=${matchingUser.name}; path=/`;
-                  document.cookie = `adminPosition=${matchingUser.position}; path=/`;
+        if (matchingUser) {
+          localStorage.setItem("loggedIn", "true");
+          localStorage.setItem("adminName", matchingUser.name);
+          localStorage.setItem("adminPosition", matchingUser.position);
+          localStorage.setItem("adminEmail", matchingUser.email);
+          localStorage.setItem("adminPhonenumber", matchingUser.phonenumber);
+          alert("Log In Successful!");
+          navigate("/dashboard");
+        } else {
+          setErrorMessage("Invalid email or password");
+        }
         
-        alert("Log In Successful!");
-        navigate("/dashboard");
-        // navigate("/dashboard", { state: { adminName: matchingUser.name } });
-      } else {
-        setErrorMessage("Invalid email or password");
-      }
     } catch (error) {
       console.error("Error fetching admin data:", error);
       }
     }
   };
+
 
   return (
     <Box

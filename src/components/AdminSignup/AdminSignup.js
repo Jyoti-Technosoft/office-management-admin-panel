@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Signup from "./../../assets/img/AdminSignup.png";
 import {
@@ -49,6 +49,22 @@ const AdminSignup = () => {
   });
 
   const [formIsValid, setFormIsValid] = useState(true);
+
+  const navigate = useNavigate();
+
+  const checkUserLoggedIn = () => {
+    const loggedIn =localStorage.getItem('loggedIn');
+    if (!loggedIn || loggedIn === "undefined") {
+      return navigate("/");
+    }
+    if(loggedIn){
+      return navigate("/dashboard")
+    }
+  };
+  
+  useEffect(() => {
+    checkUserLoggedIn();
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

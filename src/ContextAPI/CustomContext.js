@@ -1,18 +1,25 @@
 // CustomContext.js
-import axios from 'axios';
-import React, { createContext, useEffect, useState } from 'react';
+import axios from "axios";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext();
 
 const CustomContext = (props) => {
   const [admin, setAdmin] = useState([]);
   const [adminPosition, setAdminPosition] = useState("");
-  const [adminName, setAdminName] = useState(""); 
+  const [adminName, setAdminName] = useState("");
   const [employeeData, setEmployeeData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false); 
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false); 
+  const [openDialog, setOpenDialog] = useState(false);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("loggedIn") === "true"
+  );
+  // const [isLoggedIn, setIsLoggedIn] = useState(
+  //   localStorage.getItem("loggedIn") === "false"
+  // );
+  // console.log("Context", isLoggedIn)
 
   // Define your API endpoints
   const adminApiEndpoint = "http://localhost:8001/adminData";
@@ -34,11 +41,41 @@ const CustomContext = (props) => {
     }
     fetchData();
   }, []);
+  const login = () => {
+    setIsLoggedIn(true);
+    // localStorage.setItem("loggedIn", "true");
+  };
 
+  const logout = () => {
+    setIsLoggedIn(false);
+  };
 
   return (
-
-    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData, setOpenDialog, openDialog, openDeleteDialog, setOpenDeleteDialog, adminName, setAdminName, adminPosition, setAdminPosition }}>
+    <GlobalContext.Provider
+      value={{
+        admin,
+        setAdmin,
+        employeeData,
+        setEmployeeData,
+        showNextButton,
+        setShowNextButton,
+        employeeApiEndpoint,
+        adminApiEndpoint,
+        userData,
+        setUserData,
+        setOpenDialog,
+        openDialog,
+        openDeleteDialog,
+        setOpenDeleteDialog,
+        adminName,
+        setAdminName,
+        adminPosition,
+        setAdminPosition,
+        isLoggedIn,
+        login,
+        logout,
+      }}
+    >
       {props.children}
     </GlobalContext.Provider>
   );

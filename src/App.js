@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
@@ -20,13 +20,17 @@ function App() {
         <Routes>
           <Route path="/" element={<AdminLogin />} />
           <Route path="/signup" element={<AdminSignup />} />
-          <Route path="/dashboard" element={<Protected Comp={AdminDashboard} />} />
+          <Route path="/dashboard" element={<Protected>
+            <AdminDashboard />
+          </Protected>} />
           {/* <Route path="/viewprofile" element={<Protected Comp={ViewProfile} />} /> */}
-          <Route path="/viewprofile/:employeeId" element={<Protected Comp={ViewProfile}/>}/>
-          <Route path= "/empmanagement" element={<Protected Comp = {EmpManagement}/>}/>
-          <Route path= "/leavemanagement" element={<Protected Comp = {LeaveManagement}/>}/>
-          <Route path= "/attendancemanagement" element={<Protected Comp = {AttendanceManagement}/>}/>
-            {/* <Route
+          <Route path="/viewprofile/:employeeId" element={<Protected>
+            <ViewProfile/>
+          </Protected>} />
+          <Route path="/empmanagement" element={<Protected><EmpManagement/></Protected> } />
+          <Route path="/leavemanagement" element={<Protected><LeaveManagement/></Protected> } />
+          <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement/></Protected>} />
+          {/* <Route
             path="/"
             element={<AdminLogin setIsLoggedIn={setIsLoggedIn} />}
           />

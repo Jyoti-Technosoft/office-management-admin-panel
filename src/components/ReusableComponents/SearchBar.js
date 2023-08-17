@@ -29,7 +29,7 @@ const CustomTextField = styled(TextField)({
     borderBottom: "none",
   },
     "& input": {
-    width: "300px", // Adjust the padding as desiredWWWW
+    width: "300px", 
   },
 });
 
@@ -43,10 +43,13 @@ const SearchBar = () =>{
     const adminPosition = localStorage.getItem("adminPosition");
     const adminEmail = localStorage.getItem("adminEmail");
     const adminPhonenumber = localStorage.getItem("adminPhonenumber");
+     // Convert the first letter of the admin name to uppercase
+     const capitalizedAdminName =
+     adminName.charAt(0).toUpperCase() + adminName.slice(1);
 
     // Set the admin details in the state
     setAdminDetails({
-      name: adminName,
+      name: capitalizedAdminName,
       position: adminPosition,
       email: adminEmail,
       phonenumber: adminPhonenumber,

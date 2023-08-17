@@ -21,26 +21,26 @@ import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminSideBar = () => {
   const [openDialog, setOpenDialog] = useState(false); 
-  const { adminName, adminPosition, setAdminName, setAdminPosition } = useContext(GlobalContext);
-  const location = useLocation(); // Get the current location
+  const { setAdminName, setAdminPosition, adminName, adminPosition } = useContext(GlobalContext);
+  const location = useLocation(); 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   const isAttendanceManagementActive = location.pathname === "/attendancemanagement"; 
   const isLeaveManagement = location.pathname === "/leavemanagement"; 
   const isEmpManagement = location.pathname === "/empmanagement"; 
 
+
   useEffect(() => {
-    // Read admin's name and position from cookies
-    const cookies = document.cookie.split("; ");
-    for (const cookie of cookies) {
-      const [name, value] = cookie.split("=");
-      if (name === "adminName") {
-        setAdminName(value);
-      } else if (name === "adminPosition") {
-        setAdminPosition(value);
-      }
+    const adminNameFromStorage = localStorage.getItem("adminName");
+    const adminPositionFromStorage = localStorage.getItem("adminPosition");
+
+    if (adminNameFromStorage && adminPositionFromStorage) {
+      setAdminName(adminNameFromStorage);
+      setAdminPosition(adminPositionFromStorage);
     }
   }, []);
-
 
   const handleLogOut = () => {
     setOpenDialog(true);
@@ -48,7 +48,7 @@ const AdminSideBar = () => {
 
   // Function to handle logout confirmation
   const handleLogoutConfirmation = () => {
-    localStorage.setItem("loggedIn", "false");
+    localStorage.removeItem("loggedIn");
     setOpenDialog(false); 
   };
 
@@ -82,7 +82,7 @@ const AdminSideBar = () => {
               paddingLeft: "10px",
             }}
           >
-            <Typography variant="subtitle" sx={{ fontWeight: "bold"}}>{adminName}</Typography>
+            <Typography variant="subtitle" sx={{ fontWeight: "bold"}}>{capitalizeFirstLetter(adminName)}</Typography>
             <Typography variant="subtitle2">{adminPosition}</Typography>
           </Box>
         </Box>  
