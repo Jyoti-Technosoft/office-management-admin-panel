@@ -8,6 +8,7 @@ import DisplayFamily from "../DisplayEmp/DisplayFamily/DisplayFamily";
 import DisplayExperience from "../DisplayEmp/DisplayExperience/DisplayExperience";
 import DisplayJob from "../DisplayEmp/DisplayJob/DisplayJob";
 import DisplayFinancial from "../DisplayEmp/DisplayFinancial/DisplayFinancial";
+import DisplayLeave from "../DisplayEmp/DisplayLeave/DisplayLeave";
 
 const EmpButton = () => {
   const [selectedTab, setSelectedTab] = useState("personal");
@@ -30,6 +31,8 @@ const EmpButton = () => {
       return <DisplayJob />;
     } else if (selectedTab === "financial") {
       return <DisplayFinancial />;
+    } else if (selectedTab === "leave") {
+      return <DisplayLeave />;
     }
   };
   return (
@@ -100,15 +103,13 @@ const EmpButton = () => {
               sx={{
                 ...DashboardProfileButtons,
                 backgroundColor:
-                  selectedTab === "family"
-                    ? "var(--secondary-color)"
-                    : "white",
+                  selectedTab === "family" ? "var(--secondary-color)" : "white",
                 color: selectedTab === "family" ? "white" : "inherit",
                 fontWeight: selectedTab === "family" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Family Details
+            >
+              Family Details
             </Button>
             <Button
               onClick={() => handleTabChange("experience")}
@@ -122,25 +123,23 @@ const EmpButton = () => {
                 fontWeight: selectedTab === "experience" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Experience Details
+            >
+              Experience Details
             </Button>
             <Button
               onClick={() => handleTabChange("job")}
               sx={{
                 ...DashboardProfileButtons,
                 backgroundColor:
-                  selectedTab === "job"
-                    ? "var(--secondary-color)"
-                    : "white",
+                  selectedTab === "job" ? "var(--secondary-color)" : "white",
                 color: selectedTab === "job" ? "white" : "inherit",
                 fontWeight: selectedTab === "job" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Job Details
-              </Button>
-              <Button
+            >
+              Job Details
+            </Button>
+            <Button
               onClick={() => handleTabChange("financial")}
               sx={{
                 ...DashboardProfileButtons,
@@ -152,10 +151,22 @@ const EmpButton = () => {
                 fontWeight: selectedTab === "financial" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Financial Details
-              </Button>
-            <Button sx={DashboardProfileButtons}>Leaves</Button>
+            >
+              Financial Details
+            </Button>
+            <Button
+              onClick={() => handleTabChange("leave")}
+              sx={{
+                ...DashboardProfileButtons,
+                backgroundColor:
+                  selectedTab === "leave" ? "var(--secondary-color)" : "white",
+                color: selectedTab === "leave" ? "white" : "inherit",
+                fontWeight: selectedTab === "leave" ? "bold" : "normal",
+                border: "none",
+              }}
+            >
+              Leaves
+            </Button>
           </Box>
         </Grid>
         {/* {/ RIGHT BOX /} */}

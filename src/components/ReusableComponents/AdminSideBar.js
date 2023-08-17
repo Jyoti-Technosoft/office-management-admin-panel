@@ -15,22 +15,25 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  IconButton,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
+import { Close } from "@mui/icons-material";
 
 const AdminSideBar = () => {
-  const [openDialog, setOpenDialog] = useState(false); 
-  const { setAdminName, setAdminPosition, adminName, adminPosition } = useContext(GlobalContext);
-  const location = useLocation(); 
+  const [openDialog, setOpenDialog] = useState(false);
+  const { setAdminName, setAdminPosition, adminName, adminPosition } =
+    useContext(GlobalContext);
+  const location = useLocation();
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  const isAttendanceManagementActive = location.pathname === "/attendancemanagement"; 
-  const isLeaveManagement = location.pathname === "/leavemanagement"; 
-  const isEmpManagement = location.pathname === "/empmanagement"; 
-
+  const isAttendanceManagementActive =
+    location.pathname === "/attendancemanagement";
+  const isLeaveManagement = location.pathname === "/leavemanagement";
+  const isEmpManagement = location.pathname === "/empmanagement";
 
   useEffect(() => {
     const adminNameFromStorage = localStorage.getItem("adminName");
@@ -49,12 +52,12 @@ const AdminSideBar = () => {
   // Function to handle logout confirmation
   const handleLogoutConfirmation = () => {
     localStorage.removeItem("loggedIn");
-    setOpenDialog(false); 
+    setOpenDialog(false);
   };
 
   // Function to handle canceling logout
   const handleCancelLogout = () => {
-    setOpenDialog(false); 
+    setOpenDialog(false);
   };
 
   return (
@@ -82,10 +85,12 @@ const AdminSideBar = () => {
               paddingLeft: "10px",
             }}
           >
-            <Typography variant="subtitle" sx={{ fontWeight: "bold"}}>{capitalizeFirstLetter(adminName)}</Typography>
+            <Typography variant="subtitle" sx={{ fontWeight: "bold" }}>
+              {capitalizeFirstLetter(adminName)}
+            </Typography>
             <Typography variant="subtitle2">{adminPosition}</Typography>
           </Box>
-        </Box>  
+        </Box>
         <Box mt={2}>
           <Typography variant="subtitle2">Features</Typography>
 
@@ -192,7 +197,9 @@ const AdminSideBar = () => {
               alignItems: "center",
               justifyContent: "flex-start",
               padding: "10px 30px",
-              background: isAttendanceManagementActive ? "var(--secondary-color)" : "",
+              background: isAttendanceManagementActive
+                ? "var(--secondary-color)"
+                : "",
 
               "&:hover": {
                 background: "var(--secondary-color)",
@@ -250,23 +257,75 @@ const AdminSideBar = () => {
         </Box>
 
         <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
-          <DialogTitle>Confirm Logout</DialogTitle>
-          <DialogContent>
-            <Typography>Are you sure you want to log out?</Typography>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleCancelLogout} color="primary">
-              Cancel
-            </Button>
-            <Button
-              onClick={handleLogoutConfirmation}
-              color="error"
-              component={Link}
-              to="/"
+          <Box
+            sx={{
+              backgroundColor: "var(--primary-color)",
+              color: "var(--white-color)",
+            }}
+          >
+            <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Box>
+            <DialogTitle
+              sx={{ color: "var(--white-color)", fontWeight: "bold" }}
             >
-              Logout
-            </Button>
-          </DialogActions>
+              Confirm Logout
+            </DialogTitle>
+            </Box>
+            <Box>
+              <IconButton
+                onClick={handleCancelLogout}
+                sx={{
+                  color: "var(--white-color)",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                  marginRight: "15px",
+                  "&:hover": {
+                    background: "var(--secondary-color)",
+                    color: "white",
+                  },
+                }}
+              >
+                <Close />
+              </IconButton>
+            </Box>
+          </Box>
+            {/* <DialogTitle
+              sx={{ color: "var(--secondary-color)", fontWeight: "bold" }}
+            >
+              Confirm Logout
+            </DialogTitle> */}
+            <DialogContent>
+              <Typography>Are you sure you want to log out?</Typography>
+            </DialogContent>
+            <DialogActions>
+              {/* <Button onClick={handleCancelLogout} color="primary">
+                Cancel
+              </Button> */}
+              <Button
+                variant="outlined"
+                onClick={handleLogoutConfirmation}
+                  sx={{
+                    fontWeight: "bold",
+                    color: 'var(--white-color)',
+                    textTransform:"capitalize",
+                  "&:hover": {
+                    background: "var(--white-color)",
+                    color: "var(--primary-color)",
+                  },
+                }}
+                component={Link}
+                to="/"
+              >
+                Log Out
+              </Button>
+            </DialogActions>
+          </Box>
         </Dialog>
       </Box>
     </Grid>

@@ -13,9 +13,8 @@ const EmpManagement = () => {
 
   return (
     <Box>
-      {/*  <Container>  */}
       <Grid container sx={{ height: '100vh' }}>
-        {/*  Left admin dashboard  */}
+        {/*  LEFT ADMIN SIDE BAR  */}
         <AdminSideBar />
         <Grid item xs={12} md={9.4}>
           {/*  SEARCH BAR   */}
@@ -26,7 +25,7 @@ const EmpManagement = () => {
             }}
           >
             <Typography variant="h5" sx={{ fontWeight: 'bold', marginTop: '50px', }}>Employee Management</Typography>
-            {/*  Add scroll to the table  */}
+            {/*  ADD SCROLL IN A TABLE  */}
             <Box
               sx={{
                 marginTop: '15px',

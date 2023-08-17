@@ -55,7 +55,7 @@ const AdminSignup = () => {
   const checkUserLoggedIn = () => {
     const loggedIn =localStorage.getItem('loggedIn');
     if (!loggedIn || loggedIn === "undefined") {
-      return navigate("/");
+      return navigate("/signup");
     }
     if(loggedIn){
       return navigate("/dashboard")

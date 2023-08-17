@@ -11,8 +11,12 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  IconButton,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import ProfileImg from "./../../assets/img/profile.svg";
+import { Close } from "@mui/icons-material";
+import AdminDetail from "../../assets/img/admin.png";
 
 // Override the default MUI styles for InputBase
 const CustomTextField = styled(TextField)({
@@ -28,12 +32,12 @@ const CustomTextField = styled(TextField)({
   "&:hover .MuiInput-underline:after": {
     borderBottom: "none",
   },
-    "& input": {
-    width: "300px", 
+  "& input": {
+    width: "300px",
   },
 });
 
-const SearchBar = () =>{
+const SearchBar = () => {
   const [showDialog, setShowDialog] = useState(false); // State variable for showing the dialog box
   const [adminDetails, setAdminDetails] = useState({}); // State variable for admin details
 
@@ -43,9 +47,9 @@ const SearchBar = () =>{
     const adminPosition = localStorage.getItem("adminPosition");
     const adminEmail = localStorage.getItem("adminEmail");
     const adminPhonenumber = localStorage.getItem("adminPhonenumber");
-     // Convert the first letter of the admin name to uppercase
-     const capitalizedAdminName =
-     adminName.charAt(0).toUpperCase() + adminName.slice(1);
+    // Convert the first letter of the admin name to uppercase
+    const capitalizedAdminName =
+      adminName.charAt(0).toUpperCase() + adminName.slice(1);
 
     // Set the admin details in the state
     setAdminDetails({
@@ -61,63 +65,66 @@ const SearchBar = () =>{
   const handleCloseDialog = () => {
     setShowDialog(false); // Close the dialog box
   };
-    return(
-        <Box sx={{
-            margin: '30px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-        }}>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-start',
-                borderRadius: '5px',
-                background: 'var(--white-color)',
-                boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-              }}
-            >
-              <Typography
-                sx={{
-                  background: 'var(--primary-color)',
-                  padding: '13px',
-                  borderRadius: '5px 0 0 5px',
-                  color: 'var(--white-color)',
-                  fontSize: '12px',
-                  fontWeight: 'bold',
-                }}>
-                Search Employee
-              </Typography>
+  return (
+    <Box
+      sx={{
+        margin: "30px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          borderRadius: "5px",
+          background: "var(--white-color)",
+          boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+        }}
+      >
+        <Typography
+          sx={{
+            background: "var(--primary-color)",
+            padding: "13px",
+            borderRadius: "5px 0 0 5px",
+            color: "var(--white-color)",
+            fontSize: "12px",
+            fontWeight: "bold",
+          }}
+        >
+          Search Employee
+        </Typography>
 
-              <Box>
-                <CustomTextField
-                  variant="standard"
-                  inputProps={{
-                    sx: {
-                      fontSize: "12px",
-                      paddingLeft: "20px",
-                    },
-                  }}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <SearchIcon
-                          sx={{
-                            color: 'var(--third-color)',
-                          }}
-                        />
-                      </InputAdornment>
-                    ),
-                    sx: {
-                      paddingRight: "10px",
-                    },
-                  }}
-                  placeholder="Search..."
-                />
-              </Box>
-            </Box>
-            <Box>
+        <Box>
+          <CustomTextField
+            variant="standard"
+            inputProps={{
+              sx: {
+                fontSize: "12px",
+                paddingLeft: "20px",
+              },
+            }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon
+                    sx={{
+                      color: "var(--third-color)",
+                    }}
+                  />
+                </InputAdornment>
+              ),
+              sx: {
+                paddingRight: "10px",
+              },
+            }}
+            placeholder="Search..."
+          />
+        </Box>
+      </Box>
+      <Box>
         <Button onClick={handleSettingButtonClick}>
           <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
         </Button>
@@ -128,17 +135,57 @@ const SearchBar = () =>{
         maxWidth="xs"
         fullWidth
       >
-        <Box 
-          // sx={{ backgroundColor: "#dfeaf7" }}
+        <Box
+          sx={{
+            backgroundColor: "var(--primary-color)",
+            color: "var(--white-color)",
+          }}
         >
-          <DialogTitle>Admin Details</DialogTitle>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Box>
+              <DialogTitle>Admin Details</DialogTitle>
+            </Box>
+            <Box>
+              <IconButton
+                onClick={handleCloseDialog}
+                sx={{
+                  color: "var(--white-color)",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                  marginRight: "15px",
+                  "&:hover": {
+                    background: "var(--secondary-color)",
+                    color: "white",
+                  },
+                }}
+              >
+                <Close />
+              </IconButton>
+            </Box>
+          </Box>
           <DialogContent>
+            <Box sx={{ marginTop: "-10px" }}>
+              <img width={"90px"} src={ProfileImg} alt="profile" />
+            </Box>
+            <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Box>
               <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
                 Name
               </Typography>
               <Typography sx={{ fontWeight: "600", fontSize: "15px" }}>
-              {adminDetails.name}
+                {adminDetails.name}
               </Typography>
               <Typography sx={{ fontSize: "11px", marginTop: "15px" }}>
                 Email
@@ -159,16 +206,32 @@ const SearchBar = () =>{
                 {adminDetails.position}
               </Typography>
             </Box>
+            <Box>
+              <img src={AdminDetail} width={200} alt="admin"/>
+            </Box>
+            </Box>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleCloseDialog} color="primary">
+            {/* <Button
+              onClick={handleCloseDialog}
+              sx={{
+                backgroundColor: "var(--secondary-color)",
+                color: "var(--white-color)",
+                fontWeight: "bold",
+                textTransform: "capitalize",
+                "&:hover": {
+                  background: "darkgreen",
+                  color: "white",
+                },
+              }}
+            >
               Close
-            </Button>
+            </Button> */}
           </DialogActions>
         </Box>
       </Dialog>
     </Box>
-    );
-}
+  );
+};
 
 export default SearchBar;
