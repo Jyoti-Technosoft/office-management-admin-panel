@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import UserIcon from "../../assets/img/icons/userIcon.png";
 import {
   Box,
@@ -13,6 +13,7 @@ import {
   DialogActions,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 // Override the default MUI styles for InputBase
 const CustomTextField = styled(TextField)({
@@ -37,6 +38,8 @@ const SearchBar = () =>{
   const [showDialog, setShowDialog] = useState(false); // State variable for showing the dialog box
   const [adminDetails, setAdminDetails] = useState({}); // State variable for admin details
 
+  const { setSearchBarValue } = useContext(GlobalContext);
+
   const handleSettingButtonClick = () => {
     // Retrieve admin name and position from local storage
     const adminName = localStorage.getItem("adminName");
@@ -58,6 +61,11 @@ const SearchBar = () =>{
   const handleCloseDialog = () => {
     setShowDialog(false); // Close the dialog box
   };
+
+  function handleChange(event) {
+    setSearchBarValue(event.target.value)
+  }
+
     return(
         <Box sx={{
             margin: '30px',
@@ -96,6 +104,7 @@ const SearchBar = () =>{
                       paddingLeft: "20px",
                     },
                   }}
+                  onChange={handleChange}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">

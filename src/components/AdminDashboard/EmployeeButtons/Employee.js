@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import EmployeeFormModal from "../../AddEmployee/EmployeeFormModal";
+import EmpTable from "../Tables/EmpTable";
 
 const Employee = () => {
   // Context Function
@@ -70,60 +71,8 @@ const Employee = () => {
         }}
         overflow="auto"
       >
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead sx={{ background: "var(--pirmary-light-color)" }}>
-              <TableRow sx={{ textDecoration: "none" }}>
-                <TableCell>
-                  <b>Emp ID</b>
-                </TableCell>
-                <TableCell>
-                  <b>Name</b>
-                </TableCell>
-                <TableCell>
-                  <b>Date of Birth</b>
-                </TableCell>
-                <TableCell>
-                  <b>Date of Join</b>
-                </TableCell>
-                <TableCell>
-                  <b>Designation</b>
-                </TableCell>
-                <TableCell>
-                  <b>Action</b>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {userData?.map((user, index) => (
-                <TableRow
-                  key={index}
-                  sx={{
-                    backgroundColor:
-                      index % 2 === 1 ? "var(--pirmary-light-color)" : "",
-                  }}
-                >
+              <EmpTable/>
 
-                  <TableCell>{"JT" + " " + (user.id + 100)}</TableCell>
-                  <TableCell>{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                  <TableCell>{user.personalDob}</TableCell>
-                  <TableCell>{user.jobDoj}</TableCell>
-                  <TableCell>{user.jobDesignation}</TableCell>
-                  <TableCell>
-                    <Button
-                      component={Link}
-                      to={`/viewprofile/${user.id}`}
-                      variant="outlined"
-                      color="primary"
-                    >
-                      View Profile
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
       </Box>
     </>
   );
