@@ -3,7 +3,7 @@ import { Box, Button, Typography, Grid } from "@mui/material";
 import "./AdminDashboard.scss";
 import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
 import SearchBar from "../ReusableComponents/SearchBar";
-import Employee from "./EmployeeButtons/Employee";
+import EmployeeTable from "./EmployeeButtons/EmployeeTable";
 import Leave from "./EmployeeButtons/Leave";
 import Attendance from "./EmployeeButtons/Attendance";
 // IMPORT ICON
@@ -21,22 +21,6 @@ const AdminDashboard = () => {
   const [leaveData, setLeaveData] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
   const [selectedTab, setSelectedTab] = useState("employee");
-  console.log("employeeData", employeeData)
-  const getData = () => {
-    axios.get(`${employeeApiEndpoint}`)
-      .then(response => {
-        console.log("re", response);
-        setUserData(response.data);
-        console.log("Dashboard New: ", userData);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-
-  useEffect(() => {
-    getData();
-  }, [employeeData])
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
@@ -44,13 +28,29 @@ const AdminDashboard = () => {
 
   const renderTabContent = () => {
     if (selectedTab === "employee") {
-      return <Employee />;
+      return <EmployeeTable />;
     } else if (selectedTab === "leave") {
       return <Leave />;
     } else if (selectedTab === "attendance") {
       return <Attendance />;
     }
   };
+  
+  const getData = () => {
+    axios.get(`${employeeApiEndpoint}`)
+      .then(response => {
+        setUserData(response.data);
+        console.log("Dashboard New: ", userData);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+  useEffect(() => {
+    getData();
+  }, [employeeData])
+
+
 
   return (
     <Box>

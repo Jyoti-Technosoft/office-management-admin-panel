@@ -9,7 +9,7 @@ import DisplayExperience from "../DisplayEmp/DisplayExperience/DisplayExperience
 import DisplayJob from "../DisplayEmp/DisplayJob/DisplayJob";
 import DisplayFinancial from "../DisplayEmp/DisplayFinancial/DisplayFinancial";
 
-const EmpButton = () => {
+const ViewProfileTabs = () => {
   const [selectedTab, setSelectedTab] = useState("personal");
 
   const handleTabChange = (tab) => {
@@ -34,10 +34,7 @@ const EmpButton = () => {
   };
   return (
     <Box
-      sx={{
-        marginTop: "50px",
-      }}
-    >
+      sx={{ marginTop: "50px" }}>
       <Grid container spacing={3}>
         {/* {/ LEFT BOX /} */}
         <Grid container xs={12} md={3.5}>
@@ -107,8 +104,8 @@ const EmpButton = () => {
                 fontWeight: selectedTab === "family" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Family Details
+            >
+              Family Details
             </Button>
             <Button
               onClick={() => handleTabChange("experience")}
@@ -122,8 +119,8 @@ const EmpButton = () => {
                 fontWeight: selectedTab === "experience" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Experience Details
+            >
+              Experience Details
             </Button>
             <Button
               onClick={() => handleTabChange("job")}
@@ -137,10 +134,10 @@ const EmpButton = () => {
                 fontWeight: selectedTab === "job" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Job Details
-              </Button>
-              <Button
+            >
+              Job Details
+            </Button>
+            <Button
               onClick={() => handleTabChange("financial")}
               sx={{
                 ...DashboardProfileButtons,
@@ -152,19 +149,19 @@ const EmpButton = () => {
                 fontWeight: selectedTab === "financial" ? "bold" : "normal",
                 border: "none",
               }}
-              >
-                Financial Details
-              </Button>
+            >
+              Financial Details
+            </Button>
             <Button sx={DashboardProfileButtons}>Leaves</Button>
           </Box>
         </Grid>
+
         {/* {/ RIGHT BOX /} */}
         <Grid container xs={12} md={8.5}>
-          {/* {/ FOR MAIN COMPONENT DESIGN BOX /} */}
           <Box
             sx={{
               marginLeft: "20px",
-              backgroundColor: "#dfeaf7",
+              backgroundColor: "var(--pirmary-light-color)",
               borderRadius: "10px",
               height: "100%",
               width: "100%",
@@ -178,4 +175,4 @@ const EmpButton = () => {
     </Box>
   );
 };
-export default EmpButton;
+export default ViewProfileTabs;

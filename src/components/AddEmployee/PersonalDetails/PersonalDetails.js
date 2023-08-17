@@ -3,7 +3,6 @@
 import React from "react";
 import { Box, TextField, Typography, InputLabel , FormControl, Select, MenuItem } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
-import { DateField, DatePicker } from "@mui/x-date-pickers";
 
 const PersonalDetails = ({ formData, onChange }) => {
   const handleInputChange = (event) => {

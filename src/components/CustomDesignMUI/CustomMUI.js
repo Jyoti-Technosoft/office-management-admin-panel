@@ -15,8 +15,12 @@ export const InputField = {
 };
 export const InputFieldProps = () => {
     return {
-        // height: "4px",
         fontSize: "14px",
+    };
+}
+export const InputFieldPropsForm = () => {
+    return {
+        height: "13px",
     };
 }
 export const errorMessageDesign = {

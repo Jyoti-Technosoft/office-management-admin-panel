@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -19,12 +19,11 @@ const Employee = () => {
   // Context Function
   const { userData } = useContext(GlobalContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleAddEmployee = () => {
-    setIsModalOpen(true);
-  };
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+
+  const navigation = useNavigate();
+  const handleAddEmployee = () =>{
+    navigation('/viewprofile/addemployee')
+  }
   return (
     <>
       <Box
@@ -59,8 +58,7 @@ const Employee = () => {
           </Button>
         </Box>
       </Box>
-      <EmployeeFormModal open={isModalOpen} onClose={handleCloseModal} />
-
+      
       {/* Add scroll to the table */}
       <Box
         sx={{

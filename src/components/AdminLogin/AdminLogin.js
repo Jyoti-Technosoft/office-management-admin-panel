@@ -72,7 +72,7 @@ const AdminLogin = () => {
         );
 
       if (matchingUser) {
-        // localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("loggedIn", "true");
         // localStorage.setItem("adminName", matchingUser.name); // Save admin name in local storage
         // localStorage.setItem("adminPosition", matchingUser.position); // Save admin position in local storage
         // localStorage.setItem("adminEmail", matchingUser.email); // Save admin email in local storage

@@ -6,7 +6,7 @@ import SearchBar from "../ReusableComponents/SearchBar";
 import ViewProfileTabs from "../ReusableComponents/ViewProfileTabs";
 
 
-const ViewProfile = () => {
+const AddEmployee = () => {
   return (
       <Grid container sx={{height: '100vh'}}>
         {/* Left admin dashboard */}
@@ -16,10 +16,10 @@ const ViewProfile = () => {
           <SearchBar />
           <Box sx={{ margin: "0px 50px" }}>
             <Typography variant="h5" sx={{ fontWeight: "bold" }}> Employee Management </Typography>
-            <ViewProfileTabs />
+            <ViewProfileTabs/>
           </Box>
         </Grid>
       </Grid>
   );
 };
-export default ViewProfile;
+export default AddEmployee;

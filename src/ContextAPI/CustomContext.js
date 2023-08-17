@@ -13,6 +13,7 @@ const CustomContext = (props) => {
   const [showNextButton, setShowNextButton] = useState(false);
   const [openDialog, setOpenDialog] = useState(false); 
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false); 
+  
 
   // Define your API endpoints
   const adminApiEndpoint = "http://localhost:8001/adminData";
@@ -32,13 +33,32 @@ const CustomContext = (props) => {
         console.error("Error fetching data:", error);
       }
     }
+    
     fetchData();
   }, []);
+
+  
+  const getData = () => {
+    axios.get(`${employeeApiEndpoint}`)
+      .then(response => {
+        setUserData(response.data);
+        console.log("Dashboard New: ", userData);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, [employeeData])
 
 
   return (
 
-    <GlobalContext.Provider value={{ admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData, setOpenDialog, openDialog, openDeleteDialog, setOpenDeleteDialog, adminName, setAdminName, adminPosition, setAdminPosition }}>
+    <GlobalContext.Provider value={{
+      admin, setAdmin, employeeData, setEmployeeData, showNextButton, setShowNextButton, employeeApiEndpoint, adminApiEndpoint, userData, setUserData, setOpenDialog, openDialog, openDeleteDialog, setOpenDeleteDialog, adminName, setAdminName, adminPosition, setAdminPosition
+      }}>
       {props.children}
     </GlobalContext.Provider>
   );

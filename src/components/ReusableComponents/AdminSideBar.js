@@ -237,7 +237,7 @@ const AdminSideBar = () => {
               },
             }}
             onClick={handleLogOut}
-          >
+            >
             <Box
               sx={{
                 marginRight: "10px",

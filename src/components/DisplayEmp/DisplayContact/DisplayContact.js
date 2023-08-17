@@ -12,11 +12,9 @@ const DisplayContact = () => {
   // DATA CALLING START
   const { userData, setUserData } = useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find(
-    (user) => user.id === parseInt(employeeId)
-  );
-  console.log("EmployeeID: ", employeeId);
-  console.log("Employee Details : ", employeeCall);
+  const employeeCall = userData.find((user) => user.id === parseInt(employeeId));
+
+
   if (!employeeCall) {
     return <Box>Loading...</Box>; // Or handle the case when the employee is not found
   }

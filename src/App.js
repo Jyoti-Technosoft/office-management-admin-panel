@@ -9,6 +9,7 @@ import ViewProfile from "./components/ViewProfile/ViewProfile";
 import EmpManagement from "./components/EmployeeManagement/EmpManagement";
 import LeaveManagement from "./components/LeaveManagement/LeaveManagement";
 import AttendanceManagement from "./components/AttendanceManagement/AttendanceManagement";
+import AddEmployee from './components/AddEmployee/AddEmployee'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard" element={<Protected Comp={AdminDashboard} />} />
           {/* <Route path="/viewprofile" element={<Protected Comp={ViewProfile} />} /> */}
           <Route path="/viewprofile/:employeeId" element={<Protected Comp={ViewProfile}/>}/>
+          <Route path="/viewprofile/addemployee" element={<Protected Comp={AddEmployee}/>}/>
           <Route path= "/empmanagement" element={<Protected Comp = {EmpManagement}/>}/>
           <Route path= "/leavemanagement" element={<Protected Comp = {LeaveManagement}/>}/>
           <Route path= "/attendancemanagement" element={<Protected Comp = {AttendanceManagement}/>}/>
