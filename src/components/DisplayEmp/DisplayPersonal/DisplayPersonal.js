@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -28,12 +28,12 @@ const DisplayPersonal = () => {
   // DATA CALLING START
   const { userData, employeeApiEndpoint, setUserData} = useContext(GlobalContext);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-
   const { employeeId } = useParams();
   const employeeCall = userData.find((user) => user.id === parseInt(employeeId));
   const [editable, setEditable] = useState(false);
   const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall,});
   console.log("setEditedEmployeeData", editedEmployeeData);
+  console.log("EmployeeID", employeeId);
 
   const deleteEmployee = () => {
     axios
@@ -80,6 +80,15 @@ const DisplayPersonal = () => {
       [name]: value,
     }));
   };
+
+  const addNewEmployee = () =>{
+    if(employeeId === undefined ) {
+      setEditable(true);
+    }
+  }
+  useEffect(() =>{
+    addNewEmployee();
+  },[]);
 
   return (
     <Box>
@@ -201,7 +210,6 @@ const DisplayPersonal = () => {
                   <MenuItem value="Java Developer">JAVA Developer</MenuItem>
                   <MenuItem value="Jr.Developer">Jr.Developer</MenuItem>
                 </Select>
-                {console.log("Designation", editedEmployeeData.jobDesignation)}
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Job Category</Typography>
