@@ -23,7 +23,7 @@ import { Close } from "@mui/icons-material";
 
 const AdminSideBar = () => {
   const [openDialog, setOpenDialog] = useState(false);
-  const { setAdminName, setAdminPosition, adminName, adminPosition } =
+  const { setAdminName, setAdminPosition, adminName, adminPosition, setShowToast } =
     useContext(GlobalContext);
   const location = useLocation();
   const capitalizeFirstLetter = (string) => {
@@ -52,6 +52,7 @@ const AdminSideBar = () => {
   // Function to handle logout confirmation
   const handleLogoutConfirmation = () => {
     localStorage.removeItem("loggedIn");
+    setShowToast({ show: true, msg: "Logout Successfully", type: "success" });
     setOpenDialog(false);
   };
 

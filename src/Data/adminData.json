@@ -53,6 +53,15 @@
       "password": "1111111111",
       "confirmpassword": "1111111111",
       "id": "ER-vXF2"
+    },
+    {
+      "name": "Max",
+      "email": "max@gmail.com",
+      "phonenumber": "9879512365",
+      "position": "Marketing",
+      "password": "Max@123",
+      "confirmpassword": "Max@123",
+      "id": "w0gbaZP"
     }
   ]
 }

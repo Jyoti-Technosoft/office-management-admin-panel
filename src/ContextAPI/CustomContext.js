@@ -16,6 +16,8 @@ const CustomContext = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("loggedIn") === "true"
   );
+  const [showToast, setShowToast] = useState({});
+
   // const [isLoggedIn, setIsLoggedIn] = useState(
   //   localStorage.getItem("loggedIn") === "false"
   // );
@@ -74,6 +76,8 @@ const CustomContext = (props) => {
         isLoggedIn,
         login,
         logout,
+        showToast,
+        setShowToast
       }}
     >
       {props.children}

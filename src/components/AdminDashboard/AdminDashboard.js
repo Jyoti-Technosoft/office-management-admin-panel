@@ -13,11 +13,12 @@ import AttendanceIcon from "../../assets/img/icons/attendanceIcon.svg";
 // IMPORT CONTEXT
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import axios from "axios";
+import CustomToast from "../ReusableComponents/CustomToast";
 
 
 const AdminDashboard = () => {
   // Context Function
-  const { employeeData, setUserData, userData, employeeApiEndpoint } = useContext(GlobalContext);
+  const { employeeData, setUserData, userData, employeeApiEndpoint, showToast } = useContext(GlobalContext);
   const [leaveData, setLeaveData] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
   const [selectedTab, setSelectedTab] = useState("employee");
@@ -245,6 +246,11 @@ const AdminDashboard = () => {
           </Box>
         </Grid>
       </Grid>
+      {
+        showToast.show ?
+          <CustomToast toastType={showToast.type} message={showToast.msg}/>
+          : null
+      }
     </Box>
   );
 };

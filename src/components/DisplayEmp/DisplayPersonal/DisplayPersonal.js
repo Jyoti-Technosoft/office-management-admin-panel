@@ -13,7 +13,7 @@ const DisplayPersonal = () => {
   const navigate = useNavigate();
 
   // DATA CALLING START 
-  const { userData, employeeApiEndpoint, setUserData, employeeData } = useContext(GlobalContext)
+  const { userData, employeeApiEndpoint, setUserData, employeeData, setShowToast } = useContext(GlobalContext)
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const { employeeId } = useParams();
   const employeeCall = userData.find(user => user.id === parseInt(employeeId));
@@ -27,7 +27,7 @@ const DisplayPersonal = () => {
       .then(response => {
         console.log(`Employee Deleted Successfully`);
         navigate('/dashboard')
-
+        setShowToast({ show: true, msg: "Record Deleted successfully", type: "success" });
       })
       .catch(error => {
         console.error(error);
