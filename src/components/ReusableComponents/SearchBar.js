@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserIcon from "../../assets/img/icons/userIcon.png";
+import UserIcon from "../../assets/img/profile.svg";
 import {
   Box,
   Button,
@@ -16,7 +16,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ProfileImg from "./../../assets/img/profile.svg";
 import { Close } from "@mui/icons-material";
-import AdminDetail from "../../assets/img/admin.png";
+import AdminDetail from "../../assets/img/admin.svg";
 
 // Override the default MUI styles for InputBase
 const CustomTextField = styled(TextField)({
