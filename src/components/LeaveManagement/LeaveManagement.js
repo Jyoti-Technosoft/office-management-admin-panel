@@ -4,6 +4,7 @@ import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
 import SearchBar from "../ReusableComponents/SearchBar";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import LeaveTable from "../AdminDashboard/Tables/LeaveTable";
+import { tableMainHead } from "../CustomDesignMUI/CustomMUI";
 
 const LeaveManagement = () => {
   const { employeeData } = useContext(GlobalContext);
@@ -32,11 +33,7 @@ const LeaveManagement = () => {
           >
             <Typography
               variant="h5"
-              sx={{
-                fontWeight: "bold",
-                marginTop: "50px",
-                marginBottom: "20px",
-              }}
+              sx={tableMainHead}
             >
               Leave Management
             </Typography>
@@ -45,9 +42,22 @@ const LeaveManagement = () => {
               sx={{
                 marginTop: "15px",
                 maxHeight: "calc(100vh - 220px)",
+                boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+                padding: "20px",
+                borderRadius: "10px",
+                background:"var(--plain-white)",
               }}
               overflow="auto"
             >
+               <Typography
+                variant="h6"
+                sx={{ color: "var(--primary-text-color)",
+                //  fontWeight: "bold" ,
+                }}
+              >
+                Leave Details
+              </Typography>
+              <hr />
               <LeaveTable />
             </Box>
           </Box>

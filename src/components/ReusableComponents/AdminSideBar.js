@@ -40,6 +40,7 @@ const AdminSideBar = () => {
     location.pathname === "/attendancemanagement";
   const isLeaveManagement = location.pathname === "/leavemanagement";
   const isEmpManagement = location.pathname === "/empmanagement";
+  const isDashboard = location.pathname === "/dashboard";
 
   useEffect(() => {
     const adminNameFromStorage = localStorage.getItem("adminName");
@@ -72,10 +73,11 @@ const AdminSideBar = () => {
         <Box
           sx={{
             position: "relative",
-            // background: "var(--plain-white)",
+            background: "var(--plain-white)",
             padding: "20px",
             height: "100%",
             color: "var(--white-color)",
+            boxShadow: "-15px 0px 40px 0px rgba(0, 0, 0, 0.25)",
           }}
         >
           <Box
@@ -92,31 +94,31 @@ const AdminSideBar = () => {
                 paddingLeft: "10px",
               }}
             >
-              <Typography variant="subtitle" sx={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle" sx={{ fontWeight: "bold",color:"var(--secondary-text-color)" }}>
                 {capitalizeFirstLetter(adminName)}
               </Typography>
-              <Typography variant="subtitle2">{adminPosition}</Typography>
+              <Typography variant="subtitle2" sx={{color:"var(--secondary-text-color)"}}>{adminPosition}</Typography>
             </Box>
           </Box>
+          <hr/>
           <Box mt={2}>
-            <Typography variant="subtitle2">Features</Typography>
-
             <Button
             className="Icon-Color"
               sx={{
                 marginTop: "10px",
-                background: "var(--secondary-color)",
-                color: "var(--white-color)",
-                fontWeight: "bold",
+                color: isDashboard ? "var(--primary-color)" : "var(--secondary-text-color)",
+                fontWeight: isDashboard ? "bold" : "",
                 width: "100%",
                 textTransform: "capitalize",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-start",
                 padding: "10px 30px",
+                background: isDashboard ? "var(--primary-highlight-color)" : "",
                 "&:hover": {
-                  background: "var(--secondary-dark-color)",
-                  color: "white",
+                  background: "var(--primary-highlight-color)",
+                  color: "var(--primary-color)",
+                  fontWeight:"bold",
                 },
               }}
               component={Link}
@@ -127,34 +129,32 @@ const AdminSideBar = () => {
                   marginRight: "15px",
                 }}
                 >
-                <DashboardIcon width='25px'/>
+                <DashboardIcon width='19px'/>
               </Box>
               Dashboard
             </Button>
-          </Box>
-          <Box mt={5}>
-            <Typography variant="subtitle2">Organization</Typography>
             <Button
             className="Icon-Color"
               sx={{
-                marginTop: "10px",
-                color: "var(--white-color)",
+                marginTop: "5px",
+                color: isEmpManagement ? "var(--primary-color)" : "var(--secondary-text-color)",
+                fontWeight: isEmpManagement ? "bold" : "",
                 width: "100%",
                 textTransform: "capitalize",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-start",
                 padding: "10px 30px",
-                background: isEmpManagement ? "var(--secondary-color)" : "",
-
+                background: isEmpManagement ? "var(--primary-highlight-color)" : "",
                 "&:hover": {
-                  background: "var(--secondary-color)",
-                  color: "white",
+                  background: "var(--primary-highlight-color)",
+                  color: "var(--primary-color)",
+                  fontWeight:"bold",
                 },
               }}
               component={Link}
               to="/empmanagement"
-            >
+              >
               <Box
                 sx={{
                   marginRight: "15px",
@@ -168,30 +168,32 @@ const AdminSideBar = () => {
             <Button
             className="Icon-Color"
               sx={{
-                marginTop: "10px",
-                color: "var(--white-color)",
+                marginTop: "5px",
+                color: isLeaveManagement ? "var(--primary-color)" : "var(--secondary-text-color)",
+                fontWeight: isLeaveManagement ? "bold" : "",
                 width: "100%",
                 textTransform: "capitalize",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-start",
                 padding: "10px 30px",
-                background: isLeaveManagement ? "var(--secondary-color)" : "",
-
+                background: isLeaveManagement ? "var(--primary-highlight-color)" : "",
                 "&:hover": {
-                  background: "var(--secondary-color)",
-                  color: "white",
+                  background: "var(--primary-highlight-color)",
+                  color: "var(--primary-color)",
+                  fontWeight:"bold",
                 },
               }}
               component={Link}
               to="/leavemanagement"
-            >
+              >
               <Box
                 sx={{
                   marginRight: "15px",
                 }}
               >
                 <LeaveIcon width='18px'/>
+
               </Box>
               Leave Management
             </Button>
@@ -199,8 +201,9 @@ const AdminSideBar = () => {
             <Button
             className="Icon-Color"
               sx={{
-                marginTop: "10px",
-                color: "var(--white-color)",
+                marginTop: "5px",
+                color: isAttendanceManagementActive ? "var(--primary-color)" : "var(--secondary-text-color)",
+                fontWeight: isAttendanceManagementActive ? "bold" : "",
                 width: "100%",
                 textTransform: "capitalize",
                 display: "flex",
@@ -208,15 +211,17 @@ const AdminSideBar = () => {
                 justifyContent: "flex-start",
                 padding: "10px 30px",
                 background: isAttendanceManagementActive
-                  ? "var(--secondary-color)" : "",
+                  ? "var(--primary-highlight-color)"
+                  : "",
                 "&:hover": {
-                  background: "var(--secondary-color)",
-                  color: "white",
+                  background: "var(--primary-highlight-color)",
+                  color: "var(--primary-color)",
+                  fontWeight:"bold",
                 },
               }}
               component={Link}
               to="/attendancemanagement"
-            >
+              >
               <Box
                 sx={{
                   marginRight: "15px",
@@ -226,7 +231,7 @@ const AdminSideBar = () => {
               </Box>
               Attendance Management
             </Button>
-          </Box>
+            </Box>
           <Box
             sx={{
               position: "absolute",
@@ -238,17 +243,19 @@ const AdminSideBar = () => {
           >
             <Button
               sx={{
-                background: "var(--secondary-color)",
-                color: "var(--white-color)",
+                background: "var(--primary-color)",
+                color: "var(--plain-white)",
                 textTransform: "capitalize",
                 fontWeight: "bold",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                 width: "100%",
+                borderRadius:"10px",
                 "&:hover": {
-                  background: "var(--secondary-dark-color)",
-                  color: "var(--white-color)",
+                  background: "var(--secondary-color)",
+                  color: "var(--plain-white)",
                 },
               }}
               onClick={handleLogOut}
@@ -267,8 +274,8 @@ const AdminSideBar = () => {
           <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
             <Box
               sx={{
-                backgroundColor: "var(--primary-color)",
-                color: "var(--white-color)",
+                backgroundColor: "var(--primary-background-color)",
+                color: "var(--secondary-text-color)",
               }}
             >
               <Box
@@ -280,7 +287,7 @@ const AdminSideBar = () => {
               >
                 <Box>
                   <DialogTitle
-                    sx={{ color: "var(--white-color)", fontWeight: "bold" }}
+                    sx={{ fontWeight: "bold" }}
                   >
                     Confirm Logout
                   </DialogTitle>
@@ -289,13 +296,12 @@ const AdminSideBar = () => {
                   <IconButton
                     onClick={handleCancelLogout}
                     sx={{
-                      color: "var(--white-color)",
                       fontWeight: "bold",
                       textTransform: "capitalize",
                       marginRight: "15px",
                       "&:hover": {
-                        background: "var(--secondary-color)",
-                        color: "white",
+                        background: "var(--primary-highlight-color)",
+                        color: "var(--primary-color)",
                       },
                     }}
                   >
@@ -319,10 +325,10 @@ const AdminSideBar = () => {
                   onClick={handleLogoutConfirmation}
                   sx={{
                     fontWeight: "bold",
-                    color: "var(--white-color)",
+                    color: "var(--secondary-text-color)",
                     textTransform: "capitalize",
                     "&:hover": {
-                      background: "var(--white-color)",
+                      background: "var(--primary-highlight-color)",
                       color: "var(--primary-color)",
                     },
                   }}

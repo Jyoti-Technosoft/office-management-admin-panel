@@ -68,3 +68,16 @@ export const viewExperiencePosition = {
     fontWeight: "bold",
     fontSize: "13px" 
 }
+// FOR TABLES
+export const tableHeadCell = {
+    color:"var(--primary-text-color)",
+    fontWeight:"bold",
+}
+export const tableBodyCell = {
+    color:"var(--primary-text-color)",
+}
+export const tableMainHead = {
+    fontWeight: 'bold',
+    marginTop: '50px',
+    color:"var(--primary-text-color)",
+}

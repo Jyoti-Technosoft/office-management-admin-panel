@@ -10,6 +10,7 @@ import {
   TableBody,
 } from "@mui/material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
+import { tableBodyCell, tableHeadCell } from "../../CustomDesignMUI/CustomMUI";
 
 const AttendanceTable = () => {
   const { employeeData } = useContext(GlobalContext);
@@ -25,19 +26,19 @@ const AttendanceTable = () => {
     <Box>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead sx={{ background: "var(--pirmary-light-color)" }}>
+          <TableHead sx={{ background: "var(--highlight-color)" }}>
             <TableRow sx={{ textDecoration: "none" }}>
-              <TableCell>
-                <b>Index</b>
+              <TableCell sx={tableHeadCell}>
+                Index
               </TableCell>
-              <TableCell>
-                <b>Name</b>
+              <TableCell sx={tableHeadCell}>
+                Name
               </TableCell>
-              <TableCell>
-                <b>City</b>
+              <TableCell sx={tableHeadCell}>
+                City
               </TableCell>
-              <TableCell>
-                <b>Time</b>
+              <TableCell sx={tableHeadCell}>
+                Time
               </TableCell>
             </TableRow>
           </TableHead>
@@ -47,13 +48,13 @@ const AttendanceTable = () => {
                 key={index}
                 sx={{
                   backgroundColor:
-                    index % 2 === 1 ? "var(--pirmary-light-color)" : "",
+                    index % 2 === 1 ? "var(--highlight-color)" : "",
                 }}
               >
-                <TableCell>{index}</TableCell>
-                <TableCell>John</TableCell>
-                <TableCell>Maxico</TableCell>
-                <TableCell>Full day</TableCell>
+                <TableCell sx={tableBodyCell}>{index}</TableCell>
+                <TableCell sx={tableBodyCell}>John</TableCell>
+                <TableCell sx={tableBodyCell}>Maxico</TableCell>
+                <TableCell sx={tableBodyCell}>Full day</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -12,42 +12,30 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
-
+import { tableBodyCell, tableHeadCell } from "../../CustomDesignMUI/CustomMUI";
 
 const EmpTable = () => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-      // Context Function
+  // Context Function
   const { userData } = useContext(GlobalContext);
   return (
     <Box>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead sx={{ background: "var(--pirmary-light-color)" }}>
+          <TableHead sx={{background:"var(--highlight-color)"}}>
             <TableRow sx={{ textDecoration: "none" }}>
-              <TableCell>
-                <b>Emp ID</b>
-              </TableCell>
-              <TableCell>
-                <b>Name</b>
-              </TableCell>
-              <TableCell>
-                <b>Date of Birth</b>
-              </TableCell>
-              <TableCell>
-                <b>Date of Join</b>
-              </TableCell>
-              <TableCell>
-                <b>Designation</b>
-              </TableCell>
-              <TableCell>
-                <b>Action</b>
-              </TableCell>
+              <TableCell sx={tableHeadCell}>Emp ID</TableCell>
+              <TableCell sx={tableHeadCell}>Name</TableCell>
+              <TableCell sx={tableHeadCell}>Date of Birth</TableCell>
+              <TableCell sx={tableHeadCell}>Date of Join</TableCell>
+              <TableCell sx={tableHeadCell}>Designation</TableCell>
+              <TableCell sx={tableHeadCell}>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -56,20 +44,33 @@ const EmpTable = () => {
                 key={index}
                 sx={{
                   backgroundColor:
-                    index % 2 === 1 ? "var(--pirmary-light-color)" : "",
+                    index % 2 === 1 ? "var(--highlight-color)" : "",
                 }}
               >
-                <TableCell>{"JT" + " " + (user.id + 100)}</TableCell>
-                <TableCell>{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                <TableCell>{formatDate(user.personalDob)}</TableCell>
-                <TableCell>{formatDate(user.jobDoj)}</TableCell>
-                <TableCell>{user.jobDesignation}</TableCell>
-                <TableCell>
+                <TableCell sx={tableBodyCell}>
+                  {"JT" + " " + (user.id + 100)}
+                </TableCell>
+                <TableCell
+                  sx={tableBodyCell}
+                >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
+                <TableCell sx={tableBodyCell}>
+                  {formatDate(user.personalDob)}
+                </TableCell>
+                <TableCell sx={tableBodyCell}>
+                  {formatDate(user.jobDoj)}
+                </TableCell>
+                <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>
+                <TableCell sx={tableBodyCell}>
                   <Button
                     component={Link}
                     to={`/viewprofile/${user.id}`}
                     variant="outlined"
-                    color="primary"
+                    sx={{
+                      background: "var(--primary-highlight-color)",
+                      color: "var(--primary-color)",
+                      textTransform: "capitalize",
+                      fontWeight: "bold",
+                    }}
                   >
                     View Profile
                   </Button>

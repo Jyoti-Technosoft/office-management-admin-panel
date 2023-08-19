@@ -10,6 +10,7 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
+import { tableBodyCell, tableHeadCell } from "../../CustomDesignMUI/CustomMUI";
 
 const LeaveTable = () => {
   const { employeeData } = useContext(GlobalContext);
@@ -24,25 +25,25 @@ const LeaveTable = () => {
     <Box>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead sx={{ background: "var(--pirmary-light-color)" }}>
+          <TableHead sx={{ background: "var(--highlight-color)" }}>
             <TableRow sx={{ textDecoration: "none" }}>
-              <TableCell>
-                <b>Index</b>
+              <TableCell sx={tableHeadCell}>
+                Index
               </TableCell>
-              <TableCell>
-                <b>From</b>
+              <TableCell sx={tableHeadCell}>
+                From
               </TableCell>
-              <TableCell>
-                <b>To</b>
+              <TableCell sx={tableHeadCell}>
+                To
               </TableCell>
-              <TableCell>
-                <b>Time</b>
+              <TableCell sx={tableHeadCell}>
+                Time
               </TableCell>
-              <TableCell>
-                <b>Reason(s)</b>
+              <TableCell sx={tableHeadCell}>
+                Reason(s)
               </TableCell>
-              <TableCell>
-                <b>Type</b>
+              <TableCell sx={tableHeadCell}>
+                Type
               </TableCell>
             </TableRow>
           </TableHead>
@@ -52,15 +53,15 @@ const LeaveTable = () => {
                 key={index}
                 sx={{
                   backgroundColor:
-                    index % 2 === 1 ? "var(--pirmary-light-color)" : "",
+                    index % 2 === 1 ? "var(--highlight-color)" : "",
                 }}
               >
-                <TableCell>{index}</TableCell>
-                <TableCell>28/04/2022</TableCell>
-                <TableCell>28/04/2022</TableCell>
-                <TableCell>Full day</TableCell>
-                <TableCell>Personal</TableCell>
-                <TableCell>Paid</TableCell>
+                <TableCell sx={tableBodyCell}>{index}</TableCell>
+                <TableCell sx={tableBodyCell}>28/04/2022</TableCell>
+                <TableCell sx={tableBodyCell}>28/04/2022</TableCell>
+                <TableCell sx={tableBodyCell}>Full day</TableCell>
+                <TableCell sx={tableBodyCell}>Personal</TableCell>
+                <TableCell sx={tableBodyCell}>Paid</TableCell>
               </TableRow>
             ))}
           </TableBody>

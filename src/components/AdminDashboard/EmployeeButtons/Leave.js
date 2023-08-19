@@ -16,28 +16,39 @@ const Leave = () => {
   return (
     <Box
       sx={{
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginTop: "40px",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+        padding: "14px",
+        marginTop: "30px",
+        borderRadius: "10px",
+        background: "var(--plain-white)",
       }}
     >
-      <Typography
-        variant="h6"
-        sx={{
-          fontWeight: "bold",
-        }}
-      >
-        Leave
-      </Typography>
       <Box
         sx={{
-          // height: "500px",
-          marginTop: "15px",
-          maxHeight: "calc(100vh - 380px)",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
-        overflow="auto"
       >
-        <LeaveTable />
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: "bold",
+            color: "var(--primary-text-color)",
+          }}
+          >
+          Leave
+        </Typography>
+        <hr/>
+        <Box
+          sx={{
+            // height: "500px",
+            marginTop: "15px",
+            maxHeight: "calc(100vh - 420px)",
+          }}
+          overflow="auto"
+        >
+          <LeaveTable />
+        </Box>
       </Box>
     </Box>
   );

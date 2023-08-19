@@ -16,7 +16,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ProfileImg from "./../../assets/img/profile.svg";
 import { Close } from "@mui/icons-material";
-import AdminDetail from "../../assets/img/admin.svg";
+// import AdminDetail from "../../assets/img/african-american-employer-holding-employment-agreement-handshaking-candidate-close-up-view 1.svg";
 
 // Override the default MUI styles for InputBase
 const CustomTextField = styled(TextField)({
@@ -79,24 +79,12 @@ const SearchBar = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-start",
-          borderRadius: "5px",
-          background: "var(--white-color)",
+          borderRadius: "10px",
+          background: "var(--plain-white)",
           boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+          height:"40px",
         }}
       >
-        <Typography
-          sx={{
-            background: "var(--primary-color) ",
-            padding: "13px",
-            borderRadius: "5px 0 0 5px",
-            color: "var(--white-color)",
-            fontSize: "12px",
-            fontWeight: "bold",
-          }}
-          >
-          Search Employee
-        </Typography>
-
         <Box>
           <CustomTextField
             variant="standard"
@@ -137,8 +125,8 @@ const SearchBar = () => {
       >
         <Box
           sx={{
-            backgroundColor: "var(--primary-color)",
-            color: "var(--white-color)",
+            backgroundColor: "var(--secondary-highlight-color)",
+            color: "var(--secondary-text-color)",
           }}
         >
           <Box
@@ -155,13 +143,12 @@ const SearchBar = () => {
               <IconButton
                 onClick={handleCloseDialog}
                 sx={{
-                  color: "var(--white-color)",
                   fontWeight: "bold",
                   textTransform: "capitalize",
                   marginRight: "15px",
                   "&:hover": {
-                    background: "var(--secondary-color)",
-                    color: "white",
+                    background: "var(--primary-highlight-color)",
+                    color: "var(--secondary-text-color)",
                   },
                 }}
               >
@@ -207,7 +194,7 @@ const SearchBar = () => {
               </Typography>
             </Box>
             <Box>
-              <img src={AdminDetail} width={200} alt="admin"/>
+              {/* <img src={AdminDetail} width={200} alt="admin"/> */}
             </Box>
             </Box>
           </DialogContent>
