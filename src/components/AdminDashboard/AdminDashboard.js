@@ -7,9 +7,9 @@ import Employee from "./EmployeeButtons/Employee";
 import Leave from "./EmployeeButtons/Leave";
 import Attendance from "./EmployeeButtons/Attendance";
 // IMPORT ICON
-import EmployeeIcon from "../../assets/img/icons/EmpIcon.svg";
-import LeaveIcon from "../../assets/img/icons/leaveIcon.svg";
-import AttendanceIcon from "../../assets/img/icons/attendanceIcon.svg";
+import { ReactComponent as EmployeeIcon} from "../../assets/img/icons/EmpIcon.svg";
+import { ReactComponent as LeaveIcon} from "../../assets/img/icons/leaveIcon.svg";
+import { ReactComponent as  AttendanceIcon} from "../../assets/img/icons/attendanceIcon.svg";
 // IMPORT CONTEXT
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import axios from "axios";
@@ -114,11 +114,7 @@ const AdminDashboard = () => {
                   }}
                 >
                   <Box>
-                    <img
-                      width={"35px"}
-                      src={EmployeeIcon}
-                      alt="Employee Icon"
-                    />
+                    <EmployeeIcon height={'40px'}/>
                   </Box>
                   <Box>
                     <Typography
@@ -167,7 +163,7 @@ const AdminDashboard = () => {
                     }}
                   >
                     <Box>
-                      <img width={"35px"} src={LeaveIcon} alt="Employee Icon" />
+                      <LeaveIcon height={'40px'}/>
                     </Box>
                     <Box>
                       <Typography
@@ -188,6 +184,7 @@ const AdminDashboard = () => {
               {/* {/ {/ THIRD BOX /} /} */}
               <Box sx={{ marginLeft: "20px" }}>
                 <Button
+                  className="dashboard-attendance-button"
                   onClick={() => handleTabChange("attendance")}
                   sx={{
                     backgroundColor:
@@ -215,11 +212,7 @@ const AdminDashboard = () => {
                     }}
                   >
                     <Box>
-                      <img
-                        width={"35px"}
-                        src={AttendanceIcon}
-                        alt="Employee Icon"
-                      />
+                      <AttendanceIcon height={'40px'}/>
                     </Box>
                     <Box>
                       <Typography

@@ -12,22 +12,18 @@
   --secondary-text-color: rgb(94, 110, 130);
 
   --highlight-color: rgb(241, 241, 241);
-
-
-/* 
-
-
-  --third-color: #969696;
-  --text-gray-color: #4D4D4D;
-  --white-color: #ffffff;
-  --pirmary-light-color: #DFEAF7;
-  --secondary-dark-color: darkgreen;
-  --primary-dark-color: #21456e;
-
-  --primary-font: 'Roboto', sans-serif; */
 }
 
 body{
   font-family: var(--primary-font);
   background-color: var(--primary-background-color);
+}
+
+svg{
+  /* fill: var(--secondary-text-color); */
+  fill: red;
+}
+
+.Icon-Color:hover svg{
+  fill: var(--primary-color)
 }

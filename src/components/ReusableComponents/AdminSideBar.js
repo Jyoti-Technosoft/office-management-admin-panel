@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 // ICON IMPORT
 import ProfileImg from "../../assets/img/profile.svg";
-import DashboardIcon from "../../assets/img/icons/dashboardIcon.svg";
-import LogoutIcon from "../../assets/img/icons/logoutIcon.svg";
-import EmployeeIcon from "../../assets/img/icons/EmpIcon.svg";
-import LeaveIcon from "../../assets/img/icons/leaveIcon.svg";
-import AttendanceIcon from "../../assets/img/icons/attendanceIcon.svg";
+import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboardIcon.svg";
+import { ReactComponent as LogoutIcon } from "../../assets/img/icons/logoutIcon.svg";
+import { ReactComponent as  EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";
+import { ReactComponent as LeaveIcon }from "../../assets/img/icons/leaveIcon.svg";
+import { ReactComponent as AttendanceIcon } from "../../assets/img/icons/attendanceIcon.svg";
 
 import {
   Box,
@@ -102,6 +102,7 @@ const AdminSideBar = () => {
             <Typography variant="subtitle2">Features</Typography>
 
             <Button
+            className="Icon-Color"
               sx={{
                 marginTop: "10px",
                 background: "var(--secondary-color)",
@@ -120,13 +121,13 @@ const AdminSideBar = () => {
               }}
               component={Link}
               to="/dashboard"
-            >
+              >
               <Box
                 sx={{
                   marginRight: "15px",
                 }}
-              >
-                <img width="25px" src={DashboardIcon} alt="Dashboard Icon" />
+                >
+                <DashboardIcon width='25px'/>
               </Box>
               Dashboard
             </Button>
@@ -134,6 +135,7 @@ const AdminSideBar = () => {
           <Box mt={5}>
             <Typography variant="subtitle2">Organization</Typography>
             <Button
+            className="Icon-Color"
               sx={{
                 marginTop: "10px",
                 color: "var(--white-color)",
@@ -158,12 +160,13 @@ const AdminSideBar = () => {
                   marginRight: "15px",
                 }}
               >
-                <img width="18px" src={EmployeeIcon} alt="Employee Icon" />
+                <EmployeeIcon width="18px" />
               </Box>
               Employee Management
             </Button>
 
             <Button
+            className="Icon-Color"
               sx={{
                 marginTop: "10px",
                 color: "var(--white-color)",
@@ -188,12 +191,13 @@ const AdminSideBar = () => {
                   marginRight: "15px",
                 }}
               >
-                <img width="18px" src={LeaveIcon} alt="Leave Icon" />
+                <LeaveIcon width='18px'/>
               </Box>
               Leave Management
             </Button>
 
             <Button
+            className="Icon-Color"
               sx={{
                 marginTop: "10px",
                 color: "var(--white-color)",
@@ -204,9 +208,7 @@ const AdminSideBar = () => {
                 justifyContent: "flex-start",
                 padding: "10px 30px",
                 background: isAttendanceManagementActive
-                  ? "var(--secondary-color)"
-                  : "",
-
+                  ? "var(--secondary-color)" : "",
                 "&:hover": {
                   background: "var(--secondary-color)",
                   color: "white",
@@ -220,7 +222,7 @@ const AdminSideBar = () => {
                   marginRight: "15px",
                 }}
               >
-                <img width="18px" src={AttendanceIcon} alt="Attandance Icon" />
+                <AttendanceIcon width="18px" />
               </Box>
               Attendance Management
             </Button>
@@ -256,7 +258,7 @@ const AdminSideBar = () => {
                   marginRight: "10px",
                 }}
               >
-                <img width="18px" src={LogoutIcon} alt="Logout Icon" />
+                <LogoutIcon width="18px" />
               </Box>
               Logout
             </Button>
