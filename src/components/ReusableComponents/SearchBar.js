@@ -86,14 +86,14 @@ const SearchBar = () => {
       >
         <Typography
           sx={{
-            background: "var(--primary-color)",
+            background: "var(--primary-color) ",
             padding: "13px",
             borderRadius: "5px 0 0 5px",
             color: "var(--white-color)",
             fontSize: "12px",
             fontWeight: "bold",
           }}
-        >
+          >
           Search Employee
         </Typography>
 
