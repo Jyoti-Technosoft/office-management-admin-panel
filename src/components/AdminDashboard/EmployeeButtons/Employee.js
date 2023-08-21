@@ -63,7 +63,7 @@ const Employee = () => {
           sx={{
             // height: "500px",
             marginTop: "10px",
-            maxHeight: "calc(100vh - 354px)",
+            maxHeight: "calc(100vh - 430px)",
           }}
           overflow="auto"
         >

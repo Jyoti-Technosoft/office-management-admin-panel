@@ -41,16 +41,7 @@ const AttendanceManagement = () => {
                 borderRadius: "10px",
                 background: "var(--plain-white)",
               }}
-              overflow="auto"
-            >
-              {/* <Typography
-                variant="h6"
-                sx={{ color: "var(--primary-text-color)",
-                //  fontWeight: "bold" ,
-                }}
-              >
-                Attendance Details
-              </Typography> */}
+              overflow="auto">
               <Box sx={{ padding: "15px" }}>
                 <SearchBar />
               </Box>

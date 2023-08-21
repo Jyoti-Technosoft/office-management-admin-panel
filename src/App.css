@@ -24,8 +24,12 @@ svg{
   stroke-width: 0.5px;
   height: 41px;
 }
-/* .DashboardIcons svg{
-  fill: var(--primary-highlight-color);
-  stroke: var(--primary-color) ;
-  stroke-width: 0.5px;
-} */
+::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(84, 79, 90, 0.5); 
+  border-radius: 10px;
+}

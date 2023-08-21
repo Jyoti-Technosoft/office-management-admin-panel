@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -18,28 +18,22 @@ const AdminProfile = () => {
   const [adminDetails, setAdminDetails] = useState({}); // State variable for admin details
 
   const handleSettingButtonClick = () => {
-    // Retrieve admin name and position from local storage
     const adminName = localStorage.getItem("adminName");
     const adminPosition = localStorage.getItem("adminPosition");
     const adminEmail = localStorage.getItem("adminEmail");
     const adminPhonenumber = localStorage.getItem("adminPhonenumber");
-    // Convert the first letter of the admin name to uppercase
     const capitalizedAdminName =
       adminName.charAt(0).toUpperCase() + adminName.slice(1);
-
-    // Set the admin details in the state
     setAdminDetails({
       name: capitalizedAdminName,
       position: adminPosition,
       email: adminEmail,
       phonenumber: adminPhonenumber,
     });
-
-    setShowDialog(true); // Show the dialog box
+    setShowDialog(true);
   };
-
   const handleCloseDialog = () => {
-    setShowDialog(false); // Close the dialog box
+    setShowDialog(false);
   };
 
   return (
@@ -49,17 +43,17 @@ const AdminProfile = () => {
           <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
         </Button>
       </Box>
+      
       <Dialog
         open={showDialog}
         onClose={handleCloseDialog}
         maxWidth="xs"
         fullWidth
-      >
+        >
         <Box
           sx={{
             backgroundColor: "var(--secondary-highlight-color)",
             color: "var(--secondary-text-color)",
-            // boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14) inset",
           }}
         >
           <Box
@@ -68,7 +62,7 @@ const AdminProfile = () => {
               alignItems: "center",
               justifyContent: "space-between",
             }}
-          >
+           >
             <Box>
               <DialogTitle>Admin Details</DialogTitle>
             </Box>
@@ -127,26 +121,10 @@ const AdminProfile = () => {
                 </Typography>
               </Box>
               <Box>
-                {/* <img src={AdminDetail} width={200} alt="admin"/> */}
               </Box>
             </Box>
           </DialogContent>
           <DialogActions>
-            {/* <Button
-              onClick={handleCloseDialog}
-              sx={{
-                backgroundColor: "var(--secondary-color)",
-                color: "var(--white-color)",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                "&:hover": {
-                  background: "darkgreen",
-                  color: "white",
-                },
-              }}
-            >
-              Close
-            </Button> */}
           </DialogActions>
         </Box>
       </Dialog>

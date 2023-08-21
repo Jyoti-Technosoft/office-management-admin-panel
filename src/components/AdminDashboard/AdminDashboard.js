@@ -14,6 +14,7 @@ import { GlobalContext } from "../../ContextAPI/CustomContext";
 import axios from "axios";
 import CustomToast from "../ReusableComponents/CustomToast";
 import AdminProfile from "../ReusableComponents/AdminProfile";
+import Header from "../ReusableComponents/Header";
 
 const AdminDashboard = () => {
   // Context Function
@@ -80,48 +81,32 @@ const AdminDashboard = () => {
       <Grid container sx={{ height: "100vh" }}>
         {/* Left admin dashboard */}
         <AdminSideBar />
-
         <Grid item xs={12} md={9.4}>
-          <Box>
-            <Box
+          <Box
+            sx={{
+              margin: "20px 30px",
+            }}
+            >
+            {/* Header */}
+            <Header />
+            <Typography
+              variant="h5"
               sx={{
-                // margin: "30px",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
+                color: "var(--primary-text-color)",
+                fontWeight: "bold",
+                marginTop: "30px",
+                marginBottom: "20px",
               }}
             >
-              <Box
-                sx={{
-                  margin: "30px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                }}
-              >
-                <Box>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      color: "var(--primary-text-color)",
-                      fontWeight: "bold",
-                      // marginTop: "50px",
-                    }}
-                  >
-                    Dashboard
-                  </Typography>
-                </Box>
-              </Box>
-              <AdminProfile />
-            </Box>
+              Dashboard
+            </Typography>
             {/* CARDS */}
-            <Box sx={{ margin: "30px" }}>
+            <Box>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "flex-start",
                   alignItems: "center",
-                  marginTop: "-40px",
                 }}
               >
                 {/* FIRST BOX */}
@@ -129,19 +114,11 @@ const AdminDashboard = () => {
                   onClick={() => handleTabChange("employee")}
                   sx={{
                     boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                    // backgroundColor:
-                    //   selectedTab === "employee"
-                    //     ? "var(--secondary-highlight-color)"
-                    //     : "var(--plain-white)",
                     backgroundColor: "var(--plain-white)",
-                    color:
-                      selectedTab === "employee"
-                        ? "var(--secondary-text-color)"
-                        : "var(--secondary-text-color)",
+                    color: "var(--secondary-text-color)",
                     marginTop: "0px",
                     "&:hover": {
-                      background: "var(--secondary-highlight-color)",
-                      color: "var(--secondary-text-color)",
+                      background: "var(--plain-white)",
                     },
                   }}
                 >
@@ -186,24 +163,17 @@ const AdminDashboard = () => {
                 </Button>
 
                 {/* {/ {/ SECOND BOX /} /} */}
-                <Box className="DashboardIcons" sx={{ marginLeft: "30px" }}>
+                <Box sx={{ marginLeft: "30px" }}>
                   <Button
+
                     onClick={() => handleTabChange("leave")}
                     sx={{
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                      // backgroundColor:
-                      //   selectedTab === "leave"
-                      //     ? "var(--secondary-highlight-color)"
-                      //     : "var(--plain-white)",
                       backgroundColor: "var(--plain-white)",
-                      color:
-                        selectedTab === "leave"
-                          ? "var(--secondary-text-color)"
-                          : "var(--secondary-text-color)",
+                      color: "var(--secondary-text-color)",
                       marginTop: "0px",
                       "&:hover": {
-                        background: "var(--secondary-highlight-color)",
-                        color: "var(--secondary-text-color)",
+                        background: "var(--plain-white)",
                       },
                     }}
                   >
@@ -256,19 +226,11 @@ const AdminDashboard = () => {
                     onClick={() => handleTabChange("attendance")}
                     sx={{
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                      // backgroundColor:
-                      //   selectedTab === "attendance"
-                      //     ? "var(--secondary-highlight-color)"
-                      //     : "var(--plain-white)",
                       backgroundColor: "var(--plain-white)",
-                      color:
-                        selectedTab === "attendance"
-                          ? "var(--secondary-text-color)"
-                          : "var(--secondary-text-color)",
+                      color: "var(--secondary-text-color)",
                       marginTop: "0px",
                       "&:hover": {
-                        background: "var(--secondary-highlight-color)",
-                        color: "var(--secondary-text-color)",
+                        background: "var(--plain-white)",
                       },
                     }}
                   >
