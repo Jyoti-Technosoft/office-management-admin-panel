@@ -120,11 +120,6 @@ const AdminLogin = () => {
           justifyContent: "center",
           width: "1000px",
           boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
-          // padding: '30px',
-          // boxShadow: "0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3)",
-          // boxShadow:
-          //   "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
-          // background: 'yellow',
         }}
       >
         <Box

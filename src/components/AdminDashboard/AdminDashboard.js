@@ -59,6 +59,20 @@ const AdminDashboard = () => {
     }
   };
 
+
+  const DashboardEmpIcons = {
+    fill: selectedTab === "employee" ? "var(--secondary-highlight-color)" : "var(--primary-highlight-color)",
+    stroke: selectedTab === "employee" ? "var(--secondary-color)" : "var(--primary-color)",
+  };
+  const DashboardLeaveIcons = {
+    fill: selectedTab === "leave" ? "var(--secondary-highlight-color)" : "var(--primary-highlight-color)",
+    stroke: selectedTab === "leave" ? "var(--secondary-color)" : "var(--primary-color)",
+  };
+  const DashboardAttendanceIcons = {
+    fill: selectedTab === "attendance" ? "var(--secondary-highlight-color)" : "var(--primary-highlight-color)",
+    stroke: selectedTab === "attendance" ? "var(--secondary-color)" : "var(--primary-color)",
+  };
+
   return (
     <Box>
       {/* <Container> */}
@@ -98,35 +112,26 @@ const AdminDashboard = () => {
                 onClick={() => handleTabChange("employee")}
                 sx={{
                   boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                  backgroundColor:
-                    selectedTab === "employee"
-                      ? "var(--secondary-highlight-color)"
-                      : "var(--plain-white)",
-                  color:
-                    selectedTab === "employee"
-                      ? "var(--secondary-text-color)"
-                      : "var(--secondary-text-color)",
+                  backgroundColor: "var(--plain-white)",
+                  color:"var(--secondary-text-color)",
                   marginTop: "0px",
                   "&:hover": {
-                    background: "var(--secondary-highlight-color)",
-                    color: "var(--secondary-text-color)",
+                    background: "var(--plain-white)",
                   },
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    // justifyContent: "space-between",
                     alignItems: "center",
-                    // background: "var(--primary-color)",
                     borderRadius: "10px",
                     padding: "5px 20px",
                     width: "170px",
                     color: "var(--white-color)",
                   }}
                 >
-                  <Box>
-                    <EmployeeIcon height={'40px'}/>
+                  <Box className="DashboardIcons">
+                    <EmployeeIcon height={'40px'} style={DashboardEmpIcons}/>
                   </Box>
                   <Box sx={{marginLeft:"20px"}}>
                     <Typography
@@ -154,32 +159,23 @@ const AdminDashboard = () => {
               </Button>
 
               {/* {/ {/ SECOND BOX /} /} */}
-              <Box sx={{ marginLeft: "30px" }}>
+              <Box className="DashboardIcons" sx={{ marginLeft: "30px" }}>
                 <Button
                   onClick={() => handleTabChange("leave")}
                   sx={{
                     boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                    backgroundColor:
-                      selectedTab === "leave"
-                        ? "var(--secondary-highlight-color)"
-                        : "var(--plain-white)",
-                    color:
-                      selectedTab === "leave"
-                        ? "var(--secondary-text-color)"
-                        : "var(--secondary-text-color)",
+                    backgroundColor: "var(--plain-white)",
+                    color:"var(--secondary-text-color)",
                     marginTop: "0px",
                     "&:hover": {
-                      background: "var(--secondary-highlight-color)",
-                      color: "var(--secondary-text-color)",
+                      background: "var(--plain-white)",
                     },
                   }}
                 >
                   <Box
                     sx={{
                       display: "flex",
-                      // justifyContent: "space-between",
                       alignItems: "center",
-                      // background: "var(--primary-color)",
                       borderRadius: "10px",
                       padding: "5px 20px",
                       width: "170px",
@@ -187,7 +183,7 @@ const AdminDashboard = () => {
                     }}
                   >
                     <Box>
-                      <LeaveIcon height={'40px'}/>
+                      <LeaveIcon height={'40px'} style={DashboardLeaveIcons}/>
                     </Box>
                     <Box sx={{marginLeft:"20px"}}>
                       <Typography
@@ -216,24 +212,18 @@ const AdminDashboard = () => {
               </Box>
 
               {/* {/ {/ THIRD BOX /} /} */}
-              <Box sx={{ marginLeft: "30px" }}>
+              <Box className="DashboardIcons"
+                sx={{ marginLeft: "30px" }}>
                 <Button
                   className="dashboard-attendance-button"
                   onClick={() => handleTabChange("attendance")}
                   sx={{
                     boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                    backgroundColor:
-                      selectedTab === "attendance"
-                        ? "var(--secondary-highlight-color)"
-                        : "var(--plain-white)",
-                    color:
-                      selectedTab === "attendance"
-                        ? "var(--secondary-text-color)"
-                        : "var(--secondary-text-color)",
+                    backgroundColor:"var(--plain-white)",
+                    color:"var(--secondary-text-color)",
                     marginTop: "0px",
                     "&:hover": {
-                      background: "var(--secondary-highlight-color)",
-                      color: "var(--secondary-text-color)",
+                      background: "var(--plain-white)",
                     },
                   }}
                 >
@@ -250,7 +240,7 @@ const AdminDashboard = () => {
                     }}
                   >
                     <Box>
-                      <AttendanceIcon height={'40px'}/>
+                      <AttendanceIcon height={'40px'} style={DashboardAttendanceIcons}/>
                     </Box>
                     <Box sx={{marginLeft:"20px"}}>
                       <Typography

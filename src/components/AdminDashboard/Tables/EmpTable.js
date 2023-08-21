@@ -43,8 +43,7 @@ const EmpTable = () => {
               <TableRow
                 key={index}
                 sx={{
-                  backgroundColor:
-                    index % 2 === 1 ? "var(--highlight-color)" : "",
+                  backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
                 }}
               >
                 <TableCell sx={tableBodyCell}>

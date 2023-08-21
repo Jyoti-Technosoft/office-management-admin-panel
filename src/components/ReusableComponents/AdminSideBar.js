@@ -73,7 +73,7 @@ const AdminSideBar = () => {
         <Box
           sx={{
             position: "relative",
-            background: "var(--plain-white)",
+            // background: "var(--plain-white)",
             padding: "20px",
             height: "100%",
             color: "var(--white-color)",

@@ -4,8 +4,8 @@
   --primary-color: rgb(44, 123, 229);
   --secondary-color: rgb(155, 195, 28);
   --primary-highlight-color: rgba(44, 123, 229 , 0.1);
-  --primary-background-color: rgba(44, 124, 229, 0.06);
   --secondary-highlight-color: rgb(155, 195, 28, 0.1);
+  --primary-background-color: rgba(44, 124, 229, 0.06);
   
   
   --primary-text-color: rgb(84, 79, 90);
@@ -21,9 +21,11 @@ body{
 
 svg{
   fill: var(--secondary-text-color);
-  /* fill: red; */
+  stroke-width: 0.5px;
+  height: 41px;
 }
-
-.Icon-Color:hover svg{
-  fill: var(--primary-color)
-}
+/* .DashboardIcons svg{
+  fill: var(--primary-highlight-color);
+  stroke: var(--primary-color) ;
+  stroke-width: 0.5px;
+} */
