@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 // ICON IMPORT
-import ProfileImg from "../../assets/img/profile.svg";
+import ProfileImg from "../../assets/img/adminIcon.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboardIcon.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/img/icons/logoutIcon.svg";
 import { ReactComponent as  EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";

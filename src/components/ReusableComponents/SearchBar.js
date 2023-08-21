@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import UserIcon from "../../assets/img/profile.svg";
+// import UserIcon from "../../assets/img/Group 46.svg";
 import {
   Box,
-  Button,
+  // Button,
   InputAdornment,
   TextField,
-  Typography,
+  // Typography,
   styled,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  IconButton,
+  // Dialog,
+  // DialogTitle,
+  // DialogContent,
+  // DialogActions,
+  // IconButton,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import ProfileImg from "./../../assets/img/profile.svg";
-import { Close } from "@mui/icons-material";
+// import ProfileImg from "./../../assets/img/Group 46.svg";
+// import { Close } from "@mui/icons-material";
 // import AdminDetail from "../../assets/img/african-american-employer-holding-employment-agreement-handshaking-candidate-close-up-view 1.svg";
 
 // Override the default MUI styles for InputBase
@@ -38,40 +38,42 @@ const CustomTextField = styled(TextField)({
 });
 
 const SearchBar = () => {
-  const [showDialog, setShowDialog] = useState(false); // State variable for showing the dialog box
-  const [adminDetails, setAdminDetails] = useState({}); // State variable for admin details
+  // const [showDialog, setShowDialog] = useState(false); // State variable for showing the dialog box
+  // const [adminDetails, setAdminDetails] = useState({}); // State variable for admin details
 
-  const handleSettingButtonClick = () => {
-    // Retrieve admin name and position from local storage
-    const adminName = localStorage.getItem("adminName");
-    const adminPosition = localStorage.getItem("adminPosition");
-    const adminEmail = localStorage.getItem("adminEmail");
-    const adminPhonenumber = localStorage.getItem("adminPhonenumber");
-    // Convert the first letter of the admin name to uppercase
-    const capitalizedAdminName =
-      adminName.charAt(0).toUpperCase() + adminName.slice(1);
+  // const handleSettingButtonClick = () => {
+  //   // Retrieve admin name and position from local storage
+  //   const adminName = localStorage.getItem("adminName");
+  //   const adminPosition = localStorage.getItem("adminPosition");
+  //   const adminEmail = localStorage.getItem("adminEmail");
+  //   const adminPhonenumber = localStorage.getItem("adminPhonenumber");
+  //   // Convert the first letter of the admin name to uppercase
+  //   const capitalizedAdminName =
+  //     adminName.charAt(0).toUpperCase() + adminName.slice(1);
 
-    // Set the admin details in the state
-    setAdminDetails({
-      name: capitalizedAdminName,
-      position: adminPosition,
-      email: adminEmail,
-      phonenumber: adminPhonenumber,
-    });
+  //   // Set the admin details in the state
+  //   setAdminDetails({
+  //     name: capitalizedAdminName,
+  //     position: adminPosition,
+  //     email: adminEmail,
+  //     phonenumber: adminPhonenumber,
+  //   });
 
-    setShowDialog(true); // Show the dialog box
-  };
+  //   setShowDialog(true); // Show the dialog box
+  // };
 
-  const handleCloseDialog = () => {
-    setShowDialog(false); // Close the dialog box
-  };
+  // const handleCloseDialog = () => {
+  //   setShowDialog(false); // Close the dialog box
+  // };
   return (
     <Box
       sx={{
-        margin: "30px",
+        // margin: "30px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        marginTop: "15px",
+        marginBottom: "10px",
       }}
     >
       <Box
@@ -82,7 +84,7 @@ const SearchBar = () => {
           borderRadius: "10px",
           background: "var(--plain-white)",
           boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-          height:"40px",
+          height: "40px",
         }}
       >
         <Box>
@@ -112,7 +114,7 @@ const SearchBar = () => {
           />
         </Box>
       </Box>
-      <Box>
+      {/* <Box>
         <Button onClick={handleSettingButtonClick}>
           <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
         </Button>
@@ -194,12 +196,12 @@ const SearchBar = () => {
               </Typography>
             </Box>
             <Box>
-              {/* <img src={AdminDetail} width={200} alt="admin"/> */}
+              <img src={AdminDetail} width={200} alt="admin"/>
             </Box>
             </Box>
           </DialogContent>
           <DialogActions>
-            {/* <Button
+            <Button
               onClick={handleCloseDialog}
               sx={{
                 backgroundColor: "var(--secondary-color)",
@@ -213,10 +215,10 @@ const SearchBar = () => {
               }}
             >
               Close
-            </Button> */}
+            </Button>
           </DialogActions>
         </Box>
-      </Dialog>
+      </Dialog> */}
     </Box>
   );
 };

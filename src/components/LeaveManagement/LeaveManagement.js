@@ -23,9 +23,6 @@ const LeaveManagement = () => {
         <AdminSideBar />
 
         <Grid item xs={12} md={9.4}>
-          {/*  SEARCH BAR   */}
-          <SearchBar />
-
           <Box
             sx={{
               margin: "30px",
@@ -41,23 +38,25 @@ const LeaveManagement = () => {
             <Box
               sx={{
                 marginTop: "15px",
-                maxHeight: "calc(100vh - 220px)",
+                maxHeight: "calc(100vh - 110px)",
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                padding: "20px",
+                // padding: "20px",
                 borderRadius: "10px",
                 background:"var(--plain-white)",
               }}
               overflow="auto"
             >
-               <Typography
+               {/* <Typography
                 variant="h6"
                 sx={{ color: "var(--primary-text-color)",
                 //  fontWeight: "bold" ,
                 }}
               >
                 Leave Details
-              </Typography>
-              <hr />
+              </Typography> */}
+              <Box sx={{ padding: "15px" }}>
+                <SearchBar />
+              </Box>
               <LeaveTable />
             </Box>
           </Box>

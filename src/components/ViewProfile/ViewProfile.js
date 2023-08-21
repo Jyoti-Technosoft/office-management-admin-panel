@@ -13,9 +13,11 @@ const ViewProfile = () => {
         <AdminSideBar />
         <Grid xs={12} md={9.4}>
           {/* SEARCH BAR */}
-          <SearchBar />
+          <Box sx={{padding:"15px",marginLeft:"15px"}}>
+            <SearchBar />
+          </Box>
           <Box sx={{ margin: "0px 50px" }}>
-            <Typography variant="h5" sx={{ fontWeight: "bold" }}> Employee Management </Typography>
+            <Typography variant="h5" sx={{ fontWeight: "bold",color:"var(--primary-text-color)" }}> Employee Management </Typography>
             <EmpButton />
           </Box>
         </Grid>

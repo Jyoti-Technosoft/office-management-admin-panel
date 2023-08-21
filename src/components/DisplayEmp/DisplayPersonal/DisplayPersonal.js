@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
-import ProfileImg from "../../../assets/img/profile.svg";
+import ProfileImg from "../../../assets/img/adminIcon.svg";
 import StarIcon from "../../../assets/img/icons/starIcon.svg";
 import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/CustomMUI';
 import { Delete, Edit } from "@mui/icons-material";
@@ -43,6 +43,7 @@ const DisplayPersonal = () => {
           display: "flex",
           justifyContent: "flex-end",
           marginTop: "-2px",
+          color:"var(--secondary-text-color)",
         }}>
         <IconButton sx={{ color: "var( --third-color)" }}>
           <Edit />
@@ -64,7 +65,8 @@ const DisplayPersonal = () => {
                 fontWeight: "bold",
                 fontSize: "15px",
                 marginLeft: "9px",
-                marginTop: '10px',
+                marginTop: '25px',
+                color:"var(--primary-text-color)",
               }}>
               Employee ID : {"JT" + " " + (employeeCall.id + 100)}
             </Typography>
@@ -76,6 +78,7 @@ const DisplayPersonal = () => {
       <Box sx={{
         marginTop: '30px',
         marginLeft: "9px",
+        color:"var(--primary-text-color)",
       }}>
         <Grid container>
 

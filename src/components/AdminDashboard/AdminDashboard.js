@@ -106,7 +106,7 @@ const AdminDashboard = () => {
                 alignItems: "center",
                 marginTop: "20px",
               }}
-            >
+              >
               {/* FIRST BOX */}
               <Button
                 onClick={() => handleTabChange("employee")}
@@ -119,7 +119,7 @@ const AdminDashboard = () => {
                     background: "var(--plain-white)",
                   },
                 }}
-              >
+                >
                 <Box
                   sx={{
                     display: "flex",
@@ -129,7 +129,7 @@ const AdminDashboard = () => {
                     width: "170px",
                     color: "var(--white-color)",
                   }}
-                >
+                  >
                   <Box className="DashboardIcons">
                     <EmployeeIcon height={'40px'} style={DashboardEmpIcons}/>
                   </Box>

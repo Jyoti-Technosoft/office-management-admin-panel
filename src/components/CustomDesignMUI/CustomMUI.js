@@ -26,19 +26,17 @@ export const errorMessageDesign = {
 export const DashboardProfileButtons = {
     marginTop: "20px",
     textTransform: "capitalize",
-    
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: "left",
+    justifyContent: "left",
     padding: "15px 20px",
     background: "white",
-    color: "black",
     width: "100%",
     border: 'none',
     borderRadius: "10px",
     "&:hover": {
-        background: "var(--secondary-color)",
-        color: "white",
+        background: "var(--primary-highlight-color)",
+        color: "var(--primary-color)",
         fontWeight: 'bold',
     }
 }
@@ -78,6 +76,6 @@ export const tableBodyCell = {
 }
 export const tableMainHead = {
     fontWeight: 'bold',
-    marginTop: '50px',
+    // marginTop: '50px',
     color:"var(--primary-text-color)",
 }
