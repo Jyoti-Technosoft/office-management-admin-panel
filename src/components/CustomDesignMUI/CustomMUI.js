@@ -52,7 +52,7 @@ export const viewProfileSubtitle = {
 export const viewEducationBox = {
     height: "auto",
     maxWidth: "100%",
-    backgroundColor: "var(--secondary-highlight-color)",
+    backgroundColor: "var(--primary-highlight-color)",
     borderRadius: "10px",
     padding: "15px",
     marginTop: "15px",

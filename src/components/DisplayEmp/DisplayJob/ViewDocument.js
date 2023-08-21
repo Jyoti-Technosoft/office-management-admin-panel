@@ -40,7 +40,7 @@ const ViewDocument = ({ onBackClick }) => {
             <Button>
               <Card
                 sx={{
-                  backgroundColor: "var(--secondary-highlight-color)",
+                  backgroundColor: "var(--primary-highlight-color)",
                   borderRadius: "5px",
                   display: "flex",
                   flexDirection: "column",
