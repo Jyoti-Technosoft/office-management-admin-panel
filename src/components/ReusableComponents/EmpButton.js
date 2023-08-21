@@ -175,7 +175,7 @@ const EmpButton = () => {
           {/* {/ FOR MAIN COMPONENT DESIGN BOX /} */}
           <Box
             sx={{
-              marginLeft: "20px",
+              marginLeft: "25px",
               backgroundColor: "var(--plain-white)",
               borderRadius: "10px",
               height: "100%",

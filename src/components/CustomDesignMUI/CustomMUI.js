@@ -24,7 +24,7 @@ export const errorMessageDesign = {
     fontSize: '12px',
 }
 export const DashboardProfileButtons = {
-    marginTop: "20px",
+    marginTop: "10px",
     textTransform: "capitalize",
     display: "flex",
     alignItems: "left",
@@ -52,7 +52,7 @@ export const viewProfileSubtitle = {
 export const viewEducationBox = {
     height: "auto",
     maxWidth: "100%",
-    backgroundColor: "white",
+    backgroundColor: "var(--secondary-highlight-color)",
     borderRadius: "10px",
     padding: "15px",
     marginTop: "15px",

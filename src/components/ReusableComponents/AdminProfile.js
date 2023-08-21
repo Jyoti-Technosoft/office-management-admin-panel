@@ -59,6 +59,7 @@ const AdminProfile = () => {
           sx={{
             backgroundColor: "var(--secondary-highlight-color)",
             color: "var(--secondary-text-color)",
+            // boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14) inset",
           }}
         >
           <Box

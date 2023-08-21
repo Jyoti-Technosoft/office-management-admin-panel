@@ -73,7 +73,7 @@ const AdminSideBar = () => {
         <Box
           sx={{
             position: "relative",
-            // background: "var(--plain-white)",
+            background: "var(--plain-white)",
             padding: "20px",
             height: "100%",
             color: "var(--white-color)",
@@ -253,6 +253,7 @@ const AdminSideBar = () => {
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                 width: "100%",
                 borderRadius:"10px",
+                height:"40px",
                 "&:hover": {
                   background: "var(--secondary-color)",
                   color: "var(--plain-white)",

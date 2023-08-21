@@ -3,7 +3,6 @@ import { Box, Button, Typography } from "@mui/material";
 import {
   viewProfileSubtitle,
   viewProfileTitle,
-  viewExperiencePosition,
 } from "../../CustomDesignMUI/CustomMUI";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import ViewDocument from "./ViewDocument";
@@ -64,16 +63,16 @@ const DisplayJob = () => {
 
           <Button
             sx={{
-              background: "var(--primary-color)",
+              background: "var(--primary-highlight-color)",
               textTransform: "capitalize",
-              color: "white",
+              color: "var(--primary-color)",
               fontWeight: "bold",
               "&:hover": {
-                background: "var(--secondary-color)",
+                background: "var(--primary-color)",
                 color: "white",
               },
             }}
-            variant="contained"
+            variant="outlined"
             onClick={toggleViewDocument}>
             View Documents
           </Button>

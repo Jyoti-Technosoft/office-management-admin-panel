@@ -40,13 +40,14 @@ const ViewDocument = ({ onBackClick }) => {
             <Button>
               <Card
                 sx={{
-                  backgroundColor: "white",
+                  backgroundColor: "var(--secondary-highlight-color)",
                   borderRadius: "5px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   padding: "15px",
                   height: "100%",
+                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                 }}
               >
                 <CardMedia
@@ -77,14 +78,14 @@ const ViewDocument = ({ onBackClick }) => {
           sx={{
             background: "var(--primary-color)",
             textTransform: "capitalize",
-            color: "white",
+            color: "var(--plain-white)",
             fontWeight: "bold",
             "&:hover": {
-              background: "var(--secondary-color)",
-              color: "white",
+              background: "var(--primary-highlight-color)",
+              color: "var(--primary-color)",
             },
           }}
-          variant="contained"
+          variant="outlined"
         >
           Download ALL (Zip)
         </Button>
