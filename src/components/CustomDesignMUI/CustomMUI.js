@@ -77,6 +77,7 @@ export const tableBodyCell = {
     color:"var(--primary-text-color)",
     paddingLeft:"30px",
     paddingRight:"30px",
+    fontSize: '15px',
 }
 export const tableMainHead = {
     fontWeight: 'bold',

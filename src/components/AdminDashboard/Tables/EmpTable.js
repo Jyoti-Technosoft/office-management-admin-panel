@@ -56,19 +56,18 @@ const EmpTable = () => {
                 sx={{
                   // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
                   background: "var(--plain-white)",
-                  // lineHeight: `var(--table-row-line-height)`,
                 }}
               >
-                <TableCell sx={tableBodyCell}>
+                <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
                   {"JT" + " " + (user.id + 100)}
                 </TableCell>
                 <TableCell
-                  sx={tableBodyCell}
+                  sx={{...tableBodyCell, fontWeight: '500 !important',}}
                 >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                <TableCell sx={tableBodyCell}>
+                <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
                   {formatDate(user.personalDob)}
                 </TableCell>
-                <TableCell sx={tableBodyCell}>
+                <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
                   {formatDate(user.jobDoj)}
                 </TableCell>
                 <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>

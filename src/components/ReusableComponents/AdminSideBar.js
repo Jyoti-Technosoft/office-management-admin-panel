@@ -74,10 +74,12 @@ const AdminSideBar = () => {
           sx={{
             position: "relative",
             // background: "var(--plain-white)",
+
             padding: "20px",
             height: "100%",
             color: "var(--white-color)",
-            boxShadow: "-15px 0px 40px 0px rgba(0, 0, 0, 0.25)",
+            // borderRight: "2px solid #f3f4f6",
+            boxShadow: "-15px 0px 40px 0px rgba(0, 0, 0, 0.14)",
           }}
         >
           <Box
@@ -232,115 +234,6 @@ const AdminSideBar = () => {
               Attendance Management
             </Button>
             </Box>
-          <Box
-            sx={{
-              position: "absolute",
-              bottom: "40px",
-              left: "0",
-              right: "0",
-              padding: "0px 30px",
-            }}
-          >
-            <Button
-              sx={{
-                background: "var(--primary-color)",
-                color: "var(--plain-white)",
-                textTransform: "capitalize",
-                fontWeight: "bold",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                width: "100%",
-                borderRadius:"10px",
-                height:"40px",
-                "&:hover": {
-                  background: "var(--secondary-color)",
-                  color: "var(--plain-white)",
-                },
-              }}
-              onClick={handleLogOut}
-            >
-              <Box
-                sx={{
-                  marginRight: "10px",
-                }}
-              >
-                <LogoutIcon width="18px" />
-              </Box>
-              Logout
-            </Button>
-          </Box>
-
-          <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
-            <Box
-              sx={{
-                backgroundColor: "var(--primary-background-color)",
-                color: "var(--secondary-text-color)",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Box>
-                  <DialogTitle
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    Confirm Logout
-                  </DialogTitle>
-                </Box>
-                <Box>
-                  <IconButton
-                    onClick={handleCancelLogout}
-                    sx={{
-                      fontWeight: "bold",
-                      textTransform: "capitalize",
-                      marginRight: "15px",
-                      "&:hover": {
-                        background: "var(--primary-highlight-color)",
-                        color: "var(--primary-color)",
-                      },
-                    }}
-                  >
-                    <Close />
-                  </IconButton>
-                </Box>
-              </Box>
-              {/* <DialogTitle
-              sx={{ color: "var(--secondary-color)", fontWeight: "bold" }}
-            >
-              Confirm Logout
-            </DialogTitle> */}
-              <DialogContent>
-                <Typography>Are you sure you want to log out?</Typography>
-              </DialogContent>
-              <DialogActions>
-                {/* <Button onClick={handleCancelLogout} color="primary">
-                Cancel
-              </Button> */}
-                <Button
-                  onClick={handleLogoutConfirmation}
-                  sx={{
-                    fontWeight: "bold",
-                    color: "var(--secondary-text-color)",
-                    textTransform: "capitalize",
-                    "&:hover": {
-                      background: "var(--primary-highlight-color)",
-                      color: "var(--primary-color)",
-                    },
-                  }}
-                  component={Link}
-                  to="/"
-                >
-                  Log Out
-                </Button>
-              </DialogActions>
-            </Box>
-          </Dialog>
         </Box>
       </Grid>
   );

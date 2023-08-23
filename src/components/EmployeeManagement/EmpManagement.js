@@ -4,6 +4,7 @@ import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
 import SearchBar from "../ReusableComponents/SearchBar";
 import EmpTable from "../AdminDashboard/Tables/EmpTable";
 import { tableMainHead } from "../CustomDesignMUI/CustomMUI";
+import Header from "../../components/ReusableComponents/Header"
 
 const EmpManagement = () => {
   return (
@@ -14,16 +15,17 @@ const EmpManagement = () => {
         <Grid item xs={12} md={9.4}>
           <Box
             sx={{
-              margin: "30px",
+              margin: "0px 30px",
             }}
-          >
+            >
+              <Header/>
             <Typography variant="h5" sx={tableMainHead}>
               Employee Management
             </Typography>
             {/*  ADD SCROLL IN A TABLE  */}
             <Box
               sx={{
-                marginTop: "15px",
+                marginTop: "20px",
                 maxHeight: "calc(100vh - 110px)",
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                 // padding: "20px",
@@ -32,14 +34,6 @@ const EmpManagement = () => {
               }}
               overflow="auto"
             >
-              {/* <Typography
-                variant="h6"
-                sx={{ color: "var(--primary-text-color)",
-                //  fontWeight: "bold" ,
-                }}
-              >
-                Employee Details
-              </Typography> */}
               <Box sx={{ padding: "15px" }}>
                 <SearchBar />
               </Box>

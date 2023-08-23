@@ -7,21 +7,33 @@ import EmpButton from "../ReusableComponents/EmpButton";
 
 const ViewProfile = () => {
   return (
-
-      <Grid container sx={{height: '100vh'}}>
-        {/* Left admin dashboard */}
-        <AdminSideBar />
-        <Grid xs={12} md={9.4}>
-          {/* SEARCH BAR */}
-          <Box sx={{padding:"15px",marginLeft:"15px"}}>
-            <Header />
-          </Box>
-          <Box sx={{ margin: " 50px" }}>
-            <Typography variant="h5" sx={{ fontWeight: "bold",color:"var(--primary-text-color)" }}> Employee Management </Typography>
-            <EmpButton />
-          </Box>
-        </Grid>
+    <Grid container sx={{ height: "100vh" }}>
+      {/* Left admin dashboard */}
+      <AdminSideBar />
+      <Grid xs={12} md={9.4}>
+        {/* SEARCH BAR */}
+        <Box sx={{
+          padding: "15px",
+          marginLeft: "15px"
+        }}>
+          <Header />
+        </Box>
+        <Box
+          sx={{
+            margin: "0px 50px",
+          }}
+        >
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: "bold", color: "var(--primary-text-color)" }}
+          >
+            {" "}
+            Employee Management{" "}
+          </Typography>
+          <EmpButton />
+        </Box>
       </Grid>
+    </Grid>
   );
 };
 export default ViewProfile;

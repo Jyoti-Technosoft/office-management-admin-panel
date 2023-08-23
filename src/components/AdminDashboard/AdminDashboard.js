@@ -84,7 +84,7 @@ const AdminDashboard = () => {
         <Grid item xs={12} md={9.4}>
           <Box
             sx={{
-              margin: "20px 30px",
+              margin: "0px 30px",
             }}
             >
             {/* Header */}
@@ -94,7 +94,6 @@ const AdminDashboard = () => {
               sx={{
                 color: "var(--primary-text-color)",
                 fontWeight: "bold",
-                marginTop: "30px",
                 marginBottom: "20px",
               }}
             >
@@ -108,32 +107,29 @@ const AdminDashboard = () => {
                   justifyContent: "flex-start",
                   alignItems: "center",
                 }}
-              >
+                >
                 {/* FIRST BOX */}
                 <Button
                   onClick={() => handleTabChange("employee")}
                   sx={{
-                    boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+                    boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
                     backgroundColor: "var(--plain-white)",
                     color: "var(--secondary-text-color)",
-                    marginTop: "0px",
                     "&:hover": {
                       background: "var(--plain-white)",
                     },
                   }}
-                >
+                  >
                   <Box
                     sx={{
                       display: "flex",
-                      // justifyContent: "space-between",
                       alignItems: "center",
-                      // background: "var(--primary-color)",
                       borderRadius: "10px",
                       padding: "5px 20px",
                       width: "170px",
                       color: "var(--white-color)",
                     }}
-                  >
+                    >
                    <Box className="DashboardIcons">
                     <EmployeeIcon height={'40px'} style={DashboardEmpIcons}/>
                   </Box>
@@ -163,12 +159,14 @@ const AdminDashboard = () => {
                 </Button>
 
                 {/* {/ {/ SECOND BOX /} /} */}
-                <Box sx={{ marginLeft: "30px" }}>
+                <Box sx={{
+                  marginLeft: "30px"
+                  }}>
                   <Button
 
                     onClick={() => handleTabChange("leave")}
                     sx={{
-                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
                       backgroundColor: "var(--plain-white)",
                       color: "var(--secondary-text-color)",
                       marginTop: "0px",
@@ -180,9 +178,7 @@ const AdminDashboard = () => {
                     <Box
                       sx={{
                         display: "flex",
-                        // justifyContent: "space-between",
                         alignItems: "center",
-                        // background: "var(--primary-color)",
                         borderRadius: "10px",
                         padding: "5px 20px",
                         width: "170px",
@@ -225,7 +221,7 @@ const AdminDashboard = () => {
                     className="dashboard-attendance-button"
                     onClick={() => handleTabChange("attendance")}
                     sx={{
-                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+                      boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
                       backgroundColor: "var(--plain-white)",
                       color: "var(--secondary-text-color)",
                       marginTop: "0px",
@@ -237,9 +233,7 @@ const AdminDashboard = () => {
                     <Box
                       sx={{
                         display: "flex",
-                        // justifyContent: "space-between",
                         alignItems: "center",
-                        // background: "var(--primary-color)",
                         borderRadius: "10px",
                         padding: "5px 20px",
                         width: "170px",
@@ -249,7 +243,9 @@ const AdminDashboard = () => {
                       <Box>
                       <AttendanceIcon height={'40px'} style={DashboardAttendanceIcons}/>
                       </Box>
-                      <Box sx={{ marginLeft: "20px" }}>
+                      <Box sx={{
+                        marginLeft: "20px"
+                        }}>
                         <Typography
                           sx={{
                             fontWeight: "bold",
@@ -257,7 +253,7 @@ const AdminDashboard = () => {
                             marginBottom: "-10px",
                             textAlign: "left",
                           }}
-                        >
+                          >
                           {attendanceData.length}
                         </Typography>
                         <Typography
@@ -276,6 +272,7 @@ const AdminDashboard = () => {
                 </Box>
               </Box>
               {/* {/ {/ CARDS END  /} /} */}
+
               {/* FOR DASHBOARD BOTTONS */}
               <Box>{renderTabContent()}</Box>
             </Box>

@@ -160,9 +160,12 @@ const DisplayPersonal = () => {
       <Box>
       <DeleteDialog
         open={openDeleteDialog}
-        setOpenDeleteDialog={setOpenDeleteDialog} // Pass the function to control dialog state
-      />      </Box>
+        setOpenDeleteDialog={setOpenDeleteDialog}
+      />
+      </Box>
       {/* <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth="md">
+      
+      <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth="md">
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
           <Typography>Are you sure you want Delete?</Typography>

@@ -9,50 +9,38 @@ import ViewProfile from "./components/ViewProfile/ViewProfile";
 import EmpManagement from "./components/EmployeeManagement/EmpManagement";
 import LeaveManagement from "./components/LeaveManagement/LeaveManagement";
 import AttendanceManagement from "./components/AttendanceManagement/AttendanceManagement";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const theme = createTheme({
+    typography: {
+      allVariants: {
+        fontFamily: 'Jost, sans-serif',
+      },
+    },
+  });
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AdminLogin />} />
-          <Route path="/signup" element={<AdminSignup />} />
-          <Route path="/dashboard" element={<Protected>
-            <AdminDashboard />
-          </Protected>} />
-          {/* <Route path="/viewprofile" element={<Protected Comp={ViewProfile} />} /> */}
-          <Route path="/viewprofile/:employeeId" element={<Protected>
-            <ViewProfile/>
-          </Protected>} />
-          <Route path="/empmanagement" element={<Protected><EmpManagement/></Protected> } />
-          <Route path="/leavemanagement" element={<Protected><LeaveManagement/></Protected> } />
-          <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement/></Protected>} />
-          {/* <Route
-            path="/"
-            element={<AdminLogin setIsLoggedIn={setIsLoggedIn} />}
-          />
-          <Route path="/signup" element={<AdminSignup />} />
-          <Route
-            path="/dashboard"
-            element={
-              <Protected Comp={AdminDashboard} isLoggedIn={isLoggedIn} />
-            }
-          /> */}
-          {/* <Route path="/viewprofile" element={<Protected Comp={ViewProfile} />} /> */}
-          {/* <Route
-            path="/viewprofile/:employeeId"
-            element={<Protected Comp={ViewProfile} isLoggedIn={isLoggedIn} />}
-          />
-          <Route
-            path="/empmanagement"
-            element={<Protected Comp={EmpManagement} isLoggedIn={isLoggedIn} />}
-          /> */}
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<AdminLogin />} />
+            <Route path="/signup" element={<AdminSignup />} />
+            <Route path="/dashboard" element={<Protected>
+              <AdminDashboard />
+            </Protected>} />
+            <Route path="/viewprofile/:employeeId" element={<Protected>
+              <ViewProfile />
+            </Protected>} />
+            <Route path="/empmanagement" element={<Protected><EmpManagement /></Protected>} />
+            <Route path="/leavemanagement" element={<Protected><LeaveManagement /></Protected>} />
+            <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement /></Protected>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+     </ThemeProvider>
   );
 }
 

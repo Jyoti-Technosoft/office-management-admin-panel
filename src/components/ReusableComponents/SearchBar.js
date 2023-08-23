@@ -22,8 +22,11 @@ const CustomTextField = styled(TextField)({
   "&:hover .MuiInput-underline:after": {
     borderBottom: "none",
   },
+  "&:hover .MuiInput-underline:hover:not(.Mui-disabled):before": {
+    borderBottom: "none",
+  },
   "& input": {
-    width: "300px",
+    width: "500px",
   },
 });
 
@@ -59,8 +62,8 @@ const SearchBar = () => {
               },
             }}
             InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
+              startAdornment: (
+                <InputAdornment position="start">
                   <SearchIcon
                     sx={{
                       color: "var(--third-color)",
@@ -69,7 +72,7 @@ const SearchBar = () => {
                 </InputAdornment>
               ),
               sx: {
-                paddingRight: "10px",
+                paddingLeft: "10px",
               },
             }}
             placeholder="Search..."

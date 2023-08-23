@@ -16,10 +16,10 @@ const Employee = () => {
     <>
       <Box
         sx={{
-          boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+          boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
           // padding: "14px",
           marginTop: "30px",
-          borderRadius: "10px",
+          borderRadius: "8px",
           background: "var(--plain-white)",
         }}
       >
@@ -61,7 +61,6 @@ const Employee = () => {
         <EmployeeFormModal open={isModalOpen} onClose={handleCloseModal} />
         <Box
           sx={{
-            // height: "500px",
             marginTop: "10px",
             maxHeight: "calc(100vh - 430px)",
           }}

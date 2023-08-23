@@ -5,6 +5,7 @@ import SearchBar from "../ReusableComponents/SearchBar";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import AttendanceTable from "../AdminDashboard/Tables/AttendanceTable";
 import { tableMainHead } from "../CustomDesignMUI/CustomMUI";
+import Header from "../ReusableComponents/Header";
 
 const AttendanceManagement = () => {
   const { employeeData } = useContext(GlobalContext);
@@ -25,16 +26,17 @@ const AttendanceManagement = () => {
         <Grid item xs={12} md={9.4}>
           <Box
             sx={{
-              margin: "30px",
+              margin: "0px 30px",
             }}
           >
+            <Header/>
             <Typography variant="h5" sx={tableMainHead}>
               Attendance Management
             </Typography>
             {/*  ADD SCROLL TO TABLE  */}
             <Box
               sx={{
-                marginTop: "15px",
+                marginTop: "20px",
                 maxHeight: "calc(100vh - 110px)",
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                 // padding: "20px",

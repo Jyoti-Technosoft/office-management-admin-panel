@@ -17,8 +17,7 @@ const Leave = () => {
   return (
     <Box
       sx={{
-        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-        // padding: "14px",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
         marginTop: "30px",
         borderRadius: "10px",
         background: "var(--plain-white)",
@@ -46,7 +45,6 @@ const Leave = () => {
         </Box>
         <Box
           sx={{
-            // height: "500px",
             marginTop: "10px",
             maxHeight: "calc(100vh - 430px)",
           }}

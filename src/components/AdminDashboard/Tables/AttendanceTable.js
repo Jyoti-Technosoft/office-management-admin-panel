@@ -47,8 +47,7 @@ const AttendanceTable = () => {
               <TableRow
                 key={index}
                 sx={{
-                  backgroundColor:
-                    index % 2 === 1 ? "var(--plain-white)" : "",
+                  backgroundColor: "var(--plain-white)",
                 }}
               >
                 <TableCell sx={tableBodyCell}>{index}</TableCell>
