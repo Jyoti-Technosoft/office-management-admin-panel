@@ -62,7 +62,10 @@ const EmpButton = () => {
                   selectedTab === "personal"
                     ? "var(--primary-highlight-color)"
                     : "white",
-                color: selectedTab === "personal" ? "var(--primary-color)" : "var(--primary-text-color)",
+                color:
+                  selectedTab === "personal"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "personal" ? "bold" : "normal",
                 marginTop: "0px",
               }}
@@ -77,7 +80,10 @@ const EmpButton = () => {
                   selectedTab === "contact"
                     ? "var(--primary-highlight-color)"
                     : "white",
-                color: selectedTab === "contact" ? "var(--primary-color)" : "var(--primary-text-color)",
+                color:
+                  selectedTab === "contact"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "contact" ? "bold" : "normal",
                 border: "none",
               }}
@@ -92,7 +98,10 @@ const EmpButton = () => {
                   selectedTab === "education"
                     ? "var(--primary-highlight-color)"
                     : "white",
-                color: selectedTab === "education" ? "var(--primary-color)" : "var(--primary-text-color)",
+                color:
+                  selectedTab === "education"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "education" ? "bold" : "normal",
                 border: "none",
               }}
@@ -104,8 +113,13 @@ const EmpButton = () => {
               sx={{
                 ...DashboardProfileButtons,
                 backgroundColor:
-                  selectedTab === "family" ? "var(--primary-highlight-color)" : "white",
-                color: selectedTab === "family" ? "var(--primary-color)" : "var(--primary-text-color)",
+                  selectedTab === "family"
+                    ? "var(--primary-highlight-color)"
+                    : "white",
+                color:
+                  selectedTab === "family"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "family" ? "bold" : "normal",
                 border: "none",
               }}
@@ -120,7 +134,10 @@ const EmpButton = () => {
                   selectedTab === "experience"
                     ? "var(--primary-highlight-color)"
                     : "white",
-                color: selectedTab === "experience" ? "var(--primary-color)" : "var(--primary-text-color)",
+                color:
+                  selectedTab === "experience"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "experience" ? "bold" : "normal",
                 border: "none",
               }}
@@ -132,8 +149,13 @@ const EmpButton = () => {
               sx={{
                 ...DashboardProfileButtons,
                 backgroundColor:
-                  selectedTab === "job" ? "var(--primary-highlight-color)" : "white",
-                color: selectedTab === "job" ? "var(--primary-color)" : "var(--primary-text-color)",
+                  selectedTab === "job"
+                    ? "var(--primary-highlight-color)"
+                    : "white",
+                color:
+                  selectedTab === "job"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "job" ? "bold" : "normal",
                 border: "none",
               }}
@@ -148,7 +170,10 @@ const EmpButton = () => {
                   selectedTab === "financial"
                     ? "var(--primary-highlight-color)"
                     : "white",
-                color: selectedTab === "financial" ? "var(--primary-color)" : "var(--primary-text-color)",
+                color:
+                  selectedTab === "financial"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "financial" ? "bold" : "normal",
                 border: "none",
               }}
@@ -160,8 +185,13 @@ const EmpButton = () => {
               sx={{
                 ...DashboardProfileButtons,
                 backgroundColor:
-                  selectedTab === "leave" ? "var(--primary-highlight-color)" : "white",
-                color: selectedTab === "leave" ? "var(--primary-color)" : "var(--primary-text-color)",
+                  selectedTab === "leave"
+                    ? "var(--primary-highlight-color)"
+                    : "white",
+                color:
+                  selectedTab === "leave"
+                    ? "var(--primary-color)"
+                    : "var(--primary-text-color)",
                 fontWeight: selectedTab === "leave" ? "bold" : "normal",
                 border: "none",
               }}
@@ -182,7 +212,7 @@ const EmpButton = () => {
               width: "100%",
               padding: "15px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-              color:"var(--primary-text-color)",
+              color: "var(--primary-text-color)",
             }}
           >
             {renderTabContent()}

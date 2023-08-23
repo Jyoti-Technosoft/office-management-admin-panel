@@ -26,7 +26,7 @@ const AttendanceTable = () => {
     <Box>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead sx={{ background: "var(--highlight-color)" }}>
+          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px" }}>
             <TableRow sx={{ textDecoration: "none" }}>
               <TableCell sx={tableHeadCell}>
                 Index
@@ -48,7 +48,7 @@ const AttendanceTable = () => {
                 key={index}
                 sx={{
                   backgroundColor:
-                    index % 2 === 1 ? "var(--highlight-color)" : "",
+                    index % 2 === 1 ? "var(--plain-white)" : "",
                 }}
               >
                 <TableCell sx={tableBodyCell}>{index}</TableCell>

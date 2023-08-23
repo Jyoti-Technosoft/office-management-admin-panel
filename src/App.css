@@ -12,6 +12,11 @@
   --secondary-text-color: rgb(94, 110, 130);
 
   --highlight-color: rgb(241, 241, 241);
+  --dark-highlight-color: rgb(153, 153, 153, 1);
+
+  /* FOR TABLE ROW */
+  --table-row-line-height: 5.5; 
+
 }
 
 body{

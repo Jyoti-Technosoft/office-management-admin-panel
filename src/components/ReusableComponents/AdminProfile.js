@@ -43,7 +43,7 @@ const AdminProfile = () => {
           <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
         </Button>
       </Box>
-      
+      {/* MAKE A ADMIN DETAILS DIALOG BOX */}
       <Dialog
         open={showDialog}
         onClose={handleCloseDialog}
@@ -52,7 +52,7 @@ const AdminProfile = () => {
         >
         <Box
           sx={{
-            backgroundColor: "var(--secondary-highlight-color)",
+            backgroundColor: "var(--plain-white)",
             color: "var(--secondary-text-color)",
           }}
         >
@@ -74,11 +74,11 @@ const AdminProfile = () => {
                   textTransform: "capitalize",
                   marginRight: "15px",
                   "&:hover": {
-                    background: "var(--primary-highlight-color)",
+                    background: "var(--highlight-color)",
                     color: "var(--secondary-text-color)",
                   },
                 }}
-              >
+              > 
                 <Close />
               </IconButton>
             </Box>
@@ -124,7 +124,26 @@ const AdminProfile = () => {
               </Box>
             </Box>
           </DialogContent>
-          <DialogActions>
+          <DialogActions sx={{background:"var(--highlight-color)",height:"40px",boxShadow:"0px 2px 10px var(--dark-highlight-color)"}}>
+          {/* <Button
+            // variant="outlined"
+                onClick={handleCloseDialog}
+            sx={{
+              color: "var(--secondary-text-color)",
+            //   background: "var(--plain-white)",
+            //   borderColor: "var(--dark-highlight-color)",
+              textTransform: "capitalize",
+              fontWeight: "bold",
+              marginRight: "10px",
+              borderRadius: "5px",
+              "&:hover": {
+                // borderColor: "var(--dark-highlight-color)",
+                fontWeight: "bold",
+              },
+            }}
+          >
+            Cancel
+          </Button> */}
           </DialogActions>
         </Box>
       </Dialog>

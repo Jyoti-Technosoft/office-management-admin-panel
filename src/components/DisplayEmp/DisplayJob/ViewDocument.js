@@ -29,7 +29,14 @@ const ViewDocument = ({ onBackClick }) => {
         variant="h6"
         sx={{ fontWeight: "bold", marginBottom: "30px", borderBottom: 1 }}
       >
-        <IconButton onClick={onBackClick}>
+        <IconButton
+          onClick={onBackClick}
+          sx={{
+            ":focus": {
+              outline: "none",
+            },
+          }}
+        >
           <ArrowBackIcon />
         </IconButton>
         View Job Details / View Documents
@@ -37,7 +44,13 @@ const ViewDocument = ({ onBackClick }) => {
       <Grid container spacing={5}>
         {documentData.map((document, index) => (
           <Grid key={index} item xs={12} sm={6} md={4}>
-            <Button>
+            <Button
+              sx={{
+                ":focus": {
+                  outline: "none",
+                },
+              }}
+            >
               <Card
                 sx={{
                   backgroundColor: "var(--primary-highlight-color)",
@@ -83,6 +96,9 @@ const ViewDocument = ({ onBackClick }) => {
             "&:hover": {
               background: "var(--primary-highlight-color)",
               color: "var(--primary-color)",
+            },
+            ":focus": {
+              outline: "none",
             },
           }}
           variant="outlined"

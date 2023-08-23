@@ -70,9 +70,13 @@ export const viewExperiencePosition = {
 export const tableHeadCell = {
     color:"var(--primary-text-color)",
     fontWeight:"bold",
+    paddingLeft:"30px",
+    paddingRight:"30px",
 }
 export const tableBodyCell = {
     color:"var(--primary-text-color)",
+    paddingLeft:"30px",
+    paddingRight:"30px",
 }
 export const tableMainHead = {
     fontWeight: 'bold',

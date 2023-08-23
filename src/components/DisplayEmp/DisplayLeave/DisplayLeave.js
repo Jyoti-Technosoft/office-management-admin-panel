@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, List, ListItemText, Typography } from "@mui/material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { useParams } from "react-router-dom";
-import LeaveTable from "../../AdminDashboard/Tables/LeaveTable";
+import { viewEducationBox } from "../../CustomDesignMUI/CustomMUI";
 
 const DisplayLeave = () => {
   // DATA CALLING START
@@ -31,16 +31,14 @@ const DisplayLeave = () => {
       >
         Leave History
       </Typography>
-      <Box
-        sx={{
-          borderRadius:"10px",
-          marginBottom: "25px",
-          backgroundColor: "whitesmoke",
-          boxShadow:
-            "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset",
-        }}
-      >
-        <LeaveTable />
+      <Box sx={viewEducationBox}> 
+        <List>
+          <Typography sx={{ fontWeight: "bold" }}>Leave Details</Typography>
+          <ListItemText>Unpaid Leave</ListItemText>
+          <ListItemText>Paid Leave</ListItemText>
+          <ListItemText>Sick Leave</ListItemText>
+          <ListItemText>Causal Leave</ListItemText>
+        </List>
       </Box>
     </Box>
   );

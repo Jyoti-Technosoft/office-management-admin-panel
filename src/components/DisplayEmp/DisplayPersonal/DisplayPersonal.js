@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography, Grid, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import ProfileImg from "../../../assets/img/adminIcon.svg";
-import StarIcon from "../../../assets/img/icons/starIcon.svg";
 import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/CustomMUI';
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import DeleteDialog from "../../ReusableComponents/DeleteDialogBox";
 
 
 const DisplayPersonal = () => {
@@ -22,17 +22,17 @@ const DisplayPersonal = () => {
   }
   // DATA CALLING END
 
-  const deleteEmployee = () => {
-    axios.delete(`${employeeApiEndpoint}/${employeeId}`)
-      .then(response => {
-        console.log(`Employee Deleted Successfully`);
-        navigate('/dashboard')
-        setShowToast({ show: true, msg: "Record Deleted successfully", type: "success" });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+  // const deleteEmployee = () => {
+  //   axios.delete(`${employeeApiEndpoint}/${employeeId}`)
+  //     .then(response => {
+  //       console.log(`Employee Deleted Successfully`);
+  //       navigate('/dashboard')
+  //       setShowToast({ show: true, msg: "Record Deleted successfully", type: "success" });
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // };
 
 
   return (
@@ -45,7 +45,7 @@ const DisplayPersonal = () => {
           marginTop: "-2px",
           color:"var(--secondary-text-color)",
         }}>
-        <IconButton sx={{ color: "var( --third-color)" }}>
+        <IconButton sx={{ color: "var( --third-color)"}}>
           <Edit />
         </IconButton>
         <IconButton onClick={() => setOpenDeleteDialog(true)} sx={{ color: "var( --third-color)" }}>
@@ -157,7 +157,12 @@ const DisplayPersonal = () => {
 
         </Grid>
       </Box>
-      <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth="md">
+      <Box>
+      <DeleteDialog
+        open={openDeleteDialog}
+        setOpenDeleteDialog={setOpenDeleteDialog} // Pass the function to control dialog state
+      />      </Box>
+      {/* <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth="md">
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
           <Typography>Are you sure you want Delete?</Typography>
@@ -174,7 +179,7 @@ const DisplayPersonal = () => {
             Delete
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </Box>
 
 

@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { tableBodyCell, tableHeadCell } from "../../CustomDesignMUI/CustomMUI";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const EmpTable = () => {
   const formatDate = (dateString) => {
@@ -28,14 +29,24 @@ const EmpTable = () => {
     <Box>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead sx={{background:"var(--highlight-color)"}}>
-            <TableRow sx={{ textDecoration: "none" }}>
+          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px",}}>
+            <TableRow sx={{ textDecoration: "none",}}>
               <TableCell sx={tableHeadCell}>Emp ID</TableCell>
               <TableCell sx={tableHeadCell}>Name</TableCell>
               <TableCell sx={tableHeadCell}>Date of Birth</TableCell>
               <TableCell sx={tableHeadCell}>Date of Join</TableCell>
               <TableCell sx={tableHeadCell}>Designation</TableCell>
-              <TableCell sx={tableHeadCell}>Action</TableCell>
+              <TableCell
+                sx={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  color: "var(--primary-text-color)",
+                  paddingLeft: "30px",
+                  paddingRight: "30px",
+                }}
+              >
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -43,7 +54,9 @@ const EmpTable = () => {
               <TableRow
                 key={index}
                 sx={{
-                  backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
+                  // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
+                  background: "var(--plain-white)",
+                  // lineHeight: `var(--table-row-line-height)`,
                 }}
               >
                 <TableCell sx={tableBodyCell}>
@@ -59,8 +72,8 @@ const EmpTable = () => {
                   {formatDate(user.jobDoj)}
                 </TableCell>
                 <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>
-                <TableCell sx={tableBodyCell}>
-                  <Button
+                <TableCell sx={{ textAlign: "center" }}>
+                  {/* <Button
                     component={Link}
                     to={`/viewprofile/${user.id}`}
                     variant="outlined"
@@ -72,7 +85,15 @@ const EmpTable = () => {
                     }}
                   >
                     View Profile
-                  </Button>
+                  </Button> */}
+                  <Link to={`/viewprofile/${user.id}`}>
+                    <VisibilityIcon
+                      sx={{
+                        fontSize: "1.5rem",
+                        color: "var(--secondary-text-color)",
+                      }}
+                    />
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}
