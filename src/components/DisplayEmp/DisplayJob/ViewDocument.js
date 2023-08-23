@@ -31,26 +31,15 @@ const ViewDocument = ({ onBackClick }) => {
       >
         <IconButton
           onClick={onBackClick}
-          sx={{
-            ":focus": {
-              outline: "none",
-            },
-          }}
         >
           <ArrowBackIcon />
         </IconButton>
         View Job Details / View Documents
       </Typography>
-      <Grid container spacing={5}>
+      {/* <Grid container spacing={5}> */}
         {documentData.map((document, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
-            <Button
-              sx={{
-                ":focus": {
-                  outline: "none",
-                },
-              }}
-            >
+          // <Grid key={index} item xs={12} sm={6} md={4}>
+            <Button>  
               <Card
                 sx={{
                   backgroundColor: "var(--primary-highlight-color)",
@@ -59,13 +48,14 @@ const ViewDocument = ({ onBackClick }) => {
                   flexDirection: "column",
                   alignItems: "center",
                   padding: "15px",
-                  height: "100%",
+                  height: "180px",
+                  width: "130px",
                   boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  margin:"15px"
                 }}
               >
                 <CardMedia
                   component="img"
-                  height="140"
                   image={PdfIcon}
                   alt={document.alt}
                 />
@@ -76,9 +66,9 @@ const ViewDocument = ({ onBackClick }) => {
                 </CardContent>
               </Card>
             </Button>
-          </Grid>
+          // </Grid>
         ))}
-      </Grid>
+      {/* </Grid> */}
       <Box
         sx={{
           display: "flex",

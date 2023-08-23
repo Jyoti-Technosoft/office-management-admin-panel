@@ -17,7 +17,7 @@ const Attendance = () => {
   return (
     <Box
       sx={{
-        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
         // padding: "14px",
         marginTop: "30px",
         borderRadius: "10px",
@@ -48,7 +48,7 @@ const Attendance = () => {
           sx={{
             // height: "500px",
             marginTop: "10px",
-            maxHeight: "calc(100vh - 430px)",
+            maxHeight: "calc(100vh - 440px)",
           }}
           overflow="auto"
         >

@@ -47,6 +47,7 @@ const EmpButton = () => {
           <Box
             sx={{
               padding: "20px",
+              // height: "100%",
               backgroundColor: "var(--plain-white)",
               borderRadius: "10px",
               width: "100%",
@@ -205,10 +206,10 @@ const EmpButton = () => {
           {/* {/ FOR MAIN COMPONENT DESIGN BOX /} */}
           <Box
             sx={{
-              marginLeft: "25px",
+              marginLeft: "30px",
               backgroundColor: "var(--plain-white)",
               borderRadius: "10px",
-              height: "100%",
+              // height: "100%",
               width: "100%",
               padding: "15px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",

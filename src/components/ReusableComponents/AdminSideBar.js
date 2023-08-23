@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import ProfileImg from "../../assets/img/adminIcon.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboardIcon.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/img/icons/logoutIcon.svg";
-import { ReactComponent as  EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";
+import { ReactComponent as EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";
 import { ReactComponent as LeaveIcon } from "../../assets/img/icons/leaveIcon.svg";
 import { ReactComponent as AttendanceIcon } from "../../assets/img/icons/attendanceIcon.svg";
 
@@ -69,173 +69,205 @@ const AdminSideBar = () => {
   };
 
   return (
-      <Grid item xs={12} md={2.5}>
+    <Grid item xs={12} md={2.5}>
+      <Box
+        sx={{
+          position: "relative",
+          // background: "var(--plain-white)",
+
+          padding: "0px 20px 0px 20px",
+          height: "100%",
+          color: "var(--white-color)",
+          // borderRight: "2px solid #f3f4f6",
+          boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+        }}
+      >
         <Box
           sx={{
-            position: "relative",
-            // background: "var(--plain-white)",
-
-            padding: "20px",
-            height: "100%",
-            color: "var(--white-color)",
-            // borderRight: "2px solid #f3f4f6",
-            boxShadow: "-15px 0px 40px 0px rgba(0, 0, 0, 0.14)",
+            display: "flex",
+            alignItems: "center",
+            paddingTop:"20px",
           }}
         >
+          <Box>
+            <img width={"90px"} src={ProfileImg} alt="profile" />
+          </Box>
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
+              paddingLeft: "10px",
             }}
           >
-            <Box>
-              <img width={"90px"} src={ProfileImg} alt="profile" />
-            </Box>
+            <Typography
+              variant="subtitle"
+              sx={{ fontWeight: "bold", color: "var(--secondary-text-color)" }}
+            >
+              {capitalizeFirstLetter(adminName)}
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{ color: "var(--secondary-text-color)" }}
+            >
+              {adminPosition}
+            </Typography>
+          </Box>
+        </Box>
+        <hr />
+        <Box mt={2}>
+          <Button
+            className="Icon-Color"
+            sx={{
+              marginTop: "10px",
+              color: isDashboard
+                ? "var(--primary-color)"
+                : "var(--secondary-text-color)",
+              fontWeight: isDashboard ? "bold" : "",
+              width: "100%",
+              textTransform: "capitalize",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              // padding: "10px 30px",
+              padding: "0px 30px",
+              background: isDashboard ? "var(--primary-highlight-color)" : "",
+              "&:hover": {
+                background: "var(--primary-highlight-color)",
+                color: "var(--primary-color)",
+                fontWeight: "bold",
+              },
+            }}
+            component={Link}
+            to="/dashboard"
+          >
             <Box
               sx={{
-                paddingLeft: "10px",
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
               }}
             >
-              <Typography variant="subtitle" sx={{ fontWeight: "bold",color:"var(--secondary-text-color)" }}>
-                {capitalizeFirstLetter(adminName)}
-              </Typography>
-              <Typography variant="subtitle2" sx={{color:"var(--secondary-text-color)"}}>{adminPosition}</Typography>
+              <DashboardIcon width="18px" />
             </Box>
-          </Box>
-          <hr/>
-          <Box mt={2}>
-            <Button
+            Dashboard
+          </Button>
+          <Button
             className="Icon-Color"
+            sx={{
+              marginTop: "10px",
+              color: isEmpManagement
+                ? "var(--primary-color)"
+                : "var(--secondary-text-color)",
+              fontWeight: isEmpManagement ? "bold" : "",
+              width: "100%",
+              textTransform: "capitalize",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              // padding: "10px 30px",
+              padding: "0px 30px",
+              background: isEmpManagement
+                ? "var(--primary-highlight-color)"
+                : "",
+              "&:hover": {
+                background: "var(--primary-highlight-color)",
+                color: "var(--primary-color)",
+                fontWeight: "bold",
+              },
+            }}
+            component={Link}
+            to="/empmanagement"
+          >
+            <Box
               sx={{
-                marginTop: "10px",
-                color: isDashboard ? "var(--primary-color)" : "var(--secondary-text-color)",
-                fontWeight: isDashboard ? "bold" : "",
-                width: "100%",
-                textTransform: "capitalize",
+                marginRight: "15px",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "flex-start",
-                padding: "10px 30px",
-                background: isDashboard ? "var(--primary-highlight-color)" : "",
-                "&:hover": {
-                  background: "var(--primary-highlight-color)",
-                  color: "var(--primary-color)",
-                  fontWeight:"bold",
-                },
               }}
-              component={Link}
-              to="/dashboard"
-              >
-              <Box
-                sx={{
-                  marginRight: "15px",
-                }}
-                >
-                <DashboardIcon width='19px'/>
-              </Box>
-              Dashboard
-            </Button>
-            <Button
-            className="Icon-Color"
-              sx={{
-                marginTop: "5px",
-                color: isEmpManagement ? "var(--primary-color)" : "var(--secondary-text-color)",
-                fontWeight: isEmpManagement ? "bold" : "",
-                width: "100%",
-                textTransform: "capitalize",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                padding: "10px 30px",
-                background: isEmpManagement ? "var(--primary-highlight-color)" : "",
-                "&:hover": {
-                  background: "var(--primary-highlight-color)",
-                  color: "var(--primary-color)",
-                  fontWeight:"bold",
-                },
-              }}
-              component={Link}
-              to="/empmanagement"
-              >
-              <Box
-                sx={{
-                  marginRight: "15px",
-                }}
-              >
-                <EmployeeIcon width="18px" />
-              </Box>
-              Employee Management
-            </Button>
-
-            <Button
-            className="Icon-Color"
-              sx={{
-                marginTop: "5px",
-                color: isLeaveManagement ? "var(--primary-color)" : "var(--secondary-text-color)",
-                fontWeight: isLeaveManagement ? "bold" : "",
-                width: "100%",
-                textTransform: "capitalize",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                padding: "10px 30px",
-                background: isLeaveManagement ? "var(--primary-highlight-color)" : "",
-                "&:hover": {
-                  background: "var(--primary-highlight-color)",
-                  color: "var(--primary-color)",
-                  fontWeight:"bold",
-                },
-              }}
-              component={Link}
-              to="/leavemanagement"
-              >
-              <Box
-                sx={{
-                  marginRight: "15px",
-                }}
-              >
-                <LeaveIcon width='18px'/>
-
-              </Box>
-              Leave Management
-            </Button>
-
-            <Button
-            className="Icon-Color"
-              sx={{
-                marginTop: "5px",
-                color: isAttendanceManagementActive ? "var(--primary-color)" : "var(--secondary-text-color)",
-                fontWeight: isAttendanceManagementActive ? "bold" : "",
-                width: "100%",
-                textTransform: "capitalize",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                padding: "10px 30px",
-                background: isAttendanceManagementActive
-                  ? "var(--primary-highlight-color)"
-                  : "",
-                "&:hover": {
-                  background: "var(--primary-highlight-color)",
-                  color: "var(--primary-color)",
-                  fontWeight:"bold",
-                },
-              }}
-              component={Link}
-              to="/attendancemanagement"
-              >
-              <Box
-                sx={{
-                  marginRight: "15px",
-                }}
-              >
-                <AttendanceIcon width="18px" />
-              </Box>
-              Attendance Management
-            </Button>
+            >
+              <EmployeeIcon width="18px" />
             </Box>
+            Employee Management
+          </Button>
+
+          <Button
+            className="Icon-Color"
+            sx={{
+              marginTop: "10px",
+              color: isLeaveManagement
+                ? "var(--primary-color)"
+                : "var(--secondary-text-color)",
+              fontWeight: isLeaveManagement ? "bold" : "",
+              width: "100%",
+              textTransform: "capitalize",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              // padding: "10px 30px",
+              padding: "0px 30px",
+              background: isLeaveManagement
+                ? "var(--primary-highlight-color)"
+                : "",
+              "&:hover": {
+                background: "var(--primary-highlight-color)",
+                color: "var(--primary-color)",
+                fontWeight: "bold",
+              },
+            }}
+            component={Link}
+            to="/leavemanagement"
+          >
+            <Box
+              sx={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <LeaveIcon width="18px" />
+            </Box>
+            Leave Management
+          </Button>
+
+          <Button
+            className="Icon-Color"
+            sx={{
+              marginTop: "10px",
+              color: isAttendanceManagementActive
+                ? "var(--primary-color)"
+                : "var(--secondary-text-color)",
+              fontWeight: isAttendanceManagementActive ? "bold" : "",
+              width: "100%",
+              textTransform: "capitalize",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              // padding: "10px 30px",
+              padding: "0px 30px",
+              background: isAttendanceManagementActive
+                ? "var(--primary-highlight-color)"
+                : "",
+              "&:hover": {
+                background: "var(--primary-highlight-color)",
+                color: "var(--primary-color)",
+                fontWeight: "bold",
+              },
+            }}
+            component={Link}
+            to="/attendancemanagement"
+          >
+            <Box
+              sx={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <AttendanceIcon width="18px" />
+            </Box>
+            Attendance Management
+          </Button>
         </Box>
-      </Grid>
+      </Box>
+    </Grid>
   );
 };
 

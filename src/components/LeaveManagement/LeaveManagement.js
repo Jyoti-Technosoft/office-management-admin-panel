@@ -40,10 +40,10 @@ const LeaveManagement = () => {
             <Box
               sx={{
                 marginTop: "20px",
-                maxHeight: "calc(100vh - 110px)",
+                maxHeight: "calc(100vh - 200px)",
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                 // padding: "20px",
-                borderRadius: "10px",
+                borderRadius: "8px",
                 background:"var(--plain-white)",
               }}
               overflow="auto"
