@@ -99,13 +99,13 @@ const AdminDashboard = () => {
         {/* Left admin dashboard */}
         <AdminSideBar />
         <Grid item xs={12} md={9.4}>
+          {/* Header */}
+          <Header />
           <Box
             sx={{
               margin: "0px 30px",
             }}
           >
-            {/* Header */}
-            <Header />
             <Typography
               variant="h5"
               sx={{

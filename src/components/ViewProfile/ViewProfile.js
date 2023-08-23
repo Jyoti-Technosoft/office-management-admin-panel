@@ -12,12 +12,18 @@ const ViewProfile = () => {
       <AdminSideBar />
       <Grid xs={12} md={9.4}>
         {/* SEARCH BAR */}
+        <Header />
+        <Box sx={{
+          padding: "15px",
+          marginLeft: "15px"
+        }}>
+        </Box>
         <Box
           sx={{
             margin: "0px 30px",
           }}
         >
-          <Header />
+        
           <Typography
             variant="h5"
             sx={{ fontWeight: "bold", color: "var(--primary-text-color)" }}
