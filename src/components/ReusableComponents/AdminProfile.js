@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import UserIcon from "../../assets/img/adminIcon.svg";
+import {ReactComponent as UserIcon} from "../../assets/img/adminIcon.svg";
 import ProfileImg from "./../../assets/img/adminIcon.svg";
 import { Link } from "react-router-dom";
 import { ReactComponent as LogoutIcon } from "../../assets/img/icons/logoutIcon.svg";
@@ -105,10 +105,9 @@ const AdminProfile = () => {
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={handleClick}
-          aria-label="Open to show more"
-          title="Open to show more"
         >
-          <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
+          {/* <img width={"45px"} src={UserIcon} alt="User_Icon" /> */}
+          <UserIcon width={"45px"}/>
         </IconButton>
         <Menu
           id="simple-menu"
@@ -121,7 +120,6 @@ const AdminProfile = () => {
             <Typography onClick={handleSettingButtonClick}>View Profile</Typography>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            {/* <LogoutIcon/> */}
             <Typography onClick={handleLogOut}>Logout</Typography>
           </MenuItem>
 
@@ -165,13 +163,13 @@ const AdminProfile = () => {
                     color: "var(--secondary-text-color)",
                   },
                 }}
-              > 
+              >
                 <Close />
               </IconButton>
             </Box>
           </Box>
           <DialogContent>
-            <Box sx={{ marginTop: "-10px" }}>
+            <Box>
               <img width={"90px"} src={ProfileImg} alt="profile" />
             </Box>
             <Box
@@ -211,8 +209,8 @@ const AdminProfile = () => {
               </Box>
             </Box>
           </DialogContent>
-          <DialogActions sx={{background:"var(--highlight-color)",height:"40px",boxShadow:"0px 2px 10px var(--dark-highlight-color)"}}>
-          {/* <Button
+          <DialogActions sx={{ background: "var(--highlight-color)", height: "40px", boxShadow: "0px 2px 10px var(--dark-highlight-color)" }}>
+            {/* <Button
             // variant="outlined"
                 onClick={handleCloseDialog}
             sx={{
@@ -240,74 +238,74 @@ const AdminProfile = () => {
 
       {/* LOGOUT   */}
       <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
-            <Box
-              sx={{
-                backgroundColor: "var(--primary-background-color)",
-                color: "var(--secondary-text-color)",
-              }}
-            >
-              <Box
+        <Box
+          sx={{
+            backgroundColor: "var(--primary-background-color)",
+            color: "var(--secondary-text-color)",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Box>
+              <DialogTitle
+                sx={{ fontWeight: "bold" }}
+              >
+                Confirm Logout
+              </DialogTitle>
+            </Box>
+            <Box>
+              <IconButton
+                onClick={handleCancelLogout}
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                  marginRight: "15px",
+                  "&:hover": {
+                    background: "var(--primary-highlight-color)",
+                    color: "var(--primary-color)",
+                  },
                 }}
               >
-                <Box>
-                  <DialogTitle
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    Confirm Logout
-                  </DialogTitle>
-                </Box>
-                <Box>
-                  <IconButton
-                    onClick={handleCancelLogout}
-                    sx={{
-                      fontWeight: "bold",
-                      textTransform: "capitalize",
-                      marginRight: "15px",
-                      "&:hover": {
-                        background: "var(--primary-highlight-color)",
-                        color: "var(--primary-color)",
-                      },
-                    }}
-                  >
-                    <Close />
-                  </IconButton>
-                </Box>
-              </Box>
-              {/* <DialogTitle
+                <Close />
+              </IconButton>
+            </Box>
+          </Box>
+          {/* <DialogTitle
               sx={{ color: "var(--secondary-color)", fontWeight: "bold" }}
             >
               Confirm Logout
             </DialogTitle> */}
-              <DialogContent>
-                <Typography>Are you sure you want to log out?</Typography>
-              </DialogContent>
-              <DialogActions>
-                {/* <Button onClick={handleCancelLogout} color="primary">
+          <DialogContent>
+            <Typography>Are you sure you want to log out?</Typography>
+          </DialogContent>
+          <DialogActions>
+            {/* <Button onClick={handleCancelLogout} color="primary">
                 Cancel
               </Button> */}
-                <Button
-                  onClick={handleLogoutConfirmation}
-                  sx={{
-                    fontWeight: "bold",
-                    color: "var(--secondary-text-color)",
-                    textTransform: "capitalize",
-                    "&:hover": {
-                      background: "var(--primary-highlight-color)",
-                      color: "var(--primary-color)",
-                    },
-                  }}
-                  component={Link}
-                  to="/"
-                >
-                  Log Out
-                </Button>
-              </DialogActions>
-            </Box>
-          </Dialog>
+            <Button
+              onClick={handleLogoutConfirmation}
+              sx={{
+                fontWeight: "bold",
+                color: "var(--secondary-text-color)",
+                textTransform: "capitalize",
+                "&:hover": {
+                  background: "var(--primary-highlight-color)",
+                  color: "var(--primary-color)",
+                },
+              }}
+              component={Link}
+              to="/"
+            >
+              Log Out
+            </Button>
+          </DialogActions>
+        </Box>
+      </Dialog>
 
 
     </Box>

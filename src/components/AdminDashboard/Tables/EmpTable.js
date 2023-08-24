@@ -7,7 +7,6 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Paper,
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -27,7 +26,7 @@ const EmpTable = () => {
   const { userData } = useContext(GlobalContext);
   return (
     <Box>
-      <TableContainer component={Paper}>
+      <TableContainer >
         <Table>
           <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px",}}>
             <TableRow sx={{ textDecoration: "none",}}>
@@ -55,7 +54,7 @@ const EmpTable = () => {
                 key={index}
                 sx={{
                   // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
-                  background: "var(--plain-white)",
+                  background: "var(--background-table-sidebar-card-color)",
                 }}
               >
                 <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
@@ -72,19 +71,6 @@ const EmpTable = () => {
                 </TableCell>
                 <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>
                 <TableCell sx={{ textAlign: "center" }}>
-                  {/* <Button
-                    component={Link}
-                    to={`/viewprofile/${user.id}`}
-                    variant="outlined"
-                    sx={{
-                      background: "var(--primary-highlight-color)",
-                      color: "var(--primary-color)",
-                      textTransform: "capitalize",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    View Profile
-                  </Button> */}
                   <Link to={`/viewprofile/${user.id}`}>
                     <VisibilityIcon
                       sx={{

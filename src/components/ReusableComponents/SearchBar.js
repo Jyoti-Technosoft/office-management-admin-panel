@@ -47,8 +47,8 @@ const SearchBar = () => {
           alignItems: "center",
           justifyContent: "flex-start",
           borderRadius: "10px",
-          background: "var(--plain-white)",
-          boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+          background: "var(--search-bar-color)",
+          // boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
           height: "40px",
         }}
       >
@@ -57,8 +57,9 @@ const SearchBar = () => {
             variant="standard"
             inputProps={{
               sx: {
-                fontSize: "12px",
+                fontSize: "14px",
                 paddingLeft: "20px",
+                color: 'var(--secondary-text-color)',
               },
             }}
             InputProps={{
@@ -66,7 +67,7 @@ const SearchBar = () => {
                 <InputAdornment position="start">
                   <SearchIcon
                     sx={{
-                      color: "var(--third-color)",
+                      color: "var(--secondary-text-color)",
                     }}
                   />
                 </InputAdornment>

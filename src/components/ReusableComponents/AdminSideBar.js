@@ -73,12 +73,10 @@ const AdminSideBar = () => {
       <Box
         sx={{
           position: "relative",
-          // background: "var(--plain-white)",
-
+          background: "var(--background-table-sidebar-card-color)",
           padding: "0px 20px 0px 20px",
           height: "100%",
           color: "var(--white-color)",
-          // borderRight: "2px solid #f3f4f6",
           boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
         }}
       >
@@ -111,12 +109,12 @@ const AdminSideBar = () => {
             </Typography>
           </Box>
         </Box>
-        <hr />
+        <hr style={{border: 'none', height: '1px', background: 'var(--table-border-color)'}}/>
         <Box mt={2}>
           <Button
-            className="Icon-Color"
             sx={{
               marginTop: "10px",
+              fontSize: '15px',
               color: isDashboard
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",
@@ -126,7 +124,6 @@ const AdminSideBar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "flex-start",
-              // padding: "10px 30px",
               padding: "0px 30px",
               background: isDashboard ? "var(--primary-highlight-color)" : "",
               "&:hover": {
@@ -153,6 +150,7 @@ const AdminSideBar = () => {
             className="Icon-Color"
             sx={{
               marginTop: "10px",
+              fontSize: '15px',
               color: isEmpManagement
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",
@@ -162,7 +160,6 @@ const AdminSideBar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "flex-start",
-              // padding: "10px 30px",
               padding: "0px 30px",
               background: isEmpManagement
                 ? "var(--primary-highlight-color)"
@@ -192,6 +189,7 @@ const AdminSideBar = () => {
             className="Icon-Color"
             sx={{
               marginTop: "10px",
+              fontSize: '15px',
               color: isLeaveManagement
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",
@@ -228,9 +226,9 @@ const AdminSideBar = () => {
           </Button>
 
           <Button
-            className="Icon-Color"
             sx={{
               marginTop: "10px",
+              fontSize: '15px',
               color: isAttendanceManagementActive
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",

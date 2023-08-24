@@ -17,6 +17,7 @@ const CustomContext = (props) => {
     localStorage.getItem("loggedIn") === "true"
   );
   const [showToast, setShowToast] = useState({});
+  const [themeChange, setThemeChange] = useState(false);
 
   // const [isLoggedIn, setIsLoggedIn] = useState(
   //   localStorage.getItem("loggedIn") === "false"
@@ -52,6 +53,15 @@ const CustomContext = (props) => {
     setIsLoggedIn(false);
   };
 
+  useEffect(() =>{
+    const body = document.getElementById("root");
+    if(themeChange){
+      body.classList.add("dark-theme");
+    }else{
+      body.classList.remove("dark-theme");
+    }
+  })
+
   return (
     <GlobalContext.Provider
       value={{
@@ -77,7 +87,9 @@ const CustomContext = (props) => {
         login,
         logout,
         showToast,
-        setShowToast
+        setShowToast,
+        themeChange,
+        setThemeChange
       }}
     >
       {props.children}

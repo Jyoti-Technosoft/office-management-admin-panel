@@ -45,6 +45,7 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
         open={open}
         onClose={() => setOpenDeleteDialog(false)}
         maxWidth="md"
+        
       >
         <Box>
           <IconButton
@@ -73,78 +74,61 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            width: "500px",
           }}
-        >
+          >
           <Box>
-            <DialogTitle sx={{ fontWeight: "bold",marginRight:"50px" }}>
+            <DialogTitle sx={{ fontWeight: "bold"}}>
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
+                  margin: '35px 0px',
                 }}
               >
                 <Box
                   sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: "center",
                     background: "#ff000221",
-                    borderRadius: "50px",
-                    marginRight: "15px",
-                    marginTop: "15px",
-                    height:"45px",
-                    width:"45px",
+                    borderRadius: "1000px",
+                    padding: '8px',
+                    marginRight: '25px',
                   }}
-                >
+                  >
                   <WarningAmberIcon
                     sx={{
                       color: "#c70000",
-                      fontSize: "40px",
+                      fontSize: "30px",
                       borderRadius: "50px",
-                      padding:"5px",
-                      marginLeft:"3px",
-                      marginTop:"1px",
                     }}
                   />
                 </Box>
                 <Box>
-                  <Box sx={{ marginTop: "20px" }}>Confirm Delete</Box>
-                  <Typography
-                    sx={{
-                      fontWeight: "bold",
-                      color: "var(--dark-highlight-color)",
-                      marginTop: "10px",
-                      marginBottom: "-10px",
-                    }}
-                  >
+                  <Box>Confirm Delete</Box>
+                  <Typography sx={{color: "var(--dark-highlight-color)"}}>
                     Are you sure you want to delete this data?
                   </Typography>
                 </Box>
               </Box>
             </DialogTitle>
           </Box>
-        </Box>{" "}
-        <DialogContent sx={{ marginTop: "-10px" }}>
-          {/* <Typography
-            sx={{ fontWeight: "bold", color: "var(--secondary-text-color)" }}
-          >
-            Are you sure you want to delete this data?
-          </Typography> */}
-        </DialogContent>
-        <DialogActions sx={{ background: "var(--highlight-color)",boxShadow:"0px 2px 10px var(--dark-highlight-color)" }}>
+        </Box>
+        <DialogActions
+          sx={{
+            background: "var(--highlight-color)",
+            boxShadow:"0px 2px 10px var(--dark-highlight-color)"
+          }}>
           <Button
-            // variant="outlined"
             onClick={() => setOpenDeleteDialog(false)}
             sx={{
               color: "var(--secondary-text-color)",
-            //   background: "var(--plain-white)",
-            //   borderColor: "var(--dark-highlight-color)",
               textTransform: "capitalize",
               fontWeight: "bold",
               marginRight: "10px",
               borderRadius: "5px",
-              "&:hover": {
-                // borderColor: "var(--dark-highlight-color)",
-                fontWeight: "bold",
-              },
             }}
           >
             Cancel
@@ -158,11 +142,6 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
             sx={{
               borderRadius: "5px",
               textTransform: "capitalize",
-              fontWeight: "bold",
-              "&:hover": {
-                color: "var(--plain-white)",
-                fontWeight: "bold",
-              },
             }}
             component={Link}
             color="error"

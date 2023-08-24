@@ -24,7 +24,7 @@ const AttendanceTable = () => {
 
   return (
     <Box>
-      <TableContainer component={Paper}>
+      <TableContainer>
         <Table>
           <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px" }}>
             <TableRow sx={{ textDecoration: "none" }}>
@@ -47,7 +47,7 @@ const AttendanceTable = () => {
               <TableRow
                 key={index}
                 sx={{
-                  backgroundColor: "var(--plain-white)",
+                  background: "var(--background-table-sidebar-card-color)",
                 }}
               >
                 <TableCell sx={tableBodyCell}>{index}</TableCell>

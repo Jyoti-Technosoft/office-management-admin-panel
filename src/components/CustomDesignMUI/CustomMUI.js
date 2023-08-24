@@ -30,7 +30,6 @@ export const DashboardProfileButtons = {
     alignItems: "left",
     justifyContent: "left",
     padding: "15px 20px",
-    background: "white",
     width: "100%",
     border: 'none',
     borderRadius: "10px",
@@ -45,7 +44,7 @@ export const viewProfileTitle = {
     fontSize: "18px" ,
 }
 export const viewProfileSubtitle = {
-    fontSize: "12px",
+    fontSize: "13px",
     color: 'var(--text-gray-color)',
 
 }
@@ -64,7 +63,7 @@ export const viewEducationTitle = {
 }
 export const viewExperiencePosition = {
     fontWeight: "bold",
-    fontSize: "13px" 
+    fontSize: "13px",
 }
 // FOR TABLES
 export const tableHeadCell = {
@@ -72,6 +71,8 @@ export const tableHeadCell = {
     fontWeight:"bold",
     paddingLeft:"30px",
     paddingRight:"30px",
+    fontSize: '15px',
+
 }
 export const tableBodyCell = {
     color:"var(--primary-text-color)",

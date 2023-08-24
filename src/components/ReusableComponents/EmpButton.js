@@ -48,7 +48,7 @@ const EmpButton = () => {
             sx={{
               padding: "20px",
               // height: "100%",
-              backgroundColor: "var(--plain-white)",
+              backgroundColor: "var(--background-table-sidebar-card-color)",
               borderRadius: "10px",
               width: "100%",
               alignItems: "center",
@@ -207,7 +207,7 @@ const EmpButton = () => {
           <Box
             sx={{
               marginLeft: "30px",
-              backgroundColor: "var(--plain-white)",
+              backgroundColor: "var(--background-table-sidebar-card-color)",
               borderRadius: "10px",
               // height: "100%",
               width: "100%",

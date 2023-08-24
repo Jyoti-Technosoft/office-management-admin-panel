@@ -130,10 +130,10 @@ const AdminDashboard = () => {
                   onClick={() => handleTabChange("employee")}
                   sx={{
                     boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                    backgroundColor: "var(--plain-white)",
+                    backgroundColor: "var(--background-table-sidebar-card-color)",
                     color: "var(--secondary-text-color)",
                     "&:hover": {
-                      background: "var(--plain-white)",
+                      background: "var(--background-table-sidebar-card-color)",
                     },
                   }}
                 >
@@ -188,11 +188,11 @@ const AdminDashboard = () => {
                     onClick={() => handleTabChange("leave")}
                     sx={{
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                      backgroundColor: "var(--plain-white)",
+                      backgroundColor: "var(--background-table-sidebar-card-color)",
                       color: "var(--secondary-text-color)",
                       marginTop: "0px",
                       "&:hover": {
-                        background: "var(--plain-white)",
+                        background: "var(--background-table-sidebar-card-color)",
                       },
                     }}
                   >
@@ -246,11 +246,11 @@ const AdminDashboard = () => {
                     sx={{
                       // boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                      backgroundColor: "var(--plain-white)",
+                      backgroundColor: "var(--background-table-sidebar-card-color)",
                       color: "var(--secondary-text-color)",
                       marginTop: "0px",
                       "&:hover": {
-                        background: "var(--plain-white)",
+                        background: "var(--background-table-sidebar-card-color)",
                       },
                     }}
                   >

@@ -17,10 +17,9 @@ const Employee = () => {
       <Box
         sx={{
           boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-          // padding: "14px",
           marginTop: "30px",
           borderRadius: "8px",
-          background: "var(--plain-white)",
+          background: "var(--background-table-sidebar-card-color)",
         }}
       >
         <Box sx={{ padding: "15px" }}>
@@ -47,8 +46,7 @@ const Employee = () => {
               <Button
                 variant="contained"
                 sx={{
-                  background: "var(--secondary-color)",
-                  color: "var(--plain-white)",
+                  background: "var(--primary-color)",
                   fontWeight: "bold",
                 }}
                 onClick={handleAddEmployee}

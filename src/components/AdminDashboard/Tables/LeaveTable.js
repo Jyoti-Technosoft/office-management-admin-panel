@@ -23,7 +23,7 @@ const LeaveTable = () => {
   }, [employeeData]);
   return (
     <Box>
-      <TableContainer component={Paper}>
+      <TableContainer>
         <Table>
           <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px" }}>
             <TableRow sx={{ textDecoration: "none" }}>
@@ -52,10 +52,7 @@ const LeaveTable = () => {
               <TableRow
                 key={index}
                 sx={{
-                  // backgroundColor:
-                  //   index % 2 === 1 ? "var(--highlight-color)" : "",
-                  background:"var(--plain-white)",
-                  // lineHeight: "var(--table-row-line-height)",
+                  background: "var(--background-table-sidebar-card-color)",
                 }}
               >
                 <TableCell sx={tableBodyCell}>{index}</TableCell>
