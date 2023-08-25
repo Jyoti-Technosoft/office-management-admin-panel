@@ -9,13 +9,14 @@ export const InputLable = {
 };
 export const InputField = {
     width: "100%",
-    background: "var(--white-color)",
+    // background: "var(--background-table-sidebar-card-color)",
     borderRadius: "10px",
     marginBottom: '25px',
 };
 export const InputFieldProps = () => {
     return {
         fontSize: "14px",
+        // color: 'var(--primary-text-color)',
     };
 }
 export const errorMessageDesign = {

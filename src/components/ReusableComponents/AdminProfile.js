@@ -151,13 +151,13 @@ const AdminProfile = () => {
         onClose={handleCloseDialog}
         maxWidth="xs"
         fullWidth
-      >
+        
+        >
         <Box
           sx={{
-            backgroundColor: "var(--plain-white)",
             color: "var(--secondary-text-color)",
           }}
-        >
+          >
           <Box
             sx={{
               display: "flex",
@@ -232,25 +232,6 @@ const AdminProfile = () => {
               boxShadow: "0px 2px 10px var(--dark-highlight-color)",
             }}
           >
-            {/* <Button
-            // variant="outlined"
-                onClick={handleCloseDialog}
-            sx={{
-              color: "var(--secondary-text-color)",
-            //   background: "var(--plain-white)",
-            //   borderColor: "var(--dark-highlight-color)",
-              textTransform: "capitalize",
-              fontWeight: "bold",
-              marginRight: "10px",
-              borderRadius: "5px",
-              "&:hover": {
-                // borderColor: "var(--dark-highlight-color)",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            Cancel
-          </Button> */}
           </DialogActions>
         </Box>
       </Dialog>

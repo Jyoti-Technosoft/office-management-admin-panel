@@ -33,8 +33,8 @@ const Header = () => {
                 >
                 <Box padding='8px' onClick={() => setThemeChange((value)=> !value)}>
                     {themeChange ?
-                    <DarkTheme width={"70px"}/>
-                    : <LightTheme width={"70px"}/>}
+                    <LightTheme height={"70px"}/>
+                    : <DarkTheme height={"40px"}/>}
                 </Box>
                 <Box>
                     <AdminProfile />

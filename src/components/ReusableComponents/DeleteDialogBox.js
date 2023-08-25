@@ -44,110 +44,115 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
         open={open}
         onClose={() => setOpenDeleteDialog(false)}
         maxWidth="md"
-        
-      >
-        <Box>
-          <IconButton
-            onClick={() => setOpenDeleteDialog(false)}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "absolute",
-              top: "5px",
-              right: "-5px",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-              marginRight: "15px",
-              fontSize: "2px",
-              "&:hover": {
-                background: "var(--highlight-color)",
-              },
-            }}
-          >
-            <Close />
-          </IconButton>
-        </Box>
+        >
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "500px",
+            // backgroundColor: "red",
           }}
           >
           <Box>
-            <DialogTitle sx={{ fontWeight: "bold"}}>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: '35px 0px',
-                }}
-              >
+            <IconButton
+              onClick={() => setOpenDeleteDialog(false)}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "absolute",
+                top: "5px",
+                right: "-5px",
+                fontWeight: "bold",
+                textTransform: "capitalize",
+                marginRight: "15px",
+                fontSize: "2px",
+                "&:hover": {
+                  background: "var(--highlight-color)",
+                },
+              }}
+            >
+              <Close />
+            </IconButton>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "500px",
+            }}
+          >
+            <Box>
+              <DialogTitle sx={{ fontWeight: "bold" }}>
                 <Box
                   sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
+                    display: "flex",
                     alignItems: "center",
-                    background: "#ff000221",
-                    borderRadius: "1000px",
-                    padding: '8px',
-                    marginRight: '25px',
+                    justifyContent: "center",
+                    margin: '35px 0px',
                   }}
-                  >
-                  <WarningAmberIcon
+                >
+                  <Box
                     sx={{
-                      color: "#c70000",
-                      fontSize: "30px",
-                      borderRadius: "50px",
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: "center",
+                      background: "#ff000221",
+                      borderRadius: "1000px",
+                      padding: '8px',
+                      marginRight: '25px',
                     }}
-                  />
+                  >
+                    <WarningAmberIcon
+                      sx={{
+                        color: "#c70000",
+                        fontSize: "30px",
+                        borderRadius: "50px",
+                      }}
+                    />
+                  </Box>
+                  <Box>
+                    <Box>Confirm Delete</Box>
+                    <Typography>
+                      Are you sure you want to delete this data?
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box>
-                  <Box>Confirm Delete</Box>
-                  <Typography sx={{color: "var(--dark-highlight-color)"}}>
-                    Are you sure you want to delete this data?
-                  </Typography>
-                </Box>
-              </Box>
-            </DialogTitle>
+              </DialogTitle>
+            </Box>
           </Box>
+          <DialogActions
+            sx={{
+              background: "var(--highlight-color)",
+              boxShadow: "0px 2px 10px var(--dark-highlight-color)"
+            }}>
+            <Button
+              onClick={() => setOpenDeleteDialog(false)}
+              sx={{
+                color: "var(--secondary-text-color)",
+                textTransform: "capitalize",
+                fontWeight: "bold",
+                marginRight: "10px",
+                borderRadius: "5px",
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() => {
+                deleteEmployee();
+                setOpenDeleteDialog(false);
+              }}
+              sx={{
+                borderRadius: "5px",
+                textTransform: "capitalize",
+              }}
+              component={Link}
+              color="error"
+            >
+              Delete
+            </Button>
+          </DialogActions>
         </Box>
-        <DialogActions
-          sx={{
-            background: "var(--highlight-color)",
-            boxShadow:"0px 2px 10px var(--dark-highlight-color)"
-          }}>
-          <Button
-            onClick={() => setOpenDeleteDialog(false)}
-            sx={{
-              color: "var(--secondary-text-color)",
-              textTransform: "capitalize",
-              fontWeight: "bold",
-              marginRight: "10px",
-              borderRadius: "5px",
-            }}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            onClick={() => {
-              deleteEmployee();
-              setOpenDeleteDialog(false);
-            }}
-            sx={{
-              borderRadius: "5px",
-              textTransform: "capitalize",
-            }}
-            component={Link}
-            color="error"
-          >
-            Delete
-          </Button>
-        </DialogActions>
       </Dialog>
     </Box>
   );
