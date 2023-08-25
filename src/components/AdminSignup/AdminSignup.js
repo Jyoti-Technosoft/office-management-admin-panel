@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Signup from "./../../assets/img/AdminSignup.png";
@@ -18,6 +18,7 @@ import {
   DialogActions,
   FormControl,
 } from "@mui/material";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 // Custom imports
 import Logo from "./../../assets/img/LogoSVG.svg";
@@ -27,9 +28,9 @@ import {
   errorMessageDesign,
 } from "../CustomDesignMUI/CustomMUI";
 import "./AdminSignup.scss";
-import { OneK } from "@mui/icons-material";
 
 const AdminSignup = () => {
+  const { adminApiEndpoint } = useContext(GlobalContext); 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -166,10 +167,7 @@ const AdminSignup = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:8001/adminData",
-        formData
-      );
+      const response = await axios.post(adminApiEndpoint,formData);
 
       console.log(response.data);
 

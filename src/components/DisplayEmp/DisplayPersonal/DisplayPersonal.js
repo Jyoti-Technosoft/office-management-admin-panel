@@ -161,7 +161,7 @@ const DisplayPersonal = () => {
       <DeleteDialog
         open={openDeleteDialog}
         setOpenDeleteDialog={setOpenDeleteDialog}
-      />
+        />
       </Box>
       {/* <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)} maxWidth="md">
       

@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-//IMPORTING CONTEXT
-// import { GlobalContext } from "../../ContextAPI/CustomContext";
 import {
   Box,
   Button,
@@ -26,7 +24,8 @@ const AdminLogin = () => {
   // const { admin } = useContext(GlobalContext);
   // const { admin, setAdminName, setAdminPosition } = useContext(GlobalContext);
   // console.log("Login ", admin);
-  const { setShowToast, showToast } = useContext(GlobalContext);
+  const { setShowToast, showToast, adminApiEndpoint  } = useContext(GlobalContext);
+  console.log("adminApiEndpoint", adminApiEndpoint);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,7 +79,7 @@ const AdminLogin = () => {
     e.preventDefault();
     if (validateInputs()) {
       try {
-        const response = await axios.get("http://localhost:8001/adminData");
+        const response = await axios.get(adminApiEndpoint);
         const adminData = response.data;
 
         const matchingUser = adminData.find(

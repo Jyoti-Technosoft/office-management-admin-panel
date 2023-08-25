@@ -62,6 +62,15 @@
       "password": "Max@123",
       "confirmpassword": "Max@123",
       "id": "w0gbaZP"
+    },
+    {
+      "name": "dfsdfsdf",
+      "email": "test@gmail.com",
+      "phonenumber": "1111111111",
+      "position": "HR",
+      "password": "1111111111",
+      "confirmpassword": "1111111111",
+      "id": "NiTqoc4"
     }
   ]
 }

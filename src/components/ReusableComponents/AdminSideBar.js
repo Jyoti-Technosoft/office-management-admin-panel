@@ -20,16 +20,12 @@ import {
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
-import { Close } from "@mui/icons-material";
-
 const AdminSideBar = () => {
-  const [openDialog, setOpenDialog] = useState(false);
   const {
     setAdminName,
     setAdminPosition,
     adminName,
     adminPosition,
-    setShowToast,
   } = useContext(GlobalContext);
   const location = useLocation();
   const capitalizeFirstLetter = (string) => {
@@ -51,22 +47,6 @@ const AdminSideBar = () => {
       setAdminPosition(adminPositionFromStorage);
     }
   }, []);
-
-  const handleLogOut = () => {
-    setOpenDialog(true);
-  };
-
-  // Function to handle logout confirmation
-  const handleLogoutConfirmation = () => {
-    localStorage.removeItem("loggedIn");
-    setShowToast({ show: true, msg: "Logout Successfully", type: "success" });
-    setOpenDialog(false);
-  };
-
-  // Function to handle canceling logout
-  const handleCancelLogout = () => {
-    setOpenDialog(false);
-  };
 
   return (
     <Grid item xs={12} md={2.5}>

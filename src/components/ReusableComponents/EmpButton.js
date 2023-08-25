@@ -62,7 +62,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "personal"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "personal"
                     ? "var(--primary-color)"
@@ -80,7 +80,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "contact"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "contact"
                     ? "var(--primary-color)"
@@ -98,7 +98,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "education"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "education"
                     ? "var(--primary-color)"
@@ -116,7 +116,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "family"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "family"
                     ? "var(--primary-color)"
@@ -134,7 +134,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "experience"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "experience"
                     ? "var(--primary-color)"
@@ -152,7 +152,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "job"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "job"
                     ? "var(--primary-color)"
@@ -170,7 +170,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "financial"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "financial"
                     ? "var(--primary-color)"
@@ -188,7 +188,7 @@ const EmpButton = () => {
                 backgroundColor:
                   selectedTab === "leave"
                     ? "var(--primary-highlight-color)"
-                    : "white",
+                    : "var(--background-table-sidebar-card-color)",
                 color:
                   selectedTab === "leave"
                     ? "var(--primary-color)"
