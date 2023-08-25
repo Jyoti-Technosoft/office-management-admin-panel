@@ -15,13 +15,12 @@ import { Close } from "@mui/icons-material";
 import {ReactComponent as UserIcon} from "../../assets/img/adminIcon.svg";
 import ProfileImg from "./../../assets/img/adminIcon.svg";
 import { Link } from "react-router-dom";
-// import { ReactComponent as LogoutIcon } from "../../assets/img/icons/logoutIcon.svg";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 const AdminProfile = () => {
-  const [showDialog, setShowDialog] = useState(false); // State variable for showing the dialog box
-  const [adminDetails, setAdminDetails] = useState({}); // State variable for admin details
+  const [showDialog, setShowDialog] = useState(false);
+  const [adminDetails, setAdminDetails] = useState({});
 
   const handleSettingButtonClick = () => {
     const adminName = localStorage.getItem("adminName");

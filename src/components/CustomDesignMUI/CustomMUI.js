@@ -15,7 +15,6 @@ export const InputField = {
 };
 export const InputFieldProps = () => {
     return {
-        // height: "4px",
         fontSize: "14px",
     };
 }
@@ -82,6 +81,5 @@ export const tableBodyCell = {
 }
 export const tableMainHead = {
     fontWeight: 'bold',
-    // marginTop: '50px',
     color:"var(--primary-text-color)",
 }

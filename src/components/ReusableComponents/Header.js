@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { useContext } from "react";
 import AdminProfile from "../../components/ReusableComponents/AdminProfile";
 import { ReactComponent as BrandLogo } from "../../assets/img/icons/EmployeeVueLogo.svg";
@@ -19,7 +19,6 @@ const Header = () => {
                 marginBottom: "30px",
                 boxShadow: "0px 13px 10px -20px #111",
                 borderBottom: "1px solid var(--table-border-color)",
-                // background: 'var(--primary-highlight-color)',
             }}>
             <Box>
                 <BrandLogo width={'200px'} />
@@ -32,15 +31,15 @@ const Header = () => {
                     alignItems: 'center',
                 }}
                 >
-                <Box>
-                    <AdminProfile />
-                </Box>
-                <Box>
                 <Box padding='8px' onClick={() => setThemeChange((value)=> !value)}>
                     {themeChange ?
                     <DarkTheme width={"70px"}/>
                     : <LightTheme width={"70px"}/>}
                 </Box>
+                <Box>
+                    <AdminProfile />
+                </Box>
+                <Box>
                 </Box>
             </Box>
         </Box>

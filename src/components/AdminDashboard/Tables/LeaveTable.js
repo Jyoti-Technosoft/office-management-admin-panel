@@ -3,7 +3,6 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import {
   Box,
   TableContainer,
-  Paper,
   Table,
   TableHead,
   TableRow,

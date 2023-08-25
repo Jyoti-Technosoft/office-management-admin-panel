@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, IconButton } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import { DashboardProfileButtons } from "../CustomDesignMUI/CustomMUI";
 import DisplayPersonal from "../DisplayEmp/DisplayPersonal/DisplayPersonal";
 import DisplayContact from "../DisplayEmp/DisplayContact/DisplayContact";
@@ -47,7 +47,6 @@ const EmpButton = () => {
           <Box
             sx={{
               padding: "20px",
-              // height: "100%",
               backgroundColor: "var(--background-table-sidebar-card-color)",
               borderRadius: "10px",
               width: "100%",
@@ -209,7 +208,6 @@ const EmpButton = () => {
               marginLeft: "30px",
               backgroundColor: "var(--background-table-sidebar-card-color)",
               borderRadius: "10px",
-              // height: "100%",
               width: "100%",
               padding: "15px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",

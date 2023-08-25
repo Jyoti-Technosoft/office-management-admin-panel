@@ -1,5 +1,3 @@
-// ContactDetails.js
-
 import React from "react";
 import {
   Box,
@@ -18,7 +16,6 @@ const ContactDetails = ({ formData, onChange }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Validate the form fields here if needed
   };
 
   return (

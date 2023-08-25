@@ -16,7 +16,7 @@ const CustomToast = (props) => {
         <>
             <Alert
                 variant="standard"
-                severity={props.toastType}  // success, warning, info, error
+                severity={props.toastType}  
                 sx={{
                     position: 'absolute',
                     top: '15px',

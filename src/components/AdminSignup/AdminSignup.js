@@ -146,7 +146,6 @@ const AdminSignup = () => {
         break;
     }
 
-    // Check if any form errors exist
     for (const error in formErrors) {
       if (formErrors[error]) {
         setFormIsValid(false);
@@ -157,7 +156,7 @@ const AdminSignup = () => {
     setFormIsValid(true);
   };
 
-  const [showDialog, setShowDialog] = useState(false); // State variable for showing/hiding the dialog
+  const [showDialog, setShowDialog] = useState(false); 
 
   const handleCloseDialog = () => {
     setShowDialog(false);
@@ -179,7 +178,7 @@ const AdminSignup = () => {
         password: "",
         confirmpassword: "",
       });
-      setShowDialog(true); // Show the dialog after successful sign-up
+      setShowDialog(true); 
     } catch (error) {
       console.error("Error adding data:", error);
     }
@@ -201,7 +200,6 @@ const AdminSignup = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              // background: 'red',
             }}
             xs={12}
             md={6}
@@ -238,7 +236,6 @@ const AdminSignup = () => {
                 Signup
               </Typography>
               <Box sx={{ marginTop: "20px" }}>
-              {/* <InputLabel sx={InputLable}>Name</InputLabel> */}
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
@@ -258,7 +255,6 @@ const AdminSignup = () => {
               )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              {/* <InputLabel sx={InputLable}>E-mail</InputLabel> */}
               <TextField
                 inputProps={{
                   style: InputFieldProps(),
@@ -278,8 +274,6 @@ const AdminSignup = () => {
               )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              {/* <InputLabel sx={InputLable}>Phone Number</InputLabel> */}
-
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
@@ -299,8 +293,6 @@ const AdminSignup = () => {
               )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              {/* <InputLabel sx={InputLable}>Position</InputLabel> */}
-
               <FormControl fullWidth>
                 <InputLabel id="position">Position</InputLabel>
                 <Select
@@ -330,7 +322,6 @@ const AdminSignup = () => {
               )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              {/* <InputLabel sx={InputLable}>Password</InputLabel> */}
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
@@ -350,7 +341,6 @@ const AdminSignup = () => {
               )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              {/* <InputLabel sx={InputLable}>Confirm Password</InputLabel> */}
               <TextField
                 inputProps={{
                   sx: InputFieldProps(),
@@ -401,7 +391,6 @@ const AdminSignup = () => {
                   Login Now
                 </Link>
               </Typography>
-              {/* Dialog Box */}
               <Dialog
                 open={showDialog}
                 onClose={handleCloseDialog}
@@ -425,18 +414,6 @@ const AdminSignup = () => {
               </Dialog>
             </form>
           </Grid>
-
-          {/* <Grid
-            className="admin-signup-img"
-            xs={12}
-            md={6}
-            >
-            <img
-              src={Signup}
-              alt="signup"
-              style={{ width: "100%", marginTop: "20px" }}
-            />
-          </Grid> */}
         </Grid>
       </Container>
     </Box>

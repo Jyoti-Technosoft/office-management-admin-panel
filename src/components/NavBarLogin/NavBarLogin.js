@@ -1,6 +1,6 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
-import Logo from "../../assets/img/LogoSVG.svg"; // Import your logo image
+import Logo from "../../assets/img/LogoSVG.svg"; 
 
 const NavBarLogin = () => {
   return (

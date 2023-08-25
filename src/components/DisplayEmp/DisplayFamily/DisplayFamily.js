@@ -10,7 +10,7 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 const DisplayFamily = () => {
 
   // DATA CALLING START 
-  const { userData, setUserData } = useContext(GlobalContext)
+  const { userData } = useContext(GlobalContext)
   const { employeeId } = useParams();
   const employeeCall = userData.find(user => user.id === parseInt(employeeId));
   console.log("EmployeeID: ", employeeId)

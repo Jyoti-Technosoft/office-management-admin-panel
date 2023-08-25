@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
   viewProfileSubtitle,
   viewProfileTitle,
 } from "../../CustomDesignMUI/CustomMUI";
-import { BorderBottom } from "@mui/icons-material";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 
 const DisplayContact = () => {
   // DATA CALLING START
-  const { userData, setUserData } = useContext(GlobalContext);
+  const { userData } = useContext(GlobalContext);
   const { employeeId } = useParams();
   const employeeCall = userData.find(
     (user) => user.id === parseInt(employeeId)
@@ -18,7 +17,7 @@ const DisplayContact = () => {
   console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>; // Or handle the case when the employee is not found
+    return <Box>Loading...</Box>; 
   }
   // DATA CALLING END
 
@@ -37,8 +36,6 @@ const DisplayContact = () => {
       </Typography>
       {/* <Grid container> */}
       <Box sx={{ marginBottom: "25px" }}>
-        {/* <Grid container spacing={2}>
-          <Grid item xs={6}> */}
         <Box>
           <Typography sx={viewProfileSubtitle}>Phone Number</Typography>
           <Typography sx={viewProfileTitle}>
@@ -46,8 +43,6 @@ const DisplayContact = () => {
           </Typography>
         </Box>
       </Box>
-      {/* </Grid> */}
-      {/* <Grid item xs={6}> */}
       <Box sx={{ marginBottom: "25px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>Additional Number</Typography>
@@ -56,23 +51,15 @@ const DisplayContact = () => {
           </Typography>
         </Box>
       </Box>
-      {/* </Grid> */}
-      {/* </Grid> */}
       <Box sx={{ marginBottom: "25px" }}>
-        {/* <Grid container spacing={2}> */}
-        {/* <Grid item xs={12}> */}
         <Box>
           <Typography sx={viewProfileSubtitle}>E-mail Address</Typography>
           <Typography sx={viewProfileTitle}>
             {employeeCall.contactEmail}
           </Typography>
         </Box>
-        {/* </Grid> */}
-        {/* </Grid> */}
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
-        {/* <Grid container spacing={2}> */}
-        {/* <Grid item xs={6}> */}
         <Box>
           <Typography sx={viewProfileSubtitle}>State of residence</Typography>
           <Typography sx={viewProfileTitle}>
@@ -80,8 +67,6 @@ const DisplayContact = () => {
           </Typography>
         </Box>
       </Box>
-      {/* </Grid> */}
-      {/* <Grid item xs={6}> */}
       <Box sx={{ marginBottom: "25px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>City</Typography>
@@ -90,21 +75,14 @@ const DisplayContact = () => {
           </Typography>
         </Box>
       </Box>
-      {/* </Grid> */}
-      {/* </Grid> */}
       <Box sx={{ marginBottom: "21px" }}>
-        {/* <Grid container spacing={2}> */}
-        {/* <Grid item xs={12}> */}
         <Box>
           <Typography sx={viewProfileSubtitle}>Residential Address</Typography>
           <Typography sx={viewProfileTitle}>
             {employeeCall.contactResidental}
           </Typography>
         </Box>
-        {/* </Grid> */}
-        {/* </Grid> */}
       </Box>
-      {/* </Grid> */}
     </Box>
   );
 };

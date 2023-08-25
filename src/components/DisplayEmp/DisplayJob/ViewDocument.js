@@ -4,7 +4,6 @@ import {
   Typography,
   IconButton,
   Button,
-  Grid,
   Card,
   CardContent,
   CardMedia,
@@ -36,9 +35,7 @@ const ViewDocument = ({ onBackClick }) => {
         </IconButton>
         View Job Details / View Documents
       </Typography>
-      {/* <Grid container spacing={5}> */}
         {documentData.map((document, index) => (
-          // <Grid key={index} item xs={12} sm={6} md={4}>
             <Button>  
               <Card
                 sx={{
@@ -66,9 +63,7 @@ const ViewDocument = ({ onBackClick }) => {
                 </CardContent>
               </Card>
             </Button>
-          // </Grid>
         ))}
-      {/* </Grid> */}
       <Box
         sx={{
           display: "flex",

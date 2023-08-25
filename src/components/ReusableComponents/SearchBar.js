@@ -48,7 +48,6 @@ const SearchBar = () => {
           justifyContent: "flex-start",
           borderRadius: "10px",
           background: "var(--search-bar-color)",
-          // boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
           height: "40px",
         }}
       >

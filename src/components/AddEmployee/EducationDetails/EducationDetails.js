@@ -1,11 +1,6 @@
-// EducationDetails.js
-
-import React, { useContext } from "react";
+import React from "react";
 import { Box, TextField, Typography } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
-import { useParams } from "react-router-dom";
-import { GlobalContext } from "../../../ContextAPI/CustomContext";
-
 
 const EducationDetails = ({ formData, onChange }) => {
 
@@ -17,7 +12,6 @@ const EducationDetails = ({ formData, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Validate the form fields here if needed
   };
 
   return (

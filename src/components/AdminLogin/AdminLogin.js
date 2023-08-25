@@ -27,10 +27,11 @@ const AdminLogin = () => {
   const { setShowToast, showToast, adminApiEndpoint  } = useContext(GlobalContext);
   console.log("adminApiEndpoint", adminApiEndpoint);
 
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(""); // validation@
-  const [passwordError, setPasswordError] = useState(""); // validation@
+  const [emailError, setEmailError] = useState("");  
+  const [passwordError, setPasswordError] = useState("");  
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -48,13 +49,11 @@ const AdminLogin = () => {
     checkUserLoggedIn();
   }, []);
 
-  // validation@
   const validateInputs = () => {
     let valid = true;
     setEmailError("");
     setPasswordError("");
 
-    // Email validation
     if (!email) {
       setEmailError("Email is required");
       valid = false;
@@ -63,7 +62,6 @@ const AdminLogin = () => {
       valid = false;
     }
 
-    // Password validation
     if (!password) {
       setPasswordError("Password is required");
       valid = false;

@@ -1,21 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import AdminSideBar from "../../components/ReusableComponents/AdminSideBar";
 import SearchBar from "../ReusableComponents/SearchBar";
-import { GlobalContext } from "../../ContextAPI/CustomContext";
 import LeaveTable from "../AdminDashboard/Tables/LeaveTable";
 import { tableMainHead } from "../CustomDesignMUI/CustomMUI";
 import Header from "../ReusableComponents/Header";
 
 const LeaveManagement = () => {
-  const { employeeData } = useContext(GlobalContext);
-
-  const [userData, setUserData] = useState([]);
-
-  useEffect(() => {
-    setUserData(employeeData);
-    console.log("Dashboard: ", employeeData);
-  }, [employeeData]);
 
   return (
     <Box>
@@ -24,42 +15,35 @@ const LeaveManagement = () => {
         <AdminSideBar />
 
         <Grid item xs={12} md={9.4}>
-          <Header/>
+          <Header />
           <Box
             sx={{
               margin: "0px 30px",
             }}
           >
-            <Typography
-              variant="h5"
-              sx={tableMainHead}
-            >
+            <Typography variant="h5" sx={tableMainHead}>
               Leave Management
             </Typography>
             {/* ADD TO SCROLL TO THE TABLE */}
             <Box
               sx={{
                 marginTop: "20px",
-                maxHeight: "calc(100vh - 200px)",
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                // padding: "20px",
                 borderRadius: "8px",
-                background:"var(--plain-white)",
+                background: "var(--plain-white)",
               }}
-              overflow="auto"
             >
-               {/* <Typography
-                variant="h6"
-                sx={{ color: "var(--primary-text-color)",
-                //  fontWeight: "bold" ,
-                }}
-              >
-                Leave Details
-              </Typography> */}
               <Box sx={{ padding: "15px" }}>
                 <SearchBar />
               </Box>
-              <LeaveTable />
+              <Box
+                sx={{
+                  maxHeight: "calc(100vh - 310px)",
+                }}
+                overflow="auto"
+              >
+                <LeaveTable />
+              </Box>
             </Box>
           </Box>
         </Grid>

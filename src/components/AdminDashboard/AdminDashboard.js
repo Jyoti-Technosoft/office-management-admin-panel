@@ -13,7 +13,6 @@ import { ReactComponent as AttendanceIcon } from "../../assets/img/icons/attenda
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import axios from "axios";
 import CustomToast from "../ReusableComponents/CustomToast";
-import AdminProfile from "../ReusableComponents/AdminProfile";
 import Header from "../ReusableComponents/Header";
 
 const AdminDashboard = () => {
@@ -244,7 +243,6 @@ const AdminDashboard = () => {
                     className="dashboard-attendance-button"
                     onClick={() => handleTabChange("attendance")}
                     sx={{
-                      // boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                       backgroundColor: "var(--background-table-sidebar-card-color)",
                       color: "var(--secondary-text-color)",

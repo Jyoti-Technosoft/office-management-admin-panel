@@ -1,18 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
-import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import LeaveTable from "../Tables/LeaveTable";
 import SearchBar from "../../ReusableComponents/SearchBar";
 
 const Leave = () => {
-  const { employeeData } = useContext(GlobalContext);
-
-  const [leaveData, setLeaveData] = useState([]);
-
-  useEffect(() => {
-    setLeaveData(employeeData);
-    console.log("Dashboard: ", employeeData);
-  }, [employeeData]);
 
   return (
     <Box
@@ -46,7 +37,7 @@ const Leave = () => {
         <Box
           sx={{
             marginTop: "10px",
-            maxHeight: "calc(100vh - 440px)",
+            maxHeight: "calc(100vh - 455px)",
           }}
           overflow="auto"
         >

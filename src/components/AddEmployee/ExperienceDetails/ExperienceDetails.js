@@ -1,5 +1,3 @@
-// ExperienceDetails.js
-
 import React from "react";
 import { Box, Select, TextField, MenuItem, FormControl, InputLabel, Typography } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
@@ -12,7 +10,6 @@ const ExperienceDetails = ({ formData, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Validate the form fields here if needed
   };
 
   return (

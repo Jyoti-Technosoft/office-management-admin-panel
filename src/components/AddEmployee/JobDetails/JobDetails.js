@@ -1,4 +1,3 @@
-// Job Details
 import React from "react";
 import {
   Box,
@@ -19,7 +18,6 @@ const JobDetails = ({ formData, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Validate the form fields here if needed
   };
 
   return (
@@ -28,7 +26,6 @@ const JobDetails = ({ formData, onChange }) => {
       <hr />
       <form onSubmit={handleSubmit}>
 
-        {/* FOR DATE OF JOIN */}
         <TextField
           inputProps={{
             sx: InputFieldProps(),
@@ -42,7 +39,6 @@ const JobDetails = ({ formData, onChange }) => {
           onChange={handleInputChange}
         />
 
-        {/* MAKE A DROPDOWN */}
         <FormControl fullWidth>
           <InputLabel id="department">Department</InputLabel>
           <Select
@@ -66,7 +62,6 @@ const JobDetails = ({ formData, onChange }) => {
           </Select>
         </FormControl>
 
-        {/* MAKE A DROPDOWN */}
         <FormControl fullWidth>
           <InputLabel id="designation">Designation</InputLabel>
           <Select
@@ -90,7 +85,6 @@ const JobDetails = ({ formData, onChange }) => {
           </Select>
         </FormControl>
 
-        {/* MAKE A DROPDOWN */}
         <FormControl fullWidth>
           <InputLabel id="category">Job Category</InputLabel>
           <Select

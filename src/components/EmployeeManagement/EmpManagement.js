@@ -26,9 +26,7 @@ const EmpManagement = () => {
             <Box
               sx={{
                 marginTop: "20px",
-                maxHeight: "calc(100vh - 200px)",
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                // padding: "20px",
                 borderRadius: "8px",
                 background: "var(--plain-white)",
               }}
@@ -37,7 +35,9 @@ const EmpManagement = () => {
               <Box sx={{ padding: "15px" }}>
                 <SearchBar />
               </Box>
+              <Box sx={{maxHeight: "calc(100vh - 310px)",}} overflow="auto">
               <EmpTable />
+              </Box>
             </Box>
           </Box>
         </Grid>

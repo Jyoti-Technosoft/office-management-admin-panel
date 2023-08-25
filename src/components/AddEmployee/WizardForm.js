@@ -20,7 +20,6 @@ import FinancialDetails from "./FinancialDetails/FinancialDetails";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const WizardForm = ({ open, onClose, addEmployee }) => {
-  // Context Function 
   const {employeeData, employeeApiEndpoint } = useContext(GlobalContext);
 
   
@@ -64,7 +63,6 @@ const WizardForm = ({ open, onClose, addEmployee }) => {
           .post(employeeApiEndpoint, dataWithId)
           .then((response) => {
             console.log("Data submitted successfully:", response.data);
-            // Assuming the server responds with the saved data
             addEmployee(response.data);
             onClose();
             setFormHistory([]);
@@ -101,7 +99,6 @@ const WizardForm = ({ open, onClose, addEmployee }) => {
           </Tabs>
         </Box>
         <Box sx={{ marginTop: "20px" }}>
-          {/* Render the form component based on the activeTab */}
           {activeTab === 0 && (
             <PersonalDetails onChange={handleChange} formData={formData} />
           )}

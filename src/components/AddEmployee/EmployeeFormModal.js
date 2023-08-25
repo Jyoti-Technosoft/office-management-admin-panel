@@ -1,15 +1,10 @@
-// EmployeeFormModal.js
-
 import React, { useContext } from "react";
 import { Dialog } from "@mui/material";
 import WizardForm from "../AddEmployee/WizardForm";
-
-// IMPORT CONTEXT
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const EmployeeFormModal = ({ open, onClose }) => {
-  // Context Function
-  const { employee, addEmployee } = useContext(GlobalContext);
+  const { addEmployee } = useContext(GlobalContext);
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="xl">

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   Box,
   TableContainer,
-  Paper,
   Table,
   TableHead,
   TableRow,

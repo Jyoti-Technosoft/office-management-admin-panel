@@ -1,5 +1,3 @@
-// FamilyDetails.js
-
 import React from "react";
 import { Box, TextField, Typography } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
@@ -12,7 +10,6 @@ const FamilyDetails = ({ formData, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Validate the form fields here if needed
   };
 
   return (
@@ -86,7 +83,6 @@ const FamilyDetails = ({ formData, onChange }) => {
           onChange={handleInputChange}
         />
 
-        {/* FOR DATE OF BIRTH */}
         <TextField
           inputProps={{
             sx: InputFieldProps(),

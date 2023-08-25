@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 // ICON IMPORT
 import ProfileImg from "../../assets/img/adminIcon.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboardIcon.svg";
-import { ReactComponent as LogoutIcon } from "../../assets/img/icons/logoutIcon.svg";
 import { ReactComponent as EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";
 import { ReactComponent as LeaveIcon } from "../../assets/img/icons/leaveIcon.svg";
 import { ReactComponent as AttendanceIcon } from "../../assets/img/icons/attendanceIcon.svg";
@@ -12,11 +11,6 @@ import {
   Button,
   Grid,
   Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  IconButton,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
@@ -179,7 +173,6 @@ const AdminSideBar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "flex-start",
-              // padding: "10px 30px",
               padding: "0px 30px",
               background: isLeaveManagement
                 ? "var(--primary-highlight-color)"
@@ -218,7 +211,6 @@ const AdminSideBar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "flex-start",
-              // padding: "10px 30px",
               padding: "0px 30px",
               background: isAttendanceManagementActive
                 ? "var(--primary-highlight-color)"

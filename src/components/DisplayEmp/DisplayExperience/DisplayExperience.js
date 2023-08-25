@@ -12,16 +12,15 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 const DisplayExperience = () => {
 
   // DATA CALLING START 
-  const { userData, setUserData } = useContext(GlobalContext)
+  const { userData } = useContext(GlobalContext)
   const { employeeId } = useParams();
   const employeeCall = userData.find(user => user.id === parseInt(employeeId));
   console.log("EmployeeID: ", employeeId)
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>;  // Or handle the case when the employee is not found
+    return <Box>Loading...</Box>;  
   }
-  // DATA CALLING END
-
+  
   // DATE TO MONTH FUNCTION 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long' };

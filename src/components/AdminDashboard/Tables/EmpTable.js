@@ -7,7 +7,6 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
@@ -28,7 +27,7 @@ const EmpTable = () => {
     <Box>
       <TableContainer >
         <Table>
-          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px",}}>
+          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px", }}>
             <TableRow sx={{ textDecoration: "none",}}>
               <TableCell sx={tableHeadCell}>Emp ID</TableCell>
               <TableCell sx={tableHeadCell}>Name</TableCell>
