@@ -5,14 +5,16 @@ import { viewProfileTitle, viewProfileSubtitle } from '../../CustomDesignMUI/Cus
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { useParams } from "react-router-dom";
-import DeleteDialog from "../../ReusableComponents/DeleteDialogBox";
+import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
+
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 
 const DisplayPersonal = () => {
 
   // DATA CALLING START 
   const { userData } = useContext(GlobalContext)
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
+  const [openDialog, setOpenDialog] = useState(false)
   const { employeeId } = useParams();
   const employeeCall = userData.find(user => user.id === parseInt(employeeId));
   if (!employeeCall) {
@@ -21,18 +23,18 @@ const DisplayPersonal = () => {
 
   return (
     <Box>
-      {/* {/ EDIT AND DELETE BUTTONS /} */}
+      {/* EDIT AND DELETE BUTTONS */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "flex-end",
           marginTop: "-2px",
-          color:"var(--secondary-text-color)",
+          color: "var(--secondary-text-color)",
         }}>
-        <IconButton sx={{ color: "var( --third-color)"}}>
+        <IconButton sx={{ color: "var( --third-color)" }}>
           <Edit />
         </IconButton>
-        <IconButton onClick={() => setOpenDeleteDialog(true)} sx={{ color: "var( --third-color)" }}>
+        <IconButton onClick={() => setOpenDialog(true)} sx={{ color: "var( --third-color)" }}>
           <Delete />
         </IconButton>
       </Box>
@@ -47,7 +49,7 @@ const DisplayPersonal = () => {
                 fontSize: "15px",
                 marginLeft: "9px",
                 marginTop: '25px',
-                color:"var(--primary-text-color)",
+                color: "var(--primary-text-color)",
               }}>
               Employee ID : {"JT" + " " + (employeeCall.id + 100)}
             </Typography>
@@ -59,7 +61,7 @@ const DisplayPersonal = () => {
       <Box sx={{
         marginTop: '30px',
         marginLeft: "9px",
-        color:"var(--primary-text-color)",
+        color: "var(--primary-text-color)",
       }}>
         <Grid container>
 
@@ -138,9 +140,20 @@ const DisplayPersonal = () => {
         </Grid>
       </Box>
       <Box>
-      <DeleteDialog
-        open={openDeleteDialog}
-        setOpenDeleteDialog={setOpenDeleteDialog}
+        <CustomDialogBox
+          open={openDialog}
+          setOpenDialog={setOpenDialog}
+          dialogHeading="Confirm Delete"
+          dialogDescription="Are you sure you want to delete this data?"
+          dialogIcon={
+            <WarningAmberIcon
+              sx={{
+                color: "#c70000",
+                fontSize: "30px",
+                borderRadius: "50px",
+              }}
+            />
+          }
         />
       </Box>
     </Box>

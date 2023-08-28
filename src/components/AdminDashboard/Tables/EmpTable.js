@@ -27,8 +27,8 @@ const EmpTable = () => {
     <Box>
       <TableContainer >
         <Table>
-          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px", }}>
-            <TableRow sx={{ textDecoration: "none",}}>
+          <TableHead sx={{ background: "var(--primary-highlight-color)", height:"70px"}}>
+            <TableRow>
               <TableCell sx={tableHeadCell}>Emp ID</TableCell>
               <TableCell sx={tableHeadCell}>Name</TableCell>
               <TableCell sx={tableHeadCell}>Date of Birth</TableCell>

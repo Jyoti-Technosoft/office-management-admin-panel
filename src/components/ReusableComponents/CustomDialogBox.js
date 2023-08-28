@@ -12,9 +12,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import axios from "axios";
 import { Close } from "@mui/icons-material";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
-const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
+const CustomDialogBox = ({ open, setOpenDialog, dialogIcon, dialogHeading, dialogDescription }) => {
   const navigate = useNavigate();
 
   // DATA CALLING START
@@ -42,7 +41,7 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
     <Box>
       <Dialog
         open={open}
-        onClose={() => setOpenDeleteDialog(false)}
+        onClose={() => setOpenDialog(false)}
         maxWidth="md"
         >
         <Box
@@ -52,7 +51,7 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
           >
           <Box>
             <IconButton
-              onClick={() => setOpenDeleteDialog(false)}
+              onClick={() => setOpenDialog(false)}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -101,18 +100,12 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
                       marginRight: '25px',
                     }}
                   >
-                    <WarningAmberIcon
-                      sx={{
-                        color: "#c70000",
-                        fontSize: "30px",
-                        borderRadius: "50px",
-                      }}
-                    />
+                    {dialogIcon}
                   </Box>
                   <Box>
-                    <Box>Confirm Delete</Box>
+                    <Box>{dialogHeading}</Box>
                     <Typography>
-                      Are you sure you want to delete this data?
+                      {dialogDescription}
                     </Typography>
                   </Box>
                 </Box>
@@ -125,7 +118,7 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
               boxShadow: "0px 2px 10px var(--dark-highlight-color)"
             }}>
             <Button
-              onClick={() => setOpenDeleteDialog(false)}
+              onClick={() => setOpenDialog(false)}
               sx={{
                 color: "var(--secondary-text-color)",
                 textTransform: "capitalize",
@@ -140,7 +133,7 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
               variant="contained"
               onClick={() => {
                 deleteEmployee();
-                setOpenDeleteDialog(false);
+                setOpenDialog(false);
               }}
               sx={{
                 borderRadius: "5px",
@@ -157,4 +150,4 @@ const DeleteDialog = ({ open, setOpenDeleteDialog }) => {
     </Box>
   );
 };
-export default DeleteDialog;
+export default CustomDialogBox;

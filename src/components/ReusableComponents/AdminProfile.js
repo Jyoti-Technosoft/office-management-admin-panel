@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Box,
   Button,
@@ -17,8 +17,10 @@ import ProfileImg from "./../../assets/img/adminIcon.svg";
 import { Link } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const AdminProfile = () => {
+  const { themeChange, setThemeChange } = useContext(GlobalContext);
   const [showDialog, setShowDialog] = useState(false);
   const [adminDetails, setAdminDetails] = useState({});
 
@@ -40,37 +42,12 @@ const AdminProfile = () => {
   const handleCloseDialog = () => {
     setShowDialog(false);
   };
-
-  const dummyMenuItems = [
-    {
-      title: "Add Item",
-    },
-    {
-      title: "Move Item",
-    },
-    {
-      title: "Delete Item",
-    },
-  ];
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const nativeOnChange = (e) => {
-    const detail = {
-      selectedIndex: e.target.selectedIndex,
-    };
-    e.target.selectedIndex = 0;
-
-    e.target.dispatchEvent(new CustomEvent("itemClick", { detail }));
-  };
-
-  const itemClick = (e) => {
-    console.log("Item Clicked " + e.detail);
   };
 
   // LOGOUT
@@ -82,6 +59,7 @@ const AdminProfile = () => {
 
   // Function to handle logout confirmation
   const handleLogoutConfirmation = () => {
+    setThemeChange(false);
     localStorage.removeItem("loggedIn");
     // setShowToast({ show: true, msg: "Logout Successfully", type: "success" });
     setOpenDialog(false);
@@ -95,15 +73,11 @@ const AdminProfile = () => {
   return (
     <Box>
       <Box>
-        {/* <Button onClick={handleSettingButtonClick}>
-          <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
-        </Button> */}
         <IconButton
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={handleClick}
-        >
-          {/* <img width={"45px"} src={UserIcon} alt="User_Icon" /> */}
+          >
           <UserIcon width={"45px"}/>
         </IconButton>
         <Menu
@@ -111,9 +85,9 @@ const AdminProfile = () => {
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={handleClose}>
+          onClose={handleClose}>
+          <MenuItem
+          onClick={handleClose}>
             <Box
               sx={{
                 color: "var(--dark-highlight-color)",
@@ -128,8 +102,7 @@ const AdminProfile = () => {
               View Profile
             </Typography>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            {/* <LogoutIcon/> */}
+          <MenuItem onClick={handleLogOut}>
             <Box
               sx={{
                 color: "var(--dark-highlight-color)",
@@ -137,10 +110,10 @@ const AdminProfile = () => {
                 justifyContent: "center",
                 marginRight: "5px",
               }}
-            >
-              <LogoutIcon />
+              >
+              <LogoutIcon/>
             </Box>
-            <Typography onClick={handleLogOut}>Logout</Typography>
+            <Typography>Logout</Typography>
           </MenuItem>
         </Menu>
       </Box>
@@ -151,13 +124,12 @@ const AdminProfile = () => {
         onClose={handleCloseDialog}
         maxWidth="xs"
         fullWidth
-        
         >
         <Box
           sx={{
-            color: "var(--secondary-text-color)",
-          }}
-          >
+            color: themeChange ? "#e0e0e0e3" : "#544f5a",
+            background: themeChange ? "#142840" : "2c7be51a",
+          }}>
           <Box
             sx={{
               display: "flex",
@@ -186,6 +158,7 @@ const AdminProfile = () => {
             </Box>
           </Box>
           <DialogContent>
+
             <Box>
               <img width={"90px"} src={ProfileImg} alt="profile" />
             </Box>
@@ -236,6 +209,7 @@ const AdminProfile = () => {
         </Box>
       </Dialog>
 
+            
       {/* LOGOUT   */}
       <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
         <Box
@@ -273,18 +247,10 @@ const AdminProfile = () => {
               </IconButton>
             </Box>
           </Box>
-          {/* <DialogTitle
-              sx={{ color: "var(--secondary-color)", fontWeight: "bold" }}
-            >
-              Confirm Logout
-            </DialogTitle> */}
           <DialogContent>
             <Typography>Are you sure you want to log out?</Typography>
           </DialogContent>
           <DialogActions>
-            {/* <Button onClick={handleCancelLogout} color="primary">
-                Cancel
-              </Button> */}
             <Button
               onClick={handleLogoutConfirmation}
               sx={{
