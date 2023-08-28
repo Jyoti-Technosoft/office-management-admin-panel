@@ -7,6 +7,8 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Tooltip,
+  Zoom,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
@@ -21,14 +23,20 @@ const EmpTable = () => {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-  // Context Function
+  // CONTEXT FUNCTION
   const { userData } = useContext(GlobalContext);
   return (
     <Box>
-      <TableContainer >
+      <TableContainer>
         <Table>
-          <TableHead sx={{ background: "var(--primary-highlight-color)", height:"70px"}}>
-            <TableRow>
+          <TableHead
+            sx={{
+              background: "var(--primary-highlight-color)",
+              height: "70px",
+              // position:"fixed",
+            }}
+          >
+            <TableRow sx={{ textDecoration: "none", }}>
               <TableCell sx={tableHeadCell}>Emp ID</TableCell>
               <TableCell sx={tableHeadCell}>Name</TableCell>
               <TableCell sx={tableHeadCell}>Date of Birth</TableCell>
@@ -56,28 +64,37 @@ const EmpTable = () => {
                   background: "var(--background-table-sidebar-card-color)",
                 }}
               >
-                <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
+                <TableCell
+                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                >
                   {"JT" + " " + (user.id + 100)}
                 </TableCell>
                 <TableCell
-                  sx={{...tableBodyCell, fontWeight: '500 !important',}}
+                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
                 >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
+                <TableCell
+                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                >
                   {formatDate(user.personalDob)}
                 </TableCell>
-                <TableCell sx={{...tableBodyCell, fontWeight: '500 !important',}}>
+                <TableCell
+                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                >
                   {formatDate(user.jobDoj)}
                 </TableCell>
                 <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>
                 <TableCell sx={{ textAlign: "center" }}>
-                  <Link to={`/viewprofile/${user.id}`}>
-                    <VisibilityIcon
-                      sx={{
-                        fontSize: "1.5rem",
-                        color: "var(--secondary-text-color)",
-                      }}
-                    />
-                  </Link>
+                  {/* MAKE FOR SAW WHY USED FOR THIS ICON */}
+                  <Tooltip title="View Profile" arrow disableInteractive TransitionComponent={Zoom}> 
+                    <Link to={`/viewprofile/${user.id}`}>
+                      <VisibilityIcon
+                        sx={{
+                          fontSize: "1.5rem",
+                          color: "var(--secondary-text-color)",
+                        }}
+                      />
+                    </Link>
+                  </Tooltip>
                 </TableCell>
               </TableRow>
             ))}

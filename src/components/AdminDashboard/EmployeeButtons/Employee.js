@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Tooltip, Typography, Zoom } from "@mui/material";
 import EmployeeFormModal from "../../AddEmployee/EmployeeFormModal";
 import EmpTable from "../Tables/EmpTable";
 import SearchBar from "../../ReusableComponents/SearchBar";
@@ -43,16 +43,23 @@ const Employee = () => {
               <SearchBar />
             </Box>
             <Box>
-              <Button
-                variant="contained"
-                sx={{
-                  background: "var(--primary-color)",
-                  fontWeight: "bold",
-                }}
-                onClick={handleAddEmployee}
+              <Tooltip
+                title="Add New Details"
+                arrow
+                disableInteractive
+                TransitionComponent={Zoom}
               >
-                + add
-              </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    background: "var(--primary-color)",
+                    fontWeight: "bold",
+                  }}
+                  onClick={handleAddEmployee}
+                >
+                  + add
+                </Button>
+              </Tooltip>
             </Box>
           </Box>
         </Box>

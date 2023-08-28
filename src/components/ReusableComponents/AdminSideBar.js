@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 // ICON IMPORT
 import ProfileImg from "../../assets/img/adminIcon.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboardIcon.svg";
@@ -66,18 +66,16 @@ const AdminSideBar = () => {
           </Box>
           <Box
             sx={{
-              paddingLeft: "10px",
+              paddingLeft: "15px",
             }}
           >
             <Typography
-              variant="subtitle"
               sx={{ fontWeight: "bold", color: "var(--secondary-text-color)" }}
             >
               {capitalizeFirstLetter(adminName)}
             </Typography>
             <Typography
-              variant="subtitle2"
-              sx={{ color: "var(--secondary-text-color)" }}
+              sx={{ color: "var(--secondary-text-color)",fontSize:"13px" }}
             >
               {adminPosition}
             </Typography>

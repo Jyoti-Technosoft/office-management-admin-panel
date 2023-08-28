@@ -102,7 +102,6 @@ const AdminLogin = () => {
     }
   };
 
-
   return (
     <Box
       sx={{
@@ -126,19 +125,20 @@ const AdminLogin = () => {
             background: "var(--primary-highlight-color)",
             alignItems: "center",
             justifyContent: "center",
-            padding: "30px 0 30px 30px",
+            // padding: "30px 0 30px 30px",
           }}
         >
+          <Box>
           <img
             src={Login}
             alt="loginImg"
             style={{
               maxWidth: "500px",
-              padding: "20px",
+              // padding: "20px",
             }}
           />
+          </Box>  
         </Box>
-
         <Box
           className="admin-login"
           sx={{
@@ -204,8 +204,6 @@ const AdminLogin = () => {
                     </Typography>
                   )}
                 </Box>
-
-                {/* <br /> */}
                 {/* <InputLabel sx={InputLable}>Password</InputLabel> */}
                 <Box sx={{ marginTop: "25px" }}>
                   <TextField
@@ -233,7 +231,6 @@ const AdminLogin = () => {
                     </Typography>
                   )}
                 </Box>
-
                 <Box
                   sx={{
                     color: "var(--third-color)",

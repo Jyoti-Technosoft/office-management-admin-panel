@@ -9,10 +9,12 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Tooltip,
   Typography,
+  Zoom,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import {ReactComponent as UserIcon} from "../../assets/img/adminIcon.svg";
+import { ReactComponent as UserIcon } from "../../assets/img/adminIcon.svg";
 import ProfileImg from "./../../assets/img/adminIcon.svg";
 import { Link } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
@@ -51,7 +53,6 @@ const AdminProfile = () => {
   };
 
   // LOGOUT
-
   const [openDialog, setOpenDialog] = useState(false);
   const handleLogOut = () => {
     setOpenDialog(true);
@@ -73,13 +74,19 @@ const AdminProfile = () => {
   return (
     <Box>
       <Box>
-        <IconButton
-          aria-controls="simple-menu"
-          aria-haspopup="true"
-          onClick={handleClick}
+        {/* <Button onClick={handleSettingButtonClick}>
+          <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
+        </Button> */}
+        <Tooltip title="Account settings" arrow disableInteractive TransitionComponent={Zoom}>
+          <IconButton
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
           >
-          <UserIcon width={"45px"}/>
-        </IconButton>
+            {/* <img width={"45px"} src={UserIcon} alt="User_Icon" /> */}
+            <UserIcon width={"45px"} />
+          </IconButton>
+        </Tooltip>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
@@ -117,8 +124,8 @@ const AdminProfile = () => {
           </MenuItem>
         </Menu>
       </Box>
-      {/* MAKE A ADMIN DETAILS DIALOG BOX */}
 
+      {/* MAKE A ADMIN DETAILS DIALOG BOX */}
       <Dialog
         open={showDialog}
         onClose={handleCloseDialog}
@@ -208,9 +215,9 @@ const AdminProfile = () => {
           </DialogActions>
         </Box>
       </Dialog>
-
             
       {/* LOGOUT   */}
+      {/* MAKE A LOGOUT DIALOG BOX */}
       <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
         <Box
           sx={{
