@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
+import CustomDialogBox from "./CustomDialogBox";
 
 const AdminProfile = () => {
   const { themeChange, setThemeChange } = useContext(GlobalContext);
@@ -218,7 +219,7 @@ const AdminProfile = () => {
             
       {/* LOGOUT   */}
       {/* MAKE A LOGOUT DIALOG BOX */}
-      <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
+      {/* <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
         <Box
           sx={{
             backgroundColor: "var(--primary-background-color)",
@@ -276,7 +277,15 @@ const AdminProfile = () => {
             </Button>
           </DialogActions>
         </Box>
-      </Dialog>
+      </Dialog> */}
+
+      <CustomDialogBox
+          open={openDialog}
+          setOpenDialog={setOpenDialog}
+          dialogHeading="Confirm Logout"
+          dialogDescription="Are you sure you want to logout?"
+          // dialogIcon={}
+        />
     </Box>
   );
 };
