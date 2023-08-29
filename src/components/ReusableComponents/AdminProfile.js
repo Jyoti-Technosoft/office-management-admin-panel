@@ -20,7 +20,6 @@ import { Link } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
-import CustomDialogBox from "./CustomDialogBox";
 
 const AdminProfile = () => {
   const { themeChange, setThemeChange } = useContext(GlobalContext);
@@ -84,7 +83,7 @@ const AdminProfile = () => {
             aria-haspopup="true"
             onClick={handleClick}
           >
-            {/* <img width={"45px"} src={UserIcon} alt="User_Icon" /> */}
+            {/* {/ <img width={"45px"} src={UserIcon} alt="User_Icon" /> /} */}
             <UserIcon width={"45px"} />
           </IconButton>
         </Tooltip>
@@ -126,7 +125,7 @@ const AdminProfile = () => {
         </Menu>
       </Box>
 
-      {/* MAKE A ADMIN DETAILS DIALOG BOX */}
+      {/* {/ MAKE A ADMIN DETAILS DIALOG BOX /} */}
       <Dialog
         open={showDialog}
         onClose={handleCloseDialog}
@@ -217,9 +216,9 @@ const AdminProfile = () => {
         </Box>
       </Dialog>
             
-      {/* LOGOUT   */}
-      {/* MAKE A LOGOUT DIALOG BOX */}
-      {/* <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
+      {/* {/ LOGOUT   /} */}
+      {/* {/ MAKE A LOGOUT DIALOG BOX /} */}
+      <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
         <Box
           sx={{
             backgroundColor: "var(--primary-background-color)",
@@ -277,15 +276,7 @@ const AdminProfile = () => {
             </Button>
           </DialogActions>
         </Box>
-      </Dialog> */}
-
-      <CustomDialogBox
-          open={openDialog}
-          setOpenDialog={setOpenDialog}
-          dialogHeading="Confirm Logout"
-          dialogDescription="Are you sure you want to logout?"
-          // dialogIcon={}
-        />
+      </Dialog>
     </Box>
   );
 };
