@@ -216,13 +216,8 @@ const AdminProfile = () => {
         </Box>
       </Dialog>
             
-<<<<<<< HEAD
       {/* {/ LOGOUT   /}
       {/ MAKE A LOGOUT DIALOG BOX /} */}
-=======
-      {/* {/ LOGOUT   /} */}
-      {/* {/ MAKE A LOGOUT DIALOG BOX /} */}
->>>>>>> e46f24dda82e8cf47b616fce32609ed2ebb0435d
       <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
         <Box
           sx={{
