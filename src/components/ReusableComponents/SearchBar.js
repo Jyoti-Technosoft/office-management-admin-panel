@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import UserIcon from "../../assets/img/icons/userIcon.png";
 import {
   Box,
   InputAdornment,
@@ -7,6 +8,7 @@ import {
 
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 // Override the default MUI styles for InputBase
 const CustomTextField = styled(TextField)({
@@ -29,8 +31,14 @@ const CustomTextField = styled(TextField)({
     width: "500px",
   },
 });
-
 const SearchBar = () => {
+
+  const { setSearchBarValue } = useContext(GlobalContext);
+
+  function handleChange(event) {
+    setSearchBarValue(event.target.value)
+  }
+
   return (
     <Box
       sx={{
@@ -50,8 +58,7 @@ const SearchBar = () => {
           boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.14)",
           background: "var(--search-bar-color)",
           height: "40px",
-        }}
-      >
+        }}>
         <Box>
           <CustomTextField
             variant="standard"
@@ -62,6 +69,7 @@ const SearchBar = () => {
                 color: 'var(--secondary-text-color)',
               },
             }}
+            onChange={handleChange}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">

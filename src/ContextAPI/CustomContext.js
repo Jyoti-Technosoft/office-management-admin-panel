@@ -23,6 +23,7 @@ const CustomContext = (props) => {
   //   localStorage.getItem("loggedIn") === "false"
   // );
   // console.log("Context", isLoggedIn)
+  const [searchBarValue, setSearchBarValue] = useState('');
 
   // Define your API endpoints
   const adminApiEndpoint = "http://localhost:8001/adminData";
@@ -89,7 +90,9 @@ const CustomContext = (props) => {
         showToast,
         setShowToast,
         themeChange,
-        setThemeChange
+        setThemeChange,
+        searchBarValue,
+        setSearchBarValue
       }}
     >
       {props.children}
