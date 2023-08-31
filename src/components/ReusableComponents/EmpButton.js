@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { DashboardProfileButtons } from "../CustomDesignMUI/CustomMUI";
 import DisplayPersonal from "../DisplayEmp/DisplayPersonal/DisplayPersonal";
 import DisplayContact from "../DisplayEmp/DisplayContact/DisplayContact";
@@ -12,10 +12,41 @@ import DisplayLeave from "../DisplayEmp/DisplayLeave/DisplayLeave";
 
 const EmpButton = () => {
   const [selectedTab, setSelectedTab] = useState("personal");
+  const [tabIndex, setTabIndex] = useState(0);
+
+  
+
+  const tabOrder = [
+    "personal",
+    "contact",
+    "education",
+    "family",
+    "experience",
+    "job",
+    "financial",
+    "leave",
+  ];
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
+
+  const handleNext = () => {
+    const nextTabIndex = tabIndex + 1;
+    if (nextTabIndex < tabOrder.length) {
+      setTabIndex(nextTabIndex);
+      setSelectedTab(tabOrder[nextTabIndex]);
+    }
+  };
+
+  const handlePrevious = () => {
+    const previousTabIndex = tabIndex - 1;
+    if (previousTabIndex >= 0) {
+      setTabIndex(previousTabIndex);
+      setSelectedTab(tabOrder[previousTabIndex]);
+    }
+  };
+
   const renderTabContent = () => {
     if (selectedTab === "personal") {
       return <DisplayPersonal />;
@@ -210,12 +241,39 @@ const EmpButton = () => {
               borderRadius: "10px",
               width: "100%",
               padding: "15px",
-              paddingBottom: "30px",
+              paddingBottom: "100px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
               color: "var(--primary-text-color)",
+              position: "relative",
+
             }}
-          >
-            {renderTabContent()}
+            >
+              {renderTabContent()}
+              <Box 
+                sx={{
+                  position: "absolute",
+                  bottom: "20px",
+                  right: "10px",
+                  MarginTop: "30px",
+                }}
+                >
+                  {tabIndex > 0 && (
+                    <Button
+                      sx={{
+                        fontWeight: "bold",
+                        color: "var(--primary-color)",
+                      }}
+                      onClick={handlePrevious}>Previous</Button>
+                  )}
+                  {tabIndex < tabOrder.length - 1 && (
+                    <Button
+                      sx={{
+                        fontWeight: "bold",
+                        color: "var(--primary-color)",
+                      }}
+                      onClick={handleNext}>Next</Button>
+                  )}
+            </Box>
           </Box>
         </Grid>
       </Grid>

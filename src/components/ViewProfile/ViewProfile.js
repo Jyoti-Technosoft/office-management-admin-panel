@@ -22,7 +22,7 @@ const ViewProfile = () => {
           sx={{
             margin: "0px 30px",
           }}
-        >
+          >
           <Typography
             variant="h5"
             sx={{ fontWeight: "bold", color: "var(--primary-text-color)" }}
@@ -35,7 +35,7 @@ const ViewProfile = () => {
           sx={{
             margin: "0px 55px",
           }}
-        >
+          >
           <EmpButton />
         </Box>
       </Grid>

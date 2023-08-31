@@ -5,7 +5,7 @@ import {
   viewProfileSubtitle,
   viewProfileTitle,
 } from "../../CustomDesignMUI/CustomMUI";
-import { BorderBottom, Delete, Edit } from "@mui/icons-material";
+import { Edit } from "@mui/icons-material";
 import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import axios from "axios";
@@ -19,18 +19,8 @@ const DisplayContact = () => {
   const employeeCall = userData.find((user) => user.id === parseInt(employeeId));
   const [editable, setEditable] = useState(false);
   const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall, });
-
-  const deleteEmployee = () => {
-    axios
-      .delete(`${employeeApiEndpoint}/${employeeId}`)
-      .then((response) => {
-        console.log(`Employee Deleted Successfully`);
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  console.log("setEditedEmployeeData", editedEmployeeData);
+  console.log("EmployeeID", employeeId);
 
   const editEmployee = () => {
     console.log("Entering edit mode");
@@ -38,19 +28,35 @@ const DisplayContact = () => {
   };
 
   const saveEmployee = () => {
-    axios
-      .put(`${employeeApiEndpoint}/${employeeId}`, editedEmployeeData)
-      .then((response) => {
-        console.log("Data Edited and Saved Successfully");
-        const updatedUserData = userData.map((user) =>
-          user.id === parseInt(employeeId) ? editedEmployeeData : user
-        );
-        setUserData(updatedUserData);
-        setEditable(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (employeeId === undefined) {
+      // Add new employee
+      axios
+        .post(`${employeeApiEndpoint}`, editedEmployeeData)  // Use POST for adding new records
+        .then((response) => {
+          console.log("New Employee Data Added Successfully");
+          const updatedUserData = [...userData, response.data]; // Add the new employee to the list
+          setUserData(updatedUserData);
+          setEditable(false);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      // Update existing employee
+      axios
+        .put(`${employeeApiEndpoint}/${employeeId}`, editedEmployeeData)
+        .then((response) => {
+          console.log("Data Edited and Saved Successfully");
+          const updatedUserData = userData.map((user) =>
+            user.id === parseInt(employeeId) ? editedEmployeeData : user
+          );
+          setUserData(updatedUserData);
+          setEditable(false);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
 
   const cancelEdit = () => {
@@ -75,9 +81,9 @@ const DisplayContact = () => {
     addNewEmployee();
   }, []);
 
-  if (!employeeCall) {
-    return <Box>Loading...</Box>; 
-  }
+  // if (!employeeCall) {
+  //   return <Box>sdsdsdsdsd...</Box>; 
+  // }
   // DATA CALLING END
 
   return (
@@ -116,9 +122,9 @@ const DisplayContact = () => {
         ) : null}
         </Box>
       </Box>
-      <hr />
+      <hr/>
       {/* <Grid container> */}
-      <Box sx={{ marginBottom: "25px" }}>
+      <Box sx={{marginBottom: "25px", paddingTop: "20px"}}>
         <Box>
           <Typography sx={viewProfileSubtitle}>Phone Number</Typography>
           <TextField
@@ -155,33 +161,69 @@ const DisplayContact = () => {
       <Box sx={{ marginBottom: "25px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>E-mail Address</Typography>
-          <Typography sx={viewProfileTitle}>
-            {employeeCall.contactEmail}
-          </Typography>
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              width: "80%",
+            }}
+            name="contactEmail"
+            value={editedEmployeeData.contactEmail}
+            disabled={!editable}
+            onChange={handleInputChange}
+          />
         </Box>
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>State of residence</Typography>
-          <Typography sx={viewProfileTitle}>
-            {employeeCall.contactState}
-          </Typography>
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              width: "80%",
+            }}
+            name="contactState"
+            value={editedEmployeeData.contactState}
+            disabled={!editable}
+            onChange={handleInputChange}
+          />
         </Box>
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>City</Typography>
-          <Typography sx={viewProfileTitle}>
-            {employeeCall.contactCity}
-          </Typography>
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              width: "80%",
+            }}
+            name="contactCity"
+            value={editedEmployeeData.contactCity}
+            disabled={!editable}
+            onChange={handleInputChange}
+          />
         </Box>
       </Box>
       <Box sx={{ marginBottom: "21px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>Residential Address</Typography>
-          <Typography sx={viewProfileTitle}>
-            {employeeCall.contactResidental}
-            </Typography>
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              width: "80%",
+            }}
+            name="contactResidental"
+            value={editedEmployeeData.contactResidental}
+            disabled={!editable}
+            onChange={handleInputChange}
+          />
         </Box>
         {/* </Grid> */}
         {/* </Grid> */}
