@@ -23,7 +23,6 @@ const ViewProfile = () => {
             margin: "0px 30px",
           }}
         >
-        
           <Typography
             variant="h5"
             sx={{ fontWeight: "bold", color: "var(--primary-text-color)" }}

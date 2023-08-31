@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Box, Button, Tooltip, Typography, Zoom } from "@mui/material";
-import EmployeeFormModal from "../../AddEmployee/EmployeeFormModal";
 import EmpTable from "../Tables/EmpTable";
 import SearchBar from "../../ReusableComponents/SearchBar";
 
+import { Link, useNavigate } from "react-router-dom";
+
 const Employee = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleAddEmployee = () => {
-    setIsModalOpen(true);
-  };
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+
+    const navigation = useNavigate();
+    const handleAddEmployee = () =>{
+    navigation('/viewprofile/addemployee')
+  }
   return (
     <>
       <Box
@@ -63,7 +63,6 @@ const Employee = () => {
             </Box>
           </Box>
         </Box>
-        <EmployeeFormModal open={isModalOpen} onClose={handleCloseModal} />
         <Box
           sx={{
             marginTop: "10px",

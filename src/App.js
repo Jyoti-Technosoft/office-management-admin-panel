@@ -12,6 +12,7 @@ import AttendanceManagement from "./components/AttendanceManagement/AttendanceMa
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
+
 function App() {
   const theme = createTheme({
     typography: {
@@ -35,6 +36,8 @@ function App() {
               <ViewProfile />
             </Protected>} />
             <Route path="/empmanagement" element={<Protected><EmpManagement /></Protected>} />
+            {/* <Route path="/viewprofile/addemployee" element={<Protected> <AddEmployee/></Protected>}/> */}
+            <Route path="/viewprofile/addemployee" element={<Protected> <ViewProfile/></Protected>}/>
             <Route path="/leavemanagement" element={<Protected><LeaveManagement /></Protected>} />
             <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement /></Protected>} />
           </Routes>

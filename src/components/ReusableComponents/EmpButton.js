@@ -210,6 +210,7 @@ const EmpButton = () => {
               borderRadius: "10px",
               width: "100%",
               padding: "15px",
+              paddingBottom: "30px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
               color: "var(--primary-text-color)",
             }}

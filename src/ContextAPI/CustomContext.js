@@ -63,6 +63,21 @@ const CustomContext = (props) => {
     }
   })
 
+  const getData = () => {
+    axios.get(`${employeeApiEndpoint}`)
+      .then(response => {
+        setUserData(response.data);
+        console.log("Dashboard New: ", userData);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, [employeeData])
+
   return (
     <GlobalContext.Provider
       value={{
@@ -97,6 +112,7 @@ const CustomContext = (props) => {
     >
       {props.children}
     </GlobalContext.Provider>
+    
   );
 };
 

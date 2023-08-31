@@ -55,10 +55,10 @@ const JobDetails = ({ formData, onChange }) => {
           >
             <MenuItem value="">Select a Department</MenuItem>
             <MenuItem value="HR">HR</MenuItem>
-            <MenuItem value="Manager">Designer</MenuItem>
+            <MenuItem value="Designer">Designer</MenuItem>
             <MenuItem value="Marketing">Marketing</MenuItem>
-            <MenuItem value="Developer">Front-end Developer</MenuItem>
-            <MenuItem value="Jr.Developer">Back-end Developer</MenuItem>
+            <MenuItem value="Front-end Developer">Front-end Developer</MenuItem>
+            <MenuItem value="Back-end Developer">Back-end Developer</MenuItem>
           </Select>
         </FormControl>
 
@@ -79,8 +79,8 @@ const JobDetails = ({ formData, onChange }) => {
             <MenuItem value="">Select a designation</MenuItem>
             <MenuItem value="HR">HR</MenuItem>
             <MenuItem value="Manager">Manager</MenuItem>
-            <MenuItem value="Designer">UI & UX Designer</MenuItem>
-            <MenuItem value="Developer">JAVA Developer</MenuItem>
+            <MenuItem value="UI & UX Designer">UI & UX Designer</MenuItem>
+            <MenuItem value="Java Developer">Java Developer</MenuItem>
             <MenuItem value="Jr.Developer">Jr.Developer</MenuItem>
           </Select>
         </FormControl>
@@ -100,8 +100,8 @@ const JobDetails = ({ formData, onChange }) => {
             onChange={handleInputChange}
           >
             <MenuItem value="">Select a job category</MenuItem>
-            <MenuItem value="fulltime">Full time</MenuItem>
-            <MenuItem value="parttime">Part time</MenuItem>
+            <MenuItem value="Full time">Full time</MenuItem>
+            <MenuItem value="Part time">Part time</MenuItem>
           </Select>
         </FormControl>
 
