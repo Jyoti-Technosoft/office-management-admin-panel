@@ -20,9 +20,21 @@ const DisplayContact = () => {
     (user) => user.id === parseInt(employeeId)
   );
   const [editable, setEditable] = useState(false);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall, });
-  console.log("setEditedEmployeeData", editedEmployeeData);
-  console.log("EmployeeID", employeeId);
+  const [editedEmployeeData, setEditedEmployeeData] = useState({
+    ...employeeCall,
+  });
+
+  const deleteEmployee = () => {
+    axios
+      .delete(`${employeeApiEndpoint}/${employeeId}`)
+      .then((response) => {
+        console.log(`Employee Deleted Successfully`);
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const editEmployee = () => {
     console.log("Entering edit mode");

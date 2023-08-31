@@ -12,12 +12,10 @@ import {
   Select,
 } from "@mui/material";
 import ProfileImg from "../../../assets/img/adminIcon.svg";
-import {
-  viewProfileSubtitle,
-} from "../../CustomDesignMUI/CustomMUI";
+import { viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
 import axios from "axios";
 import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
@@ -25,6 +23,7 @@ import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 const DisplayPersonal = () => {
+  const navigate = useNavigate();
   // DATA CALLING START
   const { userData, setUserData, employeeApiEndpoint } =
     useContext(GlobalContext);
