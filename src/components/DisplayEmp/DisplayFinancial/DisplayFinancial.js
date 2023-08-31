@@ -9,12 +9,13 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { useParams } from "react-router-dom";
 
 const DisplayFinancial = () => {
-
-  // DATA CALLING START 
-  const { userData } = useContext(GlobalContext)
+  // DATA CALLING START
+  const { userData } = useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
-  console.log("EmployeeID: ", employeeId)
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
+  console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
     return <Box>Loading...</Box>;
@@ -37,7 +38,8 @@ const DisplayFinancial = () => {
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
           <Typography sx={viewEducationTitle}>
-            {employeeCall.financialHolderName} | {employeeCall.financialAccountNo}
+            {employeeCall.financialHolderName} |{" "}
+            {employeeCall.financialAccountNo}
           </Typography>
           <Typography sx={viewProfileSubtitle}>
             Bank Name: {employeeCall.financialBankName}

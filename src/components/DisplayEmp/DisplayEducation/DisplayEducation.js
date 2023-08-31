@@ -10,20 +10,21 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { useParams } from "react-router-dom";
 
 const DisplayEducation = () => {
-
-  // DATA CALLING START 
-  const { userData } = useContext(GlobalContext)
+  // DATA CALLING START
+  const { userData } = useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
-  console.log("EmployeeID: ", employeeId)
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
+  console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
     return <Box>Loading...</Box>;
   }
 
-  // DATE TO MONTH FUNCTION 
+  // DATE TO MONTH FUNCTION
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long' };
+    const options = { year: "numeric", month: "long" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
@@ -44,9 +45,13 @@ const DisplayEducation = () => {
       <Typography sx={viewProfileTitle}>Academic Records</Typography>
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
-          <Typography sx={viewEducationTitle}>{employeeCall.educationUniversity}</Typography>
+          <Typography sx={viewEducationTitle}>
+            {employeeCall.educationUniversity}
+          </Typography>
           <Typography sx={viewProfileSubtitle}>
-            {employeeCall.educationCourse}{","} {formatDate(employeeCall.educationAcademicStart)} - {formatDate(employeeCall.educationAcademicEnd)}
+            {employeeCall.educationCourse}
+            {","} {formatDate(employeeCall.educationAcademicStart)} -{" "}
+            {formatDate(employeeCall.educationAcademicEnd)}
           </Typography>
         </Box>
       </Box>
@@ -55,9 +60,13 @@ const DisplayEducation = () => {
       <Typography sx={viewProfileTitle}>Professional Qualifications</Typography>
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
-          <Typography sx={viewEducationTitle}>{employeeCall.educationCertificate}</Typography>
+          <Typography sx={viewEducationTitle}>
+            {employeeCall.educationCertificate}
+          </Typography>
           <Typography sx={viewProfileSubtitle}>
-            {employeeCall.educationPlace}{","} {formatDate(employeeCall.educationProfessionalStart)} - {formatDate(employeeCall.educationProfessionalEnd)}
+            {employeeCall.educationPlace}
+            {","} {formatDate(employeeCall.educationProfessionalStart)} -{" "}
+            {formatDate(employeeCall.educationProfessionalEnd)}
           </Typography>
         </Box>
       </Box>

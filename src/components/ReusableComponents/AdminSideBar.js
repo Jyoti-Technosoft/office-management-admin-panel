@@ -5,22 +5,12 @@ import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboar
 import { ReactComponent as EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";
 import { ReactComponent as LeaveIcon } from "../../assets/img/icons/leaveIcon.svg";
 import { ReactComponent as AttendanceIcon } from "../../assets/img/icons/attendanceIcon.svg";
-
-import {
-  Box,
-  Button,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 const AdminSideBar = () => {
-  const {
-    setAdminName,
-    setAdminPosition,
-    adminName,
-    adminPosition,
-  } = useContext(GlobalContext);
+  const { setAdminName, setAdminPosition, adminName, adminPosition } =
+    useContext(GlobalContext);
   const location = useLocation();
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -58,7 +48,7 @@ const AdminSideBar = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            paddingTop:"20px",
+            paddingTop: "20px",
           }}
         >
           <Box>
@@ -75,18 +65,24 @@ const AdminSideBar = () => {
               {capitalizeFirstLetter(adminName)}
             </Typography>
             <Typography
-              sx={{ color: "var(--secondary-text-color)",fontSize:"13px" }}
+              sx={{ color: "var(--secondary-text-color)", fontSize: "13px" }}
             >
               {adminPosition}
             </Typography>
           </Box>
         </Box>
-        <hr style={{border: 'none', height: '1px', background: 'var(--table-border-color)'}}/>
+        <hr
+          style={{
+            border: "none",
+            height: "1px",
+            background: "var(--table-border-color)",
+          }}
+        />
         <Box mt={2}>
           <Button
             sx={{
               marginTop: "10px",
-              fontSize: '15px',
+              fontSize: "15px",
               color: isDashboard
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",
@@ -122,7 +118,7 @@ const AdminSideBar = () => {
             className="Icon-Color"
             sx={{
               marginTop: "10px",
-              fontSize: '15px',
+              fontSize: "15px",
               color: isEmpManagement
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",
@@ -161,7 +157,7 @@ const AdminSideBar = () => {
             className="Icon-Color"
             sx={{
               marginTop: "10px",
-              fontSize: '15px',
+              fontSize: "15px",
               color: isLeaveManagement
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",
@@ -199,7 +195,7 @@ const AdminSideBar = () => {
           <Button
             sx={{
               marginTop: "10px",
-              fontSize: '15px',
+              fontSize: "15px",
               color: isAttendanceManagementActive
                 ? "var(--primary-color)"
                 : "var(--secondary-text-color)",

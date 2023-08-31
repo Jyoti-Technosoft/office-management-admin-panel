@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, TextField, Typography, InputLabel , FormControl, Select, MenuItem } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Typography,
+  InputLabel,
+  FormControl,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
 
 const PersonalDetails = ({ formData, onChange }) => {
@@ -14,7 +22,7 @@ const PersonalDetails = ({ formData, onChange }) => {
   return (
     <Box>
       <Typography variant="h5">Personal Details</Typography>
-      <hr/>
+      <hr />
       <form onSubmit={handleSubmit}>
         <TextField
           inputProps={{
@@ -71,10 +79,10 @@ const PersonalDetails = ({ formData, onChange }) => {
         <FormControl fullWidth>
           <InputLabel id="blood">Blood Group</InputLabel>
           <Select
-           inputProps={{
-            sx: InputFieldProps(),
-          }}
-          sx={InputField}
+            inputProps={{
+              sx: InputFieldProps(),
+            }}
+            sx={InputField}
             labelId="blood"
             id="selectblood"
             name="personalBlood"
@@ -82,18 +90,17 @@ const PersonalDetails = ({ formData, onChange }) => {
             label="Designation"
             onChange={handleInputChange}
           >
-          <MenuItem value="">Select a blood group</MenuItem>
-          <MenuItem value="ab+">AB+</MenuItem>
-          <MenuItem value="a+">A+</MenuItem>
-          <MenuItem value="b+">B+</MenuItem>
-          <MenuItem value="o+">O+</MenuItem>
-          <MenuItem value="ab-">AB-</MenuItem>
-          <MenuItem value="a-">A-</MenuItem>
-          <MenuItem value="b-">B-</MenuItem>
-          <MenuItem value="o-">O-</MenuItem>
+            <MenuItem value="">Select a blood group</MenuItem>
+            <MenuItem value="AB+">AB+</MenuItem>
+            <MenuItem value="A+">A+</MenuItem>
+            <MenuItem value="B+">B+</MenuItem>
+            <MenuItem value="O+">O+</MenuItem>
+            <MenuItem value="AB-">AB-</MenuItem>
+            <MenuItem value="A-">A-</MenuItem>
+            <MenuItem value="B-">B-</MenuItem>
+            <MenuItem value="O-">O-</MenuItem>
           </Select>
         </FormControl>
-
       </form>
     </Box>
   );

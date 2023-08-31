@@ -8,10 +8,10 @@ import { Link, useNavigate } from "react-router-dom";
 const Employee = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const navigation = useNavigate();
-    const handleAddEmployee = () =>{
-    navigation('/viewprofile/addemployee')
-  }
+  const navigation = useNavigate();
+  const handleAddEmployee = () => {
+    navigation("/viewprofile/addemployee");
+  };
   return (
     <>
       <Box

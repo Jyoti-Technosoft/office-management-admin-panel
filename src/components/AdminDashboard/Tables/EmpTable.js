@@ -9,14 +9,11 @@ import {
   TableBody,
   Tooltip,
   Zoom,
-  Paper,
-  Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import { tableBodyCell, tableHeadCell } from "../../CustomDesignMUI/CustomMUI";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-
 
 const EmpTable = () => {
   const formatDate = (dateString) => {
@@ -39,128 +36,166 @@ const EmpTable = () => {
               // position:"fixed",
             }}
           >
-            <TableRow sx={{ textDecoration: "none", }}>
+            <TableRow sx={{ textDecoration: "none" }}>
               <TableCell sx={tableHeadCell}>Emp ID</TableCell>
               <TableCell sx={tableHeadCell}>Name</TableCell>
               <TableCell sx={tableHeadCell}>Date of Birth</TableCell>
               <TableCell sx={tableHeadCell}>Date of Join</TableCell>
               <TableCell sx={tableHeadCell}>Designation</TableCell>
-              <TableCell sx={{
+              <TableCell
+                sx={{
                   textAlign: "center",
                   fontWeight: "bold",
                   color: "var(--primary-text-color)",
                   paddingLeft: "30px",
                   paddingRight: "30px",
-                }}>Action</TableCell>
+                }}
+              >
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {userData?.map((user, index) => (
-              console.log(user.personalFirstname + user.personalLastname),
-              searchBarValue ?
-                user.personalFirstname.includes(searchBarValue) ||
+            {userData?.map(
+              (user, index) => (
+                console.log(user.personalFirstname + user.personalLastname),
+                searchBarValue ? (
+                  user.personalFirstname.includes(searchBarValue) ||
                   user.personalLastname.includes(searchBarValue) ||
-                  (user.personalFirstname+user.personalLastname).includes(searchBarValue) ||
-                  user.personalFirstname.includes(searchBarValue.toUpperCase()) ||
-                  user.personalLastname.includes(searchBarValue.toUpperCase()) ||
-                  user.personalFirstname.includes(
-                    searchBarValue?.charAt(0)?.toUpperCase() + searchBarValue.slice(1)
-                  ) ||
-                  user.personalLastname.includes(
-                    searchBarValue?.charAt(0)?.toUpperCase() + searchBarValue.slice(1)
+                  (user.personalFirstname + user.personalLastname).includes(
+                    searchBarValue
                   ) ||
                   user.personalFirstname.includes(
-                    searchBarValue?.charAt(0)?.toUpperCase() + searchBarValue.slice(1).toLowerCase()
+                    searchBarValue.toUpperCase()
                   ) ||
                   user.personalLastname.includes(
-                    searchBarValue?.charAt(0)?.toUpperCase() + searchBarValue.slice(1).toLowerCase()
+                    searchBarValue.toUpperCase()
+                  ) ||
+                  user.personalFirstname.includes(
+                    searchBarValue?.charAt(0)?.toUpperCase() +
+                      searchBarValue.slice(1)
+                  ) ||
+                  user.personalLastname.includes(
+                    searchBarValue?.charAt(0)?.toUpperCase() +
+                      searchBarValue.slice(1)
+                  ) ||
+                  user.personalFirstname.includes(
+                    searchBarValue?.charAt(0)?.toUpperCase() +
+                      searchBarValue.slice(1).toLowerCase()
+                  ) ||
+                  user.personalLastname.includes(
+                    searchBarValue?.charAt(0)?.toUpperCase() +
+                      searchBarValue.slice(1).toLowerCase()
                   ) ||
                   user.jobDesignation.includes(searchBarValue) ||
-                  user.jobDesignation.includes(searchBarValue?.charAt(0)?.toUpperCase() + searchBarValue.slice(1)) ||
-                  user.jobDesignation.includes(searchBarValue?.charAt(0)?.toUpperCase() + searchBarValue.slice(1).toLowerCase())
-                  ?
-              <TableRow
-                key={index}
-                sx={{
-                  // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
-                  background: "var(--background-table-sidebar-card-color)",
-                }}
-              >
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >
-                  {"JT" + " " + (user.id + 100)}
-                </TableCell>
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >
-                  {formatDate(user.personalDob)}
-                </TableCell>
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >
-                  {formatDate(user.jobDoj)}
-                </TableCell>
-                <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>
-                <TableCell sx={{ textAlign: "center" }}>
-                  {/* MAKE FOR SAW WHY USED FOR THIS ICON */}
-                  <Tooltip title="View Profile" arrow disableInteractive TransitionComponent={Zoom}> 
-                    <Link to={`/viewprofile/${user.id}`}>
-                      <VisibilityIcon
-                        sx={{
-                          fontSize: "1.5rem",
-                          color: "var(--secondary-text-color)",
-                        }}
-                      />
-                    </Link>
-                  </Tooltip>
-                </TableCell>
-              </TableRow>
-              : null :
-              <TableRow
-                key={index}
-                sx={{
-                  // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
-                  background: "var(--background-table-sidebar-card-color)",
-                }}
-              >
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >
-                  {"JT" + " " + (user.id + 100)}
-                </TableCell>
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >
-                  {formatDate(user.personalDob)}
-                </TableCell>
-                <TableCell
-                  sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
-                >
-                  {formatDate(user.jobDoj)}
-                </TableCell>
-                <TableCell sx={tableBodyCell}>{user.jobDesignation}</TableCell>
-                <TableCell sx={{ textAlign: "center" }}>
-                  {/* MAKE FOR SAW WHY USED FOR THIS ICON */}
-                  <Tooltip title="View Profile" arrow disableInteractive TransitionComponent={Zoom}> 
-                    <Link to={`/viewprofile/${user.id}`}>
-                      <VisibilityIcon
-                        sx={{
-                          fontSize: "1.5rem",
-                          color: "var(--secondary-text-color)",
-                        }}
-                      />
-                    </Link>
-                  </Tooltip>
-                </TableCell>
-              </TableRow>
-            ))}
+                  user.jobDesignation.includes(
+                    searchBarValue?.charAt(0)?.toUpperCase() +
+                      searchBarValue.slice(1)
+                  ) ||
+                  user.jobDesignation.includes(
+                    searchBarValue?.charAt(0)?.toUpperCase() +
+                      searchBarValue.slice(1).toLowerCase()
+                  ) ? (
+                    <TableRow
+                      key={index}
+                      sx={{
+                        // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
+                        background:
+                          "var(--background-table-sidebar-card-color)",
+                      }}
+                    >
+                      <TableCell
+                        sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                      >
+                        {"JT" + " " + (user.id + 100)}
+                      </TableCell>
+                      <TableCell
+                        sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                      >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
+                      <TableCell
+                        sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                      >
+                        {formatDate(user.personalDob)}
+                      </TableCell>
+                      <TableCell
+                        sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                      >
+                        {formatDate(user.jobDoj)}
+                      </TableCell>
+                      <TableCell sx={tableBodyCell}>
+                        {user.jobDesignation}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {/* MAKE FOR SAW WHY USED FOR THIS ICON */}
+                        <Tooltip
+                          title="View Profile"
+                          arrow
+                          disableInteractive
+                          TransitionComponent={Zoom}
+                        >
+                          <Link to={`/viewprofile/${user.id}`}>
+                            <VisibilityIcon
+                              sx={{
+                                fontSize: "1.5rem",
+                                color: "var(--secondary-text-color)",
+                              }}
+                            />
+                          </Link>
+                        </Tooltip>
+                      </TableCell>
+                    </TableRow>
+                  ) : null
+                ) : (
+                  <TableRow
+                    key={index}
+                    sx={{
+                      // backgroundColor: index % 2 === 1 ? "var(--highlight-color)" : ""
+                      background: "var(--background-table-sidebar-card-color)",
+                    }}
+                  >
+                    <TableCell
+                      sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                    >
+                      {"JT" + " " + (user.id + 100)}
+                    </TableCell>
+                    <TableCell
+                      sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                    >{`${user.personalFirstname} ${user.personalLastname}`}</TableCell>
+                    <TableCell
+                      sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                    >
+                      {formatDate(user.personalDob)}
+                    </TableCell>
+                    <TableCell
+                      sx={{ ...tableBodyCell, fontWeight: "500 !important" }}
+                    >
+                      {formatDate(user.jobDoj)}
+                    </TableCell>
+                    <TableCell sx={tableBodyCell}>
+                      {user.jobDesignation}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {/* MAKE FOR SAW WHY USED FOR THIS ICON */}
+                      <Tooltip
+                        title="View Profile"
+                        arrow
+                        disableInteractive
+                        TransitionComponent={Zoom}
+                      >
+                        <Link to={`/viewprofile/${user.id}`}>
+                          <VisibilityIcon
+                            sx={{
+                              fontSize: "1.5rem",
+                              color: "var(--secondary-text-color)",
+                            }}
+                          />
+                        </Link>
+                      </Tooltip>
+                    </TableCell>
+                  </TableRow>
+                )
+              )
+            )}
           </TableBody>
         </Table>
       </TableContainer>

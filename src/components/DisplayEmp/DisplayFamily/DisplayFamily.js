@@ -8,17 +8,19 @@ import {
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 const DisplayFamily = () => {
-
-  // DATA CALLING START 
-  const { userData } = useContext(GlobalContext)
+  // DATA CALLING START
+  const { userData } = useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
-  console.log("EmployeeID: ", employeeId)
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
+  console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>;  // Or handle the case when the employee is not found
+    return <Box>Loading...</Box>; // Or handle the case when the employee is not found
   }
   // DATA CALLING END
+
   return (
     <Box
       sx={{
@@ -35,10 +37,11 @@ const DisplayFamily = () => {
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
           <Typography sx={viewEducationTitle}>
-            {employeeCall.familyFirstname}{" "}{employeeCall.familyLastname}
+            {employeeCall.familyFirstname} {employeeCall.familyLastname}
           </Typography>
           <Typography sx={viewProfileSubtitle}>
-            Relationship : {employeeCall.familyRelation} | Phone No : {employeeCall.familyPhoneNumber}
+            Relationship : {employeeCall.familyRelation} | Phone No:{" "}
+            {employeeCall.familyPhoneNumber}
           </Typography>
           <Typography sx={viewProfileSubtitle}>
             Email: {employeeCall.familyEmail} | DOB: {employeeCall.familyDob}

@@ -24,26 +24,19 @@ const LeaveTable = () => {
     <Box>
       <TableContainer>
         <Table>
-          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px" }}>
+          <TableHead
+            sx={{
+              background: "var(--primary-highlight-color)",
+              height: "70px",
+            }}
+          >
             <TableRow sx={{ textDecoration: "none" }}>
-              <TableCell sx={tableHeadCell}>
-                Index
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                From
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                To
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                Time
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                Reason(s)
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                Type
-              </TableCell>
+              <TableCell sx={tableHeadCell}>Index</TableCell>
+              <TableCell sx={tableHeadCell}>From</TableCell>
+              <TableCell sx={tableHeadCell}>To</TableCell>
+              <TableCell sx={tableHeadCell}>Time</TableCell>
+              <TableCell sx={tableHeadCell}>Reason(s)</TableCell>
+              <TableCell sx={tableHeadCell}>Type</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

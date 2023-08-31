@@ -8,17 +8,17 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import ViewDocument from "./ViewDocument";
 import { useParams } from "react-router-dom";
 
-
 const DisplayJob = () => {
-
-  // DATA CALLING START 
-  const { userData } = useContext(GlobalContext)
+  // DATA CALLING START
+  const { userData } = useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
-  console.log("EmployeeID: ", employeeId)
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
+  console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>; 
+    return <Box>Loading...</Box>;
   }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -38,7 +38,7 @@ const DisplayJob = () => {
       {showViewDocument ? (
         <ViewDocument onBackClick={toggleViewDocument} />
       ) : (
-        <>
+        <Box>
           <Typography
             variant="h6"
             sx={{ fontWeight: "bold", marginBottom: "30px", borderBottom: 1 }}
@@ -47,11 +47,15 @@ const DisplayJob = () => {
           </Typography>
           <Box sx={{ marginBottom: "15px" }}>
             <Typography sx={viewProfileSubtitle}>Job Role</Typography>
-            <Typography sx={viewProfileTitle}>{employeeCall.jobDesignation}</Typography>
+            <Typography sx={viewProfileTitle}>
+              {employeeCall.jobDesignation}
+            </Typography>
           </Box>
           <Box sx={{ marginBottom: "25px" }}>
             <Typography sx={viewProfileSubtitle}>Department</Typography>
-            <Typography sx={viewProfileTitle}>{employeeCall.jobDepartment}</Typography>
+            <Typography sx={viewProfileTitle}>
+              {employeeCall.jobDepartment}
+            </Typography>
           </Box>
           <Box sx={{ marginBottom: "35px" }}>
             <Typography sx={viewProfileTitle}>Job Description</Typography>
@@ -72,10 +76,11 @@ const DisplayJob = () => {
               },
             }}
             variant="outlined"
-            onClick={toggleViewDocument}>
+            onClick={toggleViewDocument}
+          >
             View Documents
           </Button>
-        </>
+        </Box>
       )}
     </Box>
   );

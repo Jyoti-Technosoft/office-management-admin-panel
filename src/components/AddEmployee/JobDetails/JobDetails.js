@@ -25,7 +25,6 @@ const JobDetails = ({ formData, onChange }) => {
       <Typography variant="h5">Job Details</Typography>
       <hr />
       <form onSubmit={handleSubmit}>
-
         <TextField
           inputProps={{
             sx: InputFieldProps(),

@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState  } from "react";
-import { Box, Typography, Grid, IconButton, TextField, Button } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
+import { Box, Typography, IconButton, TextField, Button } from "@mui/material";
 import {
   InputFieldPropsForm,
   viewProfileSubtitle,
@@ -10,13 +10,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import axios from "axios";
 
-
 const DisplayContact = () => {
   const navigate = useNavigate();
   // DATA CALLING START
-  const { userData, setUserData, employeeApiEndpoint } = useContext(GlobalContext);
+  const { userData, setUserData, employeeApiEndpoint } =
+    useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find((user) => user.id === parseInt(employeeId));
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
   const [editable, setEditable] = useState(false);
   const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall, });
   console.log("setEditedEmployeeData", editedEmployeeData);
@@ -76,14 +78,14 @@ const DisplayContact = () => {
     if (employeeId === undefined) {
       setEditable(true);
     }
-  }
+  };
   useEffect(() => {
     addNewEmployee();
   }, []);
-
   // if (!employeeCall) {
   //   return <Box>sdsdsdsdsd...</Box>; 
   // }
+
   // DATA CALLING END
 
   return (
@@ -91,8 +93,9 @@ const DisplayContact = () => {
       sx={{
         marginTop: "10px",
         marginLeft: "9px",
-      }}>
-      <Box 
+      }}
+    >
+      <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
@@ -102,24 +105,28 @@ const DisplayContact = () => {
         <Box>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             Contact Details
-            </Typography>
+          </Typography>
         </Box>
         {/* EDIT AND DELETE BUTTONS */}
         <Box>
-        {employeeCall?.id ? (
-          <Box
-            sx={{
-              // display: "flex",
-              // justifyContent: "flex-end",
-              // marginTop: "-2px",
-            }}>
-            <IconButton
-              onClick={editEmployee}
-              sx={{ color: "var( --third-color)" }}>
-              <Edit />
-            </IconButton>
-          </Box>
-        ) : null}
+          {employeeCall?.id ? (
+            <Box
+              sx={
+                {
+                  // display: "flex",
+                  // justifyContent: "flex-end",
+                  // marginTop: "-2px",
+                }
+              }
+            >
+              <IconButton
+                onClick={editEmployee}
+                sx={{ color: "var( --third-color)" }}
+              >
+                <Edit />
+              </IconButton>
+            </Box>
+          ) : null}
         </Box>
       </Box>
       <hr/>
@@ -225,10 +232,7 @@ const DisplayContact = () => {
             onChange={handleInputChange}
           />
         </Box>
-        {/* </Grid> */}
-        {/* </Grid> */}
       </Box>
-      {/* </Grid> */}
       <Box>
         {editable && (
           <Box
@@ -237,13 +241,15 @@ const DisplayContact = () => {
               justifyContent: "end",
               marginTop: "30px",
               padding: "5px",
-            }}>
+            }}
+          >
             <Button
               sx={{
                 fontWeight: "bold",
                 color: "var(--primary-color)",
               }}
-              onClick={saveEmployee}>
+              onClick={saveEmployee}
+            >
               Save
             </Button>
             <Button

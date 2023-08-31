@@ -30,7 +30,7 @@ import {
 import "./AdminSignup.scss";
 
 const AdminSignup = () => {
-  const { adminApiEndpoint } = useContext(GlobalContext); 
+  const { adminApiEndpoint } = useContext(GlobalContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,15 +54,15 @@ const AdminSignup = () => {
   const navigate = useNavigate();
 
   const checkUserLoggedIn = () => {
-    const loggedIn =localStorage.getItem('loggedIn');
+    const loggedIn = localStorage.getItem("loggedIn");
     if (!loggedIn || loggedIn === "undefined") {
       return navigate("/signup");
     }
-    if(loggedIn){
-      return navigate("/dashboard")
+    if (loggedIn) {
+      return navigate("/dashboard");
     }
   };
-  
+
   useEffect(() => {
     checkUserLoggedIn();
   }, []);
@@ -156,7 +156,7 @@ const AdminSignup = () => {
     setFormIsValid(true);
   };
 
-  const [showDialog, setShowDialog] = useState(false); 
+  const [showDialog, setShowDialog] = useState(false);
 
   const handleCloseDialog = () => {
     setShowDialog(false);
@@ -166,7 +166,7 @@ const AdminSignup = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(adminApiEndpoint,formData);
+      const response = await axios.post(adminApiEndpoint, formData);
 
       console.log(response.data);
 
@@ -178,7 +178,7 @@ const AdminSignup = () => {
         password: "",
         confirmpassword: "",
       });
-      setShowDialog(true); 
+      setShowDialog(true);
     } catch (error) {
       console.error("Error adding data:", error);
     }
@@ -236,128 +236,128 @@ const AdminSignup = () => {
                 Signup
               </Typography>
               <Box sx={{ marginTop: "20px" }}>
-              <TextField
-                inputProps={{
-                  sx: InputFieldProps(),
-                }}
-                sx={InputField}
-                type="text"
-                label="Name"
-                name="name"
-                placeholder="Enter a name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {formErrors.name && (
-                <Typography sx={errorMessageDesign}>
-                  {formErrors.name}
-                </Typography>
-              )}
-              </Box>
-              <Box sx={{ marginTop: "20px" }}>
-              <TextField
-                inputProps={{
-                  style: InputFieldProps(),
-                }}
-                sx={InputField}
-                label="E-mail"
-                type="email"
-                name="email"
-                placeholder="Enter an email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {formErrors.email && (
-                <Typography style={errorMessageDesign}>
-                  {formErrors.email}
-                </Typography>
-              )}
-              </Box>
-              <Box sx={{ marginTop: "20px" }}>
-              <TextField
-                inputProps={{
-                  sx: InputFieldProps(),
-                }}
-                sx={InputField}
-                label="Phone Number"
-                type="text"
-                name="phonenumber"
-                placeholder="Enter a phone number"
-                value={formData.phonenumber}
-                onChange={handleChange}
-              />
-              {formErrors.phonenumber && (
-                <Typography sx={errorMessageDesign}>
-                  {formErrors.phonenumber}
-                </Typography>
-              )}
-              </Box>
-              <Box sx={{ marginTop: "20px" }}>
-              <FormControl fullWidth>
-                <InputLabel id="position">Position</InputLabel>
-                <Select
+                <TextField
                   inputProps={{
                     sx: InputFieldProps(),
                   }}
                   sx={InputField}
-                  labelId="position"
-                  id="selectposition"
-                  name="position"
-                  value={formData.position}
-                  label="Position"
+                  type="text"
+                  label="Name"
+                  name="name"
+                  placeholder="Enter a name"
+                  value={formData.name}
                   onChange={handleChange}
-                >
-                  <MenuItem value="">Select a Position</MenuItem>
-                  <MenuItem value="HR">HR</MenuItem>
-                  <MenuItem value="Manager">Designer</MenuItem>
-                  <MenuItem value="Marketing">Marketing</MenuItem>
-                  <MenuItem value="Developer">Front-end Developer</MenuItem>
-                  <MenuItem value="Jr.Developer">Back-end Developer</MenuItem>
-                </Select>
-              </FormControl>
-              {formErrors.position && (
-                <Typography sx={errorMessageDesign}>
-                  {formErrors.position}
-                </Typography>
-              )}
+                />
+                {formErrors.name && (
+                  <Typography sx={errorMessageDesign}>
+                    {formErrors.name}
+                  </Typography>
+                )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              <TextField
-                inputProps={{
-                  sx: InputFieldProps(),
-                }}
-                sx={InputField}
-                type="password"
-                label="Password"
-                name="password"
-                placeholder="Enter password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              {formErrors.password && (
-                <Typography sx={errorMessageDesign}>
-                  {formErrors.password}
-                </Typography>
-              )}
+                <TextField
+                  inputProps={{
+                    style: InputFieldProps(),
+                  }}
+                  sx={InputField}
+                  label="E-mail"
+                  type="email"
+                  name="email"
+                  placeholder="Enter an email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {formErrors.email && (
+                  <Typography style={errorMessageDesign}>
+                    {formErrors.email}
+                  </Typography>
+                )}
               </Box>
               <Box sx={{ marginTop: "20px" }}>
-              <TextField
-                inputProps={{
-                  sx: InputFieldProps(),
-                }}
-                sx={InputField}
-                type="password"
-                label="Confirm Password"
-                name="confirmpassword"
-                placeholder="Confirm password"
-                value={formData.confirmpassword}
-                onChange={handleChange}
-              />
-              {formErrors.confirmpassword && (
-                <Typography sx={errorMessageDesign}>
-                  {formErrors.confirmpassword}
-                </Typography>
-              )}
+                <TextField
+                  inputProps={{
+                    sx: InputFieldProps(),
+                  }}
+                  sx={InputField}
+                  label="Phone Number"
+                  type="text"
+                  name="phonenumber"
+                  placeholder="Enter a phone number"
+                  value={formData.phonenumber}
+                  onChange={handleChange}
+                />
+                {formErrors.phonenumber && (
+                  <Typography sx={errorMessageDesign}>
+                    {formErrors.phonenumber}
+                  </Typography>
+                )}
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+                <FormControl fullWidth>
+                  <InputLabel id="position">Position</InputLabel>
+                  <Select
+                    inputProps={{
+                      sx: InputFieldProps(),
+                    }}
+                    sx={InputField}
+                    labelId="position"
+                    id="selectposition"
+                    name="position"
+                    value={formData.position}
+                    label="Position"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">Select a Position</MenuItem>
+                    <MenuItem value="HR">HR</MenuItem>
+                    <MenuItem value="Manager">Designer</MenuItem>
+                    <MenuItem value="Marketing">Marketing</MenuItem>
+                    <MenuItem value="Developer">Front-end Developer</MenuItem>
+                    <MenuItem value="Jr.Developer">Back-end Developer</MenuItem>
+                  </Select>
+                </FormControl>
+                {formErrors.position && (
+                  <Typography sx={errorMessageDesign}>
+                    {formErrors.position}
+                  </Typography>
+                )}
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+                <TextField
+                  inputProps={{
+                    sx: InputFieldProps(),
+                  }}
+                  sx={InputField}
+                  type="password"
+                  label="Password"
+                  name="password"
+                  placeholder="Enter password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                {formErrors.password && (
+                  <Typography sx={errorMessageDesign}>
+                    {formErrors.password}
+                  </Typography>
+                )}
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+                <TextField
+                  inputProps={{
+                    sx: InputFieldProps(),
+                  }}
+                  sx={InputField}
+                  type="password"
+                  label="Confirm Password"
+                  name="confirmpassword"
+                  placeholder="Confirm password"
+                  value={formData.confirmpassword}
+                  onChange={handleChange}
+                />
+                {formErrors.confirmpassword && (
+                  <Typography sx={errorMessageDesign}>
+                    {formErrors.confirmpassword}
+                  </Typography>
+                )}
               </Box>
 
               <Button

@@ -25,20 +25,17 @@ const AttendanceTable = () => {
     <Box>
       <TableContainer>
         <Table>
-          <TableHead sx={{ background: "var(--primary-highlight-color)",height:"70px" }}>
+          <TableHead
+            sx={{
+              background: "var(--primary-highlight-color)",
+              height: "70px",
+            }}
+          >
             <TableRow sx={{ textDecoration: "none" }}>
-              <TableCell sx={tableHeadCell}>
-                Index
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                Name
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                City
-              </TableCell>
-              <TableCell sx={tableHeadCell}>
-                Time
-              </TableCell>
+              <TableCell sx={tableHeadCell}>Index</TableCell>
+              <TableCell sx={tableHeadCell}>Name</TableCell>
+              <TableCell sx={tableHeadCell}>City</TableCell>
+              <TableCell sx={tableHeadCell}>Time</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

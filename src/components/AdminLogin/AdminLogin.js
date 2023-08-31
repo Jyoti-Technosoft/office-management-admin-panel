@@ -1,20 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import {
-  Box,
-  Button,
-  Checkbox,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Checkbox, TextField, Typography } from "@mui/material";
 import Login from "./../../assets/img/AdminLoginSVG.svg";
 import Logo from "./../../assets/img/LogoSVG.svg";
 
-import {
-  InputField,
-  InputFieldProps,
-} from "../CustomDesignMUI/CustomMUI";
+import { InputField, InputFieldProps } from "../CustomDesignMUI/CustomMUI";
 import "./AdminLogin.scss";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 import CustomToast from "../ReusableComponents/CustomToast";
@@ -24,25 +15,25 @@ const AdminLogin = () => {
   // const { admin } = useContext(GlobalContext);
   // const { admin, setAdminName, setAdminPosition } = useContext(GlobalContext);
   // console.log("Login ", admin);
-  const { setShowToast, showToast, adminApiEndpoint  } = useContext(GlobalContext);
+  const { setShowToast, showToast, adminApiEndpoint } =
+    useContext(GlobalContext);
   console.log("adminApiEndpoint", adminApiEndpoint);
-
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");  
-  const [passwordError, setPasswordError] = useState("");  
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const checkUserLoggedIn = () => {
-    const loggedIn = localStorage.getItem('loggedIn');
+    const loggedIn = localStorage.getItem("loggedIn");
     if (!loggedIn || loggedIn === "undefined") {
       return navigate("/");
     }
     if (loggedIn) {
-      return navigate("/dashboard")
+      return navigate("/dashboard");
     }
   };
   useEffect(() => {
@@ -91,11 +82,14 @@ const AdminLogin = () => {
           localStorage.setItem("adminEmail", matchingUser.email);
           localStorage.setItem("adminPhonenumber", matchingUser.phonenumber);
           navigate("/dashboard");
-          setShowToast({ show: true, msg: "Login Successfully", type: "success" });
+          setShowToast({
+            show: true,
+            msg: "Login Successfully",
+            type: "success",
+          });
         } else {
           setErrorMessage("Invalid email or password");
         }
-
       } catch (error) {
         console.error("Error fetching admin data:", error);
       }
@@ -107,8 +101,9 @@ const AdminLogin = () => {
       sx={{
         height: "100vh",
         display: "flex",
-        justifyContent: "center"
-      }}>
+        justifyContent: "center",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -125,25 +120,23 @@ const AdminLogin = () => {
             background: "var(--primary-highlight-color)",
             alignItems: "center",
             justifyContent: "center",
-            // padding: "30px 0 30px 30px",
           }}
         >
           <Box>
-          <img
-            src={Login}
-            alt="loginImg"
-            style={{
-              maxWidth: "500px",
-              // padding: "20px",
-            }}
-          />
-          </Box>  
+            <img
+              src={Login}
+              alt="loginImg"
+              style={{
+                maxWidth: "500px",
+              }}
+            />
+          </Box>
         </Box>
         <Box
           className="admin-login"
           sx={{
             flex: "1",
-            background:"var(--plain-white)"
+            background: "var(--plain-white)",
           }}
         >
           <Box className="admin-box">
@@ -164,8 +157,6 @@ const AdminLogin = () => {
                 }}
               />
               <form onSubmit={handleSubmit}>
-                {/* <Typography sx={{ color: 'var(--primary-color)', typography: "h4", fontWeight: "bold" }}>Login</Typography>
-              <Typography sx={{ typography: "subtitle1", color: 'var(--primary-color)' }}>Login to your account.</Typography> */}
                 <Typography
                   sx={{
                     color: "red",
@@ -175,11 +166,9 @@ const AdminLogin = () => {
                 >
                   {errorMessage}
                 </Typography>
-                {/* <InputLabel sx={InputLable}>E-mail Address</InputLabel> */}
                 <Box>
                   <TextField
-                  
-                  className= "custom-textfield"
+                    className="custom-textfield"
                     inputProps={{
                       sx: InputFieldProps(),
                     }}
@@ -204,7 +193,6 @@ const AdminLogin = () => {
                     </Typography>
                   )}
                 </Box>
-                {/* <InputLabel sx={InputLable}>Password</InputLabel> */}
                 <Box sx={{ marginTop: "25px" }}>
                   <TextField
                     inputProps={{
@@ -245,9 +233,9 @@ const AdminLogin = () => {
                       sx={{
                         padding: "0 4px 0 0",
                         // eslint-disable-next-line no-dupe-keys
-                        color: "var(--third-color)", // Unchecked color
+                        color: "var(--third-color)",
                         "&.Mui-checked": {
-                          color: "var(--secondary-color)", // Checked color
+                          color: "var(--secondary-color)",
                         },
                       }}
                       id="exampleCheck1"
@@ -300,11 +288,9 @@ const AdminLogin = () => {
           </Box>
         </Box>
       </Box>
-      {
-        showToast.show ?
-          <CustomToast toastType={showToast.type} message={showToast.msg}/>
-          : null
-      }
+      {showToast.show ? (
+        <CustomToast toastType={showToast.type} message={showToast.msg} />
+      ) : null}
     </Box>
   );
 };

@@ -3,8 +3,6 @@ import { Box, TextField, Typography } from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
 
 const EducationDetails = ({ formData, onChange }) => {
-
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     onChange({ [name]: value });
@@ -20,9 +18,11 @@ const EducationDetails = ({ formData, onChange }) => {
       <hr />
 
       <form onSubmit={handleSubmit}>
-      <Typography variant="h6" sx={{marginBottom: '20px'}}>Academic Records</Typography>
+        <Typography variant="h6" sx={{ marginBottom: "20px" }}>
+          Academic Records
+        </Typography>
 
-      <TextField
+        <TextField
           inputProps={{
             sx: InputFieldProps(),
           }}
@@ -36,10 +36,10 @@ const EducationDetails = ({ formData, onChange }) => {
         />
 
         <TextField
-        inputProps={{
-          sx: InputFieldProps(),
-        }}
-        sx={InputField}
+          inputProps={{
+            sx: InputFieldProps(),
+          }}
+          sx={InputField}
           type="text"
           label="University Name"
           name="educationUniversity"
@@ -48,8 +48,7 @@ const EducationDetails = ({ formData, onChange }) => {
           onChange={handleInputChange}
         />
 
-         {/* FOR START OF DATE */}
-         <TextField
+        <TextField
           inputProps={{
             sx: InputFieldProps(),
           }}
@@ -61,7 +60,7 @@ const EducationDetails = ({ formData, onChange }) => {
           value={formData.educationAcademicStart || " "}
           onChange={handleInputChange}
         />
-        {/* FOR END OF DATE */}
+
         <TextField
           inputProps={{
             sx: InputFieldProps(),
@@ -75,8 +74,10 @@ const EducationDetails = ({ formData, onChange }) => {
           onChange={handleInputChange}
         />
 
-        <hr/>
-        <Typography variant="h6" sx={{marginBottom: '20px'}}>Professional Qualifications</Typography>
+        <hr />
+        <Typography variant="h6" sx={{ marginBottom: "20px" }}>
+          Professional Qualifications
+        </Typography>
 
         <TextField
           inputProps={{
@@ -92,10 +93,10 @@ const EducationDetails = ({ formData, onChange }) => {
         />
 
         <TextField
-        inputProps={{
-          sx: InputFieldProps(),
-        }}
-        sx={InputField}
+          inputProps={{
+            sx: InputFieldProps(),
+          }}
+          sx={InputField}
           type="text"
           label="Complited At"
           name="educationPlace"
@@ -104,8 +105,7 @@ const EducationDetails = ({ formData, onChange }) => {
           onChange={handleInputChange}
         />
 
-          {/* FOR START OF DATE */}
-         <TextField
+        <TextField
           inputProps={{
             sx: InputFieldProps(),
           }}
@@ -117,7 +117,7 @@ const EducationDetails = ({ formData, onChange }) => {
           value={formData.educationProfessionalStart || " "}
           onChange={handleInputChange}
         />
-        {/* FOR END OF DATE */}
+
         <TextField
           inputProps={{
             sx: InputFieldProps(),
@@ -130,7 +130,6 @@ const EducationDetails = ({ formData, onChange }) => {
           value={formData.educationProfessionalEnd || " "}
           onChange={handleInputChange}
         />
-
       </form>
     </Box>
   );

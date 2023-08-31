@@ -14,7 +14,7 @@ const DisplayLeave = () => {
   console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>; 
+    return <Box>Loading...</Box>;
   }
 
   return (
@@ -30,7 +30,7 @@ const DisplayLeave = () => {
       >
         Leave History
       </Typography>
-      <Box sx={viewEducationBox}> 
+      <Box sx={viewEducationBox}>
         <List>
           <Typography sx={{ fontWeight: "bold" }}>Leave Details</Typography>
           <ListItemText>Unpaid Leave</ListItemText>

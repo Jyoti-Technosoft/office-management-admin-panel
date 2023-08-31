@@ -42,11 +42,21 @@ const Header = () => {
       >
         <Box padding="8px" onClick={() => setThemeChange((value) => !value)}>
           {themeChange ? (
-            <Tooltip title="Light Mode" arrow disableInteractive TransitionComponent={Zoom}>
+            <Tooltip
+              title="Light Mode"
+              arrow
+              disableInteractive
+              TransitionComponent={Zoom}
+            >
               <LightTheme width={"70px"} />
             </Tooltip>
           ) : (
-            <Tooltip title="Dark Mode" arrow disableInteractive TransitionComponent={Zoom}>
+            <Tooltip
+              title="Dark Mode"
+              arrow
+              disableInteractive
+              TransitionComponent={Zoom}
+            >
               <DarkTheme width={"70px"} />
             </Tooltip>
           )}

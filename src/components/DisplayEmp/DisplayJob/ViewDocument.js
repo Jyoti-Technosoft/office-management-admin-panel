@@ -28,42 +28,34 @@ const ViewDocument = ({ onBackClick }) => {
         variant="h6"
         sx={{ fontWeight: "bold", marginBottom: "30px", borderBottom: 1 }}
       >
-        <IconButton
-          onClick={onBackClick}
-        >
+        <IconButton onClick={onBackClick}>
           <ArrowBackIcon />
         </IconButton>
         View Job Details / View Documents
       </Typography>
-        {documentData.map((document, index) => (
-            <Button>  
-              <Card
-                sx={{
-                  backgroundColor: "var(--primary-highlight-color)",
-                  borderRadius: "5px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  padding: "15px",
-                  height: "180px",
-                  width: "130px",
-                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  margin:"15px"
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  image={PdfIcon}
-                  alt={document.alt}
-                />
-                <CardContent>
-                  <Typography sx={viewProfileSubtitle}>
-                    {document.name}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Button>
-        ))}
+      {documentData.map((document, index) => (
+        <Button>
+          <Card
+            sx={{
+              backgroundColor: "var(--primary-highlight-color)",
+              borderRadius: "5px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "15px",
+              height: "180px",
+              width: "130px",
+              boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+              margin: "15px",
+            }}
+          >
+            <CardMedia component="img" image={PdfIcon} alt={document.alt} />
+            <CardContent>
+              <Typography sx={viewProfileSubtitle}>{document.name}</Typography>
+            </CardContent>
+          </Card>
+        </Button>
+      ))}
       <Box
         sx={{
           display: "flex",

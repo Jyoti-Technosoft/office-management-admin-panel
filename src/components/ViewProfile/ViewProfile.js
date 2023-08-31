@@ -11,13 +11,12 @@ const ViewProfile = () => {
       {/* Left admin dashboard */}
       <AdminSideBar />
       <Grid xs={12} md={9.4}>
-        {/* SEARCH BAR */}
         <Header />
-        <Box sx={{
+        {/* <Box sx={{
           padding: "15px",
           marginLeft: "15px"
         }}>
-        </Box>
+        </Box> */}
         <Box
           sx={{
             margin: "0px 30px",

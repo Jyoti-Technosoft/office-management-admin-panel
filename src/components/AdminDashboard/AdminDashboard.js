@@ -129,7 +129,8 @@ const AdminDashboard = () => {
                   onClick={() => handleTabChange("employee")}
                   sx={{
                     boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                    backgroundColor: "var(--background-table-sidebar-card-color)",
+                    backgroundColor:
+                      "var(--background-table-sidebar-card-color)",
                     color: "var(--secondary-text-color)",
                     "&:hover": {
                       background: "var(--background-table-sidebar-card-color)",
@@ -187,11 +188,13 @@ const AdminDashboard = () => {
                     onClick={() => handleTabChange("leave")}
                     sx={{
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                      backgroundColor: "var(--background-table-sidebar-card-color)",
+                      backgroundColor:
+                        "var(--background-table-sidebar-card-color)",
                       color: "var(--secondary-text-color)",
                       marginTop: "0px",
                       "&:hover": {
-                        background: "var(--background-table-sidebar-card-color)",
+                        background:
+                          "var(--background-table-sidebar-card-color)",
                       },
                     }}
                   >
@@ -244,11 +247,13 @@ const AdminDashboard = () => {
                     onClick={() => handleTabChange("attendance")}
                     sx={{
                       boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                      backgroundColor: "var(--background-table-sidebar-card-color)",
+                      backgroundColor:
+                        "var(--background-table-sidebar-card-color)",
                       color: "var(--secondary-text-color)",
                       marginTop: "0px",
                       "&:hover": {
-                        background: "var(--background-table-sidebar-card-color)",
+                        background:
+                          "var(--background-table-sidebar-card-color)",
                       },
                     }}
                   >
@@ -306,6 +311,7 @@ const AdminDashboard = () => {
           </Box>
         </Grid>
       </Grid>
+      {/* FOR SHOW TOASTER */}
       {showToast.show ? (
         <CustomToast toastType={showToast.type} message={showToast.msg} />
       ) : null}

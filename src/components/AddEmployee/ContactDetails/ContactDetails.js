@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Box,
-  TextField,
-  Typography,
-} from "@mui/material";
-import {
-  InputField,
-  InputFieldProps,
-} from "../../CustomDesignMUI/CustomMUI";
+import { Box, TextField, Typography } from "@mui/material";
+import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
 
 const ContactDetails = ({ formData, onChange }) => {
   const handleInputChange = (event) => {
@@ -86,7 +79,6 @@ const ContactDetails = ({ formData, onChange }) => {
           placeholder="Enter your City"
           value={formData.contactCity}
           onChange={handleInputChange}
-
         />
 
         <TextField
@@ -100,9 +92,7 @@ const ContactDetails = ({ formData, onChange }) => {
           placeholder="Enter a Residential Address"
           value={formData.contactResidental}
           onChange={handleInputChange}
-
         />
-
       </form>
     </Box>
   );

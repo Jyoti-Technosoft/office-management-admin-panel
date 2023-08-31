@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Select, TextField, MenuItem, FormControl, InputLabel, Typography } from "@mui/material";
+import {
+  Box,
+  Select,
+  TextField,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Typography,
+} from "@mui/material";
 import { InputField, InputFieldProps } from "../../CustomDesignMUI/CustomMUI";
 
 const ExperienceDetails = ({ formData, onChange }) => {
@@ -31,14 +39,13 @@ const ExperienceDetails = ({ formData, onChange }) => {
           onChange={handleInputChange}
         />
 
-        {/* MAKE A DROPDOWN */}
         <FormControl fullWidth>
           <InputLabel id="position">Position</InputLabel>
           <Select
-           inputProps={{
-            sx: InputFieldProps(),
-          }}
-          sx={InputField}
+            inputProps={{
+              sx: InputFieldProps(),
+            }}
+            sx={InputField}
             labelId="position"
             id="selectposition"
             name="experiencePosition"
@@ -46,17 +53,16 @@ const ExperienceDetails = ({ formData, onChange }) => {
             label="Position"
             onChange={handleInputChange}
           >
-          <MenuItem value="">Select a Position</MenuItem>
-          <MenuItem value="HR">HR</MenuItem>
-          <MenuItem value="Manager">Designer</MenuItem>
-          <MenuItem value="Marketing">Marketing</MenuItem>
-          <MenuItem value="Developer">Front-end Developer</MenuItem>
-          <MenuItem value="Jr.Developer">Back-end Developer</MenuItem>
-          <MenuItem value="Other">Other</MenuItem>
+            <MenuItem value="">Select a Position</MenuItem>
+            <MenuItem value="HR">HR</MenuItem>
+            <MenuItem value="Manager">Designer</MenuItem>
+            <MenuItem value="Marketing">Marketing</MenuItem>
+            <MenuItem value="Front-end Develope">Front-end Developer</MenuItem>
+            <MenuItem value="Back-end Develope">Back-end Developer</MenuItem>
+            <MenuItem value="Other">Other</MenuItem>
           </Select>
         </FormControl>
 
-        {/* FOR START OF DATE */}
         <TextField
           inputProps={{
             sx: InputFieldProps(),
@@ -69,7 +75,7 @@ const ExperienceDetails = ({ formData, onChange }) => {
           value={formData.experienceStartDate || " "}
           onChange={handleInputChange}
         />
-        {/* FOR END OF DATE */}
+
         <TextField
           inputProps={{
             sx: InputFieldProps(),

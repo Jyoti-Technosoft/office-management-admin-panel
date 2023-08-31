@@ -6,10 +6,6 @@ import {
   IconButton,
   Tooltip,
   Zoom,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Button,
   TextField,
   MenuItem,
@@ -26,18 +22,22 @@ import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
 import axios from "axios";
 import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
 
-
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 const DisplayPersonal = () => {
   // DATA CALLING START
-  const { userData, setUserData, employeeApiEndpoint } = useContext(GlobalContext);
+  const { userData, setUserData, employeeApiEndpoint } =
+    useContext(GlobalContext);
   const [openDialog, setOpenDialog] = useState(false);
 
   const { employeeId } = useParams();
-  const employeeCall = userData.find((user) => user.id === parseInt(employeeId));
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
   const [editable, setEditable] = useState(false);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall, });
+  const [editedEmployeeData, setEditedEmployeeData] = useState({
+    ...employeeCall,
+  });
   console.log("setEditedEmployeeData", editedEmployeeData);
   console.log("EmployeeID", employeeId);
 
@@ -94,7 +94,7 @@ const DisplayPersonal = () => {
     if (employeeId === undefined) {
       setEditable(true);
     }
-  }
+  };
   useEffect(() => {
     addNewEmployee();
   }, []);
@@ -123,7 +123,6 @@ const DisplayPersonal = () => {
             >
               <Edit />
             </IconButton>
-
           </Tooltip>
           <Tooltip
             title="Delete Data"
@@ -331,8 +330,6 @@ const DisplayPersonal = () => {
             </Grid>
           </Grid>
         </form>
-
-
         <Box>
           {editable && (
             <Box

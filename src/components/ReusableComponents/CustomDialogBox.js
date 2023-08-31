@@ -13,7 +13,13 @@ import { GlobalContext } from "../../ContextAPI/CustomContext";
 import axios from "axios";
 import { Close } from "@mui/icons-material";
 
-const CustomDialogBox = ({ open, setOpenDialog, dialogIcon, dialogHeading, dialogDescription }) => {
+const CustomDialogBox = ({
+  open,
+  setOpenDialog,
+  dialogIcon,
+  dialogHeading,
+  dialogDescription,
+}) => {
   const navigate = useNavigate();
 
   // DATA CALLING START
@@ -39,16 +45,8 @@ const CustomDialogBox = ({ open, setOpenDialog, dialogIcon, dialogHeading, dialo
 
   return (
     <Box>
-      <Dialog
-        open={open}
-        onClose={() => setOpenDialog(false)}
-        maxWidth="md"
-        >
-        <Box
-          sx={{
-            // backgroundColor: "red",
-          }}
-          >
+      <Dialog open={open} onClose={() => setOpenDialog(false)} maxWidth="md">
+        <Box>
           <Box>
             <IconButton
               onClick={() => setOpenDialog(false)}
@@ -86,27 +84,25 @@ const CustomDialogBox = ({ open, setOpenDialog, dialogIcon, dialogHeading, dialo
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    margin: '35px 0px',
+                    margin: "35px 0px",
                   }}
                 >
                   <Box
                     sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
+                      display: "flex",
+                      justifyContent: "center",
                       alignItems: "center",
                       background: "#ff000221",
                       borderRadius: "1000px",
-                      padding: '8px',
-                      marginRight: '25px',
+                      padding: "8px",
+                      marginRight: "25px",
                     }}
                   >
                     {dialogIcon}
                   </Box>
                   <Box>
                     <Box>{dialogHeading}</Box>
-                    <Typography>
-                      {dialogDescription}
-                    </Typography>
+                    <Typography>{dialogDescription}</Typography>
                   </Box>
                 </Box>
               </DialogTitle>
@@ -115,8 +111,9 @@ const CustomDialogBox = ({ open, setOpenDialog, dialogIcon, dialogHeading, dialo
           <DialogActions
             sx={{
               background: "var(--highlight-color)",
-              boxShadow: "0px 2px 10px var(--dark-highlight-color)"
-            }}>
+              boxShadow: "0px 2px 10px var(--dark-highlight-color)",
+            }}
+          >
             <Button
               onClick={() => setOpenDialog(false)}
               sx={{

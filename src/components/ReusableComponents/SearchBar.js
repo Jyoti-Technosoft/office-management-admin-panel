@@ -1,12 +1,5 @@
-import React, { useContext, useState } from "react";
-import UserIcon from "../../assets/img/icons/userIcon.png";
-import {
-  Box,
-  InputAdornment,
-  TextField,
-  styled,
-
-} from "@mui/material";
+import React, { useContext } from "react";
+import { Box, InputAdornment, TextField, styled } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 
@@ -31,12 +24,12 @@ const CustomTextField = styled(TextField)({
     width: "500px",
   },
 });
-const SearchBar = () => {
 
+const SearchBar = () => {
   const { setSearchBarValue } = useContext(GlobalContext);
 
   function handleChange(event) {
-    setSearchBarValue(event.target.value)
+    setSearchBarValue(event.target.value);
   }
 
   return (
@@ -48,9 +41,10 @@ const SearchBar = () => {
         marginTop: "15px",
         marginBottom: "10px",
       }}
-    >
+      >
       <Box
         sx={{
+          border: "2px solid var(--primary-color)",
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-start",
@@ -58,7 +52,8 @@ const SearchBar = () => {
           boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.14)",
           background: "var(--search-bar-color)",
           height: "40px",
-        }}>
+        }}
+      >
         <Box>
           <CustomTextField
             variant="standard"
@@ -66,7 +61,7 @@ const SearchBar = () => {
               sx: {
                 fontSize: "14px",
                 paddingLeft: "20px",
-                color: 'var(--secondary-text-color)',
+                color: "var(--secondary-text-color)",
               },
             }}
             onChange={handleChange}

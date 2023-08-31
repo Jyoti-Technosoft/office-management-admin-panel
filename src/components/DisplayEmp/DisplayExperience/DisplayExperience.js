@@ -10,20 +10,21 @@ import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 
 const DisplayExperience = () => {
-
-  // DATA CALLING START 
-  const { userData } = useContext(GlobalContext)
+  // DATA CALLING START
+  const { userData } = useContext(GlobalContext);
   const { employeeId } = useParams();
-  const employeeCall = userData.find(user => user.id === parseInt(employeeId));
-  console.log("EmployeeID: ", employeeId)
+  const employeeCall = userData.find(
+    (user) => user.id === parseInt(employeeId)
+  );
+  console.log("EmployeeID: ", employeeId);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
-    return <Box>Loading...</Box>;  
+    return <Box>Loading...</Box>;
   }
-  
-  // DATE TO MONTH FUNCTION 
+
+  // DATE TO MONTH FUNCTION
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long' };
+    const options = { year: "numeric", month: "long" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
@@ -32,7 +33,8 @@ const DisplayExperience = () => {
     const start = new Date(startDate);
     const end = new Date(endDate);
     const yearsDiff = end.getFullYear() - start.getFullYear();
-    const isSameMonthAndDay = end.getMonth() === start.getMonth() && end.getDate() >= start.getDate();
+    const isSameMonthAndDay =
+      end.getMonth() === start.getMonth() && end.getDate() >= start.getDate();
     if (isSameMonthAndDay) {
       return yearsDiff;
     } else {
@@ -57,13 +59,23 @@ const DisplayExperience = () => {
       </Typography>
       <Box sx={{ marginBottom: "25px" }}>
         <Box sx={viewEducationBox}>
-          <Typography sx={viewEducationTitle}>{employeeCall.experienceCompanyName}</Typography>
-          <Typography sx={viewExperiencePosition}>Position: {employeeCall.experiencePosition}</Typography>
-          <Typography sx={viewProfileSubtitle}>
-            {formatDate(employeeCall.experienceStartDate)} - {formatDate(employeeCall.experienceEndDate)}
+          <Typography sx={viewEducationTitle}>
+            {employeeCall.experienceCompanyName}
+          </Typography>
+          <Typography sx={viewExperiencePosition}>
+            Position: {employeeCall.experiencePosition}
           </Typography>
           <Typography sx={viewProfileSubtitle}>
-            Experience : {calYears(employeeCall.experienceStartDate, employeeCall.experienceEndDate).toFixed(2)} Years
+            {formatDate(employeeCall.experienceStartDate)} -{" "}
+            {formatDate(employeeCall.experienceEndDate)}
+          </Typography>
+          <Typography sx={viewProfileSubtitle}>
+            Experience :{" "}
+            {calYears(
+              employeeCall.experienceStartDate,
+              employeeCall.experienceEndDate
+            ).toFixed(2)}{" "}
+            Years
           </Typography>
         </Box>
       </Box>

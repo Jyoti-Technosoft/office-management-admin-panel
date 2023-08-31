@@ -4,14 +4,13 @@ import AttendanceTable from "../Tables/AttendanceTable";
 import SearchBar from "../../ReusableComponents/SearchBar";
 
 const Attendance = () => {
-
   return (
     <Box
       sx={{
         boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
         marginTop: "30px",
         borderRadius: "10px",
-        background: "var(--plain-white)",
+        background: "var(--background-table-sidebar-card-color)",
       }}
     >
       <Box

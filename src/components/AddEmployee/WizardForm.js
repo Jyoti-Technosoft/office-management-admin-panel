@@ -20,13 +20,13 @@ import FinancialDetails from "./FinancialDetails/FinancialDetails";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 
 const WizardForm = ({ open, onClose, addEmployee }) => {
-  const {employeeData, employeeApiEndpoint } = useContext(GlobalContext);
+  const { employeeData, employeeApiEndpoint } = useContext(GlobalContext);
 
-  
   const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({});
   const [formHistory, setFormHistory] = useState([]);
-  const isLastForm = activeTab === 6;  
+
+  const isLastForm = activeTab === 6;
 
   useEffect(() => {
     if (formHistory.length === 0) {
@@ -53,24 +53,24 @@ const WizardForm = ({ open, onClose, addEmployee }) => {
   };
 
   const handleSubmit = () => {
-        const existingData = employeeData;
-        const dataCount = existingData.length;
-        const dataWithId = {
-          ...formData,
-          id: dataCount + 1,
-        };
-        axios
-          .post(employeeApiEndpoint, dataWithId)
-          .then((response) => {
-            console.log("Data submitted successfully:", response.data);
-            addEmployee(response.data);
-            onClose();
-            setFormHistory([]);
-            setFormData({});
-          })
-          .catch((error) => {
-            console.error("Error saving data:", error);
-          });
+    const existingData = employeeData;
+    const dataCount = existingData.length;
+    const dataWithId = {
+      ...formData,
+      id: dataCount + 1,
+    };
+    axios
+      .post(employeeApiEndpoint, dataWithId)
+      .then((response) => {
+        console.log("Data submitted successfully:", response.data);
+        addEmployee(response.data);
+        onClose();
+        setFormHistory([]);
+        setFormData({});
+      })
+      .catch((error) => {
+        console.error("Error saving data:", error);
+      });
   };
 
   const handleChange = (data) => {

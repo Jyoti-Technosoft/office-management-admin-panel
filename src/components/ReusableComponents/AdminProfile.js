@@ -77,7 +77,12 @@ const AdminProfile = () => {
         {/* <Button onClick={handleSettingButtonClick}>
           <img width={"45px"} src={UserIcon} alt="Setting_Icon" />
         </Button> */}
-        <Tooltip title="Account settings" arrow disableInteractive TransitionComponent={Zoom}>
+        <Tooltip
+          title="Account settings"
+          arrow
+          disableInteractive
+          TransitionComponent={Zoom}
+        >
           <IconButton
             aria-controls="simple-menu"
             aria-haspopup="true"
@@ -92,9 +97,9 @@ const AdminProfile = () => {
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}
-          onClose={handleClose}>
-          <MenuItem
-          onClick={handleClose}>
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>
             <Box
               sx={{
                 color: "var(--dark-highlight-color)",
@@ -117,26 +122,27 @@ const AdminProfile = () => {
                 justifyContent: "center",
                 marginRight: "5px",
               }}
-              >
-              <LogoutIcon/>
+            >
+              <LogoutIcon />
             </Box>
             <Typography>Logout</Typography>
           </MenuItem>
         </Menu>
       </Box>
 
-      {/* {/ MAKE A ADMIN DETAILS DIALOG BOX /} */}
+      {/* MAKE A ADMIN DETAILS DIALOG BOX */}
       <Dialog
         open={showDialog}
         onClose={handleCloseDialog}
         maxWidth="xs"
         fullWidth
-        >
+      >
         <Box
           sx={{
             color: themeChange ? "#e0e0e0e3" : "#544f5a",
             background: themeChange ? "#142840" : "2c7be51a",
-          }}>
+          }}
+        >
           <Box
             sx={{
               display: "flex",
@@ -165,7 +171,6 @@ const AdminProfile = () => {
             </Box>
           </Box>
           <DialogContent>
-
             <Box>
               <img width={"90px"} src={ProfileImg} alt="profile" />
             </Box>
@@ -211,11 +216,10 @@ const AdminProfile = () => {
               height: "40px",
               boxShadow: "0px 2px 10px var(--dark-highlight-color)",
             }}
-          >
-          </DialogActions>
+          ></DialogActions>
         </Box>
       </Dialog>
-            
+
       {/* {/ LOGOUT   /}
       {/ MAKE A LOGOUT DIALOG BOX /} */}
       <Dialog open={openDialog} onClose={handleCancelLogout} maxWidth="md">
