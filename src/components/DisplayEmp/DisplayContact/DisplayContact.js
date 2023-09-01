@@ -1,81 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography, IconButton, TextField, Button } from "@mui/material";
-import {
-  InputFieldPropsForm,
-  viewProfileSubtitle,
-  viewProfileTitle,
-} from "../../CustomDesignMUI/CustomMUI";
+import { InputFieldPropsForm, viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
 import { Edit } from "@mui/icons-material";
-import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
-import axios from "axios";
 
-const DisplayContact = () => {
-  const navigate = useNavigate();
+const DisplayContact = (props) => {
+  const {employeeCall, nextButtonCallback} = props;
+  console.log("lsdlksd", nextButtonCallback )
   // DATA CALLING START
-  const { userData, setUserData, employeeApiEndpoint } =
-    useContext(GlobalContext);
-  const { employeeId } = useParams();
-  const employeeCall = userData.find(
-    (user) => user.id === parseInt(employeeId)
-  );
-  const [editable, setEditable] = useState(false);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({
-    ...employeeCall,
-  });
-
-  const deleteEmployee = () => {
-    axios
-      .delete(`${employeeApiEndpoint}/${employeeId}`)
-      .then((response) => {
-        console.log(`Employee Deleted Successfully`);
-        navigate("/dashboard");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
+  const {setEditable, editable } = useContext(GlobalContext);
+  const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
   const editEmployee = () => {
-    console.log("Entering edit mode");
     setEditable(true);
-  };
-
-  const saveEmployee = () => {
-    if (employeeId === undefined) {
-      // Add new employee
-      axios
-        .post(`${employeeApiEndpoint}`, editedEmployeeData)  // Use POST for adding new records
-        .then((response) => {
-          console.log("New Employee Data Added Successfully");
-          const updatedUserData = [...userData, response.data]; // Add the new employee to the list
-          setUserData(updatedUserData);
-          setEditable(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      // Update existing employee
-      axios
-        .put(`${employeeApiEndpoint}/${employeeId}`, editedEmployeeData)
-        .then((response) => {
-          console.log("Data Edited and Saved Successfully");
-          const updatedUserData = userData.map((user) =>
-            user.id === parseInt(employeeId) ? editedEmployeeData : user
-          );
-          setUserData(updatedUserData);
-          setEditable(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  };
-
-  const cancelEdit = () => {
-    setEditedEmployeeData({ ...employeeCall });
-    setEditable(false);
   };
 
   const handleInputChange = (event) => {
@@ -87,25 +23,20 @@ const DisplayContact = () => {
   };
 
   const addNewEmployee = () => {
-    if (employeeId === undefined) {
+    if (employeeCall?.id === undefined) {
       setEditable(true);
     }
   };
   useEffect(() => {
     addNewEmployee();
   }, []);
-  // if (!employeeCall) {
-  //   return <Box>sdsdsdsdsd...</Box>; 
-  // }
-
-  // DATA CALLING END
 
   return (
     <Box
       sx={{
         marginTop: "10px",
         marginLeft: "9px",
-      }}
+      }}s
     >
       <Box
         sx={{
@@ -141,9 +72,9 @@ const DisplayContact = () => {
           ) : null}
         </Box>
       </Box>
-      <hr/>
+      <hr />
       {/* <Grid container> */}
-      <Box sx={{marginBottom: "25px", paddingTop: "20px"}}>
+      <Box sx={{ marginBottom: "25px", paddingTop: "20px" }}>
         <Box>
           <Typography sx={viewProfileSubtitle}>Phone Number</Typography>
           <TextField
@@ -245,7 +176,7 @@ const DisplayContact = () => {
           />
         </Box>
       </Box>
-      <Box>
+      {/* <Box>
         {editable && (
           <Box
             sx={{
@@ -275,7 +206,7 @@ const DisplayContact = () => {
             </Button>
           </Box>
         )}
-      </Box>
+      </Box> */}
     </Box>
   );
 };

@@ -44,7 +44,7 @@ const SearchBar = () => {
       >
       <Box
         sx={{
-          border: "2px solid var(--primary-color)",
+          // border: "2px solid var(--primary-color)",
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-start",

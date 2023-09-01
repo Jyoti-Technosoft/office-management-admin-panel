@@ -15,72 +15,23 @@ import ProfileImg from "../../../assets/img/adminIcon.svg";
 import { viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
-import { useNavigate, useParams } from "react-router-dom";
 import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
 import axios from "axios";
 import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
-
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
-const DisplayPersonal = () => {
-  const navigate = useNavigate();
+const DisplayPersonal = (props) => {
+  const {employeeCall, nextButtonCallback, exitEditMode} = props;
+  console.log("lsdlksd", nextButtonCallback )
   // DATA CALLING START
-  const { userData, setUserData, employeeApiEndpoint } =
-    useContext(GlobalContext);
+  const {setEditable, editable } = useContext(GlobalContext);
   const [openDialog, setOpenDialog] = useState(false);
-
-  const { employeeId } = useParams();
-  const employeeCall = userData.find(
-    (user) => user.id === parseInt(employeeId)
-  );
-  const [editable, setEditable] = useState(false);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({
-    ...employeeCall,
-  });
-  console.log("setEditedEmployeeData", editedEmployeeData);
-  console.log("EmployeeID", employeeId);
-
+  const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
+  console.log("sdsdsdsdsd", editedEmployeeData)
   const editEmployee = () => {
     console.log("Entering edit mode");
     setEditable(true);
   };
-
-  const saveEmployee = () => {
-    if (employeeId === undefined) {
-      // Add new employee
-      axios
-        .post(`${employeeApiEndpoint}`, editedEmployeeData)  // Use POST for adding new records
-        .then((response) => {
-          console.log("New Employee Data Added Successfully");
-          const updatedUserData = [...userData, response.data]; // Add the new employee to the list
-          setUserData(updatedUserData);
-          setEditable(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      // Update existing employee
-      axios
-        .put(`${employeeApiEndpoint}/${employeeId}`, editedEmployeeData)
-        .then((response) => {
-          console.log("Data Edited and Saved Successfully");
-          const updatedUserData = userData.map((user) =>
-            user.id === parseInt(employeeId) ? editedEmployeeData : user
-          );
-          setUserData(updatedUserData);
-          setEditable(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  };
-  const cancelEdit = () => {
-    setEditedEmployeeData({ ...employeeCall });
-    setEditable(false);
-  };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedEmployeeData((prevData) => ({
@@ -89,8 +40,9 @@ const DisplayPersonal = () => {
     }));
   };
 
+  //FOR ADDING NEW EMPLOYEE IF ANY ID IS NOT FOUND
   const addNewEmployee = () => {
-    if (employeeId === undefined) {
+    if (employeeCall?.id === undefined) {
       setEditable(true);
     }
   };
@@ -108,18 +60,15 @@ const DisplayPersonal = () => {
             justifyContent: "flex-end",
             marginTop: "-2px",
             color: "var(--secondary-text-color)",
-          }}
-        >
+          }}>
           <Tooltip
             title="Edit Data"
             arrow
             disableInteractive
-            TransitionComponent={Zoom}
-          >
+            TransitionComponent={Zoom}>
             <IconButton
               onClick={editEmployee}
-              sx={{ color: "var( --third-color)" }}
-            >
+              sx={{ color: "var( --third-color)" }}>
               <Edit />
             </IconButton>
           </Tooltip>
@@ -127,12 +76,10 @@ const DisplayPersonal = () => {
             title="Delete Data"
             arrow
             disableInteractive
-            TransitionComponent={Zoom}
-          >
+            TransitionComponent={Zoom}>
             <IconButton
               onClick={() => setOpenDialog(true)}
-              sx={{ color: "var( --third-color)" }}
-            >
+              sx={{ color: "var( --third-color)" }}>
               <Delete />
             </IconButton>
           </Tooltip>
@@ -151,8 +98,7 @@ const DisplayPersonal = () => {
                   fontSize: "15px",
                   marginLeft: "9px",
                   marginTop: "10px",
-                }}
-              >
+                }}>
                 Employee ID : {"JT" + " " + (employeeCall?.id + 100)}
               </Typography>
             ) : null}
@@ -160,16 +106,15 @@ const DisplayPersonal = () => {
         </Box>
       </Box>
 
-      {/* {/ FOR EMPLOYEE PERSNOL DETAILS /} */}
+      {/* FOR EMPLOYEE PERSNOL DETAILS */}
       <Box
         sx={{
           marginTop: "30px",
           marginLeft: "9px",
-        }}
-      >
+        }}>
         <form>
           <Grid container>
-            {/* {/ LEFT PART /} */}
+            {/* LEFT PART */}
             <Grid container xs={12} md={6} rowSpacing={2}>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Employee Name</Typography>
@@ -196,23 +141,17 @@ const DisplayPersonal = () => {
                   name="jobDepartment"
                   value={editedEmployeeData.jobDepartment}
                   disabled={!editable}
-                  onChange={handleInputChange}
-                >
+                  onChange={handleInputChange}>
                   <MenuItem value="">Select a Department</MenuItem>
                   <MenuItem value="HR">HR</MenuItem>
                   <MenuItem value="Designer">Designer</MenuItem>
                   <MenuItem value="Marketing">Marketing</MenuItem>
-                  <MenuItem value="Front-end Developer">
-                    Front-end Developer
-                  </MenuItem>
-                  <MenuItem value="Back-end Developer">
-                    Back-end Developer
-                  </MenuItem>
+                  <MenuItem value="Front-end Developer">Front-end Developer</MenuItem>
+                  <MenuItem value="Back-end Developer">Back-end Developer</MenuItem>
                 </Select>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Job Title</Typography>
-
                 <Select
                   sx={{
                     width: "80%",
@@ -241,8 +180,7 @@ const DisplayPersonal = () => {
                   name="jobCategory"
                   value={editedEmployeeData.jobCategory}
                   disabled={!editable}
-                  onChange={handleInputChange}
-                >
+                  onChange={handleInputChange}>
                   <MenuItem value="">Select a job category</MenuItem>
                   <MenuItem value="fulltime">Full time</MenuItem>
                   <MenuItem value="parttime">Part time</MenuItem>
@@ -250,7 +188,7 @@ const DisplayPersonal = () => {
               </Grid>
             </Grid>
 
-            {/* {/ RIGHT PART /} */}
+            {/* RIGHT PART */}
             <Grid container xs={12} md={6} rowSpacing={2}>
               <Grid item xs={12}>
                 <Typography sx={{ fontSize: "11px" }}>
@@ -273,12 +211,8 @@ const DisplayPersonal = () => {
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Date of Birth</Typography>
                 <TextField
-                  inputProps={{
-                    sx: InputFieldPropsForm(),
-                  }}
-                  sx={{
-                    width: "80%",
-                  }}
+                  inputProps={{sx: InputFieldPropsForm()}}
+                  sx={{width: "80%"}}
                   name="personalDob"
                   value={editedEmployeeData.personalDob}
                   type="date"
@@ -338,29 +272,26 @@ const DisplayPersonal = () => {
                 marginTop: "30px",
                 padding: "5px",
               }}
-            >
+              >
+                <Button
+                sx={{
+                  fontWeight: "bold",
+                  color: "var(--primary-color)",
+                }}
+                onClick={exitEditMode}
+              >
+                Cancel
+              </Button>
               <Button
                 sx={{
                   fontWeight: "bold",
                   color: "var(--primary-color)",
                 }}
-                onClick={saveEmployee}
-              >
-                Save
+                onClick={() => nextButtonCallback( editedEmployeeData)}
+                >
+                Save & Next
               </Button>
-
-              {employeeCall?.id ?(
-              <Button
-                sx={{
-                  fontWeight: "bold",
-                  color: "gray",
-                }}
-                onClick={cancelEdit}
-              >
-                Cancel
-              </Button>
-              ) : null
-              }
+              
             </Box>
           )}
         </Box>

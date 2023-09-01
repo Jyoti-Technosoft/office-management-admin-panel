@@ -1,6 +1,7 @@
 // CustomContext.js
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const GlobalContext = createContext();
 
@@ -16,17 +17,13 @@ const CustomContext = (props) => {
   const [showNextButton, setShowNextButton] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("loggedIn") === "true"
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("loggedIn") === "true"
   );
   const [showToast, setShowToast] = useState({});
   const [themeChange, setThemeChange] = useState(false);
-
-  // const [isLoggedIn, setIsLoggedIn] = useState(
-  //   localStorage.getItem("loggedIn") === "false"
-  // );
-  // console.log("Context", isLoggedIn)
   const [searchBarValue, setSearchBarValue] = useState('');
+  const [editable, setEditable] = useState(false);
+  
 
   // Define your API endpoints
   const adminApiEndpoint = "http://localhost:8001/adminData";
@@ -38,7 +35,7 @@ const CustomContext = (props) => {
         // Admin API
         const { data: adminData } = await axios.get(adminApiEndpoint);
         setAdmin(adminData);
-
+        
         // Employee API
         const { data: employeeData } = await axios.get(employeeApiEndpoint);
         setEmployeeData(employeeData);
@@ -75,8 +72,7 @@ const CustomContext = (props) => {
       .catch(error => {
         console.error(error);
       });
-  }
-
+    }
   useEffect(() => {
     getData();
   }, [employeeData])
@@ -116,7 +112,9 @@ const CustomContext = (props) => {
         themeChange,
         setThemeChange,
         searchBarValue,
-        setSearchBarValue
+        setSearchBarValue,
+        editable,
+        setEditable
       }}
     >
       {props.children}

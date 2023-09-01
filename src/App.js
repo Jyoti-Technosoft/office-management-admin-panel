@@ -30,14 +30,9 @@ function App() {
           <Routes>
             <Route path="/" element={<AdminLogin />} />
             <Route path="/signup" element={<AdminSignup />} />
-            <Route path="/dashboard" element={<Protected>
-              <AdminDashboard />
-            </Protected>} />
-            <Route path="/viewprofile/:employeeId" element={<Protected>
-              <ViewProfile />
-            </Protected>} />
+            <Route path="/dashboard" element={<Protected><AdminDashboard /></Protected>} />
+            <Route path="/viewprofile/:employeeId" element={<Protected><ViewProfile /></Protected>} />
             <Route path="/empmanagement" element={<Protected><EmpManagement /></Protected>} />
-            {/* <Route path="/viewprofile/addemployee" element={<Protected> <AddEmployee/></Protected>}/> */}
             <Route path="/viewprofile/addemployee" element={<Protected> <ViewProfile/></Protected>}/>
             <Route path="/leavemanagement" element={<Protected><LeaveManagement /></Protected>} />
             <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement /></Protected>} />
