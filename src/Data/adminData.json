@@ -1,16 +1,8 @@
 {
   "adminData": [
     {
-      "name": "John",
-      "email": "admin@gmail.com",
-      "phonenumber": "6533512345",
-      "position": "Manager",
-      "password": "admin@123",
-      "confirmpassword": "admin@123",
-      "id": "1"
-    },
-    {
-      "name": "yash",
+      "fname": "yash",
+      "lname": "chouhan",
       "email": "yash@gmail.com",
       "phonenumber": "9999999999",
       "position": "CEO",
@@ -19,58 +11,24 @@
       "id": "tDR-xeV"
     },
     {
-      "name": "Shweta",
-      "email": "shweta@gmail.com",
+      "fname": "john",
+      "lname": "doe",
+      "email": "John@gmail.com",
       "phonenumber": "1234567890",
       "position": "HR",
-      "password": "123456789",
-      "confirmpassword": "123456789",
-      "id": "ymf6rZz"
+      "password": "123john",
+      "confirmpassword": "123john",
+      "id": "2Gjnpuh"
     },
     {
-      "name": "Max",
-      "email": "max@gmail.com",
-      "phonenumber": "1593574560",
-      "position": "Designer",
-      "password": "123456789",
-      "confirmpassword": "123456789",
-      "id": "EcZ-DBQ"
-    },
-    {
-      "name": "Tommy",
-      "email": "tom@gmail.com",
-      "phonenumber": "0234584548",
-      "position": "Developer",
-      "password": "123456789",
-      "confirmpassword": "123456789",
-      "id": "TJonSx-"
-    },
-    {
-      "name": "NewUser",
-      "email": "newuser@gmail.com",
-      "phonenumber": "7777777777",
-      "position": "Designer",
-      "password": "1111111111",
-      "confirmpassword": "1111111111",
-      "id": "ER-vXF2"
-    },
-    {
-      "name": "Max",
-      "email": "max@gmail.com",
-      "phonenumber": "9879512365",
-      "position": "Marketing",
-      "password": "Max@123",
-      "confirmpassword": "Max@123",
-      "id": "w0gbaZP"
-    },
-    {
-      "name": "dfsdfsdf",
-      "email": "test@gmail.com",
-      "phonenumber": "1111111111",
-      "position": "HR",
-      "password": "1111111111",
-      "confirmpassword": "1111111111",
-      "id": "NiTqoc4"
+      "fname": "dhwanik",
+      "lname": "Trivedi",
+      "email": "dhwanik@gmail.com",
+      "phonenumber": "1234567890",
+      "position": "CEO",
+      "password": "123456",
+      "confirmpassword": "123456",
+      "id": "vUOJv7d"
     }
   ]
 }

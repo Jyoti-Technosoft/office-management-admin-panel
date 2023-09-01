@@ -32,7 +32,8 @@ import "./AdminSignup.scss";
 const AdminSignup = () => {
   const { adminApiEndpoint } = useContext(GlobalContext);
   const [formData, setFormData] = useState({
-    name: "",
+    fname: "",
+    lname: "",
     email: "",
     phonenumber: "",
     position: "",
@@ -41,7 +42,8 @@ const AdminSignup = () => {
   });
 
   const [formErrors, setFormErrors] = useState({
-    name: "",
+    fname: "",
+    lname: "",
     email: "",
     phonenumber: "",
     position: "",
@@ -74,11 +76,19 @@ const AdminSignup = () => {
 
     // Perform validation checks for each field
     switch (name) {
-      case "name":
+      case "fname":
         if (!value) {
           setFormErrors((prevFormErrors) => ({
             ...prevFormErrors,
-            name: "Name is required",
+            name: "Firstname is required",
+          }));
+        }
+        break;
+      case "lname":
+        if (!value) {
+          setFormErrors((prevFormErrors) => ({
+            ...prevFormErrors,
+            name: "Lastname is required",
           }));
         }
         break;
@@ -171,7 +181,8 @@ const AdminSignup = () => {
       console.log(response.data);
 
       setFormData({
-        name: "",
+        fname: "",
+        lname: "",
         email: "",
         phonenumber: "",
         position: "",
@@ -242,15 +253,34 @@ const AdminSignup = () => {
                   }}
                   sx={InputField}
                   type="text"
-                  label="Name"
-                  name="name"
-                  placeholder="Enter a name"
-                  value={formData.name}
+                  label="First Name"
+                  name="fname"
+                  placeholder="Enter a Firstname"
+                  value={formData.fname}
                   onChange={handleChange}
                 />
-                {formErrors.name && (
+                {formErrors.fname && (
                   <Typography sx={errorMessageDesign}>
-                    {formErrors.name}
+                    {formErrors.fname}
+                  </Typography>
+                )}
+              </Box>
+              <Box sx={{ marginTop: "20px" }}>
+                <TextField
+                  inputProps={{
+                    sx: InputFieldProps(),
+                  }}
+                  sx={InputField}
+                  type="text"
+                  label="Last Name"
+                  name="lname"
+                  placeholder="Enter a Lastname"
+                  value={formData.lname}
+                  onChange={handleChange}
+                />
+                {formErrors.lname && (
+                  <Typography sx={errorMessageDesign}>
+                    {formErrors.lname}
                   </Typography>
                 )}
               </Box>
@@ -308,6 +338,7 @@ const AdminSignup = () => {
                     onChange={handleChange}
                   >
                     <MenuItem value="">Select a Position</MenuItem>
+                    <MenuItem value="CEO">CEO</MenuItem>
                     <MenuItem value="HR">HR</MenuItem>
                     <MenuItem value="Manager">Designer</MenuItem>
                     <MenuItem value="Marketing">Marketing</MenuItem>

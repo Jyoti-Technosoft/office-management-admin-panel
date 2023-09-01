@@ -9,7 +9,7 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../ContextAPI/CustomContext";
 const AdminSideBar = () => {
-  const { setAdminName, setAdminPosition, adminName, adminPosition } =
+  const { setAdminFirstName, setAdminLastName, setAdminPosition, adminFirstName, adminLastName, adminPosition } =
     useContext(GlobalContext);
   const location = useLocation();
   const capitalizeFirstLetter = (string) => {
@@ -23,11 +23,13 @@ const AdminSideBar = () => {
   const isDashboard = location.pathname === "/dashboard";
 
   useEffect(() => {
-    const adminNameFromStorage = localStorage.getItem("adminName");
+    const adminFirstNameFromStorage = localStorage.getItem("adminFirstName");
+    const adminLastNameFromStorage = localStorage.getItem("adminLastName");
     const adminPositionFromStorage = localStorage.getItem("adminPosition");
 
-    if (adminNameFromStorage && adminPositionFromStorage) {
-      setAdminName(adminNameFromStorage);
+    if (adminFirstNameFromStorage && adminLastNameFromStorage && adminPositionFromStorage) {
+      setAdminFirstName(adminFirstNameFromStorage);
+      setAdminLastName(adminLastNameFromStorage);
       setAdminPosition(adminPositionFromStorage);
     }
   }, []);
@@ -62,7 +64,7 @@ const AdminSideBar = () => {
             <Typography
               sx={{ fontWeight: "bold", color: "var(--secondary-text-color)" }}
             >
-              {capitalizeFirstLetter(adminName)}
+                {`${capitalizeFirstLetter(adminFirstName)} ${capitalizeFirstLetter(adminLastName)}`}
             </Typography>
             <Typography
               sx={{ color: "var(--secondary-text-color)", fontSize: "13px" }}

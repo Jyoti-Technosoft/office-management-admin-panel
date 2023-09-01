@@ -305,8 +305,17 @@ const AdminDashboard = () => {
               </Box>
               {/* {/ {/ CARDS END  /} /} */}
 
-              {/* FOR DASHBOARD BOTTONS */}
-              <Box>{renderTabContent()}</Box>
+              <Box
+                sx={{
+                  boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
+                  marginTop: "30px",
+                  borderRadius: "10px",
+                  background: "var(--background-table-sidebar-card-color)",
+                }}
+              >
+                {/* FOR DASHBOARD BOTTONS */}
+                <Box>{renderTabContent()}</Box>
+              </Box>
             </Box>
           </Box>
         </Grid>

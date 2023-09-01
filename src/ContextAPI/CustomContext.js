@@ -7,7 +7,10 @@ export const GlobalContext = createContext();
 const CustomContext = (props) => {
   const [admin, setAdmin] = useState([]);
   const [adminPosition, setAdminPosition] = useState("");
-  const [adminName, setAdminName] = useState("");
+  const [adminFirstName, setAdminFirstName] = useState("");
+  const [adminLastName, setAdminLastName] = useState("");
+  const [adminEmail, setAdminEmail] = useState("");
+  const [adminPhonenumber, setAdminPhonenumber] = useState("");
   const [employeeData, setEmployeeData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
@@ -95,10 +98,16 @@ const CustomContext = (props) => {
         openDialog,
         openDeleteDialog,
         setOpenDeleteDialog,
-        adminName,
-        setAdminName,
+        adminFirstName,
+        setAdminFirstName,
+        adminLastName,
+        setAdminLastName,
         adminPosition,
         setAdminPosition,
+        adminEmail,
+        setAdminEmail,
+        adminPhonenumber,
+        setAdminPhonenumber,
         isLoggedIn,
         login,
         logout,

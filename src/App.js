@@ -10,6 +10,7 @@ import EmpManagement from "./components/EmployeeManagement/EmpManagement";
 import LeaveManagement from "./components/LeaveManagement/LeaveManagement";
 import AttendanceManagement from "./components/AttendanceManagement/AttendanceManagement";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import AdminDetails from "./components/ReusableComponents/MenuItems/AdminDetails";
 
 
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="/viewprofile/addemployee" element={<Protected> <ViewProfile/></Protected>}/>
             <Route path="/leavemanagement" element={<Protected><LeaveManagement /></Protected>} />
             <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement /></Protected>} />
+            <Route path="/adminProfile" element={<Protected> <AdminDetails /></Protected>} />
           </Routes>
         </BrowserRouter>
       </div>
