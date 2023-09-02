@@ -22,10 +22,11 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 const DisplayPersonal = (props) => {
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   // DATA CALLING START
-  const { setEditable, editable } = useContext(GlobalContext);
+  const { setEditable, editable, isValid } = useContext(GlobalContext);
   const [openDialog, setOpenDialog] = useState(false);
   const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall });
   const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
+
 
   const editEmployee = () => {
     console.log("Entering edit mode");
@@ -43,6 +44,75 @@ const DisplayPersonal = (props) => {
     setEditable(false);
   };
 
+  // --
+  const [errors, setErrors] = useState({
+    personalFirstname: "",
+    jobDepartment: "",
+    jobDesignation: "",
+    jobCategory: "",
+    jobDoj: "",
+    personalDob: "",
+    personalBlood: "",
+    contactPersonalNumber: "",
+  });
+
+  const validateForm = () => {
+    const newErrors = {};
+    // FOR NAME
+    if (!editedEmployeeData.personalFirstname) {
+      newErrors.personalFirstname = "Name is required";
+    } else if (!/^[a-zA-Z\s]*$/.test(editedEmployeeData.personalFirstname)) {
+      newErrors.personalFirstname =
+        "Name should contain only alphabetic characters";
+    }
+    // FOR DEPARTMENT
+    if (!editedEmployeeData.jobDepartment) {
+      newErrors.jobDepartment = "Department is required";
+    }
+    // FOR DESIGNATION
+    if (!editedEmployeeData.jobDesignation) {
+      newErrors.jobDesignation = "Designation is required";
+    }
+    // FOR JOB CATEGORY
+    if (!editedEmployeeData.jobCategory) {
+      newErrors.jobCategory = "Job category is required";
+    }
+    // FOR DATE OF JOIN
+    if (!editedEmployeeData.jobDoj) {
+      newErrors.jobDoj = "Date of join is required";
+    }
+    // FOR DATE OF BIRTH
+    if (!editedEmployeeData.personalDob) {
+      newErrors.personalDob = "Date of birth is required";
+    } else if (editedEmployeeData.personalDob > editedEmployeeData.jobDoj) {
+      newErrors.personalDob = "Date of Birth cannot be after Date of Joining";
+    }
+    // FOR BLOOD GROUP
+    if (!editedEmployeeData.personalBlood) {
+      newErrors.personalBlood = "Blood group is required";
+    }
+    // FOR PHONE NUMBER
+    if (!editedEmployeeData.contactPersonalNumber) {
+      newErrors.contactPersonalNumber = "Phone number is required";
+    } else if (!/^\d{10}$/.test(editedEmployeeData.contactPersonalNumber)) {
+      newErrors.contactPersonalNumber = "Phone number must be 10 digits";
+    }
+
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // const handleSave = () => {
+  //   const isValid = validateForm();
+  //   if (isValid) {
+  //     nextButtonCallback(editedEmployeeData);
+  //     saveNextButtonCallback(editedEmployeeData);
+  //   }
+  // };
+  // END --
+
   return (
     <Box>
       {/* EDIT AND DELETE BUTTONS */}
@@ -54,15 +124,18 @@ const DisplayPersonal = (props) => {
             justifyContent: "flex-end",
             marginTop: "-2px",
             color: "var(--secondary-text-color)",
-          }}>
+          }}
+        >
           <Tooltip
             title="Edit Data"
             arrow
             disableInteractive
-            TransitionComponent={Zoom}>
+            TransitionComponent={Zoom}
+          >
             <IconButton
               onClick={editEmployee}
-              sx={{ color: "var( --third-color)" }}>
+              sx={{ color: "var( --third-color)" }}
+            >
               <Edit />
             </IconButton>
           </Tooltip>
@@ -70,10 +143,12 @@ const DisplayPersonal = (props) => {
             title="Delete Data"
             arrow
             disableInteractive
-            TransitionComponent={Zoom}>
+            TransitionComponent={Zoom}
+          >
             <IconButton
               onClick={() => setOpenDialog(true)}
-              sx={{ color: "var( --third-color)" }}>
+              sx={{ color: "var( --third-color)" }}
+            >
               <Delete />
             </IconButton>
           </Tooltip>
@@ -92,7 +167,8 @@ const DisplayPersonal = (props) => {
                   fontSize: "15px",
                   marginLeft: "9px",
                   marginTop: "10px",
-                }}>
+                }}
+              >
                 Employee ID : {"JT" + " " + (employeeCall?.id + 100)}
               </Typography>
             ) : null}
@@ -105,7 +181,8 @@ const DisplayPersonal = (props) => {
         sx={{
           marginTop: "30px",
           marginLeft: "9px",
-        }}>
+        }}
+      >
         <form>
           <Grid container>
             {/* LEFT PART */}
@@ -124,6 +201,9 @@ const DisplayPersonal = (props) => {
                   disabled={!editable}
                   onChange={handleInputChange}
                 />
+                <Typography sx={{ color: "red" }}>
+                  {errors.personalFirstname}
+                </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Department</Typography>
@@ -135,14 +215,22 @@ const DisplayPersonal = (props) => {
                   name="jobDepartment"
                   value={editedEmployeeData.jobDepartment}
                   disabled={!editable}
-                  onChange={handleInputChange}>
+                  onChange={handleInputChange}
+                >
                   <MenuItem value="">Select a Department</MenuItem>
                   <MenuItem value="HR">HR</MenuItem>
                   <MenuItem value="Designer">Designer</MenuItem>
                   <MenuItem value="Marketing">Marketing</MenuItem>
-                  <MenuItem value="Front-end Developer">Front-end Developer</MenuItem>
-                  <MenuItem value="Back-end Developer">Back-end Developer</MenuItem>
+                  <MenuItem value="Front-end Developer">
+                    Front-end Developer
+                  </MenuItem>
+                  <MenuItem value="Back-end Developer">
+                    Back-end Developer
+                  </MenuItem>
                 </Select>
+                <Typography sx={{ color: "red" }}>
+                  {errors.jobDepartment}
+                </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Job Title</Typography>
@@ -163,6 +251,9 @@ const DisplayPersonal = (props) => {
                   <MenuItem value="Java Developer">JAVA Developer</MenuItem>
                   <MenuItem value="Jr.Developer">Jr.Developer</MenuItem>
                 </Select>
+                <Typography sx={{ color: "red" }}>
+                  {errors.jobDesignation}
+                </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Job Category</Typography>
@@ -174,11 +265,15 @@ const DisplayPersonal = (props) => {
                   name="jobCategory"
                   value={editedEmployeeData.jobCategory}
                   disabled={!editable}
-                  onChange={handleInputChange}>
+                  onChange={handleInputChange}
+                >
                   <MenuItem value="">Select a job category</MenuItem>
-                  <MenuItem value="fulltime">Full time</MenuItem>
-                  <MenuItem value="parttime">Part time</MenuItem>
+                  <MenuItem value="Full time">Full time</MenuItem>
+                  <MenuItem value="Part time">Part time</MenuItem>
                 </Select>
+                <Typography sx={{ color: "red" }}>
+                  {errors.jobCategory}
+                </Typography>
               </Grid>
             </Grid>
 
@@ -201,6 +296,7 @@ const DisplayPersonal = (props) => {
                   disabled={!editable}
                   onChange={handleInputChange}
                 />
+                <Typography sx={{ color: "red" }}>{errors.jobDoj}</Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Date of Birth</Typography>
@@ -213,6 +309,9 @@ const DisplayPersonal = (props) => {
                   disabled={!editable}
                   onChange={handleInputChange}
                 />
+                <Typography sx={{ color: "red" }}>
+                  {errors.personalDob}
+                </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Blood Group</Typography>
@@ -227,15 +326,18 @@ const DisplayPersonal = (props) => {
                   onChange={handleInputChange}
                 >
                   <MenuItem value="">Select a blood group</MenuItem>
-                  <MenuItem value="ab+">AB+</MenuItem>
-                  <MenuItem value="a+">A+</MenuItem>
-                  <MenuItem value="b+">B+</MenuItem>
-                  <MenuItem value="o+">O+</MenuItem>
-                  <MenuItem value="ab-">AB-</MenuItem>
-                  <MenuItem value="a-">A-</MenuItem>
-                  <MenuItem value="b-">B-</MenuItem>
-                  <MenuItem value="o-">O-</MenuItem>
+                  <MenuItem value="AB+">AB+</MenuItem>
+                  <MenuItem value="A+">A+</MenuItem>
+                  <MenuItem value="B+">B+</MenuItem>
+                  <MenuItem value="O+">O+</MenuItem>
+                  <MenuItem value="AB-">AB-</MenuItem>
+                  <MenuItem value="A-">A-</MenuItem>
+                  <MenuItem value="B-">B-</MenuItem>
+                  <MenuItem value="O-">O-</MenuItem>
                 </Select>
+                <Typography sx={{ color: "red" }}>
+                  {errors.personalBlood}
+                </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>
@@ -253,6 +355,9 @@ const DisplayPersonal = (props) => {
                   disabled={!editable}
                   onChange={handleInputChange}
                 />
+                <Typography sx={{ color: "red" }}>
+                  {errors.contactPersonalNumber}
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -271,6 +376,8 @@ const DisplayPersonal = (props) => {
                 sx={{
                   fontWeight: "bold",
                   color: "gray",
+                  // textTransform:"capitalize",
+                  // fontSize:"18px",
                 }}
                 onClick={cancelEdit}
               >
@@ -280,23 +387,34 @@ const DisplayPersonal = (props) => {
                 sx={{
                   fontWeight: "bold",
                   color: "var(--primary-color)",
+                  // textTransform:"capitalize",
+                  // fontSize:"18px",
                 }}
-                onClick={() => nextButtonCallback(editedEmployeeData)}
+                disabled={!editable}
+                onClick={() => {
+                  if (validateForm()) {
+                    nextButtonCallback(editedEmployeeData);
+                  }
+                }}
               >
                 Save
               </Button>
               <Button
                 variant="contained"
+                disabled={!editable}
                 sx={{
                   fontWeight: "bold",
                   backgroundColor: "var(--secondary-color)",
                   color: "#ffffff",
                 }}
-                onClick={() => saveNextButtonCallback(editedEmployeeData)}
-              >
+                onClick={() => {
+                  if (validateForm()) {
+                    saveNextButtonCallback(editedEmployeeData);
+                  }
+                }}
+                >
                 Save & Next
-              </Button>
-
+                </Button>
             </Box>
           )}
         </Box>

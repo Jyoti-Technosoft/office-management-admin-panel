@@ -1,16 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography, IconButton, TextField, Button } from "@mui/material";
-import { InputFieldPropsForm, viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
+import {
+  InputFieldPropsForm,
+  viewProfileSubtitle,
+} from "../../CustomDesignMUI/CustomMUI";
 import { Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 
 const DisplayContact = (props) => {
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
-  console.log("lsdlksd", nextButtonCallback)
+  console.log("lsdlksd", nextButtonCallback);
   // DATA CALLING START
-  const { setEditable, editable } = useContext(GlobalContext);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall });
-  const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
+  const { setEditable, editable, isValid } = useContext(GlobalContext);
+  const [editedEmployeeData, setEditedEmployeeData] = useState({
+    ...employeeCall,
+  });
+  const [originalEmployeeData, setOriginalEmployeeData] = useState({
+    ...employeeCall,
+  });
 
   const editEmployee = () => {
     setEditable(true);
@@ -27,6 +34,60 @@ const DisplayContact = (props) => {
     setEditedEmployeeData({ ...originalEmployeeData });
     setEditable(false);
   };
+
+  // --
+  const [errors, setErrors] = useState({
+    contactPersonalNumber: "",
+    contactAdditionalNumber: "",
+    contactEmail: "",
+    contactState: "",
+    contactCity: "",
+    contactResidental: "",
+  });
+
+  const validateForm = () => {
+    const newErrors = {};
+    // FOR PersonalNumber
+    if (!editedEmployeeData.contactPersonalNumber) {
+      newErrors.contactPersonalNumber = "Phone number is required";
+    } else if (!/^\d{10}$/.test(editedEmployeeData.contactPersonalNumber)) {
+      newErrors.contactPersonalNumber = "Phone number must be 10 digits";
+    }
+    // FOR AdditionalNumber
+    if (!editedEmployeeData.contactAdditionalNumber) {
+      newErrors.contactAdditionalNumber = "Phone number is required";
+    } else if (!/^\d{10}$/.test(editedEmployeeData.contactAdditionalNumber)) {
+      newErrors.contactAdditionalNumber = "Phone number must be 10 digits";
+    }
+    // FOR ContactEmail
+    if (!editedEmployeeData.contactEmail) {
+      newErrors.contactEmail = "Email is required";
+    } else if (
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(
+        editedEmployeeData.contactEmail
+      )
+    ) {
+      newErrors.contactEmail = "Invalid email format";
+    }
+    // FOR State
+    if (!editedEmployeeData.contactState) {
+      newErrors.contactState = "State is required";
+    }
+    // FOR City
+    if (!editedEmployeeData.contactCity) {
+      newErrors.contactCity = "City is required";
+    }
+    // FOR Residental address
+    if (!editedEmployeeData.contactResidental) {
+      newErrors.contactResidental = "Residental address is required";
+    }
+
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    return Object.keys(newErrors).length === 0;
+  };
+  // END --
 
   return (
     <Box
@@ -87,6 +148,9 @@ const DisplayContact = (props) => {
             disabled={!editable}
             onChange={handleInputChange}
           />
+          <Typography sx={{ color: "red" }}>
+            {errors.contactPersonalNumber}
+          </Typography>
         </Box>
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
@@ -104,6 +168,9 @@ const DisplayContact = (props) => {
             disabled={!editable}
             onChange={handleInputChange}
           />
+          <Typography sx={{ color: "red" }}>
+            {errors.contactAdditionalNumber}
+          </Typography>
         </Box>
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
@@ -121,6 +188,7 @@ const DisplayContact = (props) => {
             disabled={!editable}
             onChange={handleInputChange}
           />
+          <Typography sx={{ color: "red" }}>{errors.contactEmail}</Typography>
         </Box>
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
@@ -138,6 +206,7 @@ const DisplayContact = (props) => {
             disabled={!editable}
             onChange={handleInputChange}
           />
+          <Typography sx={{ color: "red" }}>{errors.contactState}</Typography>
         </Box>
       </Box>
       <Box sx={{ marginBottom: "25px" }}>
@@ -155,6 +224,7 @@ const DisplayContact = (props) => {
             disabled={!editable}
             onChange={handleInputChange}
           />
+          <Typography sx={{ color: "red" }}>{errors.contactCity}</Typography>
         </Box>
       </Box>
       <Box sx={{ marginBottom: "21px" }}>
@@ -172,6 +242,9 @@ const DisplayContact = (props) => {
             disabled={!editable}
             onChange={handleInputChange}
           />
+          <Typography sx={{ color: "red" }}>
+            {errors.contactResidental}
+          </Typography>
         </Box>
       </Box>
       <Box>
@@ -198,7 +271,11 @@ const DisplayContact = (props) => {
                 fontWeight: "bold",
                 color: "var(--primary-color)",
               }}
-              onClick={() => nextButtonCallback(editedEmployeeData)}
+              onClick={() => {
+                if (validateForm()) {
+                  nextButtonCallback(editedEmployeeData);
+                }
+              }}
             >
               Save
             </Button>
@@ -209,11 +286,14 @@ const DisplayContact = (props) => {
                 backgroundColor: "var(--secondary-color)",
                 color: "#ffffff",
               }}
-              onClick={() => saveNextButtonCallback(editedEmployeeData)}
+              onClick={() => {
+                if (validateForm()) {
+                  saveNextButtonCallback(editedEmployeeData);
+                }
+              }}
             >
               Save & Next
             </Button>
-
           </Box>
         )}
       </Box>

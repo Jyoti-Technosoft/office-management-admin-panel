@@ -23,6 +23,9 @@ const CustomContext = (props) => {
   const [themeChange, setThemeChange] = useState(false);
   const [searchBarValue, setSearchBarValue] = useState('');
   const [editable, setEditable] = useState(false);
+  // --
+  const [isValid, setIsValid] = useState(false);
+  // END --
   
 
   // Define your API endpoints
@@ -114,7 +117,11 @@ const CustomContext = (props) => {
         searchBarValue,
         setSearchBarValue,
         editable,
-        setEditable
+        setEditable,
+        // --
+        isValid,
+        setIsValid
+        // END --
       }}
     >
       {props.children}
