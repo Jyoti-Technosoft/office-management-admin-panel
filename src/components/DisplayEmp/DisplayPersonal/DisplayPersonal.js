@@ -16,18 +16,17 @@ import { viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
-import axios from "axios";
 import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 const DisplayPersonal = (props) => {
-  const {employeeCall, saveNextButtonCallback, nextButtonCallback, exitEditMode} = props;
-  console.log("lsdlksd", nextButtonCallback )
+  const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   // DATA CALLING START
-  const {setEditable, editable } = useContext(GlobalContext);
+  const { setEditable, editable } = useContext(GlobalContext);
   const [openDialog, setOpenDialog] = useState(false);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
-  console.log("sdsdsdsdsd", editedEmployeeData)
+  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall });
+  const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
+
   const editEmployee = () => {
     console.log("Entering edit mode");
     setEditable(true);
@@ -39,12 +38,17 @@ const DisplayPersonal = (props) => {
       [name]: value,
     }));
   };
+  const cancelEdit = () => {
+    setEditedEmployeeData({ ...originalEmployeeData });
+    setEditable(false);
+  };
 
   return (
     <Box>
       {/* EDIT AND DELETE BUTTONS */}
-      {employeeCall?.id ? (
+      {employeeCall?.id && !editable ? (
         <Box
+
           sx={{
             display: "flex",
             justifyContent: "flex-end",
@@ -201,8 +205,8 @@ const DisplayPersonal = (props) => {
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Date of Birth</Typography>
                 <TextField
-                  inputProps={{sx: InputFieldPropsForm()}}
-                  sx={{width: "80%"}}
+                  inputProps={{ sx: InputFieldPropsForm() }}
+                  sx={{ width: "80%" }}
                   name="personalDob"
                   value={editedEmployeeData.personalDob}
                   type="date"
@@ -262,13 +266,13 @@ const DisplayPersonal = (props) => {
                 marginTop: "30px",
                 padding: "5px",
               }}
-              >
-                <Button
+            >
+              <Button
                 sx={{
                   fontWeight: "bold",
                   color: "gray",
                 }}
-                onClick={exitEditMode}
+                onClick={cancelEdit}
               >
                 Cancel
               </Button>
@@ -278,21 +282,21 @@ const DisplayPersonal = (props) => {
                   color: "var(--primary-color)",
                 }}
                 onClick={() => nextButtonCallback(editedEmployeeData)}
-                >
+              >
                 Save
               </Button>
               <Button
-              variant="contained"
+                variant="contained"
                 sx={{
                   fontWeight: "bold",
                   backgroundColor: "var(--secondary-color)",
                   color: "#ffffff",
                 }}
-                onClick={() => saveNextButtonCallback( editedEmployeeData)}
-                >
+                onClick={() => saveNextButtonCallback(editedEmployeeData)}
+              >
                 Save & Next
               </Button>
-              
+
             </Box>
           )}
         </Box>

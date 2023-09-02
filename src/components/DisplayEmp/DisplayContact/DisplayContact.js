@@ -5,12 +5,13 @@ import { Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 
 const DisplayContact = (props) => {
-  const {employeeCall, saveNextButtonCallback, nextButtonCallback, exitEditMode} = props;
-  console.log("lsdlksd", nextButtonCallback )
+  const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
+  console.log("lsdlksd", nextButtonCallback)
   // DATA CALLING START
-  const {setEditable, editable } = useContext(GlobalContext);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
-  
+  const { setEditable, editable } = useContext(GlobalContext);
+  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall });
+  const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
+
   const editEmployee = () => {
     setEditable(true);
   };
@@ -21,6 +22,10 @@ const DisplayContact = (props) => {
       ...prevData,
       [name]: value,
     }));
+  };
+  const cancelEdit = () => {
+    setEditedEmployeeData({ ...originalEmployeeData });
+    setEditable(false);
   };
 
   return (
@@ -55,6 +60,7 @@ const DisplayContact = (props) => {
               }
             >
               <IconButton
+                disabled={editable}
                 onClick={editEmployee}
                 sx={{ color: "var( --third-color)" }}
               >
@@ -168,7 +174,7 @@ const DisplayContact = (props) => {
           />
         </Box>
       </Box>
-      {/* <Box>
+      <Box>
         {editable && (
           <Box
             sx={{
@@ -181,24 +187,36 @@ const DisplayContact = (props) => {
             <Button
               sx={{
                 fontWeight: "bold",
-                color: "var(--primary-color)",
-              }}
-              onClick={saveEmployee}
-            >
-              Save
-            </Button>
-            <Button
-              sx={{
-                fontWeight: "bold",
                 color: "gray",
               }}
               onClick={cancelEdit}
             >
               Cancel
             </Button>
+            <Button
+              sx={{
+                fontWeight: "bold",
+                color: "var(--primary-color)",
+              }}
+              onClick={() => nextButtonCallback(editedEmployeeData)}
+            >
+              Save
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                fontWeight: "bold",
+                backgroundColor: "var(--secondary-color)",
+                color: "#ffffff",
+              }}
+              onClick={() => saveNextButtonCallback(editedEmployeeData)}
+            >
+              Save & Next
+            </Button>
+
           </Box>
         )}
-      </Box> */}
+      </Box>
     </Box>
   );
 };

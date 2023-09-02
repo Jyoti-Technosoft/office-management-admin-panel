@@ -17,27 +17,29 @@ const EmpButton = () => {
   const { userData, setEditable, editable, setUserData, employeeApiEndpoint } = useContext(GlobalContext);
   const [selectedTab, setSelectedTab] = useState("personal");
   const { employeeId } = useParams();
-  const [employeeCall, setEmployeeCall] = useState(userData.find((user) => user.id === parseInt(employeeId)));
+  const [empID, setEmpId] = useState(employeeId);
+  console.log("empID", empID);
+  const [employeeCall, setEmployeeCall] = useState(userData.find((user) => user.id === parseInt(empID)));
   // eslint-disable-next-line no-const-assign
   console.log("employeeCall", employeeCall);
-  
+
   const addNewEmployee = () => {
     if (employeeCall?.id === undefined) {
       setEditable(true);
     }
   };
   useEffect(() => {
-      setEditable(false)
-      addNewEmployee()
+    setEditable(false)
+    addNewEmployee()
   }, [])
-  
+
   console.log("Editable: ", editable);
 
   // const [openDialog, setOpenDialog] = useState(false);
   // EMP DATA STATE IF EDIT INIT WITH DATA
 
-  // const { employeeId } = useParams();
-  // const employeeCall = userData.find((user) => user.id === parseInt(employeeId));
+  // const { empID } = useParams();
+  // const employeeCall = userData.find((user) => user.id === parseInt(empID));
   // const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
 
   // const handleInputChange = (event) => {
@@ -54,7 +56,7 @@ const EmpButton = () => {
 
   // SAVING DATA 
   // const saveEmployee = () => {
-  //   if (employeeId === undefined) {
+  //   if (empID === undefined) {
   //     // Add new employee
   //     axios
   //       .post(`${employeeApiEndpoint}`, editedEmployeeData)  // Use POST for adding new records
@@ -70,11 +72,11 @@ const EmpButton = () => {
   //   } else {
   //     // Update existing employee
   //     axios
-  //       .put(`${employeeApiEndpoint}/${employeeId}`, editedEmployeeData)
+  //       .put(`${employeeApiEndpoint}/${empID}`, editedEmployeeData)
   //       .then((response) => {
   //         console.log("Data Edited and Saved Successfully");
   //         const updatedUserData = userData.map((user) =>
-  //           user.id === parseInt(employeeId) ? editedEmployeeData : user
+  //           user.id === parseInt(empID) ? editedEmployeeData : user
   //         );
   //         setUserData(updatedUserData);
   //         setEditable(false);
@@ -86,17 +88,45 @@ const EmpButton = () => {
   // };
 
   const saveNewData = (data) => {
-    axios.put(`${employeeApiEndpoint}/${employeeId}`, data)
-      .then((response) => {
-        console.log("Data Edited and Saved Successfully");
-        const updatedUserData = userData.map((user) =>
-          user.id === parseInt(employeeId) ? data : user
-        );
-        setUserData(updatedUserData);
-      })
-      .catch((error) => {
-        console.error(error);
+    if (empID === undefined) {
+      // Add new employee
+      axios
+        .post(`${employeeApiEndpoint}`, data)
+        .then((response) => {
+          console.log("New Employee Data Added Successfully");
+          
+          const updatedUserData = [...userData, response.data];
+          setUserData(updatedUserData);
+          setEmployeeCall(response.data);
+          setEmpId(response.data.id);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      // Update existing employee
+      userData.map((user) => {
+        if (user.id === parseInt(empID)) {
+          console.log("USER " + user);
+          console.log("DATA" + data);
+          data = Object.assign(user, data);
+        }
       });
+      axios
+        .put(`${employeeApiEndpoint}/${empID}`, data)
+        .then((response) => {
+          console.log("Data Edited and Saved Successfully");
+          const updatedUserData = userData.map((user) =>
+            user.id === parseInt(empID) ? response.data : user
+          );
+          setUserData(updatedUserData);
+          setEmployeeCall(response.data);
+          // setEditable(false);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   }
 
   const saveNextButtonCallback = (activeTabData) => {
@@ -112,9 +142,11 @@ const EmpButton = () => {
     setEditable(false);
   };
 
-  const exitEditMode = () => {
-    setEditable(false);
-  }
+  // const cancelEdit = () => {
+  //   setEmployeeCall({ ...originalEmployeeData });
+  //   console.log("kdk");
+  //   setEditable(false);
+  //   }
 
   const tabOrder = [
     "personal",
@@ -140,16 +172,16 @@ const EmpButton = () => {
   //   }
   // };
 
-
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
+
   };
 
   const renderTabContent = () => {
     if (selectedTab === "personal") {
-      return <DisplayPersonal employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} exitEditMode={exitEditMode} />;
+      return <DisplayPersonal employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "contact") {
-      return <DisplayContact employeeCall={employeeCall} />;
+      return <DisplayContact employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "education") {
       return <DisplayEducation employeeCall={employeeCall} />;
     } else if (selectedTab === "family") {
