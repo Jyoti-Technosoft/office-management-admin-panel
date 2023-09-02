@@ -5,11 +5,12 @@ import { Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
 
 const DisplayContact = (props) => {
-  const {employeeCall, nextButtonCallback} = props;
+  const {employeeCall, saveNextButtonCallback, nextButtonCallback, exitEditMode} = props;
   console.log("lsdlksd", nextButtonCallback )
   // DATA CALLING START
   const {setEditable, editable } = useContext(GlobalContext);
   const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
+  
   const editEmployee = () => {
     setEditable(true);
   };
@@ -22,21 +23,12 @@ const DisplayContact = (props) => {
     }));
   };
 
-  const addNewEmployee = () => {
-    if (employeeCall?.id === undefined) {
-      setEditable(true);
-    }
-  };
-  useEffect(() => {
-    addNewEmployee();
-  }, []);
-
   return (
     <Box
       sx={{
         marginTop: "10px",
         marginLeft: "9px",
-      }}s
+      }}
     >
       <Box
         sx={{

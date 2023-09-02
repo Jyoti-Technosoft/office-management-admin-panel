@@ -14,21 +14,25 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const EmpButton = () => {
-  const { userData, setEditable, editable, setUserData,employeeApiEndpoint } = useContext(GlobalContext);
+  const { userData, setEditable, editable, setUserData, employeeApiEndpoint } = useContext(GlobalContext);
   const [selectedTab, setSelectedTab] = useState("personal");
   const { employeeId } = useParams();
   const [employeeCall, setEmployeeCall] = useState(userData.find((user) => user.id === parseInt(employeeId)));
   // eslint-disable-next-line no-const-assign
   console.log("employeeCall", employeeCall);
+  
+  const addNewEmployee = () => {
+    if (employeeCall?.id === undefined) {
+      setEditable(true);
+    }
+  };
   useEffect(() => {
-    return (
       setEditable(false)
-    );
+      addNewEmployee()
   }, [])
+  
   console.log("Editable: ", editable);
 
-
-  // const [tabIndex, setTabIndex] = useState(0);
   // const [openDialog, setOpenDialog] = useState(false);
   // EMP DATA STATE IF EDIT INIT WITH DATA
 
@@ -81,63 +85,52 @@ const EmpButton = () => {
   //   }
   // };
 
-  const nextButtonCallback = (activeTabData) => {
-    // setEmployeeCall(activeTabData);
+  const saveNewData = (data) => {
+    axios.put(`${employeeApiEndpoint}/${employeeId}`, data)
+      .then((response) => {
+        console.log("Data Edited and Saved Successfully");
+        const updatedUserData = userData.map((user) =>
+          user.id === parseInt(employeeId) ? data : user
+        );
+        setUserData(updatedUserData);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  const saveNextButtonCallback = (activeTabData) => {
     console.log("NewEmployeeCallData", activeTabData);
-    axios.put(`${employeeApiEndpoint}/${employeeId}`, activeTabData)
-        .then((response) => {
-          console.log("Data Edited and Saved Successfully");
-          const updatedUserData = userData.map((user) =>
-            user.id === parseInt(employeeId) ? activeTabData : user
-          );
-          setUserData(updatedUserData);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      setEditable(false);
+    saveNewData(activeTabData);
+    setEditable(true);
+    handleNext();
+
   };
-  const exitEditMode = () =>{
+  const nextButtonCallback = (activeTabData) => {
+    console.log("NewEmployeeCallData", activeTabData);
+    saveNewData(activeTabData);
+    setEditable(false);
+  };
+
+  const exitEditMode = () => {
     setEditable(false);
   }
 
-  // const nextButtonCallback = (activeTabData) => {
-  //   // Enable the Next button and update the userData
-  //   setUserData((prevUserData) => {
-  //     const index = prevUserData.findIndex((user) => user.id === activeTabData.id);
+  const tabOrder = [
+    "personal",
+    "contact",
+    "education",
+    "family",
+    "experience",
+    "job",
+    "financial",
+    "leave",
+  ];
 
-  //     // If the user exists in userData, update their data, otherwise add them to userData
-  //     if (index !== -1) {
-  //       const updatedUserData = [...prevUserData];
-  //       updatedUserData[index] = activeTabData;
-  //       return updatedUserData;
-  //     } else {
-  //       return [...prevUserData, activeTabData];
-  //     }
-  //   });
-  // };
-
-
-
-  // const tabOrder = [
-  //   "personal",
-  //   "contact",
-  //   "education",
-  //   "family",
-  //   "experience",
-  //   "job",
-  //   "financial",
-  //   "leave",
-  // ];
-
-
-  // const handleNext = () => {
-  //   const nextTabIndex = tabIndex + 1;
-  //   if (nextTabIndex < tabOrder.length) {
-  //     setTabIndex(nextTabIndex);
-  //     setSelectedTab(tabOrder[nextTabIndex]);
-  //   }
-  // };
+  const handleNext = () => {
+    let index = tabOrder.indexOf(selectedTab)
+    setSelectedTab(tabOrder[index + 1]);
+  };
 
   // const handlePrevious = () => {
   //   const previousTabIndex = tabIndex - 1;
@@ -154,7 +147,7 @@ const EmpButton = () => {
 
   const renderTabContent = () => {
     if (selectedTab === "personal") {
-      return <DisplayPersonal employeeCall={employeeCall} nextButtonCallback={nextButtonCallback} exitEditMode={exitEditMode} />;
+      return <DisplayPersonal employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} exitEditMode={exitEditMode} />;
     } else if (selectedTab === "contact") {
       return <DisplayContact employeeCall={employeeCall} />;
     } else if (selectedTab === "education") {

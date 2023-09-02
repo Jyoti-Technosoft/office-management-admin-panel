@@ -21,7 +21,7 @@ import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 const DisplayPersonal = (props) => {
-  const {employeeCall, nextButtonCallback, exitEditMode} = props;
+  const {employeeCall, saveNextButtonCallback, nextButtonCallback, exitEditMode} = props;
   console.log("lsdlksd", nextButtonCallback )
   // DATA CALLING START
   const {setEditable, editable } = useContext(GlobalContext);
@@ -39,16 +39,6 @@ const DisplayPersonal = (props) => {
       [name]: value,
     }));
   };
-
-  //FOR ADDING NEW EMPLOYEE IF ANY ID IS NOT FOUND
-  const addNewEmployee = () => {
-    if (employeeCall?.id === undefined) {
-      setEditable(true);
-    }
-  };
-  useEffect(() => {
-    addNewEmployee();
-  }, []);
 
   return (
     <Box>
@@ -276,7 +266,7 @@ const DisplayPersonal = (props) => {
                 <Button
                 sx={{
                   fontWeight: "bold",
-                  color: "var(--primary-color)",
+                  color: "gray",
                 }}
                 onClick={exitEditMode}
               >
@@ -287,7 +277,18 @@ const DisplayPersonal = (props) => {
                   fontWeight: "bold",
                   color: "var(--primary-color)",
                 }}
-                onClick={() => nextButtonCallback( editedEmployeeData)}
+                onClick={() => nextButtonCallback(editedEmployeeData)}
+                >
+                Save
+              </Button>
+              <Button
+              variant="contained"
+                sx={{
+                  fontWeight: "bold",
+                  backgroundColor: "var(--secondary-color)",
+                  color: "#ffffff",
+                }}
+                onClick={() => saveNextButtonCallback( editedEmployeeData)}
                 >
                 Save & Next
               </Button>
