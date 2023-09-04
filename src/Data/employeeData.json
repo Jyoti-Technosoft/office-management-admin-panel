@@ -6,17 +6,17 @@
       "personalDob": "2001-07-31",
       "personalAddress": "3001 Om Flats, New York, USA ",
       "personalBlood": "AB-",
-      "contactPersonalNumber": "5555555555",
-      "contactAdditionalNumber": "5555555555",
+      "contactPersonalNumber": "1111111111",
+      "contactAdditionalNumber": "1111111111",
       "contactEmail": "yash@gmail.com",
       "contactState": "USA",
       "contactCity": "New York ",
       "contactResidental": "3001 Om Flats, New York, USA ",
       "educationCourse": "EducationCourseName",
-      "educationUniversity": "EducationUniversityName",
-      "educationAcademicStart": "2023-08-08",
+      "educationUniversity": "jlkhzdlkjfjzsdf",
+      "educationAcademicStart": "2023-07-03",
       "educationAcademicEnd": "2023-08-18",
-      "educationCertificate": "ProfessionCertificationName",
+      "educationCertificate": "EducationCertification",
       "educationPlace": "ProfessinalCompleitedAt",
       "educationProfessionalStart": "2023-08-17",
       "educationProfessionalEnd": "2023-08-16",
@@ -351,11 +351,6 @@
       "financialIfsc": "LEGALBANK001",
       "financialBranchName": "Legal Bank Branch",
       "id": 9
-    },
-    {
-      "personalFirstname": "xsxs",
-      "jobDepartment": "Marketing",
-      "id": 10
     }
   ]
 }

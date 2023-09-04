@@ -19,7 +19,7 @@ export const InputFieldProps = () => {
 };
 export const InputFieldPropsForm = () => {
   return {
-    height: "13px",
+    // height: "13px",
   };
 };
 export const errorMessageDesign = {
@@ -56,7 +56,7 @@ export const viewEducationBox = {
   backgroundColor: "var(--primary-highlight-color)",
   borderRadius: "10px",
   padding: "15px",
-  marginTop: "15px",
+  marginBottom: "10px",
 };
 export const viewEducationTitle = {
   fontWeight: "bold",

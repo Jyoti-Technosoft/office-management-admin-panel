@@ -142,12 +142,6 @@ const EmpButton = () => {
     setEditable(false);
   };
 
-  // const cancelEdit = () => {
-  //   setEmployeeCall({ ...originalEmployeeData });
-  //   console.log("kdk");
-  //   setEditable(false);
-  //   }
-
   const tabOrder = [
     "personal",
     "contact",
@@ -184,7 +178,7 @@ const EmpButton = () => {
     } else if (selectedTab === "contact") {
       return <DisplayContact employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "education") {
-      return <DisplayEducation employeeCall={employeeCall} />;
+      return <DisplayEducation employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "family") {
       return <DisplayFamily employeeCall={employeeCall} />;
     } else if (selectedTab === "experience") {
