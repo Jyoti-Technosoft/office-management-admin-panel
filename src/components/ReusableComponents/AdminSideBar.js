@@ -1,13 +1,14 @@
 import React, { useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { GlobalContext } from "../../ContextAPI/CustomContext";
+import { Box, Button, Grid, Typography } from "@mui/material";
 // ICON IMPORT
 import ProfileImg from "../../assets/img/adminIcon.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/img/icons/dashboardIcon.svg";
 import { ReactComponent as EmployeeIcon } from "../../assets/img/icons/EmpIcon.svg";
 import { ReactComponent as LeaveIcon } from "../../assets/img/icons/leaveIcon.svg";
 import { ReactComponent as AttendanceIcon } from "../../assets/img/icons/attendanceIcon.svg";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
-import { GlobalContext } from "../../ContextAPI/CustomContext";
+
 const AdminSideBar = () => {
   const { setAdminFirstName, setAdminLastName, setAdminPosition, adminFirstName, adminLastName, adminPosition } =
     useContext(GlobalContext);

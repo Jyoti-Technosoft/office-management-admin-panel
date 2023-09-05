@@ -48,7 +48,7 @@ export const viewProfileTitle = {
 };
 export const viewProfileSubtitle = {
   fontSize: "13px",
-  color: "var(--text-gray-color)",
+  color: "var(--secondary-text-color)",
 };
 export const viewEducationBox = {
   height: "auto",

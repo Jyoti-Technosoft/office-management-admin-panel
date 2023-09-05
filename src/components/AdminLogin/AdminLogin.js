@@ -17,7 +17,6 @@ const AdminLogin = () => {
   // console.log("Login ", admin);
   const { setShowToast, showToast, adminApiEndpoint } =
     useContext(GlobalContext);
-  console.log("adminApiEndpoint", adminApiEndpoint);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

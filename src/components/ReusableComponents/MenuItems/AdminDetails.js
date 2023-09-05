@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from "react";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box, Grid, IconButton } from "@mui/material";
 import ProfileImg from "./../../../assets/img/adminIcon.svg";
 import AdminSideBar from "../../ReusableComponents/AdminSideBar";
 import Header from "../../ReusableComponents/Header";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";
+import CallIcon from "@mui/icons-material/Call";
+import EmailIcon from "@mui/icons-material/Email";
+import EditIcon from "@mui/icons-material/Edit";
 
 const AdminDetails = () => {
   const {
@@ -17,6 +20,8 @@ const AdminDetails = () => {
     adminPosition,
     adminEmail,
     adminPhonenumber,
+    themeChange,
+    setThemeChange,
   } = useContext(GlobalContext);
   useEffect(() => {
     const adminFirstNameFromStorage = localStorage.getItem("adminFirstName");
@@ -62,25 +67,24 @@ const AdminDetails = () => {
             <Box
               sx={{
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                marginTop: "30px",
                 borderRadius: "10px",
                 background: "var(--background-table-sidebar-card-color)",
-                // width: "300px",
+                width: "500px",
               }}
             >
               <Box
                 sx={{
                   position: "relative",
-                  background: "#2c7be51a",
-                  height: "100px",
                 }}
               >
                 <Box
                   sx={{
-                    position: "absolute",
-                    margin: "30px 0px 0px 20px",
-                    boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
-                    borderRadius: "60px",
+                    padding: "20px 20px 10px",
+                    borderBottom: "1px solid var(--table-border-color)",
+                    boxShadow: "0px 13px 10px -20px #111",
+                    // alignItems:"center",
+                    // display:"flex",
+                    // justifyContent:"center",
                   }}
                 >
                   <img width={"120px"} src={ProfileImg} alt="profile" />
@@ -91,20 +95,10 @@ const AdminDetails = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  padding: "30px",
-                  marginTop: "40px",
+                  padding: "10px 20px 20px",
                 }}
               >
                 <Box>
-                  {/* <Typography
-                    sx={{
-                      fontSize: "11px",
-                      marginTop: "15px",
-                      color: "var(--secondary-text-color)",
-                    }}
-                    >
-                    Name
-                </Typography> */}
                   <Typography
                     sx={{
                       fontWeight: "600",
@@ -114,7 +108,7 @@ const AdminDetails = () => {
                   >
                     {`${capitalizeFirstLetter(
                       adminFirstName
-                    )} ${capitalizeFirstLetter(adminLastName)}`}
+                    )} ${capitalizeFirstLetter(adminLastName)}`}{" "}
                   </Typography>
                   <Typography
                     sx={{
@@ -125,110 +119,87 @@ const AdminDetails = () => {
                   >
                     {adminPosition}
                   </Typography>
-                  {/* <Typography
-                    sx={{
-                        //   fontWeight: "600",
+                </Box>
+                <Box>
+                  <Box sx={{ marginRight: "50px" }}>
+                    <Typography
+                      sx={{
+                        // fontWeight: "600",
                         fontSize: "15px",
                         color: "var(--secondary-text-color)",
-                    }}
+                        display: "flex",
+                        alignItems: "center",
+                      }}
                     >
-                    {adminEmail}
-                </Typography> */}
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Box>
-                      <Typography
-                        sx={{
-                          fontSize: "11px",
-                          marginTop: "15px",
-                          color: "var(--secondary-text-color)",
-                        }}
-                      >
-                        Email
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontWeight: "600",
-                          fontSize: "15px",
-                          color: "var(--secondary-text-color)",
-                        }}
-                      >
-                        {adminEmail}
-                      </Typography>
-                    </Box>
-                    <Box sx={{ marginLeft: "30px" }}>
-                      <Typography
-                        sx={{
-                          fontSize: "11px",
-                          marginTop: "15px",
-                          color: "var(--secondary-text-color)",
-                        }}
-                      >
-                        Phone Number
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontWeight: "600",
-                          fontSize: "15px",
-                          color: "var(--secondary-text-color)",
-                        }}
-                      >
-                        {adminPhonenumber}
-                      </Typography>
-                    </Box>
-                    {/* <Typography
-                    sx={{
-                      fontSize: "11px",
-                      marginTop: "15px",
-                      color: "var(--secondary-text-color)",
-                    }}
-                  >
-                    Position
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontWeight: "600",
-                      fontSize: "15px",
-                      color: "var(--secondary-text-color)",
-                    }}
-                  >
-                    {capitalizeFirstLetter(adminPosition)}
-                  </Typography> */}
+                      <EmailIcon sx={{ marginRight: "10px" }} />
+                      {adminEmail}
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography
+                      sx={{
+                        // fontWeight: "600",
+                        fontSize: "15px",
+                        color: "var(--secondary-text-color)",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <CallIcon sx={{ marginRight: "10px" }} />
+                      {adminPhonenumber}
+                    </Typography>
                   </Box>
                 </Box>
               </Box>
             </Box>
+
+            {/* For Intro about admin */}
             <Box
               sx={{
                 boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
                 marginTop: "30px",
                 borderRadius: "10px",
                 background: "var(--background-table-sidebar-card-color)",
-                // width: "300px",
-                padding: "30px",
               }}
             >
-              <Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignContent: "center",
+                  padding: "30px",
+                  boxShadow: "0px 13px 10px -20px #111",
+                  borderBottom: "1px solid var(--table-border-color)",
+                  background: "var(--primary-highlight-color)",
+                }}
+              >
                 <Typography
                   sx={{
                     fontWeight: "bold",
                     fontSize: "25px",
-                    marginTop: "15px",
                     color: "var(--secondary-text-color)",
                   }}
                 >
                   Intro
                 </Typography>
+                <Box
+                  sx={{
+                    fontWeight: "bold",
+                    fontSize: "25px",
+                    marginTop: "-10px",
+                    color: "var(--secondary-text-color)",
+                  }}
+                >
+                  <IconButton sx={{ color: "var(--third-color)" }}>
+                    <EditIcon />
+                  </IconButton>
+                </Box>
+              </Box>
+              <Box sx={{ padding: "30px" }}>
                 <Typography
                   sx={{
                     fontSize: "15px",
                     color: "var(--secondary-text-color)",
-                    marginTop: "15px",
                   }}
                 >
                   Dedicated, passionate, and accomplished Full Stack Developer

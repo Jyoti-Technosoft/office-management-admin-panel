@@ -30,7 +30,6 @@ const CustomDialogBox = ({
     axios
       .delete(`${employeeApiEndpoint}/${employeeId}`)
       .then((response) => {
-        console.log(`Employee Deleted Successfully`);
         navigate("/dashboard");
         setShowToast({
           show: true,

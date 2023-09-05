@@ -70,7 +70,6 @@ const CustomContext = (props) => {
     axios.get(`${employeeApiEndpoint}`)
       .then(response => {
         setUserData(response.data);
-        console.log("Dashboard New: ", userData);
       })
       .catch(error => {
         console.error(error);

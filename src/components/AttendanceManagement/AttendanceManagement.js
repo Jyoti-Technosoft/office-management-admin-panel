@@ -14,7 +14,6 @@ const AttendanceManagement = () => {
 
   useEffect(() => {
     setUserData(employeeData);
-    console.log("Dashboard: ", employeeData);
   }, [employeeData]);
 
   return (

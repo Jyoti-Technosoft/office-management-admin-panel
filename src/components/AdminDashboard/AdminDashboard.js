@@ -27,15 +27,12 @@ const AdminDashboard = () => {
   const [leaveData, setLeaveData] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
   const [selectedTab, setSelectedTab] = useState("employee");
-  console.log("employeeData", employeeData);
 
   const getData = () => {
     axios
       .get(`${employeeApiEndpoint}`)
       .then((response) => {
-        console.log("re", response);
         setUserData(response.data);
-        console.log("Dashboard New: ", userData);
       })
       .catch((error) => {
         console.error(error);
@@ -296,7 +293,7 @@ const AdminDashboard = () => {
                             textAlign: "left",
                           }}
                         >
-                          Attandance
+                          Attendance
                         </Typography>
                       </Box>
                     </Box>

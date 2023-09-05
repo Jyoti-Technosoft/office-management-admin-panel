@@ -18,7 +18,6 @@ const LeaveTable = () => {
 
   useEffect(() => {
     setLeaveData(employeeData);
-    console.log("Dashboard: ", employeeData);
   }, [employeeData]);
   return (
     <Box>

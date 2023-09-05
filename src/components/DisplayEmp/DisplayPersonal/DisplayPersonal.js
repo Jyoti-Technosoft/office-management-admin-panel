@@ -10,6 +10,7 @@ import {
   TextField,
   MenuItem,
   Select,
+  InputAdornment,
 } from "@mui/material";
 import ProfileImg from "../../../assets/img/adminIcon.svg";
 import { viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
@@ -18,15 +19,36 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
 import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+// import styled from "@emotion/styled";
+
+// const CustomTextField = styled(TextField)({
+//   /* Remove border from all TextField components */
+//   ".MuiOutlinedInput-root": {
+//     border: "none !important",
+//   },
+
+//   /* Remove border for all TextField components */
+//   ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+//     border: "none !important",
+//   },
+
+//   /* Remove border when focused for all TextField components */
+//   ".MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+//     border: "none !important",
+//   },
+// });
 
 const DisplayPersonal = (props) => {
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   // DATA CALLING START
   const { setEditable, editable, isValid } = useContext(GlobalContext);
   const [openDialog, setOpenDialog] = useState(false);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall });
-  const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
-
+  const [editedEmployeeData, setEditedEmployeeData] = useState({
+    ...employeeCall,
+  });
+  const [originalEmployeeData, setOriginalEmployeeData] = useState({
+    ...employeeCall,
+  });
 
   const editEmployee = () => {
     console.log("Entering edit mode");
@@ -39,6 +61,7 @@ const DisplayPersonal = (props) => {
       [name]: value,
     }));
   };
+
   const cancelEdit = () => {
     setEditedEmployeeData({ ...originalEmployeeData });
     setEditable(false);
@@ -94,8 +117,8 @@ const DisplayPersonal = (props) => {
     // FOR PHONE NUMBER
     if (!editedEmployeeData.contactPersonalNumber) {
       newErrors.contactPersonalNumber = "Phone number is required";
-    } else if (!/^\d{10}$/.test(editedEmployeeData.contactPersonalNumber)) {
-      newErrors.contactPersonalNumber = "Phone number must be 10 digits";
+    } else if (!/^[6-9]\d{9}$/.test(editedEmployeeData.contactPersonalNumber)) {
+      newErrors.contactPersonalNumber = "Phone number is not valid";
     }
 
     setErrors(newErrors);
@@ -104,13 +127,6 @@ const DisplayPersonal = (props) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // const handleSave = () => {
-  //   const isValid = validateForm();
-  //   if (isValid) {
-  //     nextButtonCallback(editedEmployeeData);
-  //     saveNextButtonCallback(editedEmployeeData);
-  //   }
-  // };
   // END --
 
   return (
@@ -118,7 +134,6 @@ const DisplayPersonal = (props) => {
       {/* EDIT AND DELETE BUTTONS */}
       {employeeCall?.id && !editable ? (
         <Box
-
           sx={{
             display: "flex",
             justifyContent: "flex-end",
@@ -186,6 +201,7 @@ const DisplayPersonal = (props) => {
         <form>
           <Grid container>
             {/* LEFT PART */}
+            <Box sx={{ color: "" }}></Box>
             <Grid container xs={12} md={6} rowSpacing={2}>
               <Grid item xs={12}>
                 <Typography sx={viewProfileSubtitle}>Employee Name</Typography>
@@ -195,6 +211,16 @@ const DisplayPersonal = (props) => {
                   }}
                   sx={{
                     width: "80%",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
                   }}
                   name="personalFirstname"
                   value={editedEmployeeData.personalFirstname}
@@ -211,11 +237,22 @@ const DisplayPersonal = (props) => {
                   sx={{
                     width: "80%",
                     height: "45px",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
                   }}
                   name="jobDepartment"
                   value={editedEmployeeData.jobDepartment}
                   disabled={!editable}
                   onChange={handleInputChange}
+                  select
                 >
                   <MenuItem value="">Select a Department</MenuItem>
                   <MenuItem value="HR">HR</MenuItem>
@@ -238,6 +275,16 @@ const DisplayPersonal = (props) => {
                   sx={{
                     width: "80%",
                     height: "45px",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
                   }}
                   name="jobDesignation"
                   value={editedEmployeeData.jobDesignation}
@@ -261,6 +308,16 @@ const DisplayPersonal = (props) => {
                   sx={{
                     width: "80%",
                     height: "45px",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
                   }}
                   name="jobCategory"
                   value={editedEmployeeData.jobCategory}
@@ -289,6 +346,16 @@ const DisplayPersonal = (props) => {
                   }}
                   sx={{
                     width: "80%",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
                   }}
                   name="jobDoj"
                   value={editedEmployeeData.jobDoj}
@@ -302,7 +369,20 @@ const DisplayPersonal = (props) => {
                 <Typography sx={viewProfileSubtitle}>Date of Birth</Typography>
                 <TextField
                   inputProps={{ sx: InputFieldPropsForm() }}
-                  sx={{ width: "80%" }}
+                  sx={{
+                    width: "80%",
+                    color: "white",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
+                  }}
                   name="personalDob"
                   value={editedEmployeeData.personalDob}
                   type="date"
@@ -319,6 +399,16 @@ const DisplayPersonal = (props) => {
                   sx={{
                     width: "80%",
                     height: "45px",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
                   }}
                   name="personalBlood"
                   value={editedEmployeeData.personalBlood}
@@ -349,6 +439,24 @@ const DisplayPersonal = (props) => {
                   }}
                   sx={{
                     width: "80%",
+                    background: "var(--primary-highlight-color)",
+                    borderRadius: "10px",
+                    ".Mui-disabled": {
+                      opacity: "1",
+                      WebkitTextFillColor:
+                        "var(--secondary-text-color) !important",
+                    },
+                    ".MuiOutlinedInput-input": {
+                      color: "var(--secondary-text-color) !important",
+                    },
+                    ".MuiTypography-root": {
+                      color: "var(--secondary-text-color) !important",
+                    },
+                  }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">+91</InputAdornment>
+                    ),
                   }}
                   name="contactPersonalNumber"
                   value={editedEmployeeData.contactPersonalNumber}
@@ -412,9 +520,9 @@ const DisplayPersonal = (props) => {
                     saveNextButtonCallback(editedEmployeeData);
                   }
                 }}
-                >
+              >
                 Save & Next
-                </Button>
+              </Button>
             </Box>
           )}
         </Box>

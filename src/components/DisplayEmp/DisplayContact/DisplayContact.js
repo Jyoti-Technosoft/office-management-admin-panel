@@ -1,5 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Box, Typography, IconButton, TextField, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  IconButton,
+  TextField,
+  Button,
+  InputAdornment,
+} from "@mui/material";
 import {
   InputFieldPropsForm,
   viewProfileSubtitle,
@@ -50,14 +57,14 @@ const DisplayContact = (props) => {
     // FOR PersonalNumber
     if (!editedEmployeeData.contactPersonalNumber) {
       newErrors.contactPersonalNumber = "Phone number is required";
-    } else if (!/^\d{10}$/.test(editedEmployeeData.contactPersonalNumber)) {
-      newErrors.contactPersonalNumber = "Phone number must be 10 digits";
+    } else if (!/^[6-9]\d{9}$/.test(editedEmployeeData.contactPersonalNumber)) {
+      newErrors.contactPersonalNumber = "Phone number is not valid";
     }
     // FOR AdditionalNumber
     if (!editedEmployeeData.contactAdditionalNumber) {
       newErrors.contactAdditionalNumber = "Phone number is required";
-    } else if (!/^\d{10}$/.test(editedEmployeeData.contactAdditionalNumber)) {
-      newErrors.contactAdditionalNumber = "Phone number must be 10 digits";
+    } else if (!/^[6-9]\d{9}$/.test(editedEmployeeData.contactAdditionalNumber)) {
+      newErrors.contactAdditionalNumber = "Phone number is not valid";
     }
     // FOR ContactEmail
     if (!editedEmployeeData.contactEmail) {
@@ -65,8 +72,7 @@ const DisplayContact = (props) => {
     } else if (
       !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(
         editedEmployeeData.contactEmail
-      )
-    ) {
+      )) {
       newErrors.contactEmail = "Invalid email format";
     }
     // FOR State
@@ -143,6 +149,11 @@ const DisplayContact = (props) => {
             sx={{
               width: "80%",
             }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">+91</InputAdornment>
+              ),
+            }}
             name="contactPersonalNumber"
             value={editedEmployeeData.contactPersonalNumber}
             disabled={!editable}
@@ -162,6 +173,11 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+            }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">+91</InputAdornment>
+              ),
             }}
             name="contactAdditionalNumber"
             value={editedEmployeeData.contactAdditionalNumber}
