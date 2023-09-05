@@ -12,14 +12,6 @@
       "contactState": "USA",
       "contactCity": "New York ",
       "contactResidental": "3001 Om Flats, New York, USA ",
-      "educationCourse": "EducationCourseName",
-      "educationUniversity": "jlkhzdlkjfjzsdf",
-      "educationAcademicStart": "2023-07-03",
-      "educationAcademicEnd": "2023-08-18",
-      "educationCertificate": "EducationCertification",
-      "educationPlace": "ProfessinalCompleitedAt",
-      "educationProfessionalStart": "2023-08-17",
-      "educationProfessionalEnd": "2023-08-16",
       "familyFirstname": "FamilyFirstname",
       "familyLastname": "FamilyLastname",
       "familyRelation": "FamilyRelation",
@@ -42,7 +34,9 @@
       "financialHolderName": "Yash Chouhan",
       "financialIfsc": "SBI000145",
       "financialBranchName": "Statebankofindia",
-      "id": 1
+      "id": 1,
+      "academicRecords": [],
+      "professionalRecords": []
     },
     {
       "personalFirstname": "John",
