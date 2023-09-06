@@ -101,5 +101,5 @@ td, th{
   border-bottom: 1px solid var(--table-border-color) !important;
 }
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
-  color: white !important;
+  color: var(--primary-text-color) !important;
 }

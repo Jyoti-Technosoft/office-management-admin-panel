@@ -169,17 +169,13 @@ const AdminSignup = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   const handleCloseDialog = () => {
-    setShowDialog(false);
+    return navigate("/");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const response = await axios.post(adminApiEndpoint, formData);
-
-      console.log(response.data);
-
       setFormData({
         fname: "",
         lname: "",
@@ -428,18 +424,15 @@ const AdminSignup = () => {
                 maxWidth="xs"
                 fullWidth
               >
-                <DialogTitle>Sign-up Successful</DialogTitle>
+                <DialogTitle>Sign-up Successsful</DialogTitle>
                 <DialogContent>
                   <Typography variant="body1">
                     You have successfully signed up!
                   </Typography>
-                  <Typography variant="body1">
-                    You can now log in using your credentials.
-                  </Typography>
                 </DialogContent>
                 <DialogActions>
                   <Button onClick={handleCloseDialog} color="primary" autoFocus>
-                    Close
+                    Login now
                   </Button>
                 </DialogActions>
               </Dialog>

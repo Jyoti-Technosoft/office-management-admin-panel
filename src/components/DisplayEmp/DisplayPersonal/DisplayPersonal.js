@@ -12,7 +12,7 @@ import {
   Select,
   InputAdornment,
 } from "@mui/material";
-import ProfileImg from "../../../assets/img/adminIcon.svg";
+import ProfileImg from "../../../assets/img/icons/employeeProfileIcon.svg";
 import { viewProfileSubtitle } from "../../CustomDesignMUI/CustomMUI";
 import { Delete, Edit } from "@mui/icons-material";
 import { GlobalContext } from "../../../ContextAPI/CustomContext";

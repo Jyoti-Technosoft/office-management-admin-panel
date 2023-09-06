@@ -12,11 +12,6 @@ const ViewProfile = () => {
       <AdminSideBar />
       <Grid xs={12} md={9.4}>
         <Header />
-        {/* <Box sx={{
-          padding: "15px",
-          marginLeft: "15px"
-        }}>
-        </Box> */}
         <Box
           sx={{
             margin: "0px 30px",
