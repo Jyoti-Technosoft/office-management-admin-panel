@@ -31,12 +31,12 @@ function App() {
             <Route path="/" element={<AdminLogin />} />
             <Route path="/signup" element={<AdminSignup />} />
             <Route path="/dashboard" element={<Protected><AdminDashboard /></Protected>} />
-            <Route path="/viewprofile/:employeeId" element={<Protected><ViewProfile /></Protected>} />
-            <Route path="/empmanagement" element={<Protected><EmpManagement /></Protected>} />
-            <Route path="/viewprofile/addemployee" element={<Protected> <ViewProfile/></Protected>}/>
-            <Route path="/leavemanagement" element={<Protected><LeaveManagement /></Protected>} />
-            <Route path="/attendancemanagement" element={<Protected> <AttendanceManagement /></Protected>} />
-            <Route path="/adminProfile" element={<Protected> <AdminDetails /></Protected>} />
+            <Route path="/profile/:employee_id" element={<Protected><ViewProfile /></Protected>} />
+            <Route path="/employee-management" element={<Protected><EmpManagement /></Protected>} />
+            <Route path="/profile/employee" element={<Protected> <ViewProfile/></Protected>}/>
+            <Route path="/leave-management" element={<Protected><LeaveManagement /></Protected>} />
+            <Route path="/attendance-management" element={<Protected> <AttendanceManagement /></Protected>} />
+            <Route path="/admin-profile" element={<Protected> <AdminDetails /></Protected>} />
           </Routes>
         </BrowserRouter>
       </div>

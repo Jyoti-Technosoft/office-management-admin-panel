@@ -16,8 +16,8 @@ import { useParams } from "react-router-dom";
 const EmpButton = () => {
   const { userData, setEditable, editable, setUserData, employeeApiEndpoint } = useContext(GlobalContext);
   const [selectedTab, setSelectedTab] = useState("personal");
-  const { employeeId } = useParams();
-  const [empID, setEmpId] = useState(employeeId);
+  const { employee_id } = useParams();
+  const [empID, setEmpId] = useState(employee_id);
   console.log("empID", empID);
   const [employeeCall, setEmployeeCall] = useState(userData.find((user) => user.id === parseInt(empID)));
   // eslint-disable-next-line no-const-assign

@@ -72,7 +72,7 @@ const AdminProfile = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose} component={Link} to="/adminProfile">
+          <MenuItem onClick={handleClose} component={Link} to="/admin-profile">
             <Box
               sx={{
                 color: "var(--dark-highlight-color)",

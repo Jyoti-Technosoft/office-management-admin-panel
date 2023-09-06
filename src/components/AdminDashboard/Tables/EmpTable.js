@@ -133,7 +133,7 @@ const EmpTable = () => {
                           disableInteractive
                           TransitionComponent={Zoom}
                         >
-                          <Link to={`/viewprofile/${user.id}`}>
+                          <Link to={`/profile/${user.id}`}>
                             <VisibilityIcon
                               sx={{
                                 fontSize: "1.5rem",
@@ -182,7 +182,7 @@ const EmpTable = () => {
                         disableInteractive
                         TransitionComponent={Zoom}
                       >
-                        <Link to={`/viewprofile/${user.id}`}>
+                        <Link to={`/profile/${user.id}`}>
                           <VisibilityIcon
                             sx={{
                               fontSize: "1.5rem",

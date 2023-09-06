@@ -18,9 +18,9 @@ const AdminSideBar = () => {
   };
 
   const isAttendanceManagementActive =
-    location.pathname === "/attendancemanagement";
-  const isLeaveManagement = location.pathname === "/leavemanagement";
-  const isEmpManagement = location.pathname === "/empmanagement";
+    location.pathname === "/attendance-management";
+  const isLeaveManagement = location.pathname === "/leave-management";
+  const isEmpManagement = location.pathname === "/employee-management";
   const isDashboard = location.pathname === "/dashboard";
 
   useEffect(() => {
@@ -142,7 +142,7 @@ const AdminSideBar = () => {
               },
             }}
             component={Link}
-            to="/empmanagement"
+            to="/employee-management"
           >
             <Box
               sx={{
@@ -181,7 +181,7 @@ const AdminSideBar = () => {
               },
             }}
             component={Link}
-            to="/leavemanagement"
+            to="/leave-management"
           >
             <Box
               sx={{
@@ -219,7 +219,7 @@ const AdminSideBar = () => {
               },
             }}
             component={Link}
-            to="/attendancemanagement"
+            to="/attendance-management"
           >
             <Box
               sx={{

@@ -24,11 +24,11 @@ const CustomDialogBox = ({
 
   // DATA CALLING START
   const { employeeApiEndpoint, setShowToast } = useContext(GlobalContext);
-  const { employeeId } = useParams();
+  const { employee_id } = useParams();
 
   const deleteEmployee = () => {
     axios
-      .delete(`${employeeApiEndpoint}/${employeeId}`)
+      .delete(`${employeeApiEndpoint}/${employee_id}`)
       .then((response) => {
         navigate("/dashboard");
         setShowToast({

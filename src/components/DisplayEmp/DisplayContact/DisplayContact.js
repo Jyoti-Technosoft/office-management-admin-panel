@@ -18,7 +18,7 @@ const DisplayContact = (props) => {
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   console.log("lsdlksd", nextButtonCallback);
   // DATA CALLING START
-  const { setEditable, editable, isValid } = useContext(GlobalContext);
+  const { setEditable, editable, themeChange } = useContext(GlobalContext);
   const [editedEmployeeData, setEditedEmployeeData] = useState({
     ...employeeCall,
   });
@@ -63,7 +63,9 @@ const DisplayContact = (props) => {
     // FOR AdditionalNumber
     if (!editedEmployeeData.contactAdditionalNumber) {
       newErrors.contactAdditionalNumber = "Phone number is required";
-    } else if (!/^[6-9]\d{9}$/.test(editedEmployeeData.contactAdditionalNumber)) {
+    } else if (
+      !/^[6-9]\d{9}$/.test(editedEmployeeData.contactAdditionalNumber)
+    ) {
       newErrors.contactAdditionalNumber = "Phone number is not valid";
     }
     // FOR ContactEmail
@@ -72,7 +74,8 @@ const DisplayContact = (props) => {
     } else if (
       !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(
         editedEmployeeData.contactEmail
-      )) {
+      )
+    ) {
       newErrors.contactEmail = "Invalid email format";
     }
     // FOR State
@@ -108,7 +111,7 @@ const DisplayContact = (props) => {
           justifyContent: "space-between",
           alignItems: "center",
         }}
-        >
+      >
         <Box>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             Contact Details
@@ -148,6 +151,18 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+              height: "55px",
+              background: themeChange ? "#142840" : "#ffffff",
+              ".Mui-disabled": {
+                opacity: "1",
+                WebkitTextFillColor: "var(--secondary-text-color) !important",
+              },
+              ".MuiOutlinedInput-input": {
+                color: "var(--secondary-text-color) !important",
+              },
+              ".MuiTypography-root": {
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             InputProps={{
               startAdornment: (
@@ -173,6 +188,18 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+              height: "55px",
+              background: themeChange ? "#142840" : "#ffffff",
+              ".Mui-disabled": {
+                opacity: "1",
+                WebkitTextFillColor: "var(--secondary-text-color) !important",
+              },
+              ".MuiOutlinedInput-input": {
+                color: "var(--secondary-text-color) !important",
+              },
+              ".MuiTypography-root": {
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             InputProps={{
               startAdornment: (
@@ -198,6 +225,15 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+              height: "55px",
+              background: themeChange ? "#142840" : "#ffffff",
+              ".Mui-disabled": {
+                opacity: "1",
+                WebkitTextFillColor: "var(--secondary-text-color) !important",
+              },
+              ".MuiOutlinedInput-input": {
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             name="contactEmail"
             value={editedEmployeeData.contactEmail}
@@ -216,6 +252,15 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+              height: "55px",
+              background: themeChange ? "#142840" : "#ffffff",
+              ".Mui-disabled": {
+                opacity: "1",
+                WebkitTextFillColor: "var(--secondary-text-color) !important",
+              },
+              ".MuiOutlinedInput-input": {
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             name="contactState"
             value={editedEmployeeData.contactState}
@@ -234,6 +279,15 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+              height: "55px",
+              background: themeChange ? "#142840" : "#ffffff",
+              ".Mui-disabled": {
+                opacity: "1",
+                WebkitTextFillColor: "var(--secondary-text-color) !important",
+              },
+              ".MuiOutlinedInput-input": {
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             name="contactCity"
             value={editedEmployeeData.contactCity}
@@ -252,6 +306,15 @@ const DisplayContact = (props) => {
             }}
             sx={{
               width: "80%",
+              height: "55px",
+              background: themeChange ? "#142840" : "#ffffff",
+              ".Mui-disabled": {
+                opacity: "1",
+                WebkitTextFillColor: "var(--secondary-text-color) !important",
+              },
+              ".MuiOutlinedInput-input": {
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             name="contactResidental"
             value={editedEmployeeData.contactResidental}

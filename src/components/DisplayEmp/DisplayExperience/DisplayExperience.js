@@ -12,11 +12,11 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 const DisplayExperience = () => {
   // DATA CALLING START
   const { userData } = useContext(GlobalContext);
-  const { employeeId } = useParams();
+  const { employee_id } = useParams();
   const employeeCall = userData.find(
-    (user) => user.id === parseInt(employeeId)
+    (user) => user.id === parseInt(employee_id)
   );
-  console.log("EmployeeID: ", employeeId);
+  console.log("EmployeeID: ", employee_id);
   console.log("Employee Details : ", employeeCall);
   if (!employeeCall) {
     return <Box>Loading...</Box>;

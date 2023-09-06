@@ -100,18 +100,6 @@ svg{
 td, th{
   border-bottom: 1px solid var(--table-border-color) !important;
 }
-
-/* Remove border from all TextField components */
-/* .MuiOutlinedInput-root {
-  border: none !important;
-} */
-
-/* Remove border for all TextField components */
-/* .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-  border: none !important;
-} */
-
-/* Remove border when focused for all TextField components */
-/* .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border: none !important;
-} */
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
+  color: white !important;
+}

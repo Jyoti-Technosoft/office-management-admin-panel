@@ -41,7 +41,7 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 const DisplayPersonal = (props) => {
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   // DATA CALLING START
-  const { setEditable, editable, isValid } = useContext(GlobalContext);
+  const { setEditable, editable, themeChange } = useContext(GlobalContext);
   const [openDialog, setOpenDialog] = useState(false);
   const [editedEmployeeData, setEditedEmployeeData] = useState({
     ...employeeCall,
@@ -211,8 +211,8 @@ const DisplayPersonal = (props) => {
                   }}
                   sx={{
                     width: "80%",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -220,6 +220,10 @@ const DisplayPersonal = (props) => {
                     },
                     ".MuiOutlinedInput-input": {
                       color: "var(--secondary-text-color) !important",
+                    },
+                    // for the border changes
+                    ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                      border: themeChange ? " " : "#fffffff",
                     },
                   }}
                   name="personalFirstname"
@@ -236,9 +240,8 @@ const DisplayPersonal = (props) => {
                 <Select
                   sx={{
                     width: "80%",
-                    height: "45px",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -252,7 +255,6 @@ const DisplayPersonal = (props) => {
                   value={editedEmployeeData.jobDepartment}
                   disabled={!editable}
                   onChange={handleInputChange}
-                  select
                 >
                   <MenuItem value="">Select a Department</MenuItem>
                   <MenuItem value="HR">HR</MenuItem>
@@ -274,9 +276,8 @@ const DisplayPersonal = (props) => {
                 <Select
                   sx={{
                     width: "80%",
-                    height: "45px",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -307,9 +308,8 @@ const DisplayPersonal = (props) => {
                 <Select
                   sx={{
                     width: "80%",
-                    height: "45px",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -346,8 +346,8 @@ const DisplayPersonal = (props) => {
                   }}
                   sx={{
                     width: "80%",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -371,9 +371,9 @@ const DisplayPersonal = (props) => {
                   inputProps={{ sx: InputFieldPropsForm() }}
                   sx={{
                     width: "80%",
+                    height: "55px",
                     color: "white",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -398,9 +398,8 @@ const DisplayPersonal = (props) => {
                 <Select
                   sx={{
                     width: "80%",
-                    height: "45px",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
@@ -439,8 +438,8 @@ const DisplayPersonal = (props) => {
                   }}
                   sx={{
                     width: "80%",
-                    background: "var(--primary-highlight-color)",
-                    borderRadius: "10px",
+                    height: "55px",
+                    background: themeChange ? "#142840" : "#ffffff",
                     ".Mui-disabled": {
                       opacity: "1",
                       WebkitTextFillColor:
