@@ -10,7 +10,7 @@ const Employee = () => {
 
   const navigation = useNavigate();
   const handleAddEmployee = () => {
-    navigation("/viewprofile/addemployee");
+    navigation("/profile/employee");
   };
   return (
     <>

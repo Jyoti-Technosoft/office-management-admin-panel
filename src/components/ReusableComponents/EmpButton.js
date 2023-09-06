@@ -35,58 +35,6 @@ const EmpButton = () => {
 
   console.log("Editable: ", editable);
 
-  // const [openDialog, setOpenDialog] = useState(false);
-  // EMP DATA STATE IF EDIT INIT WITH DATA
-
-  // const { empID } = useParams();
-  // const employeeCall = userData.find((user) => user.id === parseInt(empID));
-  // const [editedEmployeeData, setEditedEmployeeData] = useState({...employeeCall});
-
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setEditedEmployeeData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
-
-  //CALLBACK ALL TAB NEXT CLICK 
-  // TAB Array OF OBJECT 
-  // EMP DATA UPDATE/ADD
-
-  // SAVING DATA 
-  // const saveEmployee = () => {
-  //   if (empID === undefined) {
-  //     // Add new employee
-  //     axios
-  //       .post(`${employeeApiEndpoint}`, editedEmployeeData)  // Use POST for adding new records
-  //       .then((response) => {
-  //         console.log("New Employee Data Added Successfully");
-  //         const updatedUserData = [...userData, response.data]; // Add the new employee to the list
-  //         setUserData(updatedUserData);
-  //         setEditable(false);
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   } else {
-  //     // Update existing employee
-  //     axios
-  //       .put(`${employeeApiEndpoint}/${empID}`, editedEmployeeData)
-  //       .then((response) => {
-  //         console.log("Data Edited and Saved Successfully");
-  //         const updatedUserData = userData.map((user) =>
-  //           user.id === parseInt(empID) ? editedEmployeeData : user
-  //         );
-  //         setUserData(updatedUserData);
-  //         setEditable(false);
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   }
-  // };
-
   const saveNewData = (data) => {
     if (empID === undefined) {
       // Add new employee
@@ -195,8 +143,9 @@ const EmpButton = () => {
     <Box
       sx={{
         marginTop: "50px",
+        marginBottom: "100px",
       }}
-    >
+      >
       <Grid container spacing={3}>
         {/* LEFT BOX */}
         <Grid container xs={12} md={3.5}>
@@ -366,7 +315,6 @@ const EmpButton = () => {
               padding: "15px",
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.14)",
               color: "var(--primary-text-color)",
-
             }}>
             {renderTabContent()}
           </Box>

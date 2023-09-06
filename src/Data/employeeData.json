@@ -1,7 +1,7 @@
 {
   "employeeData": [
     {
-      "personalFirstname": "Yash Chohan",
+      "personalFirstname": "Yash",
       "personalLastname": "Chouhan",
       "personalDob": "2001-07-31",
       "personalAddress": "3001 Om Flats, New York, USA ",
@@ -35,8 +35,28 @@
       "financialIfsc": "SBI000145",
       "financialBranchName": "Statebankofindia",
       "id": 1,
-      "academicRecords": [],
-      "professionalRecords": []
+      "academicRecords": [
+        {
+          "educationUniversity": "Test",
+          "educationCourse": "Test",
+          "educationAcademicStart": "2023-09-11",
+          "educationAcademicEnd": "2023-09-28"
+        },
+        {
+          "educationUniversity": "test",
+          "educationCourse": "test",
+          "educationAcademicStart": "2023-09-19",
+          "educationAcademicEnd": "2023-09-22"
+        }
+      ],
+      "professionalRecords": [
+        {
+          "educationCertificate": "Test1",
+          "educationPlace": "Test1",
+          "educationProfessionalStart": "2023-09-01",
+          "educationProfessionalEnd": "2023-09-28"
+        }
+      ]
     },
     {
       "personalFirstname": "John",
