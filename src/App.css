@@ -103,8 +103,7 @@ td, th{
 }
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
   color: var(--primary-text-color) !important;
-<<<<<<< Updated upstream
-=======
+
 }
 .Mui-disabled {
   opacity: 1;
@@ -119,5 +118,4 @@ td, th{
 }
 .css-18x7xpy-MuiFormLabel-root-MuiInputLabel-root {
   color: var(--secondary-text-color) !important;
->>>>>>> Stashed changes
 }
