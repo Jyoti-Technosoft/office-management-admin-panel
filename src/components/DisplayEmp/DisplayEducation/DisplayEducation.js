@@ -63,9 +63,31 @@ const DisplayEducation = (props) => {
   const editEmployee = () => {
     setEditable(true);
   };
+
   const cancelEdit = () => {
-    setEditedEmployeeData({ ...originalEmployeeData });
-    setEditable(false);
+    // console.log("Oriignaldata", originalEmployeeData);
+    if(Object.keys(originalEmployeeData).length) {
+      setEducationDetails({ ...originalEmployeeData });
+      setEditable(false);
+    }else{
+      setEditedEmployeeData({
+        academicRecords: [{
+          educationCertificate: "",
+          educationPlace: "",
+          educationProfessionalStart: "",
+          educationProfessionalEnd: "",
+        }],
+        professionalRecords: [{
+          educationUniversity: "",
+          educationCourse: "",
+          educationAcademicStart: "",
+          educationAcademicEnd: "",
+        }],
+        
+        
+      });
+      setEditable(true);
+    }
   };
 
   // DATE TO MONTH FUNCTION
@@ -277,7 +299,7 @@ const DisplayEducation = (props) => {
               variant="outlined"
               sx={{ color: "var(--primary-color)", fontWeight: "bold" }}
               onClick={() => addRecord("academicRecords")}>
-              + Add Records
+              + Add Record
             </Button>
           ) : null
         }
@@ -310,7 +332,7 @@ const DisplayEducation = (props) => {
             variant="outlined"
             sx={{ color: "var(--primary-color)", fontWeight: "bold" }}
             onClick={() => addRecord("professionalRecords")}>
-            + Add Records
+            + Add Record
           </Button>
         ) : null
       }
@@ -367,7 +389,7 @@ const DisplayEducation = (props) => {
               variant="contained"
               disabled={!editable}
               sx={{
-                fontWeight: "bold",
+                fontWeight: "bold", 
                 backgroundColor: "var(--secondary-color)",
                 color: "#ffffff",
               }}
