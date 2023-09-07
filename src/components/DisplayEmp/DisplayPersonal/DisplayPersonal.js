@@ -19,24 +19,6 @@ import { GlobalContext } from "../../../ContextAPI/CustomContext";
 import CustomDialogBox from "../../ReusableComponents/CustomDialogBox";
 import { InputFieldPropsForm } from "../../CustomDesignMUI/CustomMUI";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-// import styled from "@emotion/styled";
-
-// const CustomTextField = styled(TextField)({
-//   /* Remove border from all TextField components */
-//   ".MuiOutlinedInput-root": {
-//     border: "none !important",
-//   },
-
-//   /* Remove border for all TextField components */
-//   ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
-//     border: "none !important",
-//   },
-
-//   /* Remove border when focused for all TextField components */
-//   ".MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-//     border: "none !important",
-//   },
-// });
 
 const DisplayPersonal = (props) => {
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
@@ -223,14 +205,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                     // for the border changes
                     ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
                       border: themeChange ? " " : "#fffffff",
@@ -252,14 +226,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   name="jobDepartment"
                   value={editedEmployeeData.jobDepartment}
@@ -288,14 +254,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   name="jobDesignation"
                   value={editedEmployeeData.jobDesignation}
@@ -320,14 +278,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   name="jobCategory"
                   value={editedEmployeeData.jobCategory}
@@ -358,14 +308,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   name="jobDoj"
                   value={editedEmployeeData.jobDoj}
@@ -384,14 +326,6 @@ const DisplayPersonal = (props) => {
                     height: "55px",
                     color: "white",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   name="personalDob"
                   value={editedEmployeeData.personalDob}
@@ -410,14 +344,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   name="personalBlood"
                   value={editedEmployeeData.personalBlood}
@@ -450,17 +376,6 @@ const DisplayPersonal = (props) => {
                     width: "80%",
                     height: "55px",
                     background: themeChange ? "#142840" : "#ffffff",
-                    ".Mui-disabled": {
-                      opacity: "1",
-                      WebkitTextFillColor:
-                        "var(--secondary-text-color) !important",
-                    },
-                    ".MuiOutlinedInput-input": {
-                      color: "var(--secondary-text-color) !important",
-                    },
-                    ".MuiTypography-root": {
-                      color: "var(--secondary-text-color) !important",
-                    },
                   }}
                   InputProps={{
                     startAdornment: (

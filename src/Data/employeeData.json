@@ -41,12 +41,6 @@
           "educationCourse": "Test",
           "educationAcademicStart": "2023-09-11",
           "educationAcademicEnd": "2023-09-28"
-        },
-        {
-          "educationUniversity": "test",
-          "educationCourse": "test",
-          "educationAcademicStart": "2023-09-19",
-          "educationAcademicEnd": "2023-09-22"
         }
       ],
       "professionalRecords": [

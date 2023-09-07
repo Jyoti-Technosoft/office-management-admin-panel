@@ -27,6 +27,7 @@
   --secondary-text-color: #5e6e82;
   --search-bar-color: #ffffff;
   --table-border-color: #e5e7eb;
+
 }
 
 svg{
@@ -48,4 +49,19 @@ td, th{
 }
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
   color: var(--primary-text-color) !important;
+
+}
+.Mui-disabled {
+  opacity: 1;
+  -webkit-text-fill-color:
+    var(--secondary-text-color) !important;
+}
+.MuiOutlinedInput-input {
+  color: var(--secondary-text-color) !important;
+}
+.MuiTypography-root {
+  color: var(--secondary-text-color) !important;
+}
+.css-18x7xpy-MuiFormLabel-root-MuiInputLabel-root {
+  color: var(--secondary-text-color) !important;
 }

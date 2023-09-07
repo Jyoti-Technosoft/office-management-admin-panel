@@ -1,5 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Box, Button, IconButton, TextField, Tooltip, Typography, Zoom } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  TextField,
+  Tooltip,
+  Typography,
+  Zoom,
+} from "@mui/material";
 import {
   viewProfileSubtitle,
   viewProfileTitle,
@@ -14,9 +22,14 @@ import { Edit } from "@mui/icons-material";
 const DisplayEducation = (props) => {
   // DATA CALLING START
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
-  const { setEditable, editable, isValid } = useContext(GlobalContext);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall });
-  const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
+  const { setEditable, editable, themeChange, isValid } =
+    useContext(GlobalContext);
+  const [editedEmployeeData, setEditedEmployeeData] = useState({
+    ...employeeCall,
+  });
+  const [originalEmployeeData, setOriginalEmployeeData] = useState({
+    ...employeeCall,
+  });
 
   const [educationDetails, setEducationDetails] = useState({ ...employeeCall });
   const addRecord = (recordType) => {
@@ -96,72 +109,94 @@ const DisplayEducation = (props) => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  Object.assign(editedEmployeeData, educationDetails)
-  console.log("EDITED EMPLOYEE DATE", editedEmployeeData)
+  Object.assign(editedEmployeeData, educationDetails);
+  console.log("EDITED EMPLOYEE DATE", editedEmployeeData);
 
   const academicRecordsEditMode = (record, index) => {
     return (
       <Box key={index} sx={viewEducationBox}>
-          <Box sx={{marginBottom: "15px"}}>
-            <TextField
-              inputProps={{
-                sx: InputFieldPropsForm()
-              }}
-              sx={{
-                paddingBottom: "10px",
-                width: "80%",
-                marginTop: "10px",
-              }}
-              name="educationUniversity"
-              label="University Name"
-              value={educationDetails.academicRecords[index].educationUniversity}
-              onChange={(event) => handleRecordInputChange("academicRecords", index, event)}
-            />
-            <TextField
-              inputProps={{
-                sx: InputFieldPropsForm(),
-              }}
-              sx={{
-                paddingBottom: "10px",
-                width: "80%",
-                marginTop: "10px",
-              }}
-              name="educationCourse"
-              value={educationDetails.academicRecords[index].educationCourse}
-              label="Course Name"
-              onChange={(event) => handleRecordInputChange("academicRecords", index, event)}
-            />
-            <TextField
-              inputProps={{
-                sx: InputFieldPropsForm(),
-              }}
-              sx={{
-                width: "80%",
-                paddingBottom: "10px",
-                marginTop: "10px",
-              }}
-              name="educationAcademicStart"
-              value={educationDetails.academicRecords[index].educationAcademicStart}
-              label="Start Year"
-              type="date"
-              onChange={(event) => handleRecordInputChange("academicRecords", index, event)}
-            />
-            <TextField
-              inputProps={{
-                sx: InputFieldPropsForm(),
-              }}
-              sx={{
-                width: "80%",
-                paddingBottom: "10px",
-                marginTop: "10px",
-              }}
-              name="educationAcademicEnd"
-              value={educationDetails.academicRecords[index].educationAcademicEnd}
-              label="End Year"
-              type="date"
-              onChange={(event) => handleRecordInputChange("academicRecords", index, event)}
-            />
-          </Box>
+        <Box sx={{ marginBottom: "15px" }}>
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              paddingBottom: "10px",
+              width: "80%",
+              marginTop: "10px",
+              ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                borderColor: "var(--secondary-text-color)",
+              },
+            }}
+            name="educationUniversity"
+            label="University Name"
+            value={educationDetails.academicRecords[index].educationUniversity}
+            onChange={(event) =>
+              handleRecordInputChange("academicRecords", index, event)
+            }
+          />
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              paddingBottom: "10px",
+              width: "80%",
+              marginTop: "10px",
+              ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                borderColor: "var(--secondary-text-color)",
+              },
+            }}
+            name="educationCourse"
+            value={educationDetails.academicRecords[index].educationCourse}
+            label="Course Name"
+            onChange={(event) =>
+              handleRecordInputChange("academicRecords", index, event)
+            }
+          />
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              width: "80%",
+              paddingBottom: "10px",
+              marginTop: "10px",
+              ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                borderColor: "var(--secondary-text-color)",
+              },
+            }}
+            name="educationAcademicStart"
+            value={
+              educationDetails.academicRecords[index].educationAcademicStart
+            }
+            label="Start Year"
+            type="date"
+            onChange={(event) =>
+              handleRecordInputChange("academicRecords", index, event)
+            }
+          />
+          <TextField
+            inputProps={{
+              sx: InputFieldPropsForm(),
+            }}
+            sx={{
+              width: "80%",
+              paddingBottom: "10px",
+              marginTop: "10px",
+              ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                borderColor: "var(--secondary-text-color)",
+              },
+            }}
+            name="educationAcademicEnd"
+            value={educationDetails.academicRecords[index].educationAcademicEnd}
+            label="End Year"
+            type="date"
+            onChange={(event) =>
+              handleRecordInputChange("academicRecords", index, event)
+            }
+          />
+        </Box>
 
         {/* Remove button for academic record */}
         <Button
@@ -173,7 +208,7 @@ const DisplayEducation = (props) => {
         </Button>
       </Box>
     );
-  }
+  };
   const professionalRecordsEditMode = (record, index) => {
     return (
       <Box key={index} sx={viewEducationBox}>
@@ -187,11 +222,18 @@ const DisplayEducation = (props) => {
                 width: "80%",
                 paddingBottom: "10px",
                 marginTop: "10px",
+                ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                  borderColor: "var(--secondary-text-color)",
+                },
               }}
               name="educationCertificate"
-              value={educationDetails.professionalRecords[index].educationCertificate}
+              value={
+                educationDetails.professionalRecords[index].educationCertificate
+              }
               label="Education Certificate"
-              onChange={(event) => handleRecordInputChange("professionalRecords", index, event)}
+              onChange={(event) =>
+                handleRecordInputChange("professionalRecords", index, event)
+              }
             />
             <TextField
               inputProps={{
@@ -201,12 +243,16 @@ const DisplayEducation = (props) => {
                 width: "80%",
                 paddingBottom: "10px",
                 marginTop: "10px",
+                ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                  borderColor: "var(--secondary-text-color)",
+                },
               }}
               name="educationPlace"
               value={educationDetails.professionalRecords[index].educationPlace}
               label="Place"
-              onChange={(event) => handleRecordInputChange("professionalRecords", index, event)}
-
+              onChange={(event) =>
+                handleRecordInputChange("professionalRecords", index, event)
+              }
             />
             <TextField
               inputProps={{
@@ -216,13 +262,20 @@ const DisplayEducation = (props) => {
                 width: "80%",
                 paddingBottom: "10px",
                 marginTop: "10px",
+                ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                  borderColor: "var(--secondary-text-color)",
+                },
               }}
               name="educationProfessionalStart"
-              value={educationDetails.professionalRecords[index].educationProfessionalStart}
+              value={
+                educationDetails.professionalRecords[index]
+                  .educationProfessionalStart
+              }
               label="Start Date"
               type="date"
-              onChange={(event) => handleRecordInputChange("professionalRecords", index, event)}
-
+              onChange={(event) =>
+                handleRecordInputChange("professionalRecords", index, event)
+              }
             />
             <TextField
               inputProps={{
@@ -232,12 +285,20 @@ const DisplayEducation = (props) => {
                 width: "80%",
                 paddingBottom: "10px",
                 marginTop: "10px",
+                ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
+                  borderColor: "var(--secondary-text-color)",
+                },
               }}
               name="educationProfessionalEnd"
-              value={educationDetails.professionalRecords[index].educationProfessionalEnd}
+              value={
+                educationDetails.professionalRecords[index]
+                  .educationProfessionalEnd
+              }
               label="End Date"
               type="date"
-              onChange={(event) => handleRecordInputChange("professionalRecords", index, event)}
+              onChange={(event) =>
+                handleRecordInputChange("professionalRecords", index, event)
+              }
             />
           </Box>
         </Box>
@@ -252,7 +313,7 @@ const DisplayEducation = (props) => {
         </Button>
       </Box>
     );
-  }
+  };
 
   return (
     <Box
@@ -260,7 +321,7 @@ const DisplayEducation = (props) => {
         marginTop: "10px",
         marginLeft: "9px",
       }}
-      >
+    >
       <Box
         sx={{
           display: "flex",
@@ -274,7 +335,7 @@ const DisplayEducation = (props) => {
           </Typography>
         </Box>
         {/* EDIT AND DELETE BUTTONS */}
-        <Box> 
+        <Box>
           {employeeCall?.id ? (
             <Box>
               <IconButton
@@ -291,7 +352,15 @@ const DisplayEducation = (props) => {
       <hr />
 
       {/* FOR ACADEMIC RECORDS */}
-      <Box sx={{marginTop: "20px", marginBottom: "10px", display:'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      <Box
+        sx={{
+          marginTop: "20px",
+          marginBottom: "10px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Typography sx={{ ...viewProfileTitle }}>Academic Records</Typography>
         {
           editable ? (
@@ -303,9 +372,10 @@ const DisplayEducation = (props) => {
             </Button>
           ) : null
         }
+
       </Box>
       <Box>
-        {educationDetails.academicRecords?.map((record, index) => (
+        {educationDetails.academicRecords?.map((record, index) =>
           editable ? (
             academicRecordsEditMode(record, index)
           ) : (
@@ -315,29 +385,42 @@ const DisplayEducation = (props) => {
               </Typography>
               <Typography sx={viewProfileSubtitle}>
                 {educationDetails.academicRecords[index].educationCourse}
-                {","} {formatDate(educationDetails.academicRecords[index].educationAcademicStart)} -{" "}
-                {formatDate(educationDetails.academicRecords[index].educationAcademicEnd)}
+                {","}{" "}
+                {formatDate(
+                  educationDetails.academicRecords[index].educationAcademicStart
+                )}{" "}
+                -{" "}
+                {formatDate(
+                  educationDetails.academicRecords[index].educationAcademicEnd
+                )}
               </Typography>
             </Box>
           )
-        ))}
+        )}
       </Box>
 
       {/* FOR PROFESIONAL QUALIFICATION */}
-      <Box sx={{marginTop: "20px", marginBottom: "10px", display:'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-      <Typography sx={viewProfileTitle}>Professional Records</Typography>
-      {
-        editable ? (
+      <Box
+        sx={{
+          marginTop: "20px",
+          marginBottom: "10px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography sx={viewProfileTitle}>Professional Records</Typography>
+        {editable ? (
           <Button
             variant="outlined"
             sx={{ color: "var(--primary-color)", fontWeight: "bold" }}
             onClick={() => addRecord("professionalRecords")}>
             + Add Record
+
           </Button>
-        ) : null
-      }
+        ) : null}
       </Box>
-      {educationDetails.professionalRecords?.map((record, index) => (
+      {educationDetails.professionalRecords?.map((record, index) =>
         editable ? (
           professionalRecordsEditMode(record, index)
         ) : (
@@ -347,12 +430,20 @@ const DisplayEducation = (props) => {
             </Typography>
             <Typography sx={viewProfileSubtitle}>
               {educationDetails.professionalRecords[index].educationPlace}
-              {","} {formatDate(educationDetails.professionalRecords[index].educationProfessionalStart)} -{" "}
-              {formatDate(educationDetails.professionalRecords[index].educationProfessionalEnd)}
+              {","}{" "}
+              {formatDate(
+                educationDetails.professionalRecords[index]
+                  .educationProfessionalStart
+              )}{" "}
+              -{" "}
+              {formatDate(
+                educationDetails.professionalRecords[index]
+                  .educationProfessionalEnd
+              )}
             </Typography>
           </Box>
         )
-      ))}
+      )}
 
       <Box>
         {editable && (
@@ -380,7 +471,7 @@ const DisplayEducation = (props) => {
               }}
               disabled={!editable}
               onClick={() => {
-                nextButtonCallback(editedEmployeeData)
+                nextButtonCallback(editedEmployeeData);
               }}
             >
               Save
@@ -394,7 +485,7 @@ const DisplayEducation = (props) => {
                 color: "#ffffff",
               }}
               onClick={() => {
-                saveNextButtonCallback(editedEmployeeData)
+                saveNextButtonCallback(editedEmployeeData);
               }}
             >
               Save & Next
@@ -402,7 +493,7 @@ const DisplayEducation = (props) => {
           </Box>
         )}
       </Box>
-    </Box >
+    </Box>
   );
 };
 export default DisplayEducation;

@@ -166,16 +166,6 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
-              ".Mui-disabled": {
-                opacity: "1",
-                WebkitTextFillColor: "var(--secondary-text-color) !important",
-              },
-              ".MuiOutlinedInput-input": {
-                color: "var(--secondary-text-color) !important",
-              },
-              ".MuiTypography-root": {
-                color: "var(--secondary-text-color) !important",
-              },
             }}
             InputProps={{
               startAdornment: (
@@ -203,16 +193,6 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
-              ".Mui-disabled": {
-                opacity: "1",
-                WebkitTextFillColor: "var(--secondary-text-color) !important",
-              },
-              ".MuiOutlinedInput-input": {
-                color: "var(--secondary-text-color) !important",
-              },
-              ".MuiTypography-root": {
-                color: "var(--secondary-text-color) !important",
-              },
             }}
             InputProps={{
               startAdornment: (
@@ -240,13 +220,6 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
-              ".Mui-disabled": {
-                opacity: "1",
-                WebkitTextFillColor: "var(--secondary-text-color) !important",
-              },
-              ".MuiOutlinedInput-input": {
-                color: "var(--secondary-text-color) !important",
-              },
             }}
             name="contactEmail"
             value={editedEmployeeData.contactEmail}
@@ -267,13 +240,6 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
-              ".Mui-disabled": {
-                opacity: "1",
-                WebkitTextFillColor: "var(--secondary-text-color) !important",
-              },
-              ".MuiOutlinedInput-input": {
-                color: "var(--secondary-text-color) !important",
-              },
             }}
             name="contactState"
             value={editedEmployeeData.contactState}
@@ -294,13 +260,6 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
-              ".Mui-disabled": {
-                opacity: "1",
-                WebkitTextFillColor: "var(--secondary-text-color) !important",
-              },
-              ".MuiOutlinedInput-input": {
-                color: "var(--secondary-text-color) !important",
-              },
             }}
             name="contactCity"
             value={editedEmployeeData.contactCity}
@@ -321,13 +280,6 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
-              ".Mui-disabled": {
-                opacity: "1",
-                WebkitTextFillColor: "var(--secondary-text-color) !important",
-              },
-              ".MuiOutlinedInput-input": {
-                color: "var(--secondary-text-color) !important",
-              },
             }}
             name="contactResidental"
             value={editedEmployeeData.contactResidental}
