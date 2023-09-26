@@ -31,6 +31,7 @@ const DisplayPersonal = (props) => {
   const [originalEmployeeData, setOriginalEmployeeData] = useState({
     ...employeeCall,
   });
+  console.log("setEditedEmployeeData", editedEmployeeData)
 
   const editEmployee = () => {
     console.log("Entering edit mode");
@@ -45,12 +46,18 @@ const DisplayPersonal = (props) => {
   };
 
   const cancelEdit = () => {
-    setEditedEmployeeData({ ...originalEmployeeData });
-    setEditable(false);
+    // console.log("Oriignaldata", originalEmployeeData);
+    if(Object.keys(originalEmployeeData).length) {
+      setEditedEmployeeData({ ...originalEmployeeData });
+      setEditable(false);
+    }else{
+      setEditedEmployeeData({...initialization});
+      setErrors({});
+      setEditable(true);
+    }
   };
 
-  // --
-  const [errors, setErrors] = useState({
+  const initialization = {
     personalFirstname: "",
     jobDepartment: "",
     jobDesignation: "",
@@ -59,7 +66,10 @@ const DisplayPersonal = (props) => {
     personalDob: "",
     personalBlood: "",
     contactPersonalNumber: "",
-  });
+  };
+
+  // --
+  const [errors, setErrors] = useState({...initialization});
 
   const validateForm = () => {
     const newErrors = {};
@@ -401,8 +411,6 @@ const DisplayPersonal = (props) => {
                 sx={{
                   fontWeight: "bold",
                   color: "gray",
-                  // textTransform:"capitalize",
-                  // fontSize:"18px",
                 }}
                 onClick={cancelEdit}
               >

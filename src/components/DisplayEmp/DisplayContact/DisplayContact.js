@@ -38,8 +38,21 @@ const DisplayContact = (props) => {
     }));
   };
   const cancelEdit = () => {
-    setEditedEmployeeData({ ...originalEmployeeData });
-    setEditable(false);
+    // console.log("Oriignaldata", originalEmployeeData);
+    if(Object.keys(originalEmployeeData).length) {
+      setEditedEmployeeData({ ...originalEmployeeData });
+      setEditable(false);
+    }else{
+      setEditedEmployeeData({
+        contactPersonalNumber: "",
+        contactAdditionalNumber: "",
+        contactEmail: "",
+        contactState: "",
+        contactCity: "",
+        contactResidental: "",
+      });
+      setEditable(true);
+    }
   };
 
   // --

@@ -178,9 +178,31 @@ const DisplayEducation = (props) => {
   const editEmployee = () => {
     setEditable(true);
   };
+
   const cancelEdit = () => {
-    setEditedEmployeeData({ ...originalEmployeeData });
-    setEditable(false);
+    // console.log("Oriignaldata", originalEmployeeData);
+    if(Object.keys(originalEmployeeData).length) {
+      setEducationDetails({ ...originalEmployeeData });
+      setEditable(false);
+    }else{
+      setEditedEmployeeData({
+        academicRecords: [{
+          educationCertificate: "",
+          educationPlace: "",
+          educationProfessionalStart: "",
+          educationProfessionalEnd: "",
+        }],
+        professionalRecords: [{
+          educationUniversity: "",
+          educationCourse: "",
+          educationAcademicStart: "",
+          educationAcademicEnd: "",
+        }],
+        
+        
+      });
+      setEditable(true);
+    }
   };
 
   // DATE TO MONTH FUNCTION
@@ -486,15 +508,17 @@ const DisplayEducation = (props) => {
         }}
       >
         <Typography sx={{ ...viewProfileTitle }}>Academic Records</Typography>
-        {editable ? (
-          <Button
-            variant="outlined"
-            sx={{ color: "var(--primary-color)", fontWeight: "bold" }}
-            onClick={() => addRecord("academicRecords")}
-          >
-            + Add Records
-          </Button>
-        ) : null}
+        {
+          editable ? (
+            <Button
+              variant="outlined"
+              sx={{ color: "var(--primary-color)", fontWeight: "bold" }}
+              onClick={() => addRecord("academicRecords")}>
+              + Add Record
+            </Button>
+          ) : null
+        }
+
       </Box>
       <Box>
         {educationDetails.academicRecords?.map((record, index) =>
@@ -536,9 +560,9 @@ const DisplayEducation = (props) => {
           <Button
             variant="outlined"
             sx={{ color: "var(--primary-color)", fontWeight: "bold" }}
-            onClick={() => addRecord("professionalRecords")}
-          >
-            + Add Records
+            onClick={() => addRecord("professionalRecords")}>
+            + Add Record
+
           </Button>
         ) : null}
       </Box>
@@ -602,7 +626,7 @@ const DisplayEducation = (props) => {
               variant="contained"
               disabled={!editable || !isDataValid}
               sx={{
-                fontWeight: "bold",
+                fontWeight: "bold", 
                 backgroundColor: "var(--secondary-color)",
                 color: "#ffffff",
               }}
