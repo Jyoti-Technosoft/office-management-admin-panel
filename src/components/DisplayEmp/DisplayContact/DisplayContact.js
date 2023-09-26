@@ -153,6 +153,9 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
+              ".MuiTypography-root": {
+                color:"var(--secondary-text-color) !important",
+              },
             }}
             InputProps={{
               startAdornment: (
@@ -180,6 +183,9 @@ const DisplayContact = (props) => {
               width: "80%",
               height: "55px",
               background: themeChange ? "#142840" : "#ffffff",
+              ".MuiTypography-root": {
+                color:"var(--secondary-text-color) !important",
+              },
             }}
             InputProps={{
               startAdornment: (

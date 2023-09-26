@@ -37,18 +37,34 @@
       "id": 1,
       "academicRecords": [
         {
-          "educationUniversity": "werty",
-          "educationCourse": "Test",
-          "educationAcademicStart": "2023-09-11",
+          "educationUniversity": "University of USA",
+          "educationCourse": "sdfsd",
+          "educationAcademicStart": "2023-09-12",
           "educationAcademicEnd": "2023-09-28"
+        },
+        {
+          "educationUniversity": "dsd",
+          "educationCourse": "sds",
+          "educationAcademicStart": "2023-09-15",
+          "educationAcademicEnd": "2023-09-07"
         }
       ],
       "professionalRecords": [
         {
-          "educationCertificate": "Test1",
-          "educationPlace": "Test1",
-          "educationProfessionalStart": "2023-09-01",
-          "educationProfessionalEnd": "2023-09-28"
+          "educationCertificate": "test",
+          "educationPlace": "Test",
+          "educationProfessionalStart": "1212-12-12",
+          "educationProfessionalEnd": "2020-12-12"
+        }
+      ],
+      "familyDetails": [
+        {
+          "familyFirstname": "SDD",
+          "familyLastname": "DFDF",
+          "familyRelation": "DFG"
+        },
+        {
+          "familyFirstname": "AW"
         }
       ]
     },
@@ -359,6 +375,12 @@
       "financialIfsc": "LEGALBANK001",
       "financialBranchName": "Legal Bank Branch",
       "id": 9
+    },
+    {
+      "academicRecords": [
+        {}
+      ],
+      "id": 10
     }
   ]
 }

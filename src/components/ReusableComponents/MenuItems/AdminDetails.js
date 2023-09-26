@@ -180,7 +180,7 @@ const AdminDetails = () => {
                     color: "var(--secondary-text-color)",
                   }}
                 >
-                  Intro
+                  About Us
                 </Typography>
                 <Box
                   sx={{

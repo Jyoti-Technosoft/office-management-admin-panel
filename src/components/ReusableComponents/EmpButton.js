@@ -128,9 +128,9 @@ const EmpButton = () => {
     } else if (selectedTab === "education") {
       return <DisplayEducation employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "family") {
-      return <DisplayFamily employeeCall={employeeCall} />;
+      return <DisplayFamily employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback}  />;
     } else if (selectedTab === "experience") {
-      return <DisplayExperience employeeCall={employeeCall} />;
+      return <DisplayExperience employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "job") {
       return <DisplayJob employeeCall={employeeCall} />;
     } else if (selectedTab === "financial") {

@@ -113,9 +113,6 @@ td, th{
 .MuiOutlinedInput-input {
   color: var(--secondary-text-color) !important;
 }
-.MuiTypography-root {
-  color: var(--secondary-text-color) !important;
-}
 .css-18x7xpy-MuiFormLabel-root-MuiInputLabel-root {
   color: var(--secondary-text-color) !important;
 }

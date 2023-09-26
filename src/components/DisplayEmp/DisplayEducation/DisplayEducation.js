@@ -20,6 +20,76 @@ import { useParams } from "react-router-dom";
 import { Edit } from "@mui/icons-material";
 
 const DisplayEducation = (props) => {
+  
+  // ----------------------------VALIDATION
+
+  const [academicRecordErrors, setAcademicRecordErrors] = useState([]);
+  const [professionalRecordErrors, setProfessionalRecordErrors] = useState([]);
+
+
+// bug in this state-----------------------------------
+  const [isDataValid, setIsDataValid] = useState(false);
+  console.log("isDataValid", isDataValid);
+
+
+
+  // Validation rules for academic record
+  const validateAcademicRecord = (record) => {
+    const errors = {};
+    if (!record.educationUniversity) {
+      errors.educationUniversity = "University name is required";
+    } else {
+      if (!/^[a-zA-Z\s]*$/.test(record.educationUniversity)) {
+        errors.educationUniversity =
+          "University name should not contain numeric values";
+      }
+    }
+    if (!record.educationCourse) {
+      errors.educationCourse = "Course name is required";
+    } else {
+      if (!/^[a-zA-Z\s]*$/.test(record.educationCourse)) {
+        errors.educationCourse =
+          "Course name should not contain numeric values";
+      }
+    }
+    if (!record.educationAcademicStart) {
+      errors.educationAcademicStart = "Acadamic Start is required";
+    }
+    if (!record.educationAcademicEnd) {
+      errors.educationAcademicEnd = "Acadamic End is required";
+    }
+
+    return errors;
+  };
+
+  // Validation rules for professional record
+  const validateProfessionalRecord = (record) => {
+    const errors = {};
+    if (!record.educationCertificate) {
+      errors.educationCertificate = "Certificate name is required";
+    } else {
+      if (!/^[a-zA-Z\s]*$/.test(record.educationCertificate)) {
+        errors.educationCertificate =
+          "Certificate name should not contain numeric values";
+      }
+    }
+    if (!record.educationPlace) {
+      errors.educationPlace = "Place name is required";
+    } else {
+      if (!/^[a-zA-Z\s]*$/.test(record.educationPlace)) {
+        errors.educationPlace = "Place name should not contain numeric values";
+      }
+    }
+    if (!record.educationProfessionalStart) {
+      errors.educationProfessionalStart = "Professional Start is required";
+    }
+    if (!record.educationProfessionalEnd) {
+      errors.educationProfessionalEnd = "Professional End is required";
+    }
+
+    return errors;
+  };
+
   // DATA CALLING START
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   const { setEditable, editable, themeChange, isValid } =
@@ -60,12 +130,44 @@ const DisplayEducation = (props) => {
 
   const handleRecordInputChange = (recordType, index, event) => {
     const { name, value } = event.target;
+
     setEducationDetails((prevDetails) => {
       const updatedRecords = [...prevDetails[recordType]];
       updatedRecords[index] = {
         ...updatedRecords[index],
         [name]: value,
       };
+
+      if (recordType === "academicRecords") {
+        // Validate the academic record and update errors
+        const academicRecord = updatedRecords[index];
+        const errors = validateAcademicRecord(academicRecord);
+        const newAcademicRecordErrors = [...academicRecordErrors];
+        newAcademicRecordErrors[index] = errors;
+        setAcademicRecordErrors(newAcademicRecordErrors);
+      } else if (recordType === "professionalRecords") {
+        // Validate the professional record and update errors
+        const professionalRecord = updatedRecords[index];
+        const errors = validateProfessionalRecord(professionalRecord);
+        const newProfessionalRecordErrors = [...professionalRecordErrors];
+        newProfessionalRecordErrors[index] = errors;
+        setProfessionalRecordErrors(newProfessionalRecordErrors);
+      }
+
+      // Check if all academic and professional records are valid
+      const areAllAcademicRecordsValid = academicRecordErrors.every(
+        (error) => Object.keys(error).length === 0
+      );
+
+      const areAllProfessionalRecordsValid = professionalRecordErrors.every(
+        (error) => Object.keys(error).length === 0
+      );
+
+      // Update the state to enable/disable the Save button
+      setIsDataValid(
+        areAllAcademicRecordsValid && areAllProfessionalRecordsValid
+      );
+
       return {
         ...prevDetails,
         [recordType]: updatedRecords,
@@ -113,6 +215,11 @@ const DisplayEducation = (props) => {
               handleRecordInputChange("academicRecords", index, event)
             }
           />
+          {academicRecordErrors[index] && (
+            <Typography sx={{ color: "red" }}>
+              {academicRecordErrors[index].educationUniversity}
+            </Typography>
+          )}
           <TextField
             inputProps={{
               sx: InputFieldPropsForm(),
@@ -132,6 +239,11 @@ const DisplayEducation = (props) => {
               handleRecordInputChange("academicRecords", index, event)
             }
           />
+          {academicRecordErrors[index] && (
+            <Typography sx={{ color: "red" }}>
+              {academicRecordErrors[index].educationCourse}
+            </Typography>
+          )}
           <TextField
             inputProps={{
               sx: InputFieldPropsForm(),
@@ -154,6 +266,11 @@ const DisplayEducation = (props) => {
               handleRecordInputChange("academicRecords", index, event)
             }
           />
+          {academicRecordErrors[index] && (
+            <Typography sx={{ color: "red" }}>
+              {academicRecordErrors[index].educationAcademicStart}
+            </Typography>
+          )}
           <TextField
             inputProps={{
               sx: InputFieldPropsForm(),
@@ -174,6 +291,12 @@ const DisplayEducation = (props) => {
               handleRecordInputChange("academicRecords", index, event)
             }
           />
+          {academicRecordErrors[index] && (
+            <Typography sx={{ color: "red" }}>
+              {academicRecordErrors[index].educationAcademicEnd}
+            </Typography>
+          )}
+          {/* Display validation errors */}
         </Box>
 
         {/* Remove button for academic record */}
@@ -213,6 +336,12 @@ const DisplayEducation = (props) => {
                 handleRecordInputChange("professionalRecords", index, event)
               }
             />
+            {professionalRecordErrors[index] && (
+              <Typography sx={{ color: "red" }}>
+                {professionalRecordErrors[index].educationCertificate}
+              </Typography>
+            )}
+
             <TextField
               inputProps={{
                 sx: InputFieldPropsForm(),
@@ -232,6 +361,12 @@ const DisplayEducation = (props) => {
                 handleRecordInputChange("professionalRecords", index, event)
               }
             />
+            {professionalRecordErrors[index] && (
+              <Typography sx={{ color: "red" }}>
+                {professionalRecordErrors[index].educationPlace}
+              </Typography>
+            )}
+
             <TextField
               inputProps={{
                 sx: InputFieldPropsForm(),
@@ -255,6 +390,12 @@ const DisplayEducation = (props) => {
                 handleRecordInputChange("professionalRecords", index, event)
               }
             />
+            {professionalRecordErrors[index] && (
+              <Typography sx={{ color: "red" }}>
+                {professionalRecordErrors[index].educationProfessionalStart}
+              </Typography>
+            )}
+
             <TextField
               inputProps={{
                 sx: InputFieldPropsForm(),
@@ -278,6 +419,11 @@ const DisplayEducation = (props) => {
                 handleRecordInputChange("professionalRecords", index, event)
               }
             />
+            {professionalRecordErrors[index] && (
+              <Typography sx={{ color: "red" }}>
+                {professionalRecordErrors[index].educationProfessionalEnd}
+              </Typography>
+            )}
           </Box>
         </Box>
 
@@ -445,16 +591,16 @@ const DisplayEducation = (props) => {
                 fontWeight: "bold",
                 color: "var(--primary-color)",
               }}
-              disabled={!editable}
+              disabled={!editable || !isDataValid}
               onClick={() => {
-                nextButtonCallback(editedEmployeeData);
+                nextButtonCallback(editedEmployeeData) && isDataValid(false);
               }}
             >
               Save
             </Button>
             <Button
               variant="contained"
-              disabled={!editable}
+              disabled={!editable || !isDataValid}
               sx={{
                 fontWeight: "bold",
                 backgroundColor: "var(--secondary-color)",
