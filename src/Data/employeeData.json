@@ -12,18 +12,31 @@
       "contactState": "USA",
       "contactCity": "New York ",
       "contactResidental": "3001 Om Flats, New York, USA ",
-      "familyFirstname": "FamilyFirstname",
-      "familyLastname": "FamilyLastname",
-      "familyRelation": "FamilyRelation",
-      "familyEmail": "FamilyEmail",
-      "familyPhoneNumber": "6555555555",
-      "familyDob": "2023-05-09",
-      "experienceCompanyName": "ExperienceCompanyname",
-      "experiencePosition": "Manager",
-      "experienceCourse": "ExperienceCoursename",
-      "experienceYears": "2",
-      "experienceStartDate": "2023-08-11",
-      "experienceEndDate": "2023-08-15",
+      "familyDetails": [
+        {
+          "familyFirstname": "Ron",
+          "familyLastname": "Slot",
+          "familyRelation": "Father",
+          "familyEmail": "ronslot@gmail.com",
+          "familyPhoneNumber": "7895345874",
+          "familyDob": "2023-09-20"
+        }
+      ],
+      "experienceDetails": [
+        {
+          "experienceCompanyName": "ExperienceCompanyname",
+          "experiencePosition": "Manager",
+          "experienceCourse": "ExperienceCoursename",
+          "experienceStartDate": "2023-08-11",
+          "experienceEndDate": "2025-08-11"
+        },
+        {
+          "experienceCompanyName": "Riya",
+          "experiencePosition": "Selvato",
+          "experienceStartDate": "2023-09-07",
+          "experienceEndDate": "2023-09-19"
+        }
+      ],
       "jobDoj": "2023-08-16",
       "jobDepartment": "Front-end Developer",
       "jobDesignation": "UI & UX Designer",
@@ -37,34 +50,18 @@
       "id": 1,
       "academicRecords": [
         {
-          "educationUniversity": "University of USA",
-          "educationCourse": "sdfsd",
-          "educationAcademicStart": "2023-09-12",
+          "educationUniversity": "werty",
+          "educationCourse": "seno",
+          "educationAcademicStart": "2023-09-11",
           "educationAcademicEnd": "2023-09-28"
-        },
-        {
-          "educationUniversity": "dsd",
-          "educationCourse": "sds",
-          "educationAcademicStart": "2023-09-15",
-          "educationAcademicEnd": "2023-09-07"
         }
       ],
       "professionalRecords": [
         {
-          "educationCertificate": "test",
-          "educationPlace": "Test",
-          "educationProfessionalStart": "1212-12-12",
-          "educationProfessionalEnd": "2020-12-12"
-        }
-      ],
-      "familyDetails": [
-        {
-          "familyFirstname": "SDD",
-          "familyLastname": "DFDF",
-          "familyRelation": "DFG"
-        },
-        {
-          "familyFirstname": "AW"
+          "educationCertificate": "Riyon",
+          "educationPlace": "Crystal",
+          "educationProfessionalStart": "2023-09-01",
+          "educationProfessionalEnd": "2023-09-28"
         }
       ]
     },
@@ -377,10 +374,28 @@
       "id": 9
     },
     {
-      "academicRecords": [
-        {}
+      "familyDetails": [
+        {
+          "familyFirstname": "sdfsdf",
+          "familyLastname": "sdf",
+          "familyRelation": "sdf",
+          "familyEmail": "sdf",
+          "familyPhoneNumber": "sdf",
+          "familyDob": "2023-09-08"
+        }
       ],
       "id": 10
+    },
+    {
+      "academicRecords": [
+        {
+          "educationUniversity": "sdf",
+          "educationCourse": "sdf",
+          "educationAcademicStart": "2023-08-30",
+          "educationAcademicEnd": "2023-09-15"
+        }
+      ],
+      "id": 11
     }
   ]
 }
