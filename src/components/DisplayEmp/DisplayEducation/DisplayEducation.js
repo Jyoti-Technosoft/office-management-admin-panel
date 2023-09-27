@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   IconButton,
+  InputAdornment,
   TextField,
   Typography,
 } from "@mui/material";
@@ -260,6 +261,11 @@ const DisplayEducation = (props) => {
                 borderColor: "var(--secondary-text-color)",
               },
             }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start"/>
+              ),
+            }}
             name="educationAcademicStart"
             value={
               educationDetails.academicRecords[index].educationAcademicStart
@@ -286,6 +292,11 @@ const DisplayEducation = (props) => {
               ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
                 borderColor: "var(--secondary-text-color)",
               },
+            }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start"/>
+              ),
             }}
             name="educationAcademicEnd"
             value={educationDetails.academicRecords[index].educationAcademicEnd}
@@ -380,6 +391,11 @@ const DisplayEducation = (props) => {
                   borderColor: "var(--secondary-text-color)",
                 },
               }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start"/>
+                ),
+              }}
               name="educationProfessionalStart"
               value={
                 educationDetails.professionalRecords[index]
@@ -407,6 +423,11 @@ const DisplayEducation = (props) => {
                 ".MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ": {
                   borderColor: "var(--secondary-text-color)",
                 },
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start"/>
+                ),
               }}
               name="educationProfessionalEnd"
               value={

@@ -14,7 +14,7 @@
       "contactResidental": "3001 Om Flats, New York, USA ",
       "familyDetails": [
         {
-          "familyFirstname": "Ron",
+          "familyFirstname": "Rohan",
           "familyLastname": "Slot",
           "familyRelation": "Father",
           "familyEmail": "ronslot@gmail.com",
@@ -37,11 +37,13 @@
           "experienceEndDate": "2023-09-19"
         }
       ],
-      "jobDoj": "2023-08-16",
-      "jobDepartment": "Front-end Developer",
-      "jobDesignation": "UI & UX Designer",
-      "jobCategory": "Full time",
-      "jobResponsibilities": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,",
+      "jobDetails": {
+        "jobDoj": "2023-08-16",
+        "jobDepartment": "Marketing",
+        "jobDesignation": "UI & UX Designer",
+        "jobCategory": "Full time",
+        "jobResponsibilities": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages"
+      },
       "financialBankName": "State Bank Of India",
       "financialAccountNo": "78466845687",
       "financialHolderName": "Yash Chouhan",
@@ -396,6 +398,49 @@
         }
       ],
       "id": 11
+    },
+    {
+      "contactPersonalNumber": "8888888888",
+      "contactAdditionalNumber": "8888888888",
+      "contactEmail": "yash@gmail.com",
+      "contactState": "USA",
+      "contactCity": "New York ",
+      "contactResidental": "3001 Om Flats, New York, USA ",
+      "id": 12,
+      "academicRecords": [
+        {
+          "educationUniversity": "sfsd",
+          "educationCourse": "sdf",
+          "educationAcademicStart": "2023-08-30",
+          "educationAcademicEnd": "2023-09-13"
+        }
+      ],
+      "professionalRecords": [
+        {
+          "educationCertificate": "sdf",
+          "educationPlace": "asdf",
+          "educationProfessionalStart": "2023-09-26",
+          "educationProfessionalEnd": "2023-09-12"
+        }
+      ],
+      "familyDetails": [
+        {
+          "familyFirstname": "sdfs",
+          "familyLastname": "sdfsdf",
+          "familyRelation": "sdfsdf",
+          "familyEmail": "sdfsdf",
+          "familyPhoneNumber": "sdfsdf",
+          "familyDob": "2023-09-13"
+        }
+      ],
+      "experienceDetails": [
+        {
+          "experienceCompanyName": "sdf",
+          "experiencePosition": "sdf",
+          "experienceStartDate": "2023-09-07",
+          "experienceEndDate": "2023-09-01"
+        }
+      ]
     }
   ]
 }
