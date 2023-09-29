@@ -66,13 +66,13 @@ const ViewDocument = ({ onBackClick }) => {
       >
         <Button
           sx={{
-            background: "var(--primary-color)",
+            background: "var(--primary-highlight-color)",
             textTransform: "capitalize",
-            color: "var(--plain-white)",
+            color: "var(--primary-color)",
             fontWeight: "bold",
             "&:hover": {
-              background: "var(--primary-highlight-color)",
-              color: "var(--primary-color)",
+              background: "var(--primary-color)",
+              color: "white ",
             },
             ":focus": {
               outline: "none",

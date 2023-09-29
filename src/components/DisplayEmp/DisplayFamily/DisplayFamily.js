@@ -1,5 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Box, Button, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import {
   viewProfileSubtitle,
   viewEducationBox,
@@ -269,8 +276,8 @@ const DisplayFamily = (props) => {
                 borderColor: "var(--secondary-text-color)",
               },
               ".MuiTypography-root": {
-                color:"var(--secondary-text-color) !important",
-              },   
+                color: "var(--secondary-text-color) !important",
+              },
             }}
             InputProps={{
               startAdornment: (
@@ -303,9 +310,7 @@ const DisplayFamily = (props) => {
               },
             }}
             InputProps={{
-              startAdornment: (
-                <InputAdornment position="start"/>
-              ),
+              startAdornment: <InputAdornment position="start" />,
             }}
             name="familyDob"
             type="date"
@@ -441,7 +446,7 @@ const DisplayFamily = (props) => {
               }}
               disabled={!editable || isSaveDisabled}
               onClick={() => {
-                  nextButtonCallback(editedEmployeeData);
+                nextButtonCallback(editedEmployeeData);
               }}
             >
               Save
@@ -455,7 +460,7 @@ const DisplayFamily = (props) => {
                 color: "#ffffff",
               }}
               onClick={() => {
-                  saveNextButtonCallback(editedEmployeeData);
+                saveNextButtonCallback(editedEmployeeData);
               }}
             >
               Save & Next

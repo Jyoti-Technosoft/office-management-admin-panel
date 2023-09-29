@@ -134,7 +134,7 @@ const EmpButton = () => {
     } else if (selectedTab === "job") {
       return <DisplayJob employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback} />;
     } else if (selectedTab === "financial") {
-      return <DisplayFinancial employeeCall={employeeCall} />;
+      return <DisplayFinancial employeeCall={employeeCall} saveNextButtonCallback={saveNextButtonCallback} nextButtonCallback={nextButtonCallback}/>;
     } else if (selectedTab === "leave") {
       return <DisplayLeave employeeCall={employeeCall} />;
     }

@@ -1,5 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Box, Button, IconButton, InputAdornment, MenuItem, Select, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import {
   viewProfileSubtitle,
   viewEducationBox,
@@ -13,10 +22,43 @@ const DisplayJob = (props) => {
   // DATA CALLING START
   const { employeeCall, saveNextButtonCallback, nextButtonCallback } = props;
   const { setEditable, editable } = useContext(GlobalContext);
-  const [editedEmployeeData, setEditedEmployeeData] = useState({ ...employeeCall, });
-  const [originalEmployeeData, setOriginalEmployeeData] = useState({ ...employeeCall });
+  const [editedEmployeeData, setEditedEmployeeData] = useState({
+    ...employeeCall,
+  });
+  const [originalEmployeeData, setOriginalEmployeeData] = useState({
+    ...employeeCall,
+  });
   const [jobData, setJobData] = useState({ ...employeeCall });
   // DATA CALLING END
+
+  //-------------------------------------Validation
+  const [jobDetailsErrors, setJobDetailsErrors] = useState({});
+
+  const validateJobDetails = (jobDetails) => {
+    const errors = {};
+
+    if (!jobDetails.jobDoj) {
+      errors.jobDoj = "Joining Date is required";
+    }
+
+    if (!jobDetails.jobDepartment) {
+      errors.jobDepartment = "Department is required";
+    }
+
+    if (!jobDetails.jobDesignation) {
+      errors.jobDesignation = "Job Title is required";
+    }
+
+    if (!jobDetails.jobCategory) {
+      errors.jobCategory = "Job Category is required";
+    }
+
+    if (!jobDetails.jobResponsibilities) {
+      errors.jobResponsibilities = "Job Responsibilities are required";
+    }
+
+    return errors;
+  };
 
   const editEmployee = () => {
     setEditable(true);
@@ -27,32 +69,40 @@ const DisplayJob = (props) => {
     setJobData((prevData) => {
       const updatedData = { ...prevData };
       if (recordType === "jobDetails" && updatedData.jobDetails) {
-        updatedData.jobDetails= {
+        updatedData.jobDetails = {
           ...updatedData.jobDetails,
           [name]: value,
         };
       }
+
+      // Validate the job details
+      const errors = validateJobDetails(updatedData.jobDetails);
+      setJobDetailsErrors(errors);
+
       return updatedData;
     });
   };
 
+  const isSaveDisabled = () => {
+    return Object.keys(jobDetailsErrors).length > 0;
+  };
+  
   const cancelEdit = () => {
     if (Object.keys(originalEmployeeData).length) {
       setJobData({ ...originalEmployeeData });
       setEditable(false);
     } else {
       setJobData({
-        familyFirstname: "",
-        familyLastname: "",
-        familyRelation: "",
-        familyEmail: "",
-        familyPhoneNumber: "",
-        familyDob: "",
+        jobDoj: "",
+        jobDepartment: "",
+        jobDesignation: "",
+        jobCategory: "",
+        jobResponsibilities: "",
       });
       setEditable(true);
     }
   };
-  
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [showViewDocument, setShowViewDocument] = useState(false);
 
@@ -80,9 +130,7 @@ const DisplayJob = (props) => {
               },
             }}
             InputProps={{
-              startAdornment: (
-                <InputAdornment position="start"/>
-              )
+              startAdornment: <InputAdornment position="start" />,
             }}
             name="jobDoj"
             label="Joining Date"
@@ -90,66 +138,90 @@ const DisplayJob = (props) => {
             value={jobData.jobDetails ? jobData.jobDetails.jobDoj : undefined}
             onChange={(event) => handleInputChange("jobDetails", event)}
           />
-          
+          {jobDetailsErrors.jobDoj && (
+            <Typography color="error">{jobDetailsErrors.jobDoj}</Typography>
+          )}
+
           <Typography sx={viewProfileSubtitle}>Department</Typography>
-            <Select
-              sx={{
-                width: "80%",
-                height: "55px",
-                // background: themeChange ? "#142840" : "#ffffff",
-              }}
-              name="jobDepartment"
-              value={jobData.jobDetails ? jobData.jobDetails.jobDepartment : undefined}
-              disabled={!editable}
-              onChange={(event) => handleInputChange("jobDetails", event)}
-              > 
-              <MenuItem value="">Select a Department</MenuItem>
-              <MenuItem value="HR">HR</MenuItem>
-              <MenuItem value="Designer">Designer</MenuItem>
-              <MenuItem value="Marketing">Marketing</MenuItem>
-              <MenuItem value="Front-end Developer">
-                Front-end Developer
-              </MenuItem>
-              <MenuItem value="Back-end Developer">
-                Back-end Developer
-              </MenuItem>
-            </Select>
+          <Select
+            sx={{
+              width: "80%",
+              height: "55px",
+              // background: themeChange ? "#142840" : "#ffffff",
+              ".MuiSelect-root":{
+                borderColor: "var(--secondary-text-color)",
+              },
+            }}
+            name="jobDepartment"
+            value={
+              jobData.jobDetails ? jobData.jobDetails.jobDepartment : undefined
+            }
+            disabled={!editable}
+            onChange={(event) => handleInputChange("jobDetails", event)}
+          >
+            <MenuItem value="">Select a Department</MenuItem>
+            <MenuItem value="HR">HR</MenuItem>
+            <MenuItem value="Designer">Designer</MenuItem>
+            <MenuItem value="Marketing">Marketing</MenuItem>
+            <MenuItem value="Front-end Developer">Front-end Developer</MenuItem>
+            <MenuItem value="Back-end Developer">Back-end Developer</MenuItem>
+          </Select>
+          {jobDetailsErrors.jobDepartment && (
+            <Typography color="error">
+              {jobDetailsErrors.jobDepartment}
+            </Typography>
+          )}
 
-            <Typography sx={viewProfileSubtitle}>Job Title</Typography>
-                <Select
-                  sx={{
-                    width: "80%",
-                    height: "55px",
-                    // background: themeChange ? "#142840" : "#ffffff",
-                  }}
-                  name="jobDesignation"
-                  value={jobData.jobDetails ? jobData.jobDetails.jobDesignation : undefined}
-                  disabled={!editable}
-                  onChange={(event) => handleInputChange("jobDetails", event)}
-                >
-                  <MenuItem value="">Select a designation</MenuItem>
-                  <MenuItem value="HR">HR</MenuItem>
-                  <MenuItem value="Manager">Manager</MenuItem>
-                  <MenuItem value="UI & UX Designer">UI & UX Designer</MenuItem>
-                  <MenuItem value="Java Developer">JAVA Developer</MenuItem>
-                  <MenuItem value="Jr.Developer">Jr.Developer</MenuItem>
-                </Select>
+          <Typography sx={viewProfileSubtitle}>Job Title</Typography>
+          <Select
+            sx={{
+              width: "80%",
+              height: "55px",
+              // background: themeChange ? "#142840" : "#ffffff",
+            }}
+            name="jobDesignation"
+            value={
+              jobData.jobDetails ? jobData.jobDetails.jobDesignation : undefined
+            }
+            disabled={!editable}
+            onChange={(event) => handleInputChange("jobDetails", event)}
+          >
+            <MenuItem value="">Select a designation</MenuItem>
+            <MenuItem value="HR">HR</MenuItem>
+            <MenuItem value="Manager">Manager</MenuItem>
+            <MenuItem value="UI & UX Designer">UI & UX Designer</MenuItem>
+            <MenuItem value="Java Developer">JAVA Developer</MenuItem>
+            <MenuItem value="Jr.Developer">Jr.Developer</MenuItem>
+          </Select>
+          {jobDetailsErrors.jobDesignation && (
+            <Typography color="error">
+              {jobDetailsErrors.jobDesignation}
+            </Typography>
+          )}
 
-                <Typography sx={viewProfileSubtitle}>Job Category</Typography>
-                <Select
-                  sx={{
-                    width: "80%",
-                    height: "55px",
-                    // background: themeChange ? "#142840" : "#ffffff",
-                  }}
-                  name="jobCategory"
-                  value={jobData.jobDetails ? jobData.jobDetails.jobCategory : undefined}
-                  disabled={!editable}
-                  onChange={(event) => handleInputChange("jobDetails", event)}>
-                  <MenuItem value="">Select a job category</MenuItem>
-                  <MenuItem value="Full time">Full time</MenuItem>
-                  <MenuItem value="Part time">Part time</MenuItem>
-                </Select>
+          <Typography sx={viewProfileSubtitle}>Job Category</Typography>
+          <Select
+            sx={{
+              width: "80%",
+              height: "55px",
+              // background: themeChange ? "#142840" : "#ffffff",
+            }}
+            name="jobCategory"
+            value={
+              jobData.jobDetails ? jobData.jobDetails.jobCategory : undefined
+            }
+            disabled={!editable}
+            onChange={(event) => handleInputChange("jobDetails", event)}
+          >
+            <MenuItem value="">Select a job category</MenuItem>
+            <MenuItem value="Full time">Full time</MenuItem>
+            <MenuItem value="Part time">Part time</MenuItem>
+          </Select>
+          {jobDetailsErrors.jobCategory && (
+            <Typography color="error">
+              {jobDetailsErrors.jobCategory}
+            </Typography>
+          )}
 
           <TextField
             inputProps={{
@@ -168,14 +240,22 @@ const DisplayJob = (props) => {
             rows={5}
             variant="outlined"
             name="jobResponsibilities"
-            value={jobData.jobDetails ? jobData.jobDetails.jobResponsibilities : undefined}
-            onChange={(event) => handleInputChange("jobDetails",event)}
-
+            value={
+              jobData.jobDetails
+                ? jobData.jobDetails.jobResponsibilities
+                : undefined
+            }
+            onChange={(event) => handleInputChange("jobDetails", event)}
           />
+          {jobDetailsErrors.jobResponsibilities && (
+            <Typography color="error">
+              {jobDetailsErrors.jobResponsibilities}
+            </Typography>
+          )}
         </Box>
       </Box>
     );
-  }
+  };
 
   return (
     <Box
@@ -211,16 +291,15 @@ const DisplayJob = (props) => {
           ) : null}
         </Box>
       </Box>
-      <hr/>
+      <hr />
       <Box
         sx={{
-          marginTop: "20px"
+          marginTop: "20px",
         }}
       >
-        {
-        editable? (
+        {editable ? (
           jobDetailsEditMode()
-        ) :
+        ) : (
           <Box>
             {showViewDocument ? (
               <ViewDocument onBackClick={toggleViewDocument} />
@@ -264,7 +343,7 @@ const DisplayJob = (props) => {
               </Box>
             )}
           </Box>
-      }
+        )}
         {/* {jobData.jobDetails?.map((record, index) =>
           editable ? (
             jobDetailsEditMode(record, index)
@@ -339,7 +418,7 @@ const DisplayJob = (props) => {
                 fontWeight: "bold",
                 color: "var(--primary-color)",
               }}
-              disabled={!editable}
+              disabled={!editable || isSaveDisabled()}
               onClick={() => {
                 nextButtonCallback(editedEmployeeData);
               }}
@@ -348,7 +427,7 @@ const DisplayJob = (props) => {
             </Button>
             <Button
               variant="contained"
-              disabled={!editable}
+              disabled={!editable || isSaveDisabled()}
               sx={{
                 fontWeight: "bold",
                 backgroundColor: "var(--secondary-color)",
